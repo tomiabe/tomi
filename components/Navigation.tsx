@@ -18,7 +18,6 @@ const Navigation: React.FC<NavigationProps> = ({
   openSettings, 
   isDark,
   studioName = "Tomi Abe Studio",
-  links = []
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -23,7 +23,7 @@ import Modal from './components/Modal';
 import Navigation from './components/Navigation';
 import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
-import { SiteContent, SocialLink, SocialPlatform, SiteSettings, StudioContent } from './types';
+import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 import personalData from './content/data'; 
 import studioDataStatic from './content/studio_data';
 
@@ -519,8 +519,8 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
 
 const App: React.FC = () => {
   // Directly initialize state from imported data
-  const [content, setContent] = useState<SiteContent>(personalData as unknown as SiteContent);
-  const [studioContent, setStudioContent] = useState<StudioContent>(studioDataStatic);
+  const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
+  const [studioContent] = useState<StudioContent>(studioDataStatic);
   
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState('/');

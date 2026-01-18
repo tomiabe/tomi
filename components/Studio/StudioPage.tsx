@@ -1,6 +1,6 @@
 import React from 'react';
 import { StudioContent, SiteSettings } from '../../types';
-import { ArrowDownTray, ArrowUpRight } from '../Icons';
+import { ArrowUpRight } from '../Icons';
 
 interface StudioPageProps {
   content: StudioContent;
