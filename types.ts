@@ -62,12 +62,12 @@ export interface SiteSettings {
 export interface SiteContent {
   settings: SiteSettings;
   intro: {
-    titleLine1: string;
-    titleLine2: string;
-    subtitle: string;
-    description: string;
-    socials: SocialLink[];
-    avatar: string;
+    name: string;          // Sidebar Name
+    subtitle: string;      // Sidebar Subtitle
+    avatar: string;        // Sidebar Avatar
+    welcomeText: string;   // Main Content Typewriter Text
+    description: string;   // Main Content Description
+    socials: SocialLink[]; // Sidebar Socials
   };
   who: {
     bio: { text: string }[]; 

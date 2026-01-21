@@ -119,9 +119,16 @@ const Typewriter = ({
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
+    // Reset state if text changes
+    setCurrentText('');
+    setCurrentIndex(0);
+    setStarted(false);
+  }, [text]);
+
+  useEffect(() => {
     const timeout = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(timeout);
-  }, [delay]);
+  }, [delay, text]); // Added text as dependency
 
   useEffect(() => {
     if (!started) return;
@@ -143,7 +150,7 @@ const Typewriter = ({
 const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data }) => (
   <div className="max-w-3xl">
     <h1 className="text-3xl font-bold mb-6 min-h-[40px] sm:min-h-[48px]">
-      <Typewriter text="Welcome to my internet home." delay={200} />
+      <Typewriter text={data.welcomeText} delay={200} />
     </h1>
     <div className="space-y-6 text-xl opacity-80 font-light leading-relaxed">
        <p className="fade-in" style={{ opacity: 0, animationDelay: '1.4s', animationFillMode: 'forwards' }}>
@@ -863,7 +870,7 @@ const App: React.FC = () => {
                  </div>
 
                  <h1 className="text-3xl font-bold tracking-tight mb-2 opacity-100">
-                   Tomi Abe
+                   {content.intro.name}
                  </h1>
                  <p className="text-sm font-medium tracking-widest opacity-60 uppercase mb-4">
                    {content.intro.subtitle}
@@ -953,7 +960,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-xs opacity-50 mt-6 font-medium">
-                    &copy; 2026 Tomi Abe.
+                    &copy; 2026 {content.intro.name}.
                   </div>
                </div>
              </aside>
@@ -1002,7 +1009,7 @@ const App: React.FC = () => {
 
                {/* Mobile Footer */}
                <footer className="lg:hidden pt-8 !mt-8 border-t border-black/10 dark:border-white/10 text-center opacity-50 text-sm">
-                  &copy; 2026 Tomi Abe.
+                  &copy; 2026 {content.intro.name}.
                </footer>
              </main>
 

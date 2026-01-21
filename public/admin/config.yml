@@ -1,3 +1,4 @@
+
 backend:
   name: github
   repo: tomiabe/tomiabe # Update this if your repo name is different
@@ -26,12 +27,12 @@ collections:
               {label: "Light Mode Theme", name: "lightModeTheme", widget: "select", options: ["white", "ash", "ivory", "sky"]}
             ]}
           - {label: "Intro Section", name: "intro", widget: "object", fields: [
-              {label: "Title Line 1", name: "titleLine1", widget: "string"},
-              {label: "Title Line 2", name: "titleLine2", widget: "string"},
-              {label: "Subtitle", name: "subtitle", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
-              {label: "Avatar", name: "avatar", widget: "image"},
-              {label: "Social Links", name: "socials", widget: "list", fields: [
+              {label: "Sidebar Name", name: "name", widget: "string", default: "Tomi Abe", hint: "Name displayed in the left sidebar"},
+              {label: "Sidebar Subtitle", name: "subtitle", widget: "string", hint: "Subtitle displayed in the left sidebar"},
+              {label: "Sidebar Avatar", name: "avatar", widget: "image", hint: "Profile picture in the left sidebar"},
+              {label: "Main Welcome Text", name: "welcomeText", widget: "string", default: "Welcome to my internet home.", hint: "The typewriter text heading in the main content area"},
+              {label: "Main Description", name: "description", widget: "text", hint: "The descriptive paragraph in the main content area"},
+              {label: "Sidebar Social Links", name: "socials", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Platform", name: "platform", widget: "select", options: ["twitter", "instagram", "linkedin", "envelope", "medium", "substack", "generic"]},
                  {label: "URL", name: "url", widget: "string"}
