@@ -25,7 +25,7 @@ import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
-// Use relative imports for TS data files instead of JSON to avoid resolution errors
+// Import data from TS files using relative paths to avoid module resolution issues
 import personalData from './content/data'; 
 import studioDataStatic from './content/studio_data';
 
@@ -520,7 +520,7 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
 // --- Layout & Main App ---
 
 const App: React.FC = () => {
-  // Directly initialize state from imported TS module
+  // Directly initialize state from imported TS modules
   const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
   const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
