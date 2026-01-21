@@ -183,12 +183,12 @@
     "buttons": [
       {
         "label": "Book me on MentorCruise",
-        "url": "#",
+        "url": "https://mentorcruise.com/mentor/tomiabe/",
         "primary": true
       },
       {
         "label": "Shoot me an email",
-        "url": "mailto:email@example.com",
+        "url": "mailto:tomilayo.abe@gmail.com",
         "primary": false
       }
     ]
