@@ -2,7 +2,7 @@ backend:
   name: github
   repo: tomiabe/tomiabe # Update this if your repo name is different
   branch: main
-  base_url: "" # Defaults to the current domain
+  base_url: "https://tomiabe.vercel.app" # Must be your actual domain to override Netlify default
   auth_endpoint: "api/auth" # Proxies auth via your Vercel functions
 
 media_folder: "public/images/uploads"
