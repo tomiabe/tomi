@@ -525,7 +525,32 @@ const App: React.FC = () => {
   const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState('/');
+
+  // Initialize path from window location to support deep linking
+  const [currentPath, setCurrentPath] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname === '/studio' ? '/studio' : '/';
+    }
+    return '/';
+  });
+
+  // Handle navigation with History API
+  const handleNavigate = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Listen for back/forward browser buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname === '/studio' ? '/studio' : '/';
+      setCurrentPath(path);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Theme state
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -793,7 +818,7 @@ const App: React.FC = () => {
       {currentPath === '/studio' && (
         <Navigation 
            currentPath={currentPath}
-           onNavigate={(path) => { setCurrentPath(path); scrollToTop(); }}
+           onNavigate={handleNavigate}
            toggleTheme={toggleTheme}
            openSettings={() => setSettingsOpen(true)}
            isDark={theme === 'dark'}
@@ -951,7 +976,7 @@ const App: React.FC = () => {
                   <Build 
                      data={content.build} 
                      settings={content.settings} 
-                     onNavigate={(path) => { setCurrentPath(path); scrollToTop(); }}
+                     onNavigate={handleNavigate}
                   />
                </section>
 
