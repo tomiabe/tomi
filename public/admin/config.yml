@@ -12,7 +12,7 @@ collections:
     files:
       - name: "personal"
         label: "Personal Site Data"
-        file: "content/data.json"
+        file: "public/content/data.json"
         fields:
           - {label: "Settings", name: "settings", widget: "object", fields: [
               {label: "Site Title", name: "siteTitle", widget: "string"},
@@ -113,7 +113,7 @@ collections:
 
       - name: "studio"
         label: "Studio Site Data"
-        file: "content/studio_data.json"
+        file: "public/content/studio_data.json"
         fields:
           - {label: "Hero", name: "hero", widget: "object", fields: [
               {label: "Headline", name: "headline", widget: "string"},
