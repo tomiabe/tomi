@@ -45,15 +45,14 @@ export interface Publication {
 
 export interface ImageItem {
   id: string;
-  thumb: string;
-  full: string;
+  image: string; // Changed from thumb and full to single image
 }
 
 export interface SiteSettings {
   siteTitle: string;
   favicon: string;
   accentColor: string; // Hex code
-  fontFamily: 'sans' | 'manrope' | 'serif' | 'mono';
+  fontFamily: 'sans' | 'manrope' | 'serif' | 'mono' | 'apple' | 'dmsans' | 'figtree' | 'ibmplex' | 'plusjakarta' | 'librefranklin' | 'publicsans';
   maxWidth: 'max-w-5xl' | 'max-w-6xl' | 'max-w-7xl' | 'max-w-full';
   darkModeTheme: 'black' | 'grey' | 'navy' | 'maroon';
   lightModeTheme: 'white' | 'ash' | 'ivory' | 'sky';

@@ -21,7 +21,7 @@ collections:
               {label: "Site Title", name: "siteTitle", widget: "string"},
               {label: "Favicon URL", name: "favicon", widget: "image"},
               {label: "Accent Color", name: "accentColor", widget: "color"},
-              {label: "Font Family", name: "fontFamily", widget: "select", options: ["sans", "manrope", "serif", "mono"]},
+              {label: "Font Family", name: "fontFamily", widget: "select", options: ["sans", "manrope", "serif", "mono", "apple", "dmsans", "figtree", "ibmplex", "plusjakarta", "librefranklin", "publicsans"]},
               {label: "Max Width", name: "maxWidth", widget: "select", options: ["max-w-5xl", "max-w-6xl", "max-w-7xl", "max-w-full"]},
               {label: "Dark Mode Theme", name: "darkModeTheme", widget: "select", options: ["black", "grey", "navy", "maroon"]},
               {label: "Light Mode Theme", name: "lightModeTheme", widget: "select", options: ["white", "ash", "ivory", "sky"]}
@@ -93,8 +93,7 @@ collections:
               {label: "Description", name: "description", widget: "text"},
               {label: "Images", name: "images", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
-                 {label: "Thumbnail URL", name: "thumb", widget: "image"},
-                 {label: "Full URL", name: "full", widget: "image"}
+                 {label: "Image URL", name: "image", widget: "image"}
               ]},
               {label: "Links", name: "links", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},

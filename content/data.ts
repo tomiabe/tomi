@@ -1,5 +1,6 @@
+import { SiteContent } from '../types';
 
-const data = {
+const data: SiteContent = {
   "settings": {
     "siteTitle": "Tomi Abe | Internet Home",
     "favicon": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
@@ -125,15 +126,15 @@ const data = {
   "see": {
     "description": "Moments from life, work, and travel, a visual journal of what catches my eye.",
     "images": [
-      { "id": "1", "thumb": "https://picsum.photos/seed/tomi1/400/400", "full": "https://picsum.photos/seed/tomi1/1200/1200" },
-      { "id": "2", "thumb": "https://picsum.photos/seed/tomi2/400/400", "full": "https://picsum.photos/seed/tomi2/1200/1200" },
-      { "id": "3", "thumb": "https://picsum.photos/seed/tomi3/400/400", "full": "https://picsum.photos/seed/tomi3/1200/1200" },
-      { "id": "4", "thumb": "https://picsum.photos/seed/tomi4/400/400", "full": "https://picsum.photos/seed/tomi4/1200/1200" },
-      { "id": "5", "thumb": "https://picsum.photos/seed/tomi5/400/400", "full": "https://picsum.photos/seed/tomi5/1200/1200" },
-      { "id": "6", "thumb": "https://picsum.photos/seed/tomi6/400/400", "full": "https://picsum.photos/seed/tomi6/1200/1200" },
-      { "id": "7", "thumb": "https://picsum.photos/seed/tomi7/400/400", "full": "https://picsum.photos/seed/tomi7/1200/1200" },
-      { "id": "8", "thumb": "https://picsum.photos/seed/tomi8/400/400", "full": "https://picsum.photos/seed/tomi8/1200/1200" },
-      { "id": "9", "thumb": "https://picsum.photos/seed/tomi9/400/400", "full": "https://picsum.photos/seed/tomi9/1200/1200" }
+      { "id": "1", "image": "https://picsum.photos/seed/tomi1/1200/1200" },
+      { "id": "2", "image": "https://picsum.photos/seed/tomi2/1200/1200" },
+      { "id": "3", "image": "https://picsum.photos/seed/tomi3/1200/1200" },
+      { "id": "4", "image": "https://picsum.photos/seed/tomi4/1200/1200" },
+      { "id": "5", "image": "https://picsum.photos/seed/tomi5/1200/1200" },
+      { "id": "6", "image": "https://picsum.photos/seed/tomi6/1200/1200" },
+      { "id": "7", "image": "https://picsum.photos/seed/tomi7/1200/1200" },
+      { "id": "8", "image": "https://picsum.photos/seed/tomi8/1200/1200" },
+      { "id": "9", "image": "https://picsum.photos/seed/tomi9/1200/1200" }
     ],
     "links": [
       { "label": "View photo archive on Instagram", "url": "https://www.instagram.com/bytomiabe/" },

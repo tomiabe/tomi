@@ -25,7 +25,7 @@ import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
-// Import data from TS files using relative paths to avoid module resolution issues
+// Import data from TypeScript files instead of JSON to avoid module resolution issues
 import personalData from './content/data'; 
 import studioDataStatic from './content/studio_data';
 
@@ -128,7 +128,7 @@ const Typewriter = ({
   useEffect(() => {
     const timeout = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(timeout);
-  }, [delay, text]); // Added text as dependency
+  }, [delay, text]); 
 
   useEffect(() => {
     if (!started) return;
@@ -404,7 +404,7 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
   
   return (
     <div className="space-y-8 max-w-4xl">
-      <p className="text-xl font-light max-w-md opacity-90">
+      <p className="text-xl font-light w-full opacity-90">
         {data.description}
       </p>
 
@@ -415,7 +415,7 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
             onClick={() => setSelectedIndex(index)}
             className="aspect-square bg-black/10 dark:bg-white/10 rounded-lg overflow-hidden relative group cursor-pointer"
           >
-            <img src={img.thumb} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
+            <img src={img.image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none" />
           </div>
         ))}
@@ -465,7 +465,7 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
           </button>
 
           <img 
-            src={data.images[selectedIndex].full} 
+            src={data.images[selectedIndex].image} 
             alt="Expanded view" 
             className="max-w-full max-h-[90vh] rounded shadow-2xl object-contain animate-fadeIn select-none"
             onClick={(e) => e.stopPropagation()} 
@@ -527,7 +527,7 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
 // --- Layout & Main App ---
 
 const App: React.FC = () => {
-  // Directly initialize state from imported TS modules
+  // Use typed data imported from TS files
   const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
   const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
@@ -744,8 +744,15 @@ const App: React.FC = () => {
                <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-4">Typography</h3>
                <div className="grid grid-cols-2 gap-4">
                   {[
-                    { id: 'sans', label: 'Inter (System)', fontClass: 'font-sans' },
+                    { id: 'sans', label: 'Inter', fontClass: 'font-sans' },
+                    { id: 'apple', label: 'System (Apple)', fontClass: 'font-apple' },
                     { id: 'manrope', label: 'Manrope', fontClass: 'font-manrope' },
+                    { id: 'dmsans', label: 'DM Sans', fontClass: 'font-dmsans' },
+                    { id: 'figtree', label: 'Figtree', fontClass: 'font-figtree' },
+                    { id: 'ibmplex', label: 'IBM Plex Sans', fontClass: 'font-ibmplex' },
+                    { id: 'plusjakarta', label: 'Plus Jakarta', fontClass: 'font-plusjakarta' },
+                    { id: 'librefranklin', label: 'Libre Franklin', fontClass: 'font-librefranklin' },
+                    { id: 'publicsans', label: 'Public Sans', fontClass: 'font-publicsans' },
                   ].map((opt) => (
                     <button
                       key={opt.id}
@@ -753,7 +760,7 @@ const App: React.FC = () => {
                       className={`flex items-center justify-between p-3 rounded-xl border-2 transition-all ${fontFamily === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
                       style={fontFamily === opt.id ? { borderColor: accentColor } : {}}
                     >
-                       <span className={`text-base ${opt.fontClass}`}>{opt.label}</span>
+                       <span className={`text-sm sm:text-base ${opt.fontClass}`}>{opt.label}</span>
                        {fontFamily === opt.id && <Check className="w-4 h-4" />}
                     </button>
                   ))}
