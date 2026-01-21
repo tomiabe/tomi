@@ -24,6 +24,8 @@ import Navigation from './components/Navigation';
 import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
+
+// Use relative imports for TS data files instead of JSON to avoid resolution errors
 import personalData from './content/data'; 
 import studioDataStatic from './content/studio_data';
 
@@ -518,9 +520,9 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
 // --- Layout & Main App ---
 
 const App: React.FC = () => {
-  // Directly initialize state from imported data
+  // Directly initialize state from imported TS module
   const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
-  const [studioContent] = useState<StudioContent>(studioDataStatic);
+  const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState('/');
@@ -552,12 +554,26 @@ const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionId>('intro');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // --- Update Title ---
+  // --- Update Title and Favicon ---
   useEffect(() => {
+     // Update Title
      if (content?.settings?.siteTitle) {
          document.title = currentPath === '/studio' 
             ? "Tomi Abe Studio" 
             : content.settings.siteTitle;
+     }
+
+     // Update Favicon
+     if (content?.settings?.favicon) {
+       const existingLink = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+       if (existingLink) {
+         existingLink.href = content.settings.favicon;
+       } else {
+         const newLink = document.createElement('link');
+         newLink.rel = 'icon';
+         newLink.href = content.settings.favicon;
+         document.head.appendChild(newLink);
+       }
      }
   }, [content, currentPath]);
 
