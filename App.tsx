@@ -25,7 +25,7 @@ import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
-// Import data from TypeScript files instead of JSON to avoid module resolution issues
+// Import data from TypeScript modules to ensure compatibility with browser-native ES modules
 import personalData from './content/data'; 
 import studioDataStatic from './content/studio_data';
 
@@ -527,7 +527,8 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
 // --- Layout & Main App ---
 
 const App: React.FC = () => {
-  // Use typed data imported from TS files
+  // Use typed data imported directly from JSON files (CMS Managed)
+  // Casting to unknown first to allow JSON types to match interfaces
   const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
   const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
