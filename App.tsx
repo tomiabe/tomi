@@ -850,7 +850,7 @@ const App: React.FC = () => {
            <div className="lg:flex lg:gap-12">
              
              {/* --- SIDEBAR (Fixed on Desktop) --- */}
-             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-28 flex flex-col justify-between">
+             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 flex flex-col justify-between overflow-y-auto no-scrollbar">
                
                {/* Identity */}
                <div>
@@ -974,7 +974,7 @@ const App: React.FC = () => {
              </aside>
 
              {/* --- MAIN CONTENT (Scrollable) --- */}
-             <main className="lg:w-2/3 xl:w-3/4 py-6 lg:py-28 space-y-24 lg:space-y-32">
+             <main className="lg:w-2/3 xl:w-3/4 py-6 lg:py-12 space-y-24 lg:space-y-32">
                
                {/* Intro Section (Not in Nav, but top of content) */}
                <section id="intro">
