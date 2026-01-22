@@ -817,6 +817,16 @@ const App: React.FC = () => {
                   ))}
                </div>
             </div>
+
+            {/* Mobile Done Button */}
+            <div className="sm:hidden pt-8 pb-4">
+              <button
+                onClick={() => setSettingsOpen(false)}
+                className="w-full py-3.5 bg-black dark:bg-white text-white dark:text-black rounded-xl font-bold text-sm tracking-wide"
+              >
+                Done
+              </button>
+            </div>
          </div>
       </Modal>
 
