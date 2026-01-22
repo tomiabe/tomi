@@ -850,7 +850,7 @@ const App: React.FC = () => {
            <div className="lg:flex lg:gap-12">
              
              {/* --- SIDEBAR (Fixed on Desktop) --- */}
-             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 flex flex-col justify-between overflow-y-auto no-scrollbar">
+             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
                
                {/* Identity */}
                <div>
