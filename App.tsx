@@ -478,11 +478,11 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
 };
 
 const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
-  <div className="py-4 max-w-3xl">
+  <div className="py-4 w-full max-w-5xl">
     <h2 className="text-3xl font-bold mb-6 opacity-100">
        {data.title}
     </h2>
-    <p className="text-xl mb-10 max-w-xl opacity-70">
+    <p className="text-xl mb-10 w-full opacity-70">
        {data.description}
     </p>
     

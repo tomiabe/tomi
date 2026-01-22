@@ -17,12 +17,12 @@ const data: SiteContent = {
     "description": "This is where my life, ideas, and work intersect, a space that's been growing with me for over a decade. Some parts show what I'm building. Others reveal what I'm learning. A few just capture moments worth keeping.",
     "avatar": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
     "socials": [
-      { "id": "1", "platform": "envelope", "url": "mailto:email@example.com" },
-      { "id": "2", "platform": "twitter", "url": "#" },
-      { "id": "3", "platform": "instagram", "url": "#" },
-      { "id": "4", "platform": "linkedin", "url": "#" },
-      { "id": "5", "platform": "substack", "url": "#" },
-      { "id": "6", "platform": "medium", "url": "#" }
+      { "id": "1", "platform": "envelope", "url": "mailto:tomilayo.abe@gmail.com" },
+      { "id": "2", "platform": "twitter", "url": "https://x.com/mrtomiabe" },
+      { "id": "3", "platform": "instagram", "url": "https://instagram.com/mrtomiabe" },
+      { "id": "4", "platform": "linkedin", "url": "https://linkedin.com/in/tomiabe" },
+      { "id": "5", "platform": "substack", "url": "https://tomiabe.substack.com" },
+      { "id": "6", "platform": "medium", "url": "https://tomiabe.medium.com" }
     ]
   },
   "who": {
@@ -120,7 +120,7 @@ const data: SiteContent = {
     "collabDescription": "I'm open to speaking engagements, workshops, and mentorship opportunities.",
     "buttons": [
       { "label": "Book me on MentorCruise", "url": "#", "primary": true },
-      { "label": "Shoot me an email", "url": "mailto:email@example.com", "primary": false }
+      { "label": "Shoot me an email", "url": "mailto:tomilayo.abe@gmail.com", "primary": false }
     ]
   },
   "see": {
@@ -145,12 +145,12 @@ const data: SiteContent = {
     "title": "Let's Connect",
     "description": "Whether you're interested in collaboration, a conversation, or just saying hello, I'd love to hear from you.",
     "links": [
-      { "id": "1", "platform": "envelope", "url": "mailto:email@example.com", "label": "@ Email me", "sublabel": "best way to reach me" },
-      { "id": "2", "platform": "twitter", "url": "#", "label": "My Twitter", "sublabel": "thinking out loud!" },
-      { "id": "3", "platform": "instagram", "url": "#", "label": "My Instagram", "sublabel": "sharing experiences" },
-      { "id": "4", "platform": "linkedin", "url": "#", "label": "My LinkedIn", "sublabel": "let’s make connections" },
-      { "id": "5", "platform": "substack", "url": "#", "label": "My Substack", "sublabel": "periodic notes and reflections" },
-      { "id": "6", "platform": "medium", "url": "#", "label": "My Medium", "sublabel": "my blog and essays" }
+      { "id": "1", "platform": "envelope", "url": "mailto:tomilayo.abe@gmail.com", "label": "@ Email me", "sublabel": "best way to reach me" },
+      { "id": "2", "platform": "twitter", "url": "https://x.com/mrtomiabe", "label": "My Twitter", "sublabel": "thinking out loud!" },
+      { "id": "3", "platform": "instagram", "url": "https://instagram.com/mrtomiabe", "label": "My Instagram", "sublabel": "sharing experiences" },
+      { "id": "4", "platform": "linkedin", "url": "https://linkedin.com/in/tomiabe", "label": "My LinkedIn", "sublabel": "let’s make connections" },
+      { "id": "5", "platform": "substack", "url": "https://tomiabe.substack.com", "label": "My Substack", "sublabel": "periodic notes and reflections" },
+      { "id": "6", "platform": "medium", "url": "https://tomiabe.medium.com", "label": "My Medium", "sublabel": "my blog and essays" }
     ]
   }
 };
