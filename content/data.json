@@ -4,7 +4,7 @@
     "favicon": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
     "accentColor": "#3b82f6",
     "fontFamily": "sans",
-    "maxWidth": "max-w-5xl",
+    "maxWidth": "max-w-6xl",
     "darkModeTheme": "black",
     "lightModeTheme": "white"
   },
