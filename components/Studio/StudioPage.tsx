@@ -1,6 +1,7 @@
 import React from 'react';
 import { StudioContent, SiteSettings } from '../../types';
 import { ArrowUpRight } from '../Icons';
+import RichText from '../RichText';
 
 interface StudioPageProps {
   content: StudioContent;
@@ -19,9 +20,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight">
               {content.hero.headline}
             </h1>
-            <p className="text-xl md:text-2xl font-light opacity-80 mb-8 leading-relaxed max-w-2xl">
-              {content.hero.subheadline}
-            </p>
+            <div className="text-xl md:text-2xl font-light opacity-80 mb-8 leading-relaxed max-w-2xl">
+              <RichText content={content.hero.subheadline} accentColor={accentColor} />
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                  onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
@@ -44,13 +45,17 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
          <div className="grid lg:grid-cols-2 gap-16">
             <div>
                <h2 className="text-sm font-bold uppercase tracking-widest opacity-50 mb-4">{content.problem.title}</h2>
-               <p className="text-2xl md:text-3xl leading-relaxed font-light">{content.problem.subtitle}</p>
+               <div className="text-2xl md:text-3xl leading-relaxed font-light">
+                  <RichText content={content.problem.subtitle} accentColor={accentColor} />
+               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-12">
                {content.problem.items.map((item, idx) => (
                   <div key={idx}>
                      <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                     <p className="opacity-70 leading-relaxed">{item.description}</p>
+                     <div className="opacity-70 leading-relaxed">
+                        <RichText content={item.description} accentColor={accentColor} />
+                     </div>
                   </div>
                ))}
             </div>
@@ -63,14 +68,18 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
             <div className="lg:col-span-5 sticky top-32 self-start">
                <h2 className="text-sm font-bold uppercase tracking-widest opacity-50 mb-4">{content.approach.title}</h2>
                <h3 className="text-3xl font-bold mb-6">{content.approach.subtitle}</h3>
-               <p className="text-lg opacity-80 leading-relaxed">{content.approach.description}</p>
+               <div className="text-lg opacity-80 leading-relaxed">
+                  <RichText content={content.approach.description} accentColor={accentColor} />
+               </div>
             </div>
             <div className="lg:col-span-1"></div>
             <div className="lg:col-span-6 space-y-12">
                {content.approach.systems.map((sys, idx) => (
                   <div key={idx} className="bg-black/5 dark:bg-white/5 p-8 rounded-2xl">
                      <h4 className="text-xl font-bold mb-3">{sys.title}</h4>
-                     <p className="opacity-70 leading-relaxed">{sys.description}</p>
+                     <div className="opacity-70 leading-relaxed">
+                        <RichText content={sys.description} accentColor={accentColor} />
+                     </div>
                   </div>
                ))}
             </div>
@@ -82,7 +91,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
           <div className="border-t border-black/10 dark:border-white/10 pt-16">
              <div className="mb-16 max-w-2xl">
                 <h2 className="text-sm font-bold uppercase tracking-widest opacity-50 mb-4">What I Help Design</h2>
-                <p className="text-2xl opacity-90">{content.services.description}</p>
+                <div className="text-2xl opacity-90">
+                   <RichText content={content.services.description} accentColor={accentColor} />
+                </div>
              </div>
              
              <div className="grid md:grid-cols-3 gap-8">
@@ -91,7 +102,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
                       <h3 className="text-xl font-bold mb-4 pb-4 border-b border-black/10 dark:border-white/10" style={{ color: accentColor }}>
                          {service.title}
                       </h3>
-                      <p className="opacity-60 text-sm mb-6 min-h-[40px]">{service.description}</p>
+                      <div className="opacity-60 text-sm mb-6 min-h-[40px]">
+                         <RichText content={service.description} accentColor={accentColor} />
+                      </div>
                       <ul className="space-y-3">
                          {service.subItems.map((sub, sIdx) => (
                             <li key={sIdx} className="flex items-center text-sm opacity-90">
@@ -114,7 +127,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
                   <div key={idx}>
                      <h4 className="text-xs uppercase tracking-widest opacity-50 mb-2">{model.title}</h4>
                      <h3 className="text-xl font-bold mb-4">{model.role}</h3>
-                     <p className="opacity-80 leading-relaxed text-sm">{model.description}</p>
+                     <div className="opacity-80 leading-relaxed text-sm">
+                        <RichText content={model.description} accentColor={accentColor} />
+                     </div>
                   </div>
                ))}
             </div>
@@ -160,7 +175,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
                      </a>
                   </div>
                   <p className="text-xs font-bold uppercase tracking-wider opacity-50 mb-3">{proj.category}</p>
-                  <p className="opacity-80 leading-relaxed mb-4">{proj.description}</p>
+                  <div className="opacity-80 leading-relaxed mb-4">
+                     <RichText content={proj.description} accentColor={accentColor} />
+                  </div>
                </div>
             ))}
          </div>
@@ -178,7 +195,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
                <div className="p-8 lg:p-16 flex flex-col justify-center">
                   <h2 className="text-sm font-bold uppercase tracking-widest opacity-50 mb-8">About Tomi</h2>
                   <p className="text-xl font-medium mb-6">{content.about.bio}</p>
-                  <p className="opacity-70 leading-relaxed mb-8">{content.about.description}</p>
+                  <div className="opacity-70 leading-relaxed mb-8">
+                     <RichText content={content.about.description} accentColor={accentColor} />
+                  </div>
                   
                   <div className="border-t border-black/10 dark:border-white/10 pt-8 mt-auto">
                      <h3 className="text-sm font-bold mb-4">Speaking, Training & Mentorship</h3>
@@ -207,7 +226,9 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
       <section id="contact" className="px-6 lg:px-8 max-w-7xl mx-auto mb-20 scroll-mt-24">
          <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl font-bold mb-6">{content.contact.title}</h2>
-            <p className="text-xl opacity-70 mb-10">{content.contact.description}</p>
+            <div className="text-xl opacity-70 mb-10">
+               <RichText content={content.contact.description} accentColor={accentColor} />
+            </div>
             
             <a 
                href={`mailto:${content.contact.email}`} 

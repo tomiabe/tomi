@@ -1,4 +1,3 @@
-
 backend:
   name: github
   repo: tomiabe/tomiabe # Update this if your repo name is different
@@ -30,8 +29,9 @@ collections:
               {label: "Sidebar Name", name: "name", widget: "string", default: "Tomi Abe", hint: "Name displayed in the left sidebar"},
               {label: "Sidebar Subtitle", name: "subtitle", widget: "string", hint: "Subtitle displayed in the left sidebar"},
               {label: "Sidebar Avatar", name: "avatar", widget: "image", hint: "Profile picture in the left sidebar"},
+              {label: "Avatar Links to Home", name: "avatarLinkToHome", widget: "boolean", default: true, hint: "When clicked, the site refreshes and returns to top"},
               {label: "Main Welcome Text", name: "welcomeText", widget: "string", default: "Welcome to my internet home.", hint: "The typewriter text heading in the main content area"},
-              {label: "Main Description", name: "description", widget: "text", hint: "The descriptive paragraph in the main content area"},
+              {label: "Main Description", name: "description", widget: "markdown", hint: "The descriptive text. You can use Bold, Italic, Links etc."},
               {label: "Sidebar Social Links", name: "socials", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Platform", name: "platform", widget: "select", options: ["twitter", "instagram", "linkedin", "envelope", "medium", "substack", "generic"]},
@@ -39,59 +39,59 @@ collections:
               ]}
             ]}
           - {label: "Who Section", name: "who", widget: "object", fields: [
-              {label: "Bio Paragraphs", name: "bio", widget: "list", fields: [{label: "Text", name: "text", widget: "text"}]},
+              {label: "Bio Paragraphs", name: "bio", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
               {label: "Shapes Me", name: "shapesMe", widget: "object", fields: [
                  {label: "Title", name: "title", widget: "string"},
-                 {label: "Content", name: "content", widget: "list", fields: [{label: "Text", name: "text", widget: "text"}]},
+                 {label: "Content", name: "content", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
                  {label: "Quote", name: "quote", widget: "text"},
                  {label: "Quote Ref", name: "quoteRef", widget: "string"},
-                 {label: "Closing Text", name: "closing", widget: "string", required: false}
+                 {label: "Closing Text", name: "closing", widget: "markdown", required: false}
               ]}
             ]}
           - {label: "Build Section", name: "build", widget: "object", fields: [
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Projects", name: "projects", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Title", name: "title", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"},
+                 {label: "Description", name: "description", widget: "markdown"},
                  {label: "Link Text", name: "linkText", widget: "string"},
                  {label: "Link URL", name: "linkUrl", widget: "string"}
               ]},
-              {label: "Footer", name: "footer", widget: "string"}
+              {label: "Footer", name: "footer", widget: "markdown"}
             ]}
           - {label: "Learning Section", name: "learning", widget: "object", fields: [
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Publications", name: "publications", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Title", name: "title", widget: "string"},
                  {label: "Category", name: "category", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"},
+                 {label: "Description", name: "description", widget: "markdown"},
                  {label: "Link Text", name: "linkText", widget: "string"},
                  {label: "Link URL", name: "linkUrl", widget: "string"}
               ]},
               {label: "Notes Title", name: "notesTitle", widget: "string"},
-              {label: "Notes Description", name: "notesDescription", widget: "string"},
+              {label: "Notes Description", name: "notesDescription", widget: "markdown"},
               {label: "Notes Links", name: "notesLinks", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},
                  {label: "URL", name: "url", widget: "string"}
               ]}
             ]}
           - {label: "Share Section", name: "share", widget: "object", fields: [
-              {label: "Description", name: "description", widget: "text"},
-              {label: "Highlights", name: "highlights", widget: "list", fields: [{label: "Text", name: "text", widget: "string"}]},
+              {label: "Description", name: "description", widget: "markdown"},
+              {label: "Highlights", name: "highlights", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
               {label: "Mentorship Title", name: "mentorshipTitle", widget: "string"},
-              {label: "Mentorship Content", name: "mentorshipContent", widget: "text"},
+              {label: "Mentorship Content", name: "mentorshipContent", widget: "markdown"},
               {label: "Topics", name: "topics", widget: "list", fields: [{label: "Text", name: "text", widget: "string"}]},
               {label: "Collab Title", name: "collabTitle", widget: "string"},
-              {label: "Collab Description", name: "collabDescription", widget: "string"},
+              {label: "Collab Description", name: "collabDescription", widget: "markdown"},
               {label: "Buttons", name: "buttons", widget: "list", fields: [
                  {label: "Label", name: "label", widget: "string"},
                  {label: "URL", name: "url", widget: "string"},
-                 {label: "Is Primary?", name: "primary", widget: "boolean"}
+                 {label: "Button Type", name: "primary", widget: "boolean", default: false, hint: "Switch on for solid accent color, off for outline style"}
               ]}
             ]}
           - {label: "See Section", name: "see", widget: "object", fields: [
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Images", name: "images", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Image URL", name: "image", widget: "image"}
@@ -103,7 +103,7 @@ collections:
             ]}
           - {label: "Connect Section", name: "connect", widget: "object", fields: [
               {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Booking Link", name: "bookingLink", widget: "string", required: false},
               {label: "Links", name: "links", widget: "list", fields: [
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
@@ -120,33 +120,33 @@ collections:
         fields:
           - {label: "Hero", name: "hero", widget: "object", fields: [
               {label: "Headline", name: "headline", widget: "string"},
-              {label: "Subheadline", name: "subheadline", widget: "text"},
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Subheadline", name: "subheadline", widget: "markdown"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "CTA Primary", name: "ctaPrimary", widget: "string"},
               {label: "CTA Secondary", name: "ctaSecondary", widget: "string"}
             ]}
           - {label: "Problem", name: "problem", widget: "object", fields: [
               {label: "Title", name: "title", widget: "string"},
-              {label: "Subtitle", name: "subtitle", widget: "text"},
+              {label: "Subtitle", name: "subtitle", widget: "markdown"},
               {label: "Items", name: "items", widget: "list", fields: [
                  {label: "Title", name: "title", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"}
+                 {label: "Description", name: "description", widget: "markdown"}
               ]}
             ]}
           - {label: "Approach", name: "approach", widget: "object", fields: [
               {label: "Title", name: "title", widget: "string"},
               {label: "Subtitle", name: "subtitle", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Systems", name: "systems", widget: "list", fields: [
                  {label: "Title", name: "title", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"}
+                 {label: "Description", name: "description", widget: "markdown"}
               ]}
             ]}
           - {label: "Services", name: "services", widget: "object", fields: [
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Items", name: "items", widget: "list", fields: [
                  {label: "Title", name: "title", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"},
+                 {label: "Description", name: "description", widget: "markdown"},
                  {label: "Sub Items", name: "subItems", widget: "list", field: {label: "Item", name: "item", widget: "string"}}
               ]}
             ]}
@@ -154,7 +154,7 @@ collections:
               {label: "Items", name: "items", widget: "list", fields: [
                  {label: "Title", name: "title", widget: "string"},
                  {label: "Role", name: "role", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"}
+                 {label: "Description", name: "description", widget: "markdown"}
               ]}
             ]}
           - {label: "Selected Work", name: "selectedWork", widget: "object", fields: [
@@ -163,7 +163,7 @@ collections:
                  {label: "ID", name: "id", widget: "hidden", default: "uuid"},
                  {label: "Title", name: "title", widget: "string"},
                  {label: "Category", name: "category", widget: "string"},
-                 {label: "Description", name: "description", widget: "text"},
+                 {label: "Description", name: "description", widget: "markdown"},
                  {label: "Link Text", name: "linkText", widget: "string"},
                  {label: "Link URL", name: "linkUrl", widget: "string"},
                  {label: "Logo URL", name: "logoUrl", widget: "image"}
@@ -174,12 +174,12 @@ collections:
               {label: "Role", name: "role", widget: "string"},
               {label: "Avatar", name: "avatar", widget: "image"},
               {label: "Bio (Short)", name: "bio", widget: "text"},
-              {label: "Description (Long)", name: "description", widget: "text"},
+              {label: "Description (Long)", name: "description", widget: "markdown"},
               {label: "Mentorship Items", name: "mentorshipItems", widget: "list", field: {label: "Item", name: "item", widget: "string"}}
             ]}
           - {label: "Contact", name: "contact", widget: "object", fields: [
               {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
+              {label: "Description", name: "description", widget: "markdown"},
               {label: "Email", name: "email", widget: "string"},
               {label: "Location", name: "location", widget: "string"},
               {label: "Footer Text", name: "footerText", widget: "string"}

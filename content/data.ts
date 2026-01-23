@@ -52,14 +52,14 @@ const data: SiteContent = {
       {
         "id": "1",
         "title": "Tomi Abe Studio",
-        "description": "Tomi Abe Studio is my independent multidisciplinary practice, where I collaborate with organizations ranging from early-stage ventures to established institutions, translating strategy into tangible, scalable outcomes. The work spans brand strategy, experience design, data visualization, creative technology, and media development.",
+        "description": "Tomi Abe Studio is my independent, systems-driven creative and digital practice, collaborating with organizations from early-stage ventures to established institutions to translate strategy into tangible, scalable outcomes across brand, product, data, and media systems.",
         "linkText": "Visit The Studio →",
         "linkUrl": "#"
       },
       {
         "id": "2",
         "title": "Susbridge",
-        "description": "I co-lead Susbridge, a knowledge ecosystem making sustainability insights accessible, contextual, and actionable within African contexts. I also co-publish Susinsight, a media and research platform advancing sustainability journalism across Africa through data-driven storytelling.",
+        "description": "I co-lead Susbridge, a knowledge ecosystem making sustainability insights accessible, contextual, and actionable within African contexts. I also co-publish Susinsight, a media and research platform advancing sustainability journalism through data‑driven, insight‑led storytelling.",
         "linkText": "Visit Susbridge →",
         "linkUrl": "#"
       }

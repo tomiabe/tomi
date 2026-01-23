@@ -23,6 +23,7 @@ import Modal from './components/Modal';
 import Navigation from './components/Navigation';
 import InteractiveBackground from './components/InteractiveBackground';
 import StudioPage from './components/Studio/StudioPage';
+import RichText from './components/RichText';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
 // Import data from TypeScript modules to ensure compatibility with browser-native ES modules
@@ -49,28 +50,6 @@ const getIcon = (platform: SocialPlatform, className: string = "w-5 h-5") => {
     case 'substack': return <Substack className={className} />;
     default: return <ArrowRight className={className} />;
   }
-};
-
-const renderBioText = (text: string, accentColor?: string) => {
-  if (text.includes("Toro")) {
-    const parts = text.split("Toro");
-    return (
-      <span>
-        {parts[0]}
-        <a 
-          href="https://torotayo.com" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="underline hover:opacity-80 transition-opacity decoration-zinc-400 dark:decoration-zinc-600 underline-offset-4"
-          style={{ color: accentColor }}
-        >
-          Toro
-        </a>
-        {parts[1]}
-      </span>
-    );
-  }
-  return text;
 };
 
 // --- Components ---
@@ -144,18 +123,50 @@ const Typewriter = ({
   return <span className={className}>{currentText}</span>;
 };
 
+// Avatar Component with shadow and full-unit scaling
+const Avatar = ({ src, linkToHome }: { src: string; linkToHome?: boolean }) => {
+  const content = (
+    <div className="w-24 h-24 sm:w-32 sm:h-32 relative group cursor-pointer transition-transform duration-500 hover:scale-105">
+      {/* Centered shadow to prevent left-side clipping */}
+      <div className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(0,0,0,0.15)] dark:shadow-[0_0_40px_rgba(255,255,255,0.08)] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Frame Container */}
+      <div className="w-full h-full rounded-full bg-black/5 dark:bg-white/10 overflow-hidden border-2 border-black/10 dark:border-white/10 relative z-10 transition-colors duration-300 group-hover:border-black/20 dark:group-hover:border-white/20">
+        {/* Shine/Overlay Effect */}
+        <div className="absolute inset-0 bg-white/20 dark:bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay"></div>
+        {/* Profile Image */}
+        <img 
+          src={src} 
+          alt="Profile" 
+          className="w-full h-full object-cover select-none pointer-events-none" 
+        />
+      </div>
+    </div>
+  );
+
+  if (linkToHome) {
+    return (
+      <a href="/" className="block" title="Refresh Home">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
+};
+
 
 // --- Section Components (Personal Site) ---
 
-const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data }) => (
+const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data, settings }) => (
   <div className="max-w-3xl">
     <h1 className="text-3xl font-bold mb-6 min-h-[40px] sm:min-h-[48px]">
       <Typewriter text={data.welcomeText} delay={200} />
     </h1>
     <div className="space-y-6 text-xl opacity-80 font-light leading-relaxed">
-       <p className="fade-in" style={{ opacity: 0, animationDelay: '1.4s', animationFillMode: 'forwards' }}>
-         {data.description}
-       </p>
+       <div className="fade-in" style={{ opacity: 0, animationDelay: '1.4s', animationFillMode: 'forwards' }}>
+         <RichText content={data.description} accentColor={settings?.accentColor} />
+       </div>
     </div>
   </div>
 );
@@ -164,7 +175,7 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
   <div className="space-y-6 text-lg leading-relaxed max-w-3xl opacity-90">
     {data.bio.map((item, idx) => (
       <div key={idx} className={idx === 0 ? "text-xl font-light opacity-100" : "opacity-80"}>
-        {renderBioText(item.text, settings?.accentColor)}
+        <RichText content={item.text} accentColor={settings?.accentColor} />
       </div>
     ))}
     
@@ -173,9 +184,9 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
         {data.shapesMe.title}
       </h3>
       {data.shapesMe.content.map((item, idx) => (
-         <p key={idx} className="mb-4 opacity-80">
-             {item.text}
-         </p>
+         <div key={idx} className="mb-4 opacity-80">
+             <RichText content={item.text} accentColor={settings?.accentColor} />
+         </div>
       ))}
       
       <blockquote 
@@ -190,9 +201,9 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
 
       {/* Optional Closing Statement */}
       {data.shapesMe.closing && (
-        <p className="mt-8 text-lg font-medium opacity-90 italic">
-          {data.shapesMe.closing}
-        </p>
+        <div className="mt-8 text-lg font-medium opacity-90 italic">
+          <RichText content={data.shapesMe.closing} accentColor={settings?.accentColor} />
+        </div>
       )}
     </div>
   </div>
@@ -201,7 +212,7 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
 const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: string) => void }> = ({ data, settings, onNavigate }) => (
   <div className="space-y-12 text-lg max-w-3xl">
     <div className="text-xl font-light mb-8 opacity-100">
-       {data.description}
+       <RichText content={data.description} accentColor={settings?.accentColor} />
     </div>
     
     <div className="grid gap-6">
@@ -232,7 +243,7 @@ const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: 
               )}
             </div>
             <div className="opacity-80 leading-relaxed mb-4">
-               {proj.description}
+               <RichText content={proj.description} accentColor={settings?.accentColor} />
             </div>
             <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
                {proj.linkText}
@@ -241,17 +252,17 @@ const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: 
       )})}
     </div>
     
-    <p className="italic opacity-50 text-sm pt-4">
-      {data.footer}
-    </p>
+    <div className="italic opacity-50 text-sm pt-4">
+      <RichText content={data.footer} accentColor={settings?.accentColor} />
+    </div>
   </div>
 );
 
 const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, settings }) => (
   <div className="space-y-8 max-w-3xl">
-    <p className="text-xl font-light mb-8 opacity-100">
-      {data.description}
-    </p>
+    <div className="text-xl font-light mb-8 opacity-100">
+      <RichText content={data.description} accentColor={settings?.accentColor} />
+    </div>
 
     <div className="grid gap-6">
       {data.publications.map((pub) => (
@@ -279,7 +290,7 @@ const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, setti
              <ArrowUpRight className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
            </div>
            <div className="opacity-80 mb-4 text-base">
-               {pub.description}
+               <RichText content={pub.description} accentColor={settings?.accentColor} />
            </div>
            <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
                {pub.linkText}
@@ -292,9 +303,9 @@ const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, setti
       <h3 className="text-lg font-bold mb-2 opacity-100">
          {data.notesTitle}
       </h3>
-      <p className="opacity-70 mb-6">
-         {data.notesDescription}
-      </p>
+      <div className="opacity-70 mb-6">
+         <RichText content={data.notesDescription} accentColor={settings?.accentColor} />
+      </div>
       <div className="flex flex-wrap gap-3">
         {data.notesLinks.map((link, idx) => (
            <a 
@@ -314,9 +325,9 @@ const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, setti
 
 const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings }) => (
   <div className="space-y-12 max-w-3xl">
-    <p className="text-xl font-light opacity-100">
-       {data.description}
-    </p>
+    <div className="text-xl font-light opacity-100">
+       <RichText content={data.description} accentColor={settings?.accentColor} />
+    </div>
 
     <div className="grid md:grid-cols-2 gap-8">
       <div>
@@ -324,10 +335,11 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
         <ul className="space-y-4">
           {data.highlights.map((item, i) => (
             <li key={i} className="flex items-start opacity-90 group relative text-sm sm:text-base">
-              <span className="mr-3 mt-1.5 text-[10px]" style={{ color: settings?.accentColor }}>■</span>
-              <span className="leading-relaxed w-full">
-                  {item.text}
-              </span>
+              {/* Refined bullet alignment: 0.5em top aligns better with the first line's vertical center */}
+              <span className="mr-3 mt-[0.55em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
+              <div className="leading-relaxed w-full">
+                  <RichText content={item.text} accentColor={settings?.accentColor} />
+              </div>
             </li>
           ))}
         </ul>
@@ -338,9 +350,9 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
            {data.mentorshipTitle}
         </h3>
         <div className="bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/5 dark:border-white/5">
-          <p className="opacity-90 leading-relaxed text-sm sm:text-base">
-             {data.mentorshipContent}
-          </p>
+          <div className="opacity-90 leading-relaxed text-sm sm:text-base">
+             <RichText content={data.mentorshipContent} accentColor={settings?.accentColor} />
+          </div>
         </div>
       </div>
     </div>
@@ -349,9 +361,9 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
       <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Topics I Explore</h3>
       <div className="grid sm:grid-cols-2 gap-4">
          {data.topics.map((t, i) => (
-            <div key={i} className="flex items-center opacity-90 relative group">
-               <ChevronRight className="w-4 h-4 mr-2 opacity-40 flex-shrink-0"/>
-               <span className="w-full text-sm font-medium">{t.text}</span>
+            <div key={i} className="flex items-start opacity-90 relative group">
+               <ChevronRight className="w-4 h-4 mr-2 mt-[0.45em] opacity-40 flex-shrink-0"/>
+               <span className="w-full text-sm font-medium leading-relaxed">{t.text}</span>
             </div>
          ))}
       </div>
@@ -361,9 +373,9 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
         <p className="text-lg mb-2 font-medium opacity-100">
            {data.collabTitle}
         </p>
-        <p className="opacity-70 mb-6 text-sm">
-           {data.collabDescription}
-        </p>
+        <div className="opacity-70 mb-6 text-sm">
+           <RichText content={data.collabDescription} accentColor={settings?.accentColor} />
+        </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {data.buttons.map((btn, idx) => {
              const isPrimary = btn.primary;
@@ -385,7 +397,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
   </div>
 );
 
-const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
+const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const handlePrev = (e: React.MouseEvent | KeyboardEvent) => {
@@ -411,9 +423,9 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
   
   return (
     <div className="space-y-8 max-w-4xl">
-      <p className="text-xl font-light w-full opacity-90">
-        {data.description}
-      </p>
+      <div className="text-xl font-light w-full opacity-90">
+        <RichText content={data.description} accentColor={settings?.accentColor} />
+      </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {data.images.map((img, index) => (
@@ -484,14 +496,14 @@ const See: React.FC<SectionProps<SiteContent['see']>> = ({ data }) => {
   );
 };
 
-const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data }) => (
+const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, settings }) => (
   <div className="py-4 w-full max-w-5xl">
     <h2 className="text-3xl font-bold mb-6 opacity-100">
        {data.title}
     </h2>
-    <p className="text-xl mb-10 w-full opacity-70">
-       {data.description}
-    </p>
+    <div className="text-xl mb-10 w-full opacity-70">
+       <RichText content={data.description} accentColor={settings?.accentColor} />
+    </div>
     
     {data.bookingLink && (
       <a 
@@ -867,15 +879,12 @@ const App: React.FC = () => {
            <div className="lg:flex lg:gap-12">
              
              {/* --- SIDEBAR (Fixed on Desktop) --- */}
-             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 px-2 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
+             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 px-2 sm:px-4 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
                
                {/* Identity */}
                <div>
                  <div className="flex items-center justify-between mb-8 lg:mb-12">
-                   <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden border-2 border-black/10 dark:border-white/10 shadow-sm transition-all duration-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] relative z-10 group cursor-pointer">
-                      <div className="absolute inset-0 bg-white/20 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full pointer-events-none mix-blend-overlay"></div>
-                      <img src={content.intro.avatar} alt="Profile" className="w-full h-full object-cover" />
-                   </div>
+                   <Avatar src={content.intro.avatar} linkToHome={content.intro.avatarLinkToHome} />
                    
                    {/* Mobile Header Buttons */}
                    <div className="flex gap-2 lg:hidden">

@@ -64,6 +64,7 @@ export interface SiteContent {
     name: string;          // Sidebar Name
     subtitle: string;      // Sidebar Subtitle
     avatar: string;        // Sidebar Avatar
+    avatarLinkToHome?: boolean; // Optional home link toggle
     welcomeText: string;   // Main Content Typewriter Text
     description: string;   // Main Content Description
     socials: SocialLink[]; // Sidebar Socials
