@@ -26,9 +26,9 @@ import StudioPage from './components/Studio/StudioPage';
 import RichText from './components/RichText';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
-// Import data
-import personalData from './content/data.ts'; 
-import studioDataStatic from './content/studio_data.ts';
+// Import data - Omit extensions to avoid Vite resolution errors
+import personalData from './content/data'; 
+import studioDataStatic from './content/studio_data';
 
 // --- Types ---
 type SectionId = 'intro' | 'who' | 'build' | 'learning' | 'share' | 'see' | 'connect';
@@ -182,7 +182,7 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
       ))}
       
       <blockquote 
-        className="border-l-4 pl-6 py-4 mt-8 italic bg-black/5 dark:bg-white/[0.05] rounded-r-lg"
+        className="border-l-4 pl-6 py-4 mt-8 italic bg-black/5 dark:bg-white/[0.06] rounded-r-lg"
         style={{ borderColor: settings?.accentColor }}
       >
         <p className="opacity-90">{data.shapesMe.quote}</p>
@@ -216,7 +216,7 @@ const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: 
            target={isStudio ? undefined : "_blank"} 
            rel={isStudio ? undefined : "noopener noreferrer"}
            onClick={isStudio ? (e) => { e.preventDefault(); onNavigate('/studio'); } : undefined}
-           className="group relative block bg-black/5 dark:bg-white/[0.05] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer"
+           className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer"
          >
             <div className="flex justify-between items-start mb-4">
               <h3 
@@ -262,7 +262,7 @@ const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, setti
            href={pub.linkUrl} 
            target="_blank" 
            rel="noopener noreferrer"
-           className="group relative block bg-black/5 dark:bg-white/[0.05] p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/[0.08] transition-colors border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20"
+           className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20"
          >
            <div className="flex justify-between items-start mb-4">
              <div>
@@ -339,7 +339,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
         <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">
            {data.mentorshipTitle}
         </h3>
-        <div className="bg-black/5 dark:bg-white/[0.05] p-6 rounded-xl border border-black/5 dark:border-white/10">
+        <div className="bg-black/5 dark:bg-white/[0.06] p-6 rounded-xl border border-black/5 dark:border-white/10">
           <div className="opacity-90 leading-relaxed text-sm sm:text-base">
              <RichText content={data.mentorshipContent} accentColor={settings?.accentColor} />
           </div>
@@ -359,7 +359,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
       </div>
     </div>
 
-    <div className="bg-black/5 dark:bg-white/[0.05] p-8 rounded-xl text-center border border-black/5 dark:border-white/10">
+    <div className="bg-black/5 dark:bg-white/[0.06] p-8 rounded-xl text-center border border-black/5 dark:border-white/10">
         <p className="text-lg mb-2 font-medium opacity-100">
            {data.collabTitle}
         </p>
@@ -513,7 +513,7 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, setting
           href={link.url} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.05] dark:hover:bg-white/[0.08] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20"
+          className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20"
         >
           <div className="flex flex-col w-full mr-2">
             <div className="flex items-center gap-2">
@@ -686,20 +686,20 @@ const App: React.FC = () => {
       `}</style>
       <InteractiveBackground isDark={theme === 'dark'} />
       <Modal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} title="Appearance">
-         <div className="space-y-12">
+         <div className="space-y-12 pb-10">
             {/* Mode Toggle */}
             <div className="flex items-center justify-between pb-6 border-b border-black/5 dark:border-white/5">
                <span className="font-medium opacity-90">Current Mode</span>
-               <button onClick={toggleTheme} className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
-                  {theme === 'dark' ? <Moon className="w-4 h-4"/> : <Sun className="w-4 h-4"/>}
-                  <span className="text-sm font-medium">{theme === 'dark' ? 'Dark' : 'Light'}</span>
+               <button onClick={toggleTheme} className="flex items-center gap-2 px-6 py-2 rounded-full bg-black/5 dark:bg-zinc-800/80 hover:bg-black/10 dark:hover:bg-zinc-700 transition-colors border border-transparent dark:border-white/5">
+                  {theme === 'dark' ? <Moon className="w-4 h-4 mr-2"/> : <Sun className="w-4 h-4 mr-2"/>}
+                  <span className="text-sm font-semibold">{theme === 'dark' ? 'Dark' : 'Light'}</span>
                </button>
             </div>
 
             {/* Typography Section */}
             <div>
-               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-6">Typography</h3>
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+               <h3 className="text-xs font-bold uppercase tracking-widest opacity-40 mb-6">Typography</h3>
+               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
                   {[
                     { id: 'sans', label: 'Inter' },
                     { id: 'apple', label: 'System (Apple)' },
@@ -714,65 +714,72 @@ const App: React.FC = () => {
                     <button 
                       key={opt.id} 
                       onClick={() => handleFontSelection(opt.id)} 
-                      className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${fontFamily === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`} 
-                      style={fontFamily === opt.id ? { borderColor: accentColor } : {}}
+                      className={`flex items-center justify-between px-4 py-4 rounded-xl border-2 transition-all ${fontFamily === opt.id ? `border-blue-500 bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`} 
                     >
-                       <span className={`text-sm sm:text-base`}>{opt.label}</span>
-                       {fontFamily === opt.id && <Check className="w-4 h-4" />}
+                       <span className={`text-sm sm:text-base font-medium opacity-90`}>{opt.label}</span>
+                       {fontFamily === opt.id && <Check className="w-4 h-4 text-blue-500" />}
                     </button>
                   ))}
                </div>
             </div>
 
-            {/* Theme Colors Section */}
-            <div>
-               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-8">Theme Colors</h3>
-               
-               {/* Light Shades */}
-               <div className="mb-10">
-                  <p className="text-[11px] font-bold uppercase tracking-widest opacity-40 mb-4 ml-1">Light Shades</p>
-                  <div className="grid grid-cols-2 gap-3">
+            {/* Theme Palettes */}
+            <div className="space-y-12">
+               <div>
+                  <h3 className="text-xs font-bold uppercase tracking-widest opacity-40 mb-8">Light Theme Palette</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
-                      { id: 'white', label: 'Classic White', hex: '#fff' },
+                      { id: 'white', label: 'Pure White', hex: '#fff' },
                       { id: 'ash', label: 'Soft Ash', hex: '#f4f4f5' },
-                      { id: 'ivory', label: 'Antique Ivory', hex: '#fffbeb' },
-                      { id: 'sky', label: 'Atmosphere Sky', hex: '#f0f9ff' }
+                      { id: 'ivory', label: 'Warm Ivory', hex: '#fffbeb' },
+                      { id: 'sky', label: 'Cool Sky', hex: '#f0f9ff' }
                     ].map((s) => (
                        <button 
-                        key={s.id} 
+                        key={s.id}
                         onClick={() => handleColorSelection('light', s.id)} 
-                        className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${activeLightShade === s.id ? 'border-blue-500/50 bg-black/5 dark:bg-white/5' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
+                        className={`group flex flex-col items-center justify-start pt-5 pb-4 px-2 rounded-xl border-2 transition-all min-h-[110px] ${activeLightShade === s.id ? 'border-blue-500 bg-zinc-100 dark:bg-zinc-800' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
                        >
-                          <div className="w-6 h-6 rounded-full shadow-inner border border-black/5" style={{ backgroundColor: s.hex }} />
-                          <span className="text-sm font-medium">{s.label}</span>
-                          {activeLightShade === s.id && <Check className="w-3.5 h-3.5 ml-auto opacity-40" />}
+                          <div className="w-12 h-12 rounded-full shadow-inner border border-black/5 flex items-center justify-center transition-transform group-hover:scale-105 mb-auto" style={{ backgroundColor: s.hex }}>
+                             {activeLightShade === s.id && <Check className="w-6 h-6 text-zinc-900" />}
+                          </div>
+                          <span className="text-[11px] font-semibold opacity-70 mt-3 text-center tracking-tight leading-none">{s.label}</span>
                        </button>
                     ))}
                   </div>
                </div>
 
-               {/* Dark Shades */}
                <div>
-                  <p className="text-[11px] font-bold uppercase tracking-widest opacity-40 mb-4 ml-1">Dark Shades</p>
-                  <div className="grid grid-cols-2 gap-3">
+                  <h3 className="text-xs font-bold uppercase tracking-widest opacity-40 mb-8">Dark Theme Palette</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
                       { id: 'black', label: 'True Black', hex: '#000' },
-                      { id: 'grey', label: 'Zinc Grey', hex: '#18181b' },
-                      { id: 'navy', label: 'Midnight Navy', hex: '#0f172a' },
-                      { id: 'maroon', label: 'Deep Maroon', hex: '#2a0a0a' }
+                      { id: 'grey', label: 'Charcoal', hex: '#18181b' },
+                      { id: 'navy', label: 'Deep Navy', hex: '#0f172a' },
+                      { id: 'maroon', label: 'Maroon', hex: '#2a0a0a' }
                     ].map((s) => (
                        <button 
-                        key={s.id} 
+                        key={s.id}
                         onClick={() => handleColorSelection('dark', s.id)} 
-                        className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${activeDarkShade === s.id ? 'border-blue-500/50 bg-black/5 dark:bg-white/5' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
+                        className={`group flex flex-col items-center justify-start pt-5 pb-4 px-2 rounded-xl border-2 transition-all min-h-[110px] ${activeDarkShade === s.id ? 'border-blue-500 bg-zinc-100 dark:bg-zinc-800' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
                        >
-                          <div className="w-6 h-6 rounded-full shadow-inner border border-white/10" style={{ backgroundColor: s.hex }} />
-                          <span className="text-sm font-medium">{s.label}</span>
-                          {activeDarkShade === s.id && <Check className="w-3.5 h-3.5 ml-auto opacity-40" />}
+                          <div className="w-12 h-12 rounded-full shadow-inner border border-white/10 flex items-center justify-center transition-transform group-hover:scale-105 mb-auto" style={{ backgroundColor: s.hex }}>
+                             {activeDarkShade === s.id && <Check className="w-6 h-6 text-white" />}
+                          </div>
+                          <span className="text-[11px] font-semibold opacity-70 mt-3 text-center tracking-tight leading-none">{s.label}</span>
                        </button>
                     ))}
                   </div>
                </div>
+            </div>
+
+            {/* Done Button */}
+            <div className="pt-8 border-t border-black/5 dark:border-white/5">
+               <button 
+                  onClick={() => setSettingsOpen(false)}
+                  className="w-full h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:opacity-90 transition-opacity"
+               >
+                  Done
+               </button>
             </div>
          </div>
       </Modal>
