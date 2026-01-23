@@ -16,6 +16,7 @@ const data: SiteContent = {
     "welcomeText": "Welcome to my internet home.",
     "description": "This is where my life, ideas, and work intersect, a space that's been growing with me for over a decade. Some parts show what I'm building. Others reveal what I'm learning. A few just capture moments worth keeping.",
     "avatar": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
+    "avatarLinkToHome": true,
     "socials": [
       { "id": "1", "platform": "envelope", "url": "mailto:tomilayo.abe@gmail.com" },
       { "id": "2", "platform": "twitter", "url": "https://x.com/mrtomiabe" },

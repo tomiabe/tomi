@@ -159,7 +159,6 @@ const StudioPage: React.FC<StudioPageProps> = ({ content, settings }) => {
             {content.selectedWork.projects.map((proj) => (
                <div key={proj.id} className="group">
                   <div className="aspect-video bg-black/5 dark:bg-white/5 rounded-xl mb-6 overflow-hidden relative">
-                     {/* Placeholder for project image/logo */}
                      <div className="absolute inset-0 flex items-center justify-center p-12">
                         {proj.logoUrl ? (
                            <img src={proj.logoUrl} alt={proj.title} className="w-full h-full object-contain opacity-80 group-hover:scale-105 transition-transform duration-500" />
