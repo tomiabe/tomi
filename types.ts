@@ -75,6 +75,7 @@ export interface SiteContent {
       content: { text: string }[]; 
       quote: string;
       quoteRef: string;
+      closing?: string; // Added closing statement
     }
   };
   build: {

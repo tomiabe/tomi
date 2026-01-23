@@ -42,7 +42,8 @@ const data: SiteContent = {
         { "text": "My worldview is shaped by two forces: curiosity — asking better questions — and conviction — building with purpose and understanding context." }
       ],
       "quote": "\"Whatever you do, work at it with all your heart, as working for the Lord.\"",
-      "quoteRef": "— Colossians 3:23"
+      "quoteRef": "— Colossians 3:23",
+      "closing": "This shapes how I build, lead, learn, and live."
     }
   },
   "build": {

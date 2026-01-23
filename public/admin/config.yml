@@ -44,7 +44,8 @@ collections:
                  {label: "Title", name: "title", widget: "string"},
                  {label: "Content", name: "content", widget: "list", fields: [{label: "Text", name: "text", widget: "text"}]},
                  {label: "Quote", name: "quote", widget: "text"},
-                 {label: "Quote Ref", name: "quoteRef", widget: "string"}
+                 {label: "Quote Ref", name: "quoteRef", widget: "string"},
+                 {label: "Closing Text", name: "closing", widget: "string", required: false}
               ]}
             ]}
           - {label: "Build Section", name: "build", widget: "object", fields: [

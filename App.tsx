@@ -187,6 +187,13 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
            {data.shapesMe.quoteRef}
         </footer>
       </blockquote>
+
+      {/* Optional Closing Statement */}
+      {data.shapesMe.closing && (
+        <p className="mt-8 text-lg font-medium opacity-90 italic">
+          {data.shapesMe.closing}
+        </p>
+      )}
     </div>
   </div>
 );
