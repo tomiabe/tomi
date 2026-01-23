@@ -120,7 +120,7 @@ const data: SiteContent = {
     "collabTitle": "Want to collaborate?",
     "collabDescription": "I'm open to speaking engagements, workshops, and mentorship opportunities.",
     "buttons": [
-      { "label": "Book me on MentorCruise", "url": "#", "primary": true },
+      { "label": "Book me on MentorCruise", "url": "https://mentorcruise.com/mentor/tomiabe/", "primary": true },
       { "label": "Shoot me an email", "url": "mailto:tomilayo.abe@gmail.com", "primary": false }
     ]
   },

@@ -26,9 +26,9 @@ import StudioPage from './components/Studio/StudioPage';
 import RichText from './components/RichText';
 import { SiteContent, SocialPlatform, SiteSettings, StudioContent } from './types';
 
-// Import data from TypeScript modules to ensure compatibility with browser-native ES modules
-import personalData from './content/data'; 
-import studioDataStatic from './content/studio_data';
+// Import data
+import personalData from './content/data.ts'; 
+import studioDataStatic from './content/studio_data.ts';
 
 // --- Types ---
 type SectionId = 'intro' | 'who' | 'build' | 'learning' | 'share' | 'see' | 'connect';
@@ -98,7 +98,6 @@ const Typewriter = ({
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    // Reset state if text changes
     setCurrentText('');
     setCurrentIndex(0);
     setStarted(false);
@@ -123,18 +122,11 @@ const Typewriter = ({
   return <span className={className}>{currentText}</span>;
 };
 
-// Avatar Component with shadow and full-unit scaling
 const Avatar = ({ src, linkToHome }: { src: string; linkToHome?: boolean }) => {
   const content = (
-    <div className="w-24 h-24 sm:w-32 sm:h-32 relative group cursor-pointer transition-transform duration-500 hover:scale-105">
-      {/* Centered shadow to prevent left-side clipping */}
-      <div className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(0,0,0,0.15)] dark:shadow-[0_0_40px_rgba(255,255,255,0.08)] opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      {/* Frame Container */}
-      <div className="w-full h-full rounded-full bg-black/5 dark:bg-white/10 overflow-hidden border-2 border-black/10 dark:border-white/10 relative z-10 transition-colors duration-300 group-hover:border-black/20 dark:group-hover:border-white/20">
-        {/* Shine/Overlay Effect */}
-        <div className="absolute inset-0 bg-white/20 dark:bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay"></div>
-        {/* Profile Image */}
+    <div className="w-24 h-24 sm:w-32 sm:h-32 relative group transition-transform duration-500 hover:scale-105">
+      <div className="absolute inset-4 rounded-full shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(255,255,255,0.03)] opacity-40 transition-opacity duration-500" />
+      <div className="w-full h-full rounded-full bg-black/5 dark:bg-white/10 overflow-hidden border-2 border-black/10 dark:border-white/10 relative z-10">
         <img 
           src={src} 
           alt="Profile" 
@@ -146,17 +138,17 @@ const Avatar = ({ src, linkToHome }: { src: string; linkToHome?: boolean }) => {
 
   if (linkToHome) {
     return (
-      <a href="/" className="block" title="Refresh Home">
+      <a href="/" className="block w-fit" title="Refresh Page">
         {content}
       </a>
     );
   }
 
-  return content;
+  return <div className="w-fit">{content}</div>;
 };
 
 
-// --- Section Components (Personal Site) ---
+// --- Section Components ---
 
 const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data, settings }) => (
   <div className="max-w-3xl">
@@ -190,7 +182,7 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
       ))}
       
       <blockquote 
-        className="border-l-4 pl-6 py-4 mt-8 italic bg-black/5 dark:bg-white/5 rounded-r-lg"
+        className="border-l-4 pl-6 py-4 mt-8 italic bg-black/5 dark:bg-white/[0.05] rounded-r-lg"
         style={{ borderColor: settings?.accentColor }}
       >
         <p className="opacity-90">{data.shapesMe.quote}</p>
@@ -199,7 +191,6 @@ const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => 
         </footer>
       </blockquote>
 
-      {/* Optional Closing Statement */}
       {data.shapesMe.closing && (
         <div className="mt-8 text-lg font-medium opacity-90 italic">
           <RichText content={data.shapesMe.closing} accentColor={settings?.accentColor} />
@@ -225,7 +216,7 @@ const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: 
            target={isStudio ? undefined : "_blank"} 
            rel={isStudio ? undefined : "noopener noreferrer"}
            onClick={isStudio ? (e) => { e.preventDefault(); onNavigate('/studio'); } : undefined}
-           className="group relative block bg-black/5 dark:bg-white/5 p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer"
+           className="group relative block bg-black/5 dark:bg-white/[0.05] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer"
          >
             <div className="flex justify-between items-start mb-4">
               <h3 
@@ -271,7 +262,7 @@ const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, setti
            href={pub.linkUrl} 
            target="_blank" 
            rel="noopener noreferrer"
-           className="group relative block bg-black/5 dark:bg-white/5 p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/10 transition-colors border border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20"
+           className="group relative block bg-black/5 dark:bg-white/[0.05] p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/[0.08] transition-colors border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20"
          >
            <div className="flex justify-between items-start mb-4">
              <div>
@@ -335,8 +326,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
         <ul className="space-y-4">
           {data.highlights.map((item, i) => (
             <li key={i} className="flex items-start opacity-90 group relative text-sm sm:text-base">
-              {/* Refined bullet alignment: 0.5em top aligns better with the first line's vertical center */}
-              <span className="mr-3 mt-[0.55em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
+              <span className="mr-3 mt-[0.65em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
               <div className="leading-relaxed w-full">
                   <RichText content={item.text} accentColor={settings?.accentColor} />
               </div>
@@ -349,7 +339,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
         <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">
            {data.mentorshipTitle}
         </h3>
-        <div className="bg-black/5 dark:bg-white/5 p-6 rounded-xl border border-black/5 dark:border-white/5">
+        <div className="bg-black/5 dark:bg-white/[0.05] p-6 rounded-xl border border-black/5 dark:border-white/10">
           <div className="opacity-90 leading-relaxed text-sm sm:text-base">
              <RichText content={data.mentorshipContent} accentColor={settings?.accentColor} />
           </div>
@@ -362,21 +352,21 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
       <div className="grid sm:grid-cols-2 gap-4">
          {data.topics.map((t, i) => (
             <div key={i} className="flex items-start opacity-90 relative group">
-               <ChevronRight className="w-4 h-4 mr-2 mt-[0.45em] opacity-40 flex-shrink-0"/>
+               <ChevronRight className="w-4 h-4 mr-2 mt-1 opacity-40 flex-shrink-0"/>
                <span className="w-full text-sm font-medium leading-relaxed">{t.text}</span>
             </div>
          ))}
       </div>
     </div>
 
-    <div className="bg-black/5 dark:bg-white/5 p-8 rounded-xl text-center border border-black/5 dark:border-white/5">
+    <div className="bg-black/5 dark:bg-white/[0.05] p-8 rounded-xl text-center border border-black/5 dark:border-white/10">
         <p className="text-lg mb-2 font-medium opacity-100">
            {data.collabTitle}
         </p>
         <div className="opacity-70 mb-6 text-sm">
            <RichText content={data.collabDescription} accentColor={settings?.accentColor} />
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           {data.buttons.map((btn, idx) => {
              const isPrimary = btn.primary;
              return (
@@ -386,7 +376,7 @@ const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings })
                  target="_blank" 
                  rel="noopener noreferrer"
                  style={isPrimary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined}
-                 className={`${!isPrimary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold py-2.5 px-6 rounded-lg hover:opacity-90 transition-all text-sm`}
+                 className={`${!isPrimary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px]`}
                >
                   {btn.label}
                </a>
@@ -510,7 +500,7 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, setting
          href={data.bookingLink}
          target="_blank"
          rel="noopener noreferrer"
-         className="inline-block w-full sm:w-auto text-center px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap"
+         className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0"
       >
          Book a Conversation
       </a>
@@ -523,7 +513,7 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, setting
           href={link.url} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 p-4 rounded-xl flex items-center justify-between transition-all border border-transparent hover:border-black/10 dark:hover:border-white/10"
+          className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.05] dark:hover:bg-white/[0.08] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20"
         >
           <div className="flex flex-col w-full mr-2">
             <div className="flex items-center gap-2">
@@ -546,14 +536,10 @@ const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, setting
 // --- Layout & Main App ---
 
 const App: React.FC = () => {
-  // Use typed data imported directly from JSON files (CMS Managed)
-  // Casting to unknown first to allow JSON types to match interfaces
   const [content] = useState<SiteContent>(personalData as unknown as SiteContent);
   const [studioContent] = useState<StudioContent>(studioDataStatic as unknown as StudioContent);
   
   const [settingsOpen, setSettingsOpen] = useState(false);
-
-  // Initialize path from window location to support deep linking
   const [currentPath, setCurrentPath] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.location.pathname === '/studio' ? '/studio' : '/';
@@ -561,25 +547,21 @@ const App: React.FC = () => {
     return '/';
   });
 
-  // Handle navigation with History API
   const handleNavigate = (path: string) => {
     window.history.pushState({}, '', path);
     setCurrentPath(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Listen for back/forward browser buttons
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname === '/studio' ? '/studio' : '/';
       setCurrentPath(path);
     };
-
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Theme state
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('site_theme');
@@ -589,16 +571,12 @@ const App: React.FC = () => {
     return (hour >= 19 || hour < 7) ? 'dark' : 'light';
   });
 
-  // User preferences for shades
   const [userDarkTheme, setUserDarkTheme] = useState<string | null>(() => {
     return typeof window !== 'undefined' ? localStorage.getItem('user_dark_theme') : null;
   });
-  
   const [userLightTheme, setUserLightTheme] = useState<string | null>(() => {
     return typeof window !== 'undefined' ? localStorage.getItem('user_light_theme') : null;
   });
-
-  // User preference for font
   const [userFont, setUserFont] = useState<string | null>(() => {
     return typeof window !== 'undefined' ? localStorage.getItem('user_font') : null;
   });
@@ -606,30 +584,12 @@ const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionId>('intro');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // --- Update Title and Favicon ---
   useEffect(() => {
-     // Update Title
      if (content?.settings?.siteTitle) {
-         document.title = currentPath === '/studio' 
-            ? "Tomi Abe Studio" 
-            : content.settings.siteTitle;
-     }
-
-     // Update Favicon
-     if (content?.settings?.favicon) {
-       const existingLink = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-       if (existingLink) {
-         existingLink.href = content.settings.favicon;
-       } else {
-         const newLink = document.createElement('link');
-         newLink.rel = 'icon';
-         newLink.href = content.settings.favicon;
-         document.head.appendChild(newLink);
-       }
+         document.title = currentPath === '/studio' ? "Tomi Abe Studio" : content.settings.siteTitle;
      }
   }, [content, currentPath]);
 
-  // --- Theme Logic ---
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
@@ -640,7 +600,6 @@ const App: React.FC = () => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  // --- Handle User Color Preference Selection ---
   const handleColorSelection = (mode: 'dark' | 'light', shade: string) => {
     if (mode === 'dark') {
       setUserDarkTheme(shade);
@@ -651,13 +610,11 @@ const App: React.FC = () => {
     }
   };
 
-  // --- Handle User Font Selection ---
   const handleFontSelection = (font: string) => {
     setUserFont(font);
     localStorage.setItem('user_font', font);
   };
 
-  // --- Scroll Spy & Scroll Top Logic ---
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -669,15 +626,10 @@ const App: React.FC = () => {
       },
       { rootMargin: '-20% 0px -60% 0px' } 
     );
-
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
-
-    const handleScroll = () => {
-        setShowScrollTop(window.scrollY > 400);
-    };
+    const handleScroll = () => { setShowScrollTop(window.scrollY > 400); };
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener('scroll', handleScroll);
@@ -690,9 +642,7 @@ const App: React.FC = () => {
     setActiveSection(id as SectionId);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
   const activeDarkShade = userDarkTheme || content?.settings?.darkModeTheme || 'black';
   const activeLightShade = userLightTheme || content?.settings?.lightModeTheme || 'white';
@@ -703,7 +653,6 @@ const App: React.FC = () => {
         case 'grey': return 'bg-[#18181b] text-zinc-200';
         case 'navy': return 'bg-[#0f172a] text-slate-200';
         case 'maroon': return 'bg-[#2a0a0a] text-rose-100';
-        case 'black': 
         default: return 'bg-black text-zinc-100';
       }
     } else {
@@ -711,7 +660,6 @@ const App: React.FC = () => {
         case 'ash': return 'bg-zinc-100 text-zinc-900';
         case 'ivory': return 'bg-[#fffbeb] text-stone-900'; 
         case 'sky': return 'bg-sky-50 text-sky-950';
-        case 'white':
         default: return 'bg-white text-zinc-900';
       }
     }
@@ -727,7 +675,6 @@ const App: React.FC = () => {
   ];
 
   const accentColor = content.settings?.accentColor || '#3b82f6';
-  // Use user font first, then cms setting, then default 'sans' (Inter)
   const fontFamily = userFont || content.settings?.fontFamily || 'sans';
   const maxWidthClass = content.settings?.maxWidth || 'max-w-7xl';
   const themeClasses = getThemeClasses();
@@ -735,318 +682,185 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen font-${fontFamily} transition-colors duration-500 relative ${themeClasses}`}>
       <style>{`
-        ::selection {
-          background-color: ${accentColor};
-          color: #ffffff;
-        }
+        ::selection { background-color: ${accentColor}; color: #ffffff; }
       `}</style>
-      
-      {/* Interactive Background */}
       <InteractiveBackground isDark={theme === 'dark'} />
-
-      {/* --- SETTINGS MODAL --- */}
       <Modal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} title="Appearance">
-         <div className="space-y-8">
-            {/* Dark Mode Toggle inside modal for convenience */}
+         <div className="space-y-12">
+            {/* Mode Toggle */}
             <div className="flex items-center justify-between pb-6 border-b border-black/5 dark:border-white/5">
                <span className="font-medium opacity-90">Current Mode</span>
-               <button 
-                 onClick={toggleTheme}
-                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
-               >
+               <button onClick={toggleTheme} className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
                   {theme === 'dark' ? <Moon className="w-4 h-4"/> : <Sun className="w-4 h-4"/>}
                   <span className="text-sm font-medium">{theme === 'dark' ? 'Dark' : 'Light'}</span>
                </button>
             </div>
 
-            {/* Typography Options */}
+            {/* Typography Section */}
             <div>
-               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-4">Typography</h3>
-               <div className="grid grid-cols-2 gap-4">
+               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-6">Typography</h3>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
-                    { id: 'sans', label: 'Inter', fontClass: 'font-sans' },
-                    { id: 'apple', label: 'System (Apple)', fontClass: 'font-apple' },
-                    { id: 'manrope', label: 'Manrope', fontClass: 'font-manrope' },
-                    { id: 'dmsans', label: 'DM Sans', fontClass: 'font-dmsans' },
-                    { id: 'figtree', label: 'Figtree', fontClass: 'font-figtree' },
-                    { id: 'ibmplex', label: 'IBM Plex Sans', fontClass: 'font-ibmplex' },
-                    { id: 'plusjakarta', label: 'Plus Jakarta', fontClass: 'font-plusjakarta' },
-                    { id: 'librefranklin', label: 'Libre Franklin', fontClass: 'font-librefranklin' },
-                    { id: 'publicsans', label: 'Public Sans', fontClass: 'font-publicsans' },
+                    { id: 'sans', label: 'Inter' },
+                    { id: 'apple', label: 'System (Apple)' },
+                    { id: 'manrope', label: 'Manrope' },
+                    { id: 'dmsans', label: 'DM Sans' },
+                    { id: 'figtree', label: 'Figtree' },
+                    { id: 'ibmplex', label: 'IBM Plex Sans' },
+                    { id: 'plusjakarta', label: 'Plus Jakarta' },
+                    { id: 'librefranklin', label: 'Libre Franklin' },
+                    { id: 'publicsans', label: 'Public Sans' },
                   ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => handleFontSelection(opt.id)}
-                      className={`flex items-center justify-between p-3 rounded-xl border-2 transition-all ${fontFamily === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
+                    <button 
+                      key={opt.id} 
+                      onClick={() => handleFontSelection(opt.id)} 
+                      className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${fontFamily === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`} 
                       style={fontFamily === opt.id ? { borderColor: accentColor } : {}}
                     >
-                       <span className={`text-sm sm:text-base ${opt.fontClass}`}>{opt.label}</span>
+                       <span className={`text-sm sm:text-base`}>{opt.label}</span>
                        {fontFamily === opt.id && <Check className="w-4 h-4" />}
                     </button>
                   ))}
                </div>
             </div>
 
-            {/* Light Theme Options */}
+            {/* Theme Colors Section */}
             <div>
-               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-4">Light Theme Palette</h3>
-               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {[
-                    { id: 'white', label: 'Pure White', bg: 'bg-white', border: 'border-zinc-200' },
-                    { id: 'ash', label: 'Soft Ash', bg: 'bg-zinc-100', border: 'border-zinc-300' },
-                    { id: 'ivory', label: 'Warm Ivory', bg: 'bg-[#fffbeb]', border: 'border-amber-100' },
-                    { id: 'sky', label: 'Cool Sky', bg: 'bg-sky-50', border: 'border-sky-100' },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => handleColorSelection('light', opt.id)}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${activeLightShade === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
-                      style={activeLightShade === opt.id ? { borderColor: accentColor } : {}}
-                    >
-                       <div className={`w-12 h-12 rounded-full shadow-sm ${opt.bg} ${opt.border} border flex items-center justify-center`}>
-                          {activeLightShade === opt.id && <Check className="w-6 h-6 text-zinc-900" />}
-                       </div>
-                       <span className="text-xs font-medium opacity-80">{opt.label}</span>
-                    </button>
-                  ))}
+               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-8">Theme Colors</h3>
+               
+               {/* Light Shades */}
+               <div className="mb-10">
+                  <p className="text-[11px] font-bold uppercase tracking-widest opacity-40 mb-4 ml-1">Light Shades</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { id: 'white', label: 'Classic White', hex: '#fff' },
+                      { id: 'ash', label: 'Soft Ash', hex: '#f4f4f5' },
+                      { id: 'ivory', label: 'Antique Ivory', hex: '#fffbeb' },
+                      { id: 'sky', label: 'Atmosphere Sky', hex: '#f0f9ff' }
+                    ].map((s) => (
+                       <button 
+                        key={s.id} 
+                        onClick={() => handleColorSelection('light', s.id)} 
+                        className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${activeLightShade === s.id ? 'border-blue-500/50 bg-black/5 dark:bg-white/5' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
+                       >
+                          <div className="w-6 h-6 rounded-full shadow-inner border border-black/5" style={{ backgroundColor: s.hex }} />
+                          <span className="text-sm font-medium">{s.label}</span>
+                          {activeLightShade === s.id && <Check className="w-3.5 h-3.5 ml-auto opacity-40" />}
+                       </button>
+                    ))}
+                  </div>
                </div>
-            </div>
 
-            {/* Dark Theme Options */}
-            <div>
-               <h3 className="text-xs font-bold uppercase tracking-widest opacity-50 mb-4">Dark Theme Palette</h3>
-               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {[
-                    { id: 'black', label: 'True Black', bg: 'bg-black', border: 'border-zinc-800' },
-                    { id: 'grey', label: 'Charcoal', bg: 'bg-[#18181b]', border: 'border-zinc-700' },
-                    { id: 'navy', label: 'Deep Navy', bg: 'bg-[#0f172a]', border: 'border-slate-800' },
-                    { id: 'maroon', label: 'Maroon', bg: 'bg-[#2a0a0a]', border: 'border-rose-900' },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => handleColorSelection('dark', opt.id)}
-                      className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${activeDarkShade === opt.id ? `border-[${accentColor}] bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
-                      style={activeDarkShade === opt.id ? { borderColor: accentColor } : {}}
-                    >
-                       <div className={`w-12 h-12 rounded-full shadow-sm ${opt.bg} ${opt.border} border flex items-center justify-center`}>
-                          {activeDarkShade === opt.id && <Check className="w-6 h-6 text-white" />}
-                       </div>
-                       <span className="text-xs font-medium opacity-80">{opt.label}</span>
-                    </button>
-                  ))}
+               {/* Dark Shades */}
+               <div>
+                  <p className="text-[11px] font-bold uppercase tracking-widest opacity-40 mb-4 ml-1">Dark Shades</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { id: 'black', label: 'True Black', hex: '#000' },
+                      { id: 'grey', label: 'Zinc Grey', hex: '#18181b' },
+                      { id: 'navy', label: 'Midnight Navy', hex: '#0f172a' },
+                      { id: 'maroon', label: 'Deep Maroon', hex: '#2a0a0a' }
+                    ].map((s) => (
+                       <button 
+                        key={s.id} 
+                        onClick={() => handleColorSelection('dark', s.id)} 
+                        className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${activeDarkShade === s.id ? 'border-blue-500/50 bg-black/5 dark:bg-white/5' : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}
+                       >
+                          <div className="w-6 h-6 rounded-full shadow-inner border border-white/10" style={{ backgroundColor: s.hex }} />
+                          <span className="text-sm font-medium">{s.label}</span>
+                          {activeDarkShade === s.id && <Check className="w-3.5 h-3.5 ml-auto opacity-40" />}
+                       </button>
+                    ))}
+                  </div>
                </div>
-            </div>
-
-            {/* Mobile Done Button */}
-            <div className="sm:hidden pt-8 pb-4">
-              <button
-                onClick={() => setSettingsOpen(false)}
-                className="w-full py-3.5 bg-black dark:bg-white text-white dark:text-black rounded-xl font-bold text-sm tracking-wide"
-              >
-                Done
-              </button>
             </div>
          </div>
       </Modal>
 
-      {/* Scroll to Top Button (Mobile/Tablet Only) */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-700 rounded-full shadow-lg z-50 transition-all duration-300 lg:hidden flex items-center justify-center ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="w-5 h-5 opacity-90" />
-      </button>
-
-      {/* Global Navigation (Only on Studio Page) */}
-      {currentPath === '/studio' && (
-        <Navigation 
-           currentPath={currentPath}
-           onNavigate={handleNavigate}
-           toggleTheme={toggleTheme}
-           openSettings={() => setSettingsOpen(true)}
-           isDark={theme === 'dark'}
-        />
-      )}
-
-      {/* --- CONTENT RENDER --- */}
+      <button onClick={scrollToTop} className={`fixed bottom-6 right-6 p-3 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-700 rounded-full shadow-lg z-50 transition-all duration-300 lg:hidden flex items-center justify-center ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`} aria-label="Scroll to top"><ArrowUp className="w-5 h-5 opacity-90" /></button>
+      
+      {currentPath === '/studio' && <Navigation currentPath={currentPath} onNavigate={handleNavigate} toggleTheme={toggleTheme} openSettings={() => setSettingsOpen(true)} isDark={theme === 'dark'} />}
+      
       {currentPath === '/studio' && studioContent ? (
-         // STUDIO LAYOUT
          <StudioPage content={studioContent} settings={content.settings} />
       ) : (
-         // PERSONAL LAYOUT
          <div className={`${maxWidthClass} mx-auto px-6 lg:px-8 transition-all duration-300 pt-6 lg:pt-0`}>
            <div className="lg:flex lg:gap-12">
-             
-             {/* --- SIDEBAR (Fixed on Desktop) --- */}
-             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 px-2 sm:px-4 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
-               
-               {/* Identity */}
+             <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 px-2 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
                <div>
-                 <div className="flex items-center justify-between mb-8 lg:mb-12">
+                 <div className="flex items-center justify-between mb-6 lg:mb-8">
                    <Avatar src={content.intro.avatar} linkToHome={content.intro.avatarLinkToHome} />
-                   
-                   {/* Mobile Header Buttons */}
                    <div className="flex gap-2 lg:hidden">
-                      <button 
-                       onClick={() => setSettingsOpen(true)}
-                       className="p-2 rounded-full opacity-60 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all"
-                     >
-                       <Swatch className="w-5 h-5" />
-                     </button>
-                     <button 
-                       onClick={toggleTheme} 
-                       className="p-2 rounded-full opacity-60 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all"
-                     >
-                       {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-                     </button>
+                      <button onClick={() => setSettingsOpen(true)} className="p-2 rounded-full opacity-60 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all"><Swatch className="w-5 h-5" /></button>
+                     <button onClick={toggleTheme} className="p-2 rounded-full opacity-60 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all">{theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}</button>
                    </div>
                  </div>
-
-                 <h1 className="text-3xl font-bold tracking-tight mb-2 opacity-100">
-                   {content.intro.name}
-                 </h1>
-                 <p className="text-sm font-medium tracking-widest opacity-60 uppercase mb-4">
-                   {content.intro.subtitle}
-                 </p>
-
-                 {/* Mobile View: Socials & Clock */}
+                 <h1 className="text-3xl font-bold tracking-tight mb-2 opacity-100">{content.intro.name}</h1>
+                 <p className="text-sm font-medium tracking-widest opacity-60 uppercase mb-4">{content.intro.subtitle}</p>
                  <div className="lg:hidden mb-2 space-y-4">
                    <div className="flex gap-4">
                      {content.intro.socials.map((link) => ( 
-                        <a 
-                           key={link.id} 
-                           href={link.url} 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           className="opacity-50 hover:opacity-100 transition-colors"
-                        >
-                           {getIcon(link.platform)}
-                        </a>
+                        <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-colors">{getIcon(link.platform)}</a>
                      ))}
                    </div>
                    <Clock />
                  </div>
-
-                 {/* Navigation Links */}
                  <nav className="hidden lg:block space-y-1 mt-8">
                    {navItems.map((item) => {
                      const isActive = activeSection === item.id;
                      return (
-                       <button
-                         key={item.id}
-                         onClick={() => scrollToSection(item.id)}
-                         className={`group flex items-center w-full py-2 text-sm font-medium transition-colors ${
-                           isActive
-                             ? 'opacity-100' 
-                             : 'opacity-50 hover:opacity-80'
-                         }`}
-                       >
-                         <span 
-                           className="w-8 h-px mr-3 transition-all duration-300"
-                           style={{
-                              backgroundColor: isActive ? accentColor : 'currentColor',
-                              width: isActive ? '3rem' : '2rem',
-                              opacity: isActive ? 1 : 0.3
-                           }}
-                         ></span>
+                       <button key={item.id} onClick={() => scrollToSection(item.id)} className={`group flex items-center w-full py-2 text-sm font-medium transition-colors ${isActive ? 'opacity-100' : 'opacity-50 hover:opacity-80'}`}>
+                         <span className="w-8 h-px mr-3 transition-all duration-300" style={{ backgroundColor: isActive ? accentColor : 'currentColor', width: isActive ? '3rem' : '2rem', opacity: isActive ? 1 : 0.3 }}></span>
                          {item.label}
                        </button>
                      );
                    })}
                  </nav>
                </div>
-
-               {/* Footer / Socials in Sidebar */}
                <div className="hidden lg:block">
-                  <div className="mb-6">
-                    <Clock />
-                  </div>
+                  <div className="mb-6"><Clock /></div>
                   <div className="flex gap-3 mb-6 flex-wrap">
                    {content.intro.socials.map((link) => ( 
-                      <a 
-                         key={link.id} 
-                         href={link.url} 
-                         target="_blank" 
-                         rel="noopener noreferrer" 
-                         className="opacity-50 hover:opacity-100 transition-colors p-1"
-                      >
-                         {getIcon(link.platform)}
-                      </a>
+                      <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-colors p-1">{getIcon(link.platform)}</a>
                    ))}
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                       <button 
-                          onClick={toggleTheme} 
-                          className="p-1.5 rounded-full opacity-40 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-                          title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
-                       >
-                           {theme === 'dark' ? <Moon className="w-4 h-4"/> : <Sun className="w-4 h-4"/>}
-                       </button>
-                       <button 
-                          onClick={() => setSettingsOpen(true)}
-                          className="p-1.5 rounded-full opacity-40 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-                          title="Customize Appearance"
-                       >
-                          <Swatch className="w-4 h-4" />
-                       </button>
+                       <button onClick={toggleTheme} className="p-1.5 rounded-full opacity-40 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">{theme === 'dark' ? <Moon className="w-4 h-4"/> : <Sun className="w-4 h-4"/>}</button>
+                       <button onClick={() => setSettingsOpen(true)} className="p-1.5 rounded-full opacity-40 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"><Swatch className="w-4 h-4" /></button>
                     </div>
                   </div>
-                  <div className="text-xs opacity-50 mt-6 font-medium">
-                    &copy; 2026 {content.intro.name}.
-                  </div>
+                  <div className="text-xs opacity-50 mt-6 font-medium">&copy; 2026 {content.intro.name}.</div>
                </div>
              </aside>
-
-             {/* --- MAIN CONTENT (Scrollable) --- */}
              <main className="lg:w-2/3 xl:w-3/4 py-6 lg:py-12 space-y-24 lg:space-y-32">
-               
-               {/* Intro Section (Not in Nav, but top of content) */}
-               <section id="intro">
-                  <IntroText data={content.intro} settings={content.settings} />
-               </section>
-
+               <section id="intro"><IntroText data={content.intro} settings={content.settings} /></section>
                <section id="who" className="scroll-mt-24">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">Who Am I</div>
                   <Who data={content.who} settings={content.settings} />
                </section>
-
                <section id="build" className="scroll-mt-24">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">What Do I Build</div>
-                  <Build 
-                     data={content.build} 
-                     settings={content.settings} 
-                     onNavigate={handleNavigate}
-                  />
+                  <Build data={content.build} settings={content.settings} onNavigate={handleNavigate} />
                </section>
-
                <section id="learning" className="scroll-mt-24">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">What Am I Learning</div>
                   <Learning data={content.learning} settings={content.settings} />
                </section>
-
                <section id="share" className="scroll-mt-24">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">Where Do I Share</div>
                   <Share data={content.share} settings={content.settings} />
                </section>
-
                <section id="see" className="scroll-mt-24">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">What Do I See</div>
                   <See data={content.see} settings={content.settings} />
                </section>
-
                <section id="connect" className="scroll-mt-24 pb-0 lg:pb-12">
                   <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">Connect</div>
                   <Connect data={content.connect} settings={content.settings} />
                </section>
-
-               {/* Mobile Footer */}
-               <footer className="lg:hidden pt-8 !mt-8 border-t border-black/10 dark:border-white/10 text-center opacity-50 text-sm">
-                  &copy; 2026 {content.intro.name}.
-               </footer>
+               <footer className="lg:hidden pt-8 !mt-8 border-t border-black/10 dark:border-white/10 text-center opacity-50 text-sm">&copy; 2026 {content.intro.name}.</footer>
              </main>
-
            </div>
          </div>
       )}
