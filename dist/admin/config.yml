@@ -1,0 +1,203 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "public/content/pages/home.json"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Settings", name: "settings", widget: "object", fields: [
+              {label: "Site Title", name: "siteTitle", widget: "string"},
+              {label: "Favicon", name: "favicon", widget: "image"},
+              {label: "Accent Color", name: "accentColor", widget: "color"},
+              {label: "Font Family", name: "fontFamily", widget: "select", options: ["sans", "serif", "mono", "manrope", "dmsans", "figtree", "ibmplex", "plusjakarta", "librefranklin", "publicsans"]},
+              {label: "Default Dark Mode Theme", name: "darkModeTheme", widget: "select", options: ["black", "grey", "navy", "maroon"]},
+              {label: "Default Light Mode Theme", name: "lightModeTheme", widget: "select", options: ["white", "ash", "ivory", "sky"]}
+            ]}
+          - {label: "Intro", name: "intro", widget: "object", fields: [
+              {label: "Name", name: "name", widget: "string"},
+              {label: "Subtitle", name: "subtitle", widget: "string"},
+              {label: "Welcome Text", name: "welcomeText", widget: "string"},
+              {label: "Description", name: "description", widget: "markdown"},
+              {label: "Avatar", name: "avatar", widget: "image"},
+              {label: "Socials", name: "socials", widget: "list", fields: [
+                  {label: "Platform", name: "platform", widget: "select", options: ["twitter", "instagram", "linkedin", "envelope", "medium", "substack"]},
+                  {label: "URL", name: "url", widget: "string"}
+              ]}
+            ]}
+          - {label: "Who Am I", name: "who", widget: "object", fields: [
+              {label: "Bio", name: "bio", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
+              {label: "Shapes Me", name: "shapesMe", widget: "object", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Content", name: "content", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
+                  {label: "Quote", name: "quote", widget: "text"},
+                  {label: "Quote Reference", name: "quoteRef", widget: "string"},
+                  {label: "Closing", name: "closing", widget: "string", required: false}
+              ]}
+            ]}
+          - {label: "Build", name: "build", widget: "object", fields: [
+                {label: "Description", name: "description", widget: "markdown"},
+                {label: "Projects", name: "projects", widget: "list", fields: [
+                    {label: "Title", name: "title", widget: "string"},
+                    {label: "Description", name: "description", widget: "markdown"},
+                    {label: "Link Text", name: "linkText", widget: "string"},
+                    {label: "Link URL", name: "linkUrl", widget: "string"}
+                ]},
+                {label: "Footer", name: "footer", widget: "markdown"}
+            ]}
+          - {label: "Learning", name: "learning", widget: "object", fields: [
+                {label: "Description", name: "description", widget: "markdown"},
+                {label: "Publications", name: "publications", widget: "list", fields: [
+                    {label: "Title", name: "title", widget: "string"},
+                    {label: "Category", name: "category", widget: "string"},
+                    {label: "Description", name: "description", widget: "markdown"},
+                    {label: "Link Text", name: "linkText", widget: "string"},
+                    {label: "Link URL", name: "linkUrl", widget: "string"}
+                ]},
+                {label: "Notes Title", name: "notesTitle", widget: "string"},
+                {label: "Notes Description", name: "notesDescription", widget: "markdown"},
+                {label: "Notes Links", name: "notesLinks", widget: "list", fields: [
+                    {label: "Label", name: "label", widget: "string"},
+                    {label: "URL", name: "url", widget: "string"}
+                ]}
+            ]}
+          - {label: "Share", name: "share", widget: "object", fields: [
+                {label: "Description", name: "description", widget: "markdown"},
+                {label: "Highlights", name: "highlights", widget: "list", fields: [{label: "Text", name: "text", widget: "markdown"}]},
+                {label: "Mentorship Title", name: "mentorshipTitle", widget: "string"},
+                {label: "Mentorship Content", name: "mentorshipContent", widget: "markdown"},
+                {label: "Topics", name: "topics", widget: "list", fields: [{label: "Text", name: "text", widget: "string"}]},
+                {label: "Collab Title", name: "collabTitle", widget: "string"},
+                {label: "Collab Description", name: "collabDescription", widget: "markdown"},
+                {label: "Buttons", name: "buttons", widget: "list", fields: [
+                    {label: "Label", name: "label", widget: "string"},
+                    {label: "URL", name: "url", widget: "string"},
+                    {label: "Primary Style", name: "primary", widget: "boolean"}
+                ]}
+            ]}
+          - {label: "See", name: "see", widget: "object", fields: [
+                {label: "Description", name: "description", widget: "markdown"},
+                {label: "Images", name: "images", widget: "list", fields: [
+                    {label: "Image", name: "image", widget: "image"}
+                ]},
+                {label: "Links", name: "links", widget: "list", fields: [
+                    {label: "Label", name: "label", widget: "string"},
+                    {label: "URL", name: "url", widget: "string"}
+                ]}
+            ]}
+          - {label: "Connect", name: "connect", widget: "object", fields: [
+                {label: "Title", name: "title", widget: "string"},
+                {label: "Description", name: "description", widget: "markdown"},
+                {label: "Booking Link", name: "bookingLink", widget: "string", required: false},
+                {label: "Links", name: "links", widget: "list", fields: [
+                    {label: "Platform", name: "platform", widget: "select", options: ["twitter", "instagram", "linkedin", "envelope", "medium", "substack"]},
+                    {label: "URL", name: "url", widget: "string"},
+                    {label: "Label", name: "label", widget: "string"},
+                    {label: "Sublabel", name: "sublabel", widget: "string"}
+                ]}
+            ]}
+
+      - file: "public/content/pages/studio.json"
+        label: "Studio Page"
+        name: "studio"
+        fields:
+          - {label: "Navigation", name: "navigation", widget: "list", fields: [
+              {label: "Label", name: "label", widget: "string"},
+              {label: "URL", name: "url", widget: "string"}
+            ]}
+          - {label: "Hero", name: "hero", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Subtitle", name: "subtitle", widget: "string"},
+              {label: "CTA Primary", name: "cta_primary", widget: "string"},
+              {label: "CTA Primary Link", name: "cta_primary_link", widget: "string"},
+              {label: "CTA Secondary", name: "cta_secondary", widget: "string"},
+              {label: "CTA Secondary Link", name: "cta_secondary_link", widget: "string"},
+              {label: "Footer Text", name: "footer_text", widget: "string"}
+            ]}
+          - {label: "Problem", name: "problem", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Main Heading", name: "main_heading", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "Items", name: "items", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Description", name: "description", widget: "text"},
+                  {label: "Icon", name: "icon", widget: "select", options: ["Layers", "Box", "Maximize2", "Minimize2"]}
+              ]}
+            ]}
+          - {label: "Approach", name: "approach", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Main Heading", name: "main_heading", widget: "string"},
+              {label: "Intro Text", name: "intro_text", widget: "text"},
+              {label: "Footer Text", name: "footer_text", widget: "string"},
+              {label: "Cards", name: "cards", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Description", name: "description", widget: "text"},
+                  {label: "Icon", name: "icon", widget: "select", options: ["Share2", "Database", "Search"]},
+                  {label: "Color", name: "color", widget: "select", options: ["blue", "purple", "orange"]}
+              ]}
+            ]}
+          - {label: "Services", name: "services", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "Items", name: "items", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Description", name: "description", widget: "text"},
+                  {label: "List", name: "list", widget: "list"}
+              ]}
+            ]}
+          - {label: "Work Models", name: "workModels", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Footer Text", name: "footer_text", widget: "string"},
+              {label: "Models", name: "models", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Role", name: "role", widget: "string"},
+                  {label: "Description", name: "description", widget: "text"}
+              ]}
+            ]}
+          - {label: "Selected Work", name: "selectedWork", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Main Heading", name: "main_heading", widget: "string"},
+              {label: "Footer Text", name: "footer_text", widget: "string"},
+              {label: "Tags", name: "tags", widget: "list"},
+              {label: "Projects", name: "projects", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Category", name: "category", widget: "string"},
+                  {label: "Location", name: "location", widget: "string"},
+                  {label: "Description", name: "description", widget: "text"},
+                  {label: "Link Text", name: "linkText", widget: "string"},
+                  {label: "Link URL", name: "linkUrl", widget: "string"},
+                  {label: "Image URL", name: "imageUrl", widget: "image"},
+                  {label: "Logo URL", name: "logoUrl", widget: "image"}
+              ]}
+            ]}
+          - {label: "About", name: "about", widget: "object", fields: [
+              {label: "Section Title", name: "section_title", widget: "string"},
+              {label: "Main Heading", name: "main_heading", widget: "string"},
+              {label: "Name", name: "name", widget: "string"},
+              {label: "Role", name: "role", widget: "string"},
+              {label: "Image", name: "image_url", widget: "image"},
+              {label: "Intro Paragraphs", name: "intro_paragraphs", widget: "list"},
+              {label: "Speaking Title", name: "speaking_title", widget: "string"},
+              {label: "Speaking Items", name: "speaking_items", widget: "list"}
+            ]}
+          - {label: "Contact", name: "contact", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "Button Text", name: "button_text", widget: "string"},
+              {label: "Booking Link", name: "booking_link", widget: "string"},
+              {label: "Email", name: "email", widget: "string"},
+              {label: "Location", name: "location", widget: "string"},
+              {label: "Footer Copyright", name: "footer_copyright", widget: "string"},
+              {label: "Footer Tagline", name: "footer_tagline", widget: "string"},
+              {label: "Socials", name: "socials", widget: "list", fields: [
+                  {label: "Platform", name: "platform", widget: "select", options: ["Linkedin", "Twitter", "Instagram"]},
+                  {label: "URL", name: "url", widget: "string"}
+              ]}
+            ]}

@@ -31,7 +31,7 @@ const data: SiteContent = {
       { "text": "I'm Jesutomilayo (Tomi) Abe, born in Lagos, Nigeria, to a Yoruba family from Osun State." },
       { "text": "I grew up in a home filled with love and faith, the kind that gave me room to explore and become." },
       { "text": "I studied Computer Science at Covenant University, then did a Postgraduate program in Creative Technology from the University of the West of England. Living in the UK broadened how I see systems, from culture to governance to design, and deepened my desire to build things that connect people and ideas with purpose." },
-      { "text": "Today, I'm married to Toro, whose faith and brilliance continually inspire me. We live on the outskirts of Lagos, just far enough to breathe." },
+      { "text": "Today, I'm married to [Toro](https://torotayo.com), whose faith and brilliance continually inspire me. We live on the outskirts of Lagos, just far enough to breathe." },
       { "text": "I like to think of myself as a natural creative: someone drawn to understanding how things work, why they matter, and how they can be made better. My interests span art, design, technology, media, sustainability, culture, faith, history, and the everyday questions that shape how we live." },
       { "text": "I'm curious about systems and stories, drawn to the intersection where structure meets meaning, and I’m always learning." }
     ],
@@ -147,7 +147,7 @@ const data: SiteContent = {
     "title": "Let's Connect",
     "description": "Whether you're interested in collaboration, a conversation, or just saying hello, I'd love to hear from you.",
     "links": [
-      { "id": "1", "platform": "envelope", "url": "mailto:tomilayo.abe@gmail.com", "label": "@ Email me", "sublabel": "best way to reach me" },
+      { "id": "1", "platform": "envelope", "url": "mailto:tomilayo.abe@gmail.com", "label": "My Email", "sublabel": "best way to reach me" },
       { "id": "2", "platform": "twitter", "url": "https://x.com/mrtomiabe", "label": "My Twitter", "sublabel": "thinking out loud!" },
       { "id": "3", "platform": "instagram", "url": "https://instagram.com/mrtomiabe", "label": "My Instagram", "sublabel": "sharing experiences" },
       { "id": "4", "platform": "linkedin", "url": "https://linkedin.com/in/tomiabe", "label": "My LinkedIn", "sublabel": "let’s make connections" },

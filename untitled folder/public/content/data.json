@@ -1,0 +1,154 @@
+{
+  "settings": {
+    "siteTitle": "Tomi Abe | Internet Home",
+    "favicon": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
+    "accentColor": "#3b82f6",
+    "fontFamily": "sans",
+    "maxWidth": "max-w-7xl",
+    "darkModeTheme": "black",
+    "lightModeTheme": "white"
+  },
+  "intro": {
+    "name": "Tomi Abe",
+    "subtitle": "Human · Believer · African · Husband · Builder",
+    "welcomeText": "Welcome to my internet home.",
+    "description": "This is where my life, ideas, and work intersect, a space that's been growing with me for over a decade. Some parts show what I'm building. Others reveal what I'm learning. A few just capture moments worth keeping.",
+    "avatar": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
+    "socials": [
+      { "id": "1", "platform": "envelope", "url": "mailto:email@example.com" },
+      { "id": "2", "platform": "twitter", "url": "#" },
+      { "id": "3", "platform": "instagram", "url": "#" },
+      { "id": "4", "platform": "linkedin", "url": "#" },
+      { "id": "5", "platform": "substack", "url": "#" },
+      { "id": "6", "platform": "medium", "url": "#" }
+    ]
+  },
+  "who": {
+    "bio": [
+      { "text": "I'm Jesutomilayo (Tomi) Abe, born in Lagos, Nigeria, to a Yoruba family from Osun State." },
+      { "text": "I grew up in a home filled with love and faith, the kind that gave me room to explore and become." },
+      { "text": "I studied Computer Science at Covenant University, then did a Postgraduate program in Creative Technology from the University of the West of England. Living in the UK broadened how I see systems, from culture to governance to design, and deepened my desire to build things that connect people and ideas with purpose." },
+      { "text": "Today, I'm married to Toro, whose faith and brilliance continually inspire me. We live on the outskirts of Lagos, just far enough to breathe." },
+      { "text": "I like to think of myself as a natural creative: someone drawn to understanding how things work, why they matter, and how they can be made better. My interests span art, design, technology, media, sustainability, culture, faith, history, and the everyday questions that shape how we live." },
+      { "text": "I'm curious about systems and stories, drawn to the intersection where structure meets meaning, and I’m always learning." }
+    ],
+    "shapesMe": {
+      "title": "WHAT SHAPES ME?",
+      "content": [
+        { "text": "Faith is the lens through which I see everything. I'm a Christian who believes creativity, purpose, and integrity aren't separate things; they're ways of honoring the gifts we've been given and serving others well." },
+        { "text": "I believe excellence is an act of gratitude. That work is a form of worship. That meaning matters more than metrics." },
+        { "text": "My worldview is shaped by two forces: curiosity — asking better questions — and conviction — building with purpose and understanding context." }
+      ],
+      "quote": "\"Whatever you do, work at it with all your heart, as working for the Lord.\"",
+      "quoteRef": "— Colossians 3:23"
+    }
+  },
+  "build": {
+    "description": "I work at the intersection of design, technology, media, and research, building systems, narratives, and experiences that help people and organizations navigate complexity with clarity.",
+    "projects": [
+      {
+        "id": "1",
+        "title": "Tomi Abe Studio",
+        "description": "Tomi Abe Studio is my independent multidisciplinary practice, where I collaborate with organizations ranging from early-stage ventures to established institutions, translating strategy into tangible, scalable outcomes. The work spans brand strategy, experience design, data visualization, creative technology, and media development.",
+        "linkText": "Visit The Studio →",
+        "linkUrl": "#"
+      },
+      {
+        "id": "2",
+        "title": "Susbridge",
+        "description": "I co-lead Susbridge, a knowledge ecosystem making sustainability insights accessible, contextual, and actionable within African contexts. I also co-publish Susinsight, a media and research platform advancing sustainability journalism across Africa through data-driven storytelling.",
+        "linkText": "Visit Susbridge →",
+        "linkUrl": "#"
+      }
+    ],
+    "footer": "Beyond titles and projects, I see work as service: making the complex simple, the abstract tangible, and the useful beautiful."
+  },
+  "learning": {
+    "description": "I write as a way of thinking out loud, exploring ideas across several ongoing publications:",
+    "publications": [
+      {
+        "id": "1",
+        "title": "The Limen",
+        "category": "Connection & Meaning",
+        "description": "Exploring deeper patterns of contemporary life: connection and meaning. See the world through a higher lens.",
+        "linkText": "Read The Limen →",
+        "linkUrl": "#"
+      },
+      {
+        "id": "2",
+        "title": "Undercurrent",
+        "category": "Context & History",
+        "description": "Reflecting on Nigeria's past, present, and future through historical, political, and cultural contexts.",
+        "linkText": "Read Undercurrent →",
+        "linkUrl": "#"
+      },
+      {
+        "id": "3",
+        "title": "Marketplace Logic",
+        "category": "With Alex Akinyeye",
+        "description": "Decoding the systems and design principles powering digital marketplaces worldwide.",
+        "linkText": "Read Marketplace Logic →",
+        "linkUrl": "#"
+      }
+    ],
+    "notesTitle": "Notes & Reflections",
+    "notesDescription": "Occasional thoughts on design, systems, faith, and everyday life.",
+    "notesLinks": [
+      { "label": "Read on Medium ↗", "url": "#" },
+      { "label": "Read on Substack ↗", "url": "#" }
+    ]
+  },
+  "share": {
+    "description": "Since 2020, I've shared insights as a speaker, trainer, and mentor at the intersection of design, innovation, media, and creative entrepreneurship.",
+    "highlights": [
+      { "text": "Workshop on AI-driven design for African Climate Stories." },
+      { "text": "Talk on ethical AI at FITC E3 Conference." },
+      { "text": "Training for Loblaw Agency's AI Committee." },
+      { "text": "Strategy session for Nairametrics." }
+    ],
+    "mentorshipTitle": "Mentorship",
+    "mentorshipContent": "As a mentor on MentorCruise, I help early-career designers worldwide refine their craft, navigate strategic thinking and project execution, and grow in confidence through honest feedback and structured guidance.",
+    "topics": [
+      { "text": "Design, systems thinking, and innovation" },
+      { "text": "Responsible use of emerging technologies (AI, data)" },
+      { "text": "Creative entrepreneurship and career navigation" },
+      { "text": "Faith and purpose in creative work" }
+    ],
+    "collabTitle": "Want to collaborate?",
+    "collabDescription": "I'm open to speaking engagements, workshops, and mentorship opportunities.",
+    "buttons": [
+      { "label": "Book me on MentorCruise", "url": "#", "primary": true },
+      { "label": "Shoot me an email", "url": "mailto:email@example.com", "primary": false }
+    ]
+  },
+  "see": {
+    "description": "Moments from life, work, and travel, a visual journal of what catches my eye.",
+    "images": [
+      { "id": "1", "image": "https://picsum.photos/seed/tomi1/1200/1200" },
+      { "id": "2", "image": "https://picsum.photos/seed/tomi2/1200/1200" },
+      { "id": "3", "image": "https://picsum.photos/seed/tomi3/1200/1200" },
+      { "id": "4", "image": "https://picsum.photos/seed/tomi4/1200/1200" },
+      { "id": "5", "image": "https://picsum.photos/seed/tomi5/1200/1200" },
+      { "id": "6", "image": "https://picsum.photos/seed/tomi6/1200/1200" },
+      { "id": "7", "image": "https://picsum.photos/seed/tomi7/1200/1200" },
+      { "id": "8", "image": "https://picsum.photos/seed/tomi8/1200/1200" },
+      { "id": "9", "image": "https://picsum.photos/seed/tomi9/1200/1200" }
+    ],
+    "links": [
+      { "label": "View photo archive on Instagram", "url": "https://www.instagram.com/bytomiabe/" },
+      { "label": "View more on VSCO", "url": "https://vsco.co/tomiabe/gallery" }
+    ]
+  },
+  "connect": {
+    "title": "Let's Connect",
+    "description": "Whether you're interested in collaboration, a conversation, or just saying hello, I'd love to hear from you.",
+    "links": [
+      { "id": "1", "platform": "envelope", "url": "mailto:email@example.com", "label": "@ Email me", "sublabel": "best way to reach me" },
+      { "id": "2", "platform": "twitter", "url": "#", "label": "My Twitter", "sublabel": "thinking out loud!" },
+      { "id": "3", "platform": "instagram", "url": "#", "label": "My Instagram", "sublabel": "sharing experiences" },
+      { "id": "4", "platform": "linkedin", "url": "#", "label": "My LinkedIn", "sublabel": "let’s make connections" },
+      { "id": "5", "platform": "substack", "url": "#", "label": "My Substack", "sublabel": "periodic notes and reflections" },
+      { "id": "6", "platform": "medium", "url": "#", "label": "My Medium", "sublabel": "my blog and essays" }
+    ]
+  }
+}
