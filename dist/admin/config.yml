@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tomiabe/tomiabe
   branch: main
+
+local_backend: true
 
 media_folder: "public/images"
 public_folder: "/images"

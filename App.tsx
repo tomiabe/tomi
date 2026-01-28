@@ -33,11 +33,6 @@ const App: React.FC = () => {
       .catch(err => console.error("Failed to load studio content", err));
   }, []);
 
-  if (!content || !studioContent) {
-    return <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">Loading...</div>;
-  }
-
-
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('site_theme');
@@ -92,6 +87,10 @@ const App: React.FC = () => {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (!content || !studioContent) {
+    return <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">Loading...</div>;
+  }
 
   const activeDarkShade = userDarkTheme || content?.settings?.darkModeTheme || 'black';
   const activeLightShade = userLightTheme || content?.settings?.lightModeTheme || 'white';
