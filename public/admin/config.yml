@@ -20,7 +20,7 @@ collections:
               {label: "Site Title", name: "siteTitle", widget: "string"},
               {label: "Favicon", name: "favicon", widget: "image"},
               {label: "Accent Color", name: "accentColor", widget: "color"},
-              {label: "Font Family", name: "fontFamily", widget: "select", options: ["sans", "serif", "mono", "manrope", "dmsans", "figtree", "ibmplex", "plusjakarta", "librefranklin", "publicsans"]},
+              {label: "Font Family", name: "fontFamily", widget: "select", options: ["sans", "serif", "mono", "manrope", "dmsans", "figtree", "ibmplex", "plusjakarta", "librefranklin", "publicsans", "geist", "schibsted", "monasans", "stacksans", "splinesans"]},
               {label: "Default Dark Mode Theme", name: "darkModeTheme", widget: "select", options: ["black", "grey", "navy", "maroon"]},
               {label: "Default Light Mode Theme", name: "lightModeTheme", widget: "select", options: ["white", "ash", "ivory", "sky"]}
             ]}

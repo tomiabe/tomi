@@ -12,11 +12,17 @@ import {
     LinkedIn,
     Envelope,
     Medium,
-    Substack
+    Substack,
+    Plus
 } from '../../Icons';
 import RichText from '../../RichText';
 import { SiteContent, SiteSettings, SocialPlatform } from '../../../types';
+import { Editable } from '../../Editor/Editable';
+import { EditableImage } from '../../Editor/EditableImage';
+import { useEditor } from '../../Editor/EditorContext';
+import { ListControls } from '../../Editor/ListControls';
 
+// Section Props and Utility Components
 type SectionProps<T> = {
     data: T;
     settings?: SiteSettings;
@@ -35,7 +41,8 @@ const getIcon = (platform: SocialPlatform, className: string = "w-5 h-5") => {
     }
 };
 
-const Typewriter = ({ text, delay = 0, speed = 40, className = "" }: { text: string; delay?: number; speed?: number; className?: string }) => {
+const Typewriter = ({ text, children, delay = 0, speed = 40, className = "" }: { text?: string; children?: string; delay?: number; speed?: number; className?: string }) => {
+    const displayText = text || children || '';
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [started, setStarted] = useState(false);
@@ -43,194 +50,372 @@ const Typewriter = ({ text, delay = 0, speed = 40, className = "" }: { text: str
         setCurrentText('');
         setCurrentIndex(0);
         setStarted(false);
-    }, [text]);
+    }, [displayText]);
     useEffect(() => {
         const timeout = setTimeout(() => setStarted(true), delay);
         return () => clearTimeout(timeout);
-    }, [delay, text]);
+    }, [delay, displayText]);
     useEffect(() => {
         if (!started) return;
-        if (currentIndex < text.length) {
+        if (currentIndex < displayText.length) {
             const timeout = setTimeout(() => {
-                setCurrentText(prev => prev + text[currentIndex]);
+                setCurrentText(prev => prev + displayText[currentIndex]);
                 setCurrentIndex(prev => prev + 1);
             }, speed);
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, started, text, speed]);
+    }, [currentIndex, started, displayText, speed]);
     return <span className={className}>{currentText}</span>;
 };
 
 export const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data, settings }) => (
     <div className="max-w-3xl">
         <h1 className="text-3xl font-bold mb-6 min-h-[40px] sm:min-h-[48px]">
-            <Typewriter text={data.welcomeText} delay={200} />
+            <Editable text={data.welcomeText} path="intro.welcomeText" component={(props: any) => <Typewriter {...props} delay={200} />} />
         </h1>
         <div className="space-y-6 text-xl opacity-80 font-light leading-relaxed">
             <div className="fade-in" style={{ opacity: 0, animationDelay: '1.4s', animationFillMode: 'forwards' }}>
-                <RichText content={data.description} accentColor={settings?.accentColor} />
+                <Editable text={data.description} path="intro.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
             </div>
         </div>
     </div>
 );
 
 export const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings }) => {
+    const { isEditMode, addItem, removeItem } = useEditor();
     const [isExpanded, setIsExpanded] = useState(false);
-    const visibleBio = data.bio.slice(0, 4);
-    const hiddenBio = data.bio.slice(4);
 
     return (
         <div className="space-y-6 text-lg leading-relaxed max-w-3xl opacity-90">
-            {visibleBio.map((item, idx) => (
-                <div key={idx} className={idx === 0 ? "text-xl font-light opacity-100" : "opacity-80"}>
-                    <RichText content={item.text} accentColor={settings?.accentColor} />
+            {data.bio.map((item, idx) => (
+                <div key={idx} className={`relative group ${idx === 0 ? "text-xl font-light opacity-100" : "opacity-80"} ${(idx >= 4 && !isExpanded && !isEditMode) ? 'hidden' : ''}`}>
+                    <Editable text={item.text} path={`who.bio.${idx}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                    <ListControls
+                        onRemove={() => removeItem('who.bio', idx)}
+                        className="absolute -left-10 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                 </div>
             ))}
 
-            {isExpanded && (
+            {isEditMode && (
+                <button
+                    onClick={() => addItem('who.bio', { text: "New bio paragraph..." })}
+                    className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-500 hover:text-blue-600 transition-colors py-2"
+                >
+                    <Plus className="w-4 h-4" /> Add Bio Paragraph
+                </button>
+            )}
+
+            {/* Shapes Me Section */}
+            {(isExpanded || isEditMode) && (
                 <div className="animate-fadeIn space-y-6">
-                    {hiddenBio.map((item, idx) => (
-                        <div key={idx + 3} className="opacity-80">
-                            <RichText content={item.text} accentColor={settings?.accentColor} />
-                        </div>
-                    ))}
                     <div className="my-10 pt-6 border-t border-black/10 dark:border-white/10">
-                        <h3 className="text-sm font-bold tracking-widest uppercase mb-6 opacity-100">{data.shapesMe.title}</h3>
+                        <h3 className="text-sm font-bold tracking-widest uppercase mb-6 opacity-100">
+                            <Editable text={data.shapesMe.title} path="who.shapesMe.title" />
+                        </h3>
                         {data.shapesMe.content.map((item, idx) => (
-                            <div key={idx} className="mb-4 opacity-80">
-                                <RichText content={item.text} accentColor={settings?.accentColor} />
+                            <div key={idx} className="relative group mb-4 opacity-80">
+                                <Editable text={item.text} path={`who.shapesMe.content.${idx}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                <ListControls
+                                    onRemove={() => removeItem('who.shapesMe.content', idx)}
+                                    className="absolute -left-10 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                />
                             </div>
                         ))}
+                        {isEditMode && (
+                            <button
+                                onClick={() => addItem('who.shapesMe.content', { text: "New content item..." })}
+                                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-500 hover:text-blue-600 transition-colors mb-6"
+                            >
+                                <Plus className="w-3.5 h-3.5" /> Add Item
+                            </button>
+                        )}
                         <blockquote className="border-l-4 pl-6 py-4 mt-8 italic bg-black/5 dark:bg-white/[0.06] rounded-r-lg" style={{ borderColor: settings?.accentColor }}>
-                            <p className="opacity-90">{data.shapesMe.quote}</p>
-                            <footer className="text-sm font-semibold mt-2 opacity-60">{data.shapesMe.quoteRef}</footer>
+                            <p className="opacity-90">
+                                <Editable text={data.shapesMe.quote} path="who.shapesMe.quote" multiline />
+                            </p>
+                            <footer className="text-sm font-semibold mt-2 opacity-60">
+                                <Editable text={data.shapesMe.quoteRef} path="who.shapesMe.quoteRef" />
+                            </footer>
                         </blockquote>
                         {data.shapesMe.closing && (
                             <div className="mt-8 opacity-70 text-[16px]">
-                                <RichText content={data.shapesMe.closing} accentColor={settings?.accentColor} />
+                                <Editable text={data.shapesMe.closing} path="who.shapesMe.closing" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
                             </div>
                         )}
                     </div>
                 </div>
             )}
 
-            <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center w-fit mt-6 cursor-pointer"
-            >
-                {isExpanded ? "Read Less" : "Read More"}
-            </button>
+            {!isEditMode && data.bio.length > 4 && (
+                <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center w-fit mt-6 cursor-pointer"
+                >
+                    {isExpanded ? "Read Less" : "Read More"}
+                </button>
+            )}
         </div>
     );
 };
 
-export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: string) => void }> = ({ data, settings, onNavigate }) => (
-    <div className="space-y-12 text-lg max-w-3xl">
-        <div className="text-xl font-light mb-8 opacity-100">
-            <RichText content={data.description} accentColor={settings?.accentColor} />
+export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: string) => void }> = ({ data, settings, onNavigate }) => {
+    const { addItem, removeItem, isEditMode } = useEditor();
+
+    return (
+        <div className="space-y-12 text-lg max-w-3xl">
+            <div className="text-xl font-light mb-8 opacity-100">
+                <Editable text={data.description} path="build.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
+            <div className="grid gap-6">
+                {data.projects.map((proj, idx) => {
+                    const isStudio = proj.title === 'Tomi Abe Studio';
+                    return (
+                        <div key={proj.id} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer" onClick={isStudio ? (e) => { e.preventDefault(); onNavigate('/studio'); } : (e) => { e.preventDefault(); !isEditMode && window.open(proj.linkUrl, '_blank'); }}>
+                            <div className="flex justify-between items-start mb-4">
+                                <h3 className="text-2xl font-bold mb-3 transition-colors" style={{ '--hover-color': settings?.accentColor } as React.CSSProperties}>
+                                    <span className="group-hover:text-[var(--hover-color)] transition-colors">
+                                        <Editable text={proj.title} path={`build.projects.${idx}.title`} />
+                                    </span>
+                                </h3>
+                                <div className="flex items-center gap-4">
+                                    <ListControls
+                                        onRemove={() => removeItem('build.projects', idx)}
+                                    />
+                                    {isStudio ? <ArrowRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" /> : <ArrowUpRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" />}
+                                </div>
+                            </div>
+                            <div className="opacity-80 leading-relaxed mb-4">
+                                <Editable text={proj.description} path={`build.projects.${idx}.description`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                            </div>
+                            <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
+                                <Editable text={proj.linkText} path={`build.projects.${idx}.linkText`} />
+                            </div>
+                            {/* Hidden editable URL */}
+                            <div className={isEditMode ? "block mt-4 pt-4 border-t border-black/5 dark:border-white/5" : "hidden"}>
+                                <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-1">Project Link URL</p>
+                                <Editable text={proj.linkUrl} path={`build.projects.${idx}.linkUrl`} className="text-xs opacity-60 break-all" />
+                            </div>
+                        </div>
+                    )
+                })}
+
+                {isEditMode && (
+                    <button
+                        onClick={() => addItem('build.projects', {
+                            id: Date.now().toString(),
+                            title: "New Project",
+                            description: "Tell the story of this project...",
+                            linkText: "View Project",
+                            linkUrl: "https://example.com"
+                        })}
+                        className="w-full py-8 border-2 border-dashed border-black/10 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                        <Plus className="w-8 h-8" />
+                        <span className="font-bold uppercase tracking-widest text-xs">Add New Project</span>
+                    </button>
+                )}
+            </div>
+            <div className="opacity-50 text-[16px] !mt-8">
+                <Editable text={data.footer} path="build.footer" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
         </div>
-        <div className="grid gap-6">
-            {data.projects.map((proj) => {
-                const isStudio = proj.title === 'Tomi Abe Studio';
-                return (
-                    <a key={proj.id} href={proj.linkUrl} target={isStudio ? undefined : "_blank"} rel={isStudio ? undefined : "noopener noreferrer"} onClick={isStudio ? (e) => { e.preventDefault(); onNavigate('/studio'); } : undefined} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer">
+    );
+};
+
+export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, settings }) => {
+    const { addItem, removeItem, isEditMode } = useEditor();
+
+    return (
+        <div className="space-y-8 max-w-3xl">
+            <div className="text-xl font-light mb-8 opacity-100">
+                <Editable text={data.description} path="learning.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
+            <div className="grid gap-6">
+                {data.publications.map((pub, idx) => (
+                    <div key={pub.id} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 cursor-pointer" onClick={() => !isEditMode && window.open(pub.linkUrl, '_blank')}>
                         <div className="flex justify-between items-start mb-4">
-                            <h3 className="text-2xl font-bold mb-3 transition-colors" style={{ '--hover-color': settings?.accentColor } as React.CSSProperties}>
-                                <span className="group-hover:text-[var(--hover-color)] transition-colors">{proj.title}</span>
-                            </h3>
-                            {isStudio ? <ArrowRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" /> : <ArrowUpRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" />}
+                            <div>
+                                <h3 className="text-xl font-bold mb-1 transition-colors" style={{ '--hover-color': settings?.accentColor } as React.CSSProperties}>
+                                    <span className="group-hover:text-[var(--hover-color)] transition-colors">
+                                        <Editable text={pub.title} path={`learning.publications.${idx}.title`} />
+                                    </span>
+                                </h3>
+                                <p className="opacity-50 text-xs font-bold uppercase tracking-wider">
+                                    <Editable text={pub.category} path={`learning.publications.${idx}.category`} />
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <ListControls onRemove={() => removeItem('learning.publications', idx)} />
+                                <ArrowUpRight className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            </div>
                         </div>
-                        <div className="opacity-80 leading-relaxed mb-4">
-                            <RichText content={proj.description} accentColor={settings?.accentColor} />
+                        <div className="opacity-80 mb-4 text-base">
+                            <Editable text={pub.description} path={`learning.publications.${idx}.description`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
                         </div>
-                        <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>{proj.linkText}</div>
-                    </a>
-                )
-            })}
-        </div>
-        <div className="opacity-50 text-[16px] !mt-8"><RichText content={data.footer} accentColor={settings?.accentColor} /></div>
-    </div>
-);
-
-export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data, settings }) => (
-    <div className="space-y-8 max-w-3xl">
-        <div className="text-xl font-light mb-8 opacity-100"><RichText content={data.description} accentColor={settings?.accentColor} /></div>
-        <div className="grid gap-6">
-            {data.publications.map((pub) => (
-                <a key={pub.id} href={pub.linkUrl} target="_blank" rel="noopener noreferrer" className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20">
-                    <div className="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 className="text-xl font-bold mb-1 transition-colors" style={{ '--hover-color': settings?.accentColor } as React.CSSProperties}>
-                                <span className="group-hover:text-[var(--hover-color)] transition-colors">{pub.title}</span>
-                            </h3>
-                            <p className="opacity-50 text-xs font-bold uppercase tracking-wider">{pub.category}</p>
+                        <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
+                            <Editable text={pub.linkText} path={`learning.publications.${idx}.linkText`} />
                         </div>
-                        <ArrowUpRight className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                        {isEditMode && (
+                            <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/5">
+                                <p className="text-[10px] uppercase tracking-widest opacity-40 font-bold mb-1">Link URL</p>
+                                <Editable text={pub.linkUrl} path={`learning.publications.${idx}.linkUrl`} className="text-xs opacity-60 break-all" />
+                            </div>
+                        )}
                     </div>
-                    <div className="opacity-80 mb-4 text-base"><RichText content={pub.description} accentColor={settings?.accentColor} /></div>
-                    <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>{pub.linkText}</div>
-                </a>
-            ))}
-        </div>
-        <div className="mt-8 pt-8 border-t border-black/10 dark:border-white/10">
-            <h3 className="text-lg font-bold mb-2 opacity-100">{data.notesTitle}</h3>
-            <div className="opacity-70 mb-6"><RichText content={data.notesDescription} accentColor={settings?.accentColor} /></div>
-            <div className="flex flex-wrap gap-3">
-                {data.notesLinks.map((link, idx) => (
-                    <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center">{link.label}</a>
                 ))}
+                {isEditMode && (
+                    <button
+                        onClick={() => addItem('learning.publications', {
+                            id: Date.now().toString(),
+                            title: "New Publication",
+                            category: "Article",
+                            description: "Content description...",
+                            linkText: "Read More",
+                            linkUrl: "https://example.com"
+                        })}
+                        className="w-full py-8 border-2 border-dashed border-black/10 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                        <Plus className="w-8 h-8" />
+                        <span className="font-bold uppercase tracking-widest text-xs">Add Publication</span>
+                    </button>
+                )}
             </div>
-        </div>
-    </div>
-);
-
-export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings }) => (
-    <div className="space-y-12 max-w-3xl">
-        <div className="text-xl font-light opacity-100"><RichText content={data.description} accentColor={settings?.accentColor} /></div>
-        <div className="grid md:grid-cols-2 gap-8">
-            <div>
-                <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Highlights</h3>
-                <ul className="space-y-4">
-                    {data.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start opacity-90 group relative text-sm sm:text-base">
-                            <span className="mr-3 mt-[0.65em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
-                            <div className="leading-relaxed w-full"><RichText content={item.text} accentColor={settings?.accentColor} /></div>
-                        </li>
+            <div className="mt-8 pt-8 border-t border-black/10 dark:border-white/10">
+                <h3 className="text-lg font-bold mb-2 opacity-100">
+                    <Editable text={data.notesTitle} path="learning.notesTitle" />
+                </h3>
+                <div className="opacity-70 mb-6">
+                    <Editable text={data.notesDescription} path="learning.notesDescription" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                </div>
+                <div className="flex flex-wrap gap-3">
+                    {data.notesLinks.map((link, idx) => (
+                        <div key={idx} className="relative group px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center cursor-pointer gap-2">
+                            <Editable text={link.label} path={`learning.notesLinks.${idx}.label`} />
+                            <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            {isEditMode && (
+                                <div className="ml-2 pl-2 border-l border-black/10 dark:border-white/10">
+                                    <ListControls onRemove={() => removeItem('learning.notesLinks', idx)} />
+                                </div>
+                            )}
+                        </div>
                     ))}
-                </ul>
-            </div>
-            <div>
-                <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">{data.mentorshipTitle}</h3>
-                <div className="bg-black/5 dark:bg-white/[0.06] p-6 rounded-xl border border-black/5 dark:border-white/10">
-                    <div className="opacity-90 leading-relaxed text-sm –base"><RichText content={data.mentorshipContent} accentColor={settings?.accentColor} /></div>
+                    {isEditMode && (
+                        <button
+                            onClick={() => addItem('learning.notesLinks', { label: "New Link", url: "#" })}
+                            className="px-4 py-2 rounded-full border-2 border-dashed border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
+                        >
+                            + Add Link
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
-        <div>
-            <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Topics I Explore</h3>
-            <div className="grid sm:grid-cols-2 gap-4">
-                {data.topics.map((t, i) => (
-                    <div key={i} className="flex items-start opacity-90 relative group">
-                        {/* Alignment fix: Chevron aligned to the top of the text line */}
-                        <ChevronRight className="w-4 h-4 mr-2 mt-1 opacity-40 flex-shrink-0" />
-                        <span className="w-full text-sm font-medium leading-relaxed">{t.text}</span>
+    );
+};
+
+export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, settings }) => {
+    const { addItem, removeItem, isEditMode } = useEditor();
+
+    return (
+        <div className="space-y-12 max-w-3xl">
+            <div className="text-xl font-light opacity-100">
+                <Editable text={data.description} path="share.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Highlights</h3>
+                    <ul className="space-y-4">
+                        {data.highlights.map((item, i) => (
+                            <li key={i} className="flex items-start opacity-90 group relative text-sm sm:text-base">
+                                <span className="mr-3 mt-[0.65em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
+                                <div className="leading-relaxed w-full">
+                                    <Editable text={item.text} path={`share.highlights.${i}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                </div>
+                                <ListControls
+                                    onRemove={() => removeItem('share.highlights', i)}
+                                    className="absolute -right-8 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                    {isEditMode && (
+                        <button
+                            onClick={() => addItem('share.highlights', { text: "New highlight item..." })}
+                            className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-blue-500 hover:text-blue-600 transition-colors"
+                        >
+                            <Plus className="w-3 h-3" /> Add Highlight
+                        </button>
+                    )}
+                </div>
+                <div>
+                    <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">
+                        <Editable text={data.mentorshipTitle} path="share.mentorshipTitle" />
+                    </h3>
+                    <div className="bg-black/5 dark:bg-white/[0.06] p-6 rounded-xl border border-black/5 dark:border-white/10">
+                        <div className="opacity-90 leading-relaxed text-sm –base">
+                            <Editable text={data.mentorshipContent} path="share.mentorshipContent" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                        </div>
                     </div>
-                ))}
+                </div>
+            </div>
+            <div>
+                <h3 className="text-xs font-bold opacity-50 uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Topics I Explore</h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                    {data.topics.map((t, i) => (
+                        <div key={i} className="flex items-start opacity-90 relative group">
+                            <ChevronRight className="w-4 h-4 mr-2 mt-1 opacity-40 flex-shrink-0" />
+                            <span className="w-full text-sm font-medium leading-relaxed">
+                                <Editable text={t.text} path={`share.topics.${i}.text`} />
+                            </span>
+                            <ListControls
+                                onRemove={() => removeItem('share.topics', i)}
+                                className="absolute -left-8 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                            />
+                        </div>
+                    ))}
+                    {isEditMode && (
+                        <button
+                            onClick={() => addItem('share.topics', { text: "New topic..." })}
+                            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-blue-500 hover:text-blue-600 transition-colors"
+                        >
+                            <Plus className="w-3 h-3" /> Add Topic
+                        </button>
+                    )}
+                </div>
+            </div>
+            <div className="bg-black/5 dark:bg-white/[0.06] p-8 rounded-xl text-center border border-black/5 dark:border-white/10">
+                <p className="text-lg mb-2 font-medium opacity-100">
+                    <Editable text={data.collabTitle} path="share.collabTitle" />
+                </p>
+                <div className="opacity-70 mb-6 text-sm">
+                    <Editable text={data.collabDescription} path="share.collabDescription" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    {data.buttons.map((btn, idx) => (
+                        <div key={idx} className="relative group">
+                            <div style={btn.primary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined} className={`${!btn.primary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px] cursor-pointer`}>
+                                <Editable text={btn.label} path={`share.buttons.${idx}.label`} />
+                                {isEditMode && <ListControls onRemove={() => removeItem('share.buttons', idx)} className="ml-2" />}
+                            </div>
+                        </div>
+                    ))}
+                    {isEditMode && (
+                        <button
+                            onClick={() => addItem('share.buttons', { label: "New Button", url: "#", primary: false })}
+                            className="px-6 h-11 border-2 border-dashed border-black/10 dark:border-white/10 rounded-lg text-xs font-bold uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
+                        >
+                            + Add Button
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
-        <div className="bg-black/5 dark:bg-white/[0.06] p-8 rounded-xl text-center border border-black/5 dark:border-white/10">
-            <p className="text-lg mb-2 font-medium opacity-100">{data.collabTitle}</p>
-            <div className="opacity-70 mb-6 text-sm"><RichText content={data.collabDescription} accentColor={settings?.accentColor} /></div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                {data.buttons.map((btn, idx) => (
-                    <a key={idx} href={btn.url} target="_blank" rel="noopener noreferrer" style={btn.primary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined} className={`${!btn.primary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px]`}>{btn.label}</a>
-                ))}
-            </div>
-        </div>
-    </div>
-);
+    );
+};
 
 export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings }) => {
+    const { isEditMode, addItem, removeItem } = useEditor();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const handlePrev = (e: React.MouseEvent | KeyboardEvent) => { e.stopPropagation(); setSelectedIndex(prev => prev !== null ? (prev - 1 + data.images.length) % data.images.length : null); };
     const handleNext = (e: React.MouseEvent | KeyboardEvent) => { e.stopPropagation(); setSelectedIndex(prev => prev !== null ? (prev + 1) % data.images.length : null); };
@@ -242,22 +427,47 @@ export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings
     }, [selectedIndex, data.images.length]);
     return (
         <div className="space-y-8 max-w-4xl">
-            <div className="text-xl font-light w-full opacity-90"><RichText content={data.description} accentColor={settings?.accentColor} /></div>
+            <div className="text-xl font-light w-full opacity-90">
+                <Editable text={data.description} path="see.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {data.images.map((img, index) => (
-                    <div key={img.id} onClick={() => setSelectedIndex(index)} className="aspect-square bg-black/10 dark:bg-white/10 rounded-lg overflow-hidden relative group cursor-pointer">
-                        <img src={img.image} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none" />
+                    <div key={img.id} onClick={() => !isEditMode && setSelectedIndex(index)} className="aspect-square bg-black/10 dark:bg-white/10 rounded-lg overflow-hidden relative group cursor-pointer">
+                        <EditableImage src={img.image} path={`see.images.${index}.image`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
+                        <ListControls
+                            onRemove={() => removeItem('see.images', index)}
+                            className="absolute top-2 right-2 z-30 opacity-0 group-hover:opacity-100 transition-opacity"
+                        />
                     </div>
                 ))}
+                {isEditMode && (
+                    <button
+                        onClick={() => addItem('see.images', { id: Date.now().toString(), image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1000&auto=format&fit=crop" })}
+                        className="aspect-square border-2 border-dashed border-black/10 dark:border-white/10 rounded-lg flex flex-col items-center justify-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                        <Plus className="w-8 h-8" />
+                        <span className="text-[10px] font-bold uppercase tracking-widest">Add Image</span>
+                    </button>
+                )}
             </div>
             <div className="flex flex-wrap gap-6 pt-4">
                 {data.links.map((link, idx) => (
-                    <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center opacity-60 hover:opacity-100 transition-opacity text-sm font-medium">
-                        <span className="border-b border-black/20 dark:border-white/20 pb-0.5">{link.label}</span>
+                    <div key={idx} className="flex items-center group opacity-60 hover:opacity-100 transition-opacity text-sm font-medium cursor-pointer">
+                        <span className="border-b border-black/20 dark:border-white/20 pb-0.5">
+                            <Editable text={link.label} path={`see.links.${idx}.label`} />
+                        </span>
+                        <ListControls onRemove={() => removeItem('see.links', idx)} className="ml-2 pr-2" />
                         <ArrowTopRightOnSquare className="w-4 h-4 ml-2" />
-                    </a>
+                    </div>
                 ))}
+                {isEditMode && (
+                    <button
+                        onClick={() => addItem('see.links', { label: "New Link", url: "#" })}
+                        className="px-4 py-1.5 border-2 border-dashed border-black/10 dark:border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                        + Add Link
+                    </button>
+                )}
             </div>
             {selectedIndex !== null && createPortal(
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-fadeIn" onClick={() => setSelectedIndex(null)}>
@@ -271,21 +481,54 @@ export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings
     );
 };
 
-export const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, settings }) => (
-    <div className="py-4 w-full max-w-5xl">
-        <h2 className="text-3xl font-bold mb-6 opacity-100">{data.title}</h2>
-        <div className="text-xl mb-10 w-full opacity-70"><RichText content={data.description} accentColor={settings?.accentColor} /></div>
-        {data.bookingLink && <a href={data.bookingLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0">Book a Conversation</a>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {data.links.map((link) => (
-                <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20">
-                    <div className="flex flex-col w-full mr-2">
-                        <div className="flex items-center gap-2">{getIcon(link.platform, "w-4 h-4 opacity-50")}<span className="font-semibold text-sm">{link.label || link.platform}</span></div>
-                        <span className="text-xs opacity-50 mt-1">{link.sublabel || ''}</span>
+export const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, settings }) => {
+    const { isEditMode, addItem, removeItem } = useEditor();
+
+    return (
+        <div className="py-4 w-full max-w-5xl">
+            <h2 className="text-3xl font-bold mb-6 opacity-100">
+                <Editable text={data.title} path="connect.title" />
+            </h2>
+            <div className="text-xl mb-10 w-full opacity-70">
+                <Editable text={data.description} path="connect.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+            </div>
+            {data.bookingLink && <div onClick={() => !isEditMode && window.open(data.bookingLink, '_blank')} className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0 cursor-pointer">Book a Conversation</div>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {data.links.map((link, idx) => (
+                    <div key={link.id} onClick={() => !isEditMode && window.open(link.url, '_blank')} className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20 cursor-pointer">
+                        <div className="flex flex-col w-full mr-2">
+                            <div className="flex items-center gap-2">
+                                {getIcon(link.platform, "w-4 h-4 opacity-50")}
+                                <span className="font-semibold text-sm">
+                                    <Editable text={link.label || link.platform} path={`connect.links.${idx}.label`} />
+                                </span>
+                            </div>
+                            <span className="text-xs opacity-50 mt-1">
+                                <Editable text={link.sublabel || ''} path={`connect.links.${idx}.sublabel`} />
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <ListControls onRemove={() => removeItem('connect.links', idx)} />
+                            <ArrowTopRightOnSquare className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
+                        </div>
                     </div>
-                    <ArrowTopRightOnSquare className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
-                </a>
-            ))}
+                ))}
+                {isEditMode && (
+                    <button
+                        onClick={() => addItem('connect.links', {
+                            id: Date.now().toString(),
+                            platform: "envelope",
+                            label: "New Contact",
+                            sublabel: "hello@example.com",
+                            url: "mailto:hello@example.com"
+                        })}
+                        className="p-4 border-2 border-dashed border-black/10 dark:border-white/10 rounded-xl flex flex-col items-center justify-center gap-1 opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                        <Plus className="w-6 h-6" />
+                        <span className="text-xs font-bold uppercase tracking-widest">Add Link</span>
+                    </button>
+                )}
+            </div>
         </div>
-    </div>
-);
+    );
+};

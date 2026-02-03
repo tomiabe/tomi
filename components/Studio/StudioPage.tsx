@@ -9,8 +9,9 @@ import SelectedWork from './components/SelectedWork';
 import About from './components/About';
 import Contact from './components/Contact';
 import StudioInteractiveBackground from './components/StudioInteractiveBackground';
-import { Theme, SiteContent } from './types';
-import { contentData } from '../../content/studio_data_new';
+import { Theme } from './types';
+import { StudioContent } from '../../types';
+import { useEditor } from '../Editor/EditorContext';
 
 // We ignore props passed from App.tsx as we use our own data/settings
 interface StudioPageProps {
@@ -20,9 +21,11 @@ interface StudioPageProps {
 }
 
 const StudioPage: React.FC<StudioPageProps> = () => {
+   const { studioContent } = useEditor();
    const [theme, setTheme] = useState<Theme>(Theme.DARK);
    const [isManual, setIsManual] = useState(false);
-   const [content] = useState<SiteContent>(contentData as unknown as SiteContent);
+
+   const content = studioContent as StudioContent;
 
    // Auto theme logic: 7pm (19) to 7am (7) is dark
    useEffect(() => {
@@ -54,8 +57,10 @@ const StudioPage: React.FC<StudioPageProps> = () => {
 
    const toggleTheme = () => {
       setIsManual(true);
-      setTheme(prev => prev === Theme.DARK ? Theme.LIGHT : Theme.DARK);
+      setTheme((prev: Theme) => prev === Theme.DARK ? Theme.LIGHT : Theme.DARK);
    };
+
+   if (!content) return <div className="min-h-screen bg-black" />;
 
    return (
       <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-500 font-sans">

@@ -22,7 +22,8 @@ import {
     Box,
     Share2,
     Database,
-    Search
+    Search,
+    Plus
 } from 'lucide-react';
 
 export {
@@ -49,5 +50,6 @@ export {
     Box,
     Share2,
     Database,
-    Search
+    Search,
+    Plus
 };

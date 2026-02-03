@@ -14,6 +14,8 @@ import {
 } from '../../components/Icons';
 import { IntroText, Who, Build, Learning, Share, See, Connect } from './components/HomeSections';
 import { SiteContent, SocialPlatform } from '../../types';
+import { Editable } from '../Editor/Editable';
+import { EditableImage } from '../Editor/EditableImage';
 
 type SectionId = 'intro' | 'who' | 'build' | 'learning' | 'share' | 'see' | 'connect';
 
@@ -58,17 +60,6 @@ const Clock = () => {
     );
 };
 
-const Avatar = ({ src, linkToHome }: { src: string; linkToHome?: boolean }) => {
-    const content = (
-        <div className="w-24 h-24 sm:w-32 sm:h-32 relative group transition-transform duration-500 hover:scale-105">
-            <div className="absolute inset-4 rounded-full shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(255,255,255,0.03)] opacity-40 transition-opacity duration-500" />
-            <div className="w-full h-full rounded-full bg-black/5 dark:bg-white/10 overflow-hidden border-2 border-black/10 dark:border-white/10 relative z-10">
-                <img src={src} alt="Profile" className="w-full h-full object-cover select-none pointer-events-none" />
-            </div>
-        </div>
-    );
-    return linkToHome ? <a href="/" className="block w-fit" title="Refresh Page">{content}</a> : <div className="w-fit">{content}</div>;
-};
 
 const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSettings }) => {
     const navigate = useNavigate();
@@ -107,7 +98,11 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                 <aside className="lg:w-1/3 xl:w-1/4 lg:h-screen lg:sticky lg:top-0 py-6 lg:py-12 px-2 flex flex-col justify-between overflow-y-auto no-scrollbar gap-12">
                     <div>
                         <div className="flex items-center justify-between mb-6 lg:mb-8">
-                            <Avatar src={content.intro.avatar} linkToHome={content.intro.avatarLinkToHome} />
+                            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-black/10 dark:border-white/10 transition-transform duration-500 hover:scale-105 group/avatar">
+                                <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/'; }} className="block w-full h-full">
+                                    <EditableImage src={content.intro.avatar} path="intro.avatar" className="w-full h-full object-cover" />
+                                </a>
+                            </div>
                             <div className="flex gap-2 lg:hidden">
                                 <button onClick={openSettings} className="p-2 rounded-full opacity-60 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all">
                                     <Swatch className="w-5 h-5" />
@@ -117,8 +112,12 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                                 </button>
                             </div>
                         </div>
-                        <h1 className="text-3xl font-bold tracking-tight mb-2 opacity-100">{content.intro.name}</h1>
-                        <p className="text-sm font-medium tracking-widest opacity-60 uppercase mb-4">{content.intro.subtitle}</p>
+                        <h1 className="text-3xl font-bold tracking-tight mb-2 opacity-100">
+                            <Editable text={content.intro.name} path="intro.name" />
+                        </h1>
+                        <p className="text-sm font-medium tracking-widest opacity-60 uppercase mb-4">
+                            <Editable text={content.intro.subtitle} path="intro.subtitle" />
+                        </p>
                         <div className="lg:hidden mb-2 space-y-4">
                             <div className="flex gap-4">
                                 {content.intro.socials.map((link) => (

@@ -29,7 +29,7 @@ export interface Project {
   linkText: string;
   linkUrl: string;
   // Studio specific fields
-  category?: string; 
+  category?: string;
   logoUrl?: string; // Replaced initials with image URL
   tags?: string[];
 }
@@ -70,10 +70,10 @@ export interface SiteContent {
     socials: SocialLink[]; // Sidebar Socials
   };
   who: {
-    bio: { text: string }[]; 
+    bio: { text: string }[];
     shapesMe: {
       title: string;
-      content: { text: string }[]; 
+      content: { text: string }[];
       quote: string;
       quoteRef: string;
       closing?: string; // Added closing statement
@@ -116,57 +116,91 @@ export interface SiteContent {
 
 // --- Studio Specific Types ---
 
-export interface StudioContent {
-  hero: {
-    headline: string;
-    subheadline: string;
-    description: string;
-    ctaPrimary: string;
-    ctaSecondary: string;
-  };
-  problem: {
+export interface StudioHero {
+  title: string;
+  subtitle: string;
+  cta_primary: string;
+  cta_primary_link: string;
+  cta_secondary: string;
+  cta_secondary_link: string;
+  footer_text: string;
+}
+
+export interface StudioProblem {
+  section_title: string;
+  main_heading: string;
+  description: string;
+  items: { title: string; description: string; icon: string }[];
+}
+
+export interface StudioApproach {
+  section_title: string;
+  main_heading: string;
+  intro_text: string;
+  cards: { title: string; description: string; icon: string; color?: string }[];
+  footer_text: string;
+}
+
+export interface StudioServices {
+  section_title: string;
+  description: string;
+  items: { title: string; description: string; list: string[] }[];
+}
+
+export interface StudioWorkModels {
+  section_title: string;
+  models: { title: string; role: string; description: string }[];
+  footer_text: string;
+}
+
+export interface StudioSelectedWork {
+  section_title: string;
+  main_heading: string;
+  tags: string[];
+  projects: {
     title: string;
-    subtitle: string;
-    items: { title: string; description: string }[];
-  };
-  approach: {
-    title: string;
-    subtitle: string;
-    description: string;
-    systems: { title: string; description: string }[];
-  };
-  services: {
-    description: string;
-    items: {
-      title: string;
-      description: string;
-      subItems: string[];
-    }[];
-  };
-  workModels: {
-    items: {
-      title: string;
-      role: string;
-      description: string;
-    }[];
-  };
-  selectedWork: {
-    tags: string[];
-    projects: Project[];
-  };
-  about: {
-    bio: string;
-    description: string;
-    avatar: string;
-    name: string;
-    role: string;
-    mentorshipItems: string[];
-  };
-  contact: {
-    title: string;
-    description: string;
-    email: string;
+    category: string;
     location: string;
-    footerText: string;
-  };
+    description: string;
+    linkText: string;
+    linkUrl: string;
+    imageUrl: string;
+    logoUrl: string;
+  }[];
+  footer_text: string;
+}
+
+export interface StudioAbout {
+  section_title: string;
+  main_heading: string;
+  intro_paragraphs: string[];
+  speaking_title: string;
+  speaking_items: string[];
+  image_url: string;
+  name: string;
+  role: string;
+}
+
+export interface StudioContact {
+  title: string;
+  description: string;
+  button_text: string;
+  booking_link: string;
+  email: string;
+  location: string;
+  socials: { platform: string; url: string }[];
+  footer_copyright: string;
+  footer_tagline: string;
+}
+
+export interface StudioContent {
+  navigation: { label: string; url: string }[];
+  hero: StudioHero;
+  problem: StudioProblem;
+  approach: StudioApproach;
+  services: StudioServices;
+  workModels: StudioWorkModels;
+  selectedWork: StudioSelectedWork;
+  about: StudioAbout;
+  contact: StudioContact;
 }
