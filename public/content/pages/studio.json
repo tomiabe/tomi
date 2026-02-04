@@ -1,7 +1,7 @@
 {
   "contact": {
     "booking_link": "https://cal.com/tomiabe/discovery",
-    "footer_copyright": "© 2025 Tomi Abe Studio. All rights reserved.",
+    "footer_copyright": "\u00a9 2025 Tomi Abe Studio. All rights reserved.",
     "socials": [
       {
         "platform": "Linkedin",
@@ -63,7 +63,7 @@
         "title": "WeCollect",
         "category": "Brand & Digital Transformation",
         "location": "Data Infrastructure Company, Africa",
-        "description": "Led brand and digital transformation aligning identity with business goals across Africa’s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
+        "description": "Led brand and digital transformation aligning identity with business goals across Africa\u2019s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
         "linkText": "View WeCollect",
         "linkUrl": "https://wecollect.tech",
         "imageUrl": "/images/wecollect-cover.jpg",
@@ -126,25 +126,10 @@
     "section_title": "About Tomi",
     "main_heading": "Jesutomilayo (Tomi) Abe is a Strategic Creative and Digital Leader with over a decade of experience working at the intersection of design, technology, media, and research.",
     "intro_paragraphs": [
-      "My work explores how systems shape human experience",
-      "whether that's a data dashboard",
-      "a digital product",
-      "or a narrative platform.  Through Tomi Abe Studio",
-      "I partner with early-stage ventures",
-      "growth-stage companies",
-      "and established institutions",
-      "translating strategy into tangible",
-      "scalable outcomes across brand",
-      "product",
-      "data",
-      "and media systems.  I also co-lead Susbridge and co-publish Susinsight",
-      "where our work centers on making sustainability knowledge accessible",
-      "contextual",
-      "and actionable within African contexts.  My experience spans YC-backed startups",
-      "Fortune 500 ecosystems",
-      "and impact-driven organizations across in-house",
-      "agency",
-      "and consulting contexts."
+      "My work explores how systems shape human experience, whether that's a data dashboard, a digital product, or a narrative platform.",
+      "Through Tomi Abe Studio, I partner with early-stage ventures, growth-stage companies, and established institutions to translate strategy into tangible, scalable outcomes across brand, product, data, and media systems.",
+      "I also co-lead Susbridge and co-publish Susinsight, where our work centers on making sustainability knowledge accessible, contextual, and actionable within African contexts.",
+      "My experience spans YC-backed startups, Fortune 500 ecosystems, and impact-driven organizations across in-house, agency, and consulting contexts."
     ],
     "speaking_title": "Speaking, Training & Mentorship",
     "speaking_items": [
@@ -208,7 +193,7 @@
         "description": "Embedded execution on product, data, or media initiatives where depth and speed matter."
       }
     ],
-    "footer_text": "Each model is scoped intentionally—no unnecessary layers, no inflated teams."
+    "footer_text": "Each model is scoped intentionally\u2014no unnecessary layers, no inflated teams."
   },
   "services": {
     "section_title": "What I Help Design",
@@ -255,7 +240,7 @@
       },
       {
         "title": "Dense Information",
-        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it’s meant to serve.",
+        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it\u2019s meant to serve.",
         "icon": "Box"
       },
       {

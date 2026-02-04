@@ -188,7 +188,7 @@ collections:
               {label: "Name", name: "name", widget: "string"},
               {label: "Role", name: "role", widget: "string"},
               {label: "Image", name: "image_url", widget: "image"},
-              {label: "Intro Paragraphs", name: "intro_paragraphs", widget: "list"},
+              {label: "Intro Paragraphs", name: "intro_paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}},
               {label: "Speaking Title", name: "speaking_title", widget: "string"},
               {label: "Speaking Items", name: "speaking_items", widget: "list"}
             ]}
