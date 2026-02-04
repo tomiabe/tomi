@@ -140,7 +140,7 @@ collections:
               {label: "Section Title", name: "section_title", widget: "string"},
               {label: "Main Heading", name: "main_heading", widget: "string"},
               {label: "Intro Text", name: "intro_text", widget: "text"},
-              {label: "Footer Text", name: "footer_text", widget: "string"},
+              {label: "Footer Text", name: "footer_text", widget: "string", required: false},
               {label: "Cards", name: "cards", widget: "list", fields: [
                   {label: "Title", name: "title", widget: "string"},
                   {label: "Description", name: "description", widget: "text"},

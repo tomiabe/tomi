@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { EditorContext } from '../../../components/Editor/EditorContext';
 
 interface PreviewWrapperProps {
@@ -28,9 +29,11 @@ const PreviewWrapper: React.FC<PreviewWrapperProps> = ({ children, data, isStudi
 
     return (
         <EditorContext.Provider value={mockContext}>
-            <div className="dark:bg-black min-h-screen text-white">
-                {children}
-            </div>
+            <MemoryRouter initialEntries={['/']}>
+                <div className="dark:bg-black min-h-screen text-white">
+                    {children}
+                </div>
+            </MemoryRouter>
         </EditorContext.Provider>
     );
 };
