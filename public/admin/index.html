@@ -9,8 +9,24 @@
 </head>
 
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Inject site CSS into CMS preview iframe -->
+  <script>
+    window.CMS_MANUAL_INIT = true;
+
+    // Wait for CMS to load
+    document.addEventListener('DOMContentLoaded', function () {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+      script.onload = function () {
+        // Register preview styles
+        CMS.registerPreviewStyle('/index.css');
+
+        // Initialize CMS
+        CMS.init();
+      };
+      document.body.appendChild(script);
+    });
+  </script>
 </body>
 
 </html>

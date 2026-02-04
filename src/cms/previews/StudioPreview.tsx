@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import StudioPage from '../../../components/Studio/StudioPage';
 import PreviewWrapper from './PreviewWrapper';
 

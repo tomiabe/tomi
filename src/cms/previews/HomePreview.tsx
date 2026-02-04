@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { useMemo } from 'react';
 import HomePage from '../../../components/Home/HomePage';
 import PreviewWrapper from './PreviewWrapper';
 
@@ -23,16 +22,14 @@ const HomePreview = ({ entry }: { entry: any }) => {
 
     return (
         <PreviewWrapper data={safeData}>
-            <BrowserRouter>
-                <div className="bg-white dark:bg-zinc-950 min-h-screen text-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
-                    <HomePage
-                        content={safeData}
-                        theme="dark"
-                        toggleTheme={() => { }}
-                        openSettings={() => { }}
-                    />
-                </div>
-            </BrowserRouter>
+            <div className="bg-white dark:bg-zinc-950 min-h-screen text-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
+                <HomePage
+                    content={safeData}
+                    theme="dark"
+                    toggleTheme={() => { }}
+                    openSettings={() => { }}
+                />
+            </div>
         </PreviewWrapper>
     );
 };
