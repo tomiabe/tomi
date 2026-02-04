@@ -70,26 +70,6 @@
         "logoUrl": "/images/wecollect.jpg"
       },
       {
-        "title": "Zeproc",
-        "category": "Product Experience Design",
-        "location": "B2B Industrial Marketplace, Norway",
-        "description": "Improved core buying workflows in an industrial procurement platform. Conducted user research and translated insights into design refinements that increased usability and buyer confidence.",
-        "linkText": "View Zeproc",
-        "linkUrl": "https://zeproc.com",
-        "imageUrl": "/images/Zeproc Cover.jpg",
-        "logoUrl": "/images/zeproc.jpg"
-      },
-      {
-        "title": "Fairbnb",
-        "category": "Brand & Product Strategy",
-        "location": "Sustainable Travel Marketplace, Italy",
-        "description": "Redefined brand verbal identity and designed user-centered improvements to the booking experience. Co-shaped the fairUP platform for responsible travel experiences.",
-        "linkText": "View Fairbnb",
-        "linkUrl": "https://fairup.com",
-        "imageUrl": "/images/fairUP Cover.jpg",
-        "logoUrl": "/images/fairbnb.jpg"
-      },
-      {
         "title": "Susinsight",
         "category": "Co-Publisher & Platform Lead",
         "location": "Sustainability Media Platform, Africa",
@@ -100,6 +80,16 @@
         "logoUrl": "/images/susinsight.jpg"
       },
       {
+        "title": "Zeproc",
+        "category": "Product Experience Design",
+        "location": "B2B Industrial Marketplace, Norway",
+        "description": "Improved core buying workflows in an industrial procurement platform. Conducted user research and translated insights into design refinements that increased usability and buyer confidence.",
+        "linkText": "View Zeproc",
+        "linkUrl": "https://zeproc.com",
+        "imageUrl": "/images/Zeproc Cover.jpg",
+        "logoUrl": "/images/zeproc.jpg"
+      },
+      {
         "title": "Translayte",
         "category": "Product Growth Strategy",
         "location": "E-Translation Platform, UK",
@@ -108,6 +98,16 @@
         "linkUrl": "https://translayte.com",
         "imageUrl": "/images/Translayte Cover.jpg",
         "logoUrl": "/images/translayte.jpg"
+      },
+      {
+        "title": "Fairbnb",
+        "category": "Brand & Product Strategy",
+        "location": "Sustainable Travel Marketplace, Italy",
+        "description": "Redefined brand verbal identity and designed user-centered improvements to the booking experience. Co-shaped the fairUP platform for responsible travel experiences.",
+        "linkText": "View Fairbnb",
+        "linkUrl": "https://fairup.com",
+        "imageUrl": "/images/fairUP Cover.jpg",
+        "logoUrl": "/images/fairbnb.jpg"
       },
       {
         "title": "Eze",
@@ -123,15 +123,10 @@
     "footer_text": "More work available upon request"
   },
   "about": {
-    "section_title": "About Tomi",
-    "main_heading": "Jesutomilayo (Tomi) Abe is a strategic creative and digital leader working across design, technology, media, and research.",
-    "intro_paragraphs": [
-      "My work explores how systems shape human experience, whether that’s a data dashboard, a digital product, or a narrative platform.",
-      "Through Tomi Abe Studio, I partner with early-stage ventures, growth-stage companies, and established institutions to translate strategy into tangible, scalable outcomes across brand, product, data, and media systems.",
-      "I also co-lead Susbridge and co-publish Susinsight, where our work centers on making sustainability knowledge accessible, contextual, and actionable within African contexts.",
-      "Over the past decade, my work has spanned YC-backed startups, Fortune 500 ecosystems, and impact-driven organizations across in-house, agency, and consulting contexts."
-    ],
+    "speaking_highlights_label": "Highlights include:",
     "speaking_title": "Speaking, Training & Mentorship",
+    "image_url": "/images/tomi_studio_about.jpg",
+    "name": "Tomi Abe",
     "speaking_items": [
       "AI-driven infographic design workshop for African Climate Stories",
       "Ethical AI in HR panelist at FITC E3 Conference",
@@ -139,11 +134,16 @@
       "Business strategy session for creative entrepreneurs at Nairametrics",
       "Mentorship for early-career designers through MentorCruise"
     ],
-    "image_url": "/images/tomi_studio_about.jpg",
-    "name": "Tomi Abe",
     "role": "Principal Consultant",
+    "intro_paragraphs": [
+      "My work explores how systems shape human experience, whether that’s a data dashboard, a digital product, or a narrative platform.",
+      "Through Tomi Abe Studio, I partner with early-stage ventures, growth-stage companies, and established institutions to translate strategy into tangible, scalable outcomes across brand, product, data, and media systems.",
+      "I also co-lead Susbridge and co-publish Susinsight, where our work centers on making sustainability knowledge accessible, contextual, and actionable within African contexts.",
+      "Over the past decade, my work has spanned YC-backed startups, Fortune 500 ecosystems, and impact-driven organizations across in-house, agency, and consulting contexts."
+    ],
+    "main_heading": "Tomi Abe is a strategic creative and digital leader working across design, technology, media, and research.",
     "speaking_intro": "I design and deliver talks and workshops at the intersection of design, innovation, media, and creative entrepreneurship, with a focus on emerging technologies and responsible practice.",
-    "speaking_highlights_label": "Highlights include:"
+    "section_title": "About Tomi"
   },
   "navigation": [
     {
