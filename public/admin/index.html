@@ -18,8 +18,8 @@
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
       script.onload = function () {
-        // Register preview styles
-        CMS.registerPreviewStyle('/index.css');
+        // Register preview styles (Tailwind + typography)
+        CMS.registerPreviewStyle('/admin/preview.css');
 
         // Initialize CMS
         CMS.init();

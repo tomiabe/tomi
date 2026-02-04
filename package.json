@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "cms:styles": "tailwindcss -c tailwind.preview.config.cjs -i ./src/cms/preview.css -o ./public/admin/preview.css",
+    "build": "npm run cms:styles && tsc && vite build",
     "preview": "vite preview",
     "cms": "npx decap-server"
   },
