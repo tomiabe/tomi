@@ -35,7 +35,7 @@ const FONT_OPTIONS = [
 
 const AdminRedirect: React.FC = () => {
   useEffect(() => {
-    window.location.replace('/admin/index.html');
+    window.location.replace('/admin/');
   }, []);
   return null;
 };
