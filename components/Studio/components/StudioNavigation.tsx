@@ -6,9 +6,11 @@ interface NavigationProps {
     theme: Theme;
     toggleTheme: () => void;
     links: NavLink[];
+    activeSection?: string;
+    onNavigate?: (url: string) => void;
 }
 
-const StudioNavigation: React.FC<NavigationProps> = ({ theme, toggleTheme, links }) => {
+const StudioNavigation: React.FC<NavigationProps> = ({ theme, toggleTheme, links, activeSection, onNavigate }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     // Fallback links if none provided
@@ -50,15 +52,25 @@ const StudioNavigation: React.FC<NavigationProps> = ({ theme, toggleTheme, links
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center space-x-8">
-                    {navLinks.map((link, idx) => (
+                    {navLinks.map((link, idx) => {
+                        const isActive = activeSection && link.url?.startsWith('#')
+                            ? link.url.replace('#', '') === activeSection
+                            : false;
+                        return (
                         <a
                             key={idx}
                             href={link.url}
-                            className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+                            onClick={(e) => {
+                                if (link.url?.startsWith('#')) {
+                                    e.preventDefault();
+                                    onNavigate?.(link.url);
+                                }
+                            }}
+                            className={`text-sm font-medium transition-colors ${isActive ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white'}`}
                         >
                             {link.label}
                         </a>
-                    ))}
+                    )})}
                     <button
                         onClick={toggleTheme}
                         className="p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-all"
@@ -91,16 +103,26 @@ const StudioNavigation: React.FC<NavigationProps> = ({ theme, toggleTheme, links
                     }`}
             >
                 <div className="flex flex-col space-y-6">
-                    {navLinks.map((link, idx) => (
+                    {navLinks.map((link, idx) => {
+                        const isActive = activeSection && link.url?.startsWith('#')
+                            ? link.url.replace('#', '') === activeSection
+                            : false;
+                        return (
                         <a
                             key={idx}
                             href={link.url}
-                            onClick={() => setIsOpen(false)}
-                            className="text-2xl font-medium text-gray-900 dark:text-white border-b border-gray-100 dark:border-gray-800 pb-4"
+                            onClick={(e) => {
+                                if (link.url?.startsWith('#')) {
+                                    e.preventDefault();
+                                    onNavigate?.(link.url);
+                                }
+                                setIsOpen(false);
+                            }}
+                            className={`text-2xl font-medium border-b border-gray-100 dark:border-gray-800 pb-4 ${isActive ? 'text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'}`}
                         >
                             {link.label}
                         </a>
-                    ))}
+                    )})}
                 </div>
             </div>
         </nav>

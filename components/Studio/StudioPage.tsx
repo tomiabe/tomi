@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import StudioNavigation from './components/StudioNavigation';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
@@ -24,8 +24,21 @@ const StudioPage: React.FC<StudioPageProps> = (props) => {
    const { studioContent } = useEditor();
    const [theme, setTheme] = useState<Theme>(Theme.DARK);
    const [isManual, setIsManual] = useState(false);
+   const [activeSection, setActiveSection] = useState<string>('approach');
 
    const content = (props.content || studioContent) as StudioContent;
+
+   const navLinks = useMemo(() => {
+      return content?.navigation && content.navigation.length > 0
+         ? content.navigation
+         : [
+            { label: 'Approach', url: '#approach' },
+            { label: 'Services', url: '#services' },
+            { label: 'Work', url: '#work' },
+            { label: 'About', url: '#about' },
+            { label: 'Contact', url: '#contact' }
+         ];
+   }, [content?.navigation]);
 
    // Auto theme logic: 7pm (19) to 7am (7) is dark
    useEffect(() => {
@@ -60,11 +73,61 @@ const StudioPage: React.FC<StudioPageProps> = (props) => {
       setTheme((prev: Theme) => prev === Theme.DARK ? Theme.LIGHT : Theme.DARK);
    };
 
+   useEffect(() => {
+      const ids = navLinks
+         .map((link) => (link.url || '').trim())
+         .filter((url) => url.startsWith('#'))
+         .map((url) => url.replace('#', ''))
+         .filter(Boolean);
+
+      if (ids.length === 0) return;
+
+      const sections = ids
+         .map((id) => document.getElementById(id))
+         .filter((el): el is HTMLElement => Boolean(el));
+
+      if (sections.length === 0) return;
+
+      const observer = new IntersectionObserver(
+         (entries) => {
+            entries.forEach((entry) => {
+               if (entry.isIntersecting) {
+                  setActiveSection(entry.target.id);
+               }
+            });
+         },
+         { rootMargin: '-20% 0px -60% 0px' }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      return () => {
+         sections.forEach((section) => observer.unobserve(section));
+         observer.disconnect();
+      };
+   }, [navLinks]);
+
+   const handleNavigate = (url: string) => {
+      if (!url || !url.startsWith('#')) return;
+      const id = url.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+         el.scrollIntoView({ behavior: 'smooth' });
+         setActiveSection(id);
+      }
+   };
+
    if (!content) return <div className="min-h-screen bg-black" />;
 
    return (
       <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-500 font-sans">
-         <StudioNavigation theme={theme} toggleTheme={toggleTheme} links={content.navigation} />
+         <StudioNavigation
+            theme={theme}
+            toggleTheme={toggleTheme}
+            links={navLinks}
+            activeSection={activeSection}
+            onNavigate={handleNavigate}
+         />
 
          {/* Dynamic Background */}
          <StudioInteractiveBackground theme={theme} />
