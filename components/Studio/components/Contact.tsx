@@ -41,12 +41,23 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                             <Editable text={data.description} path="contact.description" isStudio multiline />
                         </div>
 
-                        <div className="inline-flex items-center justify-center md:justify-start gap-3 bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-gray-200 transition-colors whitespace-nowrap w-full md:w-auto cursor-pointer">
+                        <a
+                            href={data.booking_link || '#'}
+                            target={data.booking_link ? '_blank' : undefined}
+                            rel={data.booking_link ? 'noopener noreferrer' : undefined}
+                            onClick={(e) => {
+                                if (isEditMode || !data.booking_link) {
+                                    e.preventDefault();
+                                }
+                            }}
+                            aria-disabled={!data.booking_link}
+                            className="inline-flex items-center justify-center md:justify-start gap-3 bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-gray-200 transition-colors whitespace-nowrap w-full md:w-auto cursor-pointer"
+                        >
                             <Mail size={20} />
                             <span>
                                 <Editable text={data.button_text} path="contact.button_text" isStudio />
                             </span>
-                        </div>
+                        </a>
                     </div>
 
                     <div className="flex flex-col justify-between space-y-12">
