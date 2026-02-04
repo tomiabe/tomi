@@ -1,61 +1,27 @@
 {
-  "navigation": [
-    {
-      "label": "Approach",
-      "url": "#approach"
-    },
-    {
-      "label": "Services",
-      "url": "#services"
-    },
-    {
-      "label": "Work",
-      "url": "#work"
-    },
-    {
-      "label": "About",
-      "url": "#about"
-    },
-    {
-      "label": "Contact",
-      "url": "#contact"
-    }
-  ],
-  "hero": {
-    "title": "I help organizations turn <span class=\"text-gray-400 dark:text-gray-500\">complexity</span> into <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500\">clarity.</span>",
-    "subtitle": "Tomi Abe Studio is an independent, systems-driven creative and digital practice operating at the intersection of design, technology, media, and research.",
-    "cta_primary": "Start a Conversation",
-    "cta_primary_link": "#contact",
-    "cta_secondary": "View Selected Work",
-    "cta_secondary_link": "#work",
-    "footer_text": "I work with organizations navigating complex challenges—across data, digital products, and cultural systems—translating strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
-  },
-  "problem": {
-    "section_title": "The Problem",
-    "main_heading": "Complex systems are hard to communicate clearly.",
-    "description": "Across my work, I see the same patterns repeatedly. The result is often more content, more tools, or more vendors—without resolving the underlying system.",
-    "items": [
+  "contact": {
+    "booking_link": "https://cal.com/tomiabe/discovery",
+    "footer_copyright": "© 2025 Tomi Abe Studio. All rights reserved.",
+    "socials": [
       {
-        "title": "Fragmented Narratives",
-        "description": "Strategy, data, and brand exist in silos, leading to inconsistent messaging and confused audiences.",
-        "icon": "Layers"
+        "platform": "Linkedin",
+        "url": "#"
       },
       {
-        "title": "Dense Information",
-        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it's meant to serve.",
-        "icon": "Box"
+        "platform": "Twitter",
+        "url": "#"
       },
       {
-        "title": "Digital Products Without Context",
-        "description": "Platforms function technically but fail to reflect cultural nuance, user reality, or long-term adaptability.",
-        "icon": "Maximize2"
-      },
-      {
-        "title": "Scaling Without Clarity",
-        "description": "As organizations grow, meaning erodes across teams, tools, and touchpoints.",
-        "icon": "Minimize2"
+        "platform": "Instagram",
+        "url": "#"
       }
-    ]
+    ],
+    "footer_tagline": "Built for Clarity.",
+    "location": "Lagos, Nigeria",
+    "title": "Let's Work Together",
+    "button_text": "Book a Conversation",
+    "email": "studio@tomiabe.com",
+    "description": "Interested in working together or curious to learn more? Let's turn your complexity into clarity."
   },
   "approach": {
     "section_title": "The Approach",
@@ -81,60 +47,6 @@
         "color": "orange"
       }
     ]
-  },
-  "services": {
-    "section_title": "What I Help Design",
-    "description": "Engagements are tailored based on need and context.",
-    "items": [
-      {
-        "title": "Strategic Clarity",
-        "description": "For organizations defining direction, positioning, or change.",
-        "list": [
-          "Brand & product strategy",
-          "Research synthesis",
-          "Narrative and messaging systems"
-        ]
-      },
-      {
-        "title": "Digital Products & Experiences",
-        "description": "For platforms where people interact with information.",
-        "list": [
-          "Product & experience design",
-          "Data visualization & storytelling",
-          "Dashboard and interface systems"
-        ]
-      },
-      {
-        "title": "Media & Knowledge Ecosystems",
-        "description": "For organizations communicating insight over time.",
-        "list": [
-          "Editorial & media development",
-          "Content systems and publishing frameworks",
-          "Creative technology & experimental formats"
-        ]
-      }
-    ]
-  },
-  "workModels": {
-    "section_title": "How I Work",
-    "models": [
-      {
-        "title": "Consulting Partner",
-        "role": "Strategic Guidance",
-        "description": "Strategic guidance, frameworks, and leadership for teams navigating complexity or change."
-      },
-      {
-        "title": "Creative Collaborator",
-        "role": "Hands-on Design",
-        "description": "Hands-on design and thinking alongside internal teams, agencies, or research groups."
-      },
-      {
-        "title": "Independent Contributor",
-        "role": "Embedded Execution",
-        "description": "Embedded execution on product, data, or media initiatives where depth and speed matter."
-      }
-    ],
-    "footer_text": "Each model is scoped intentionally—no unnecessary layers, no inflated teams."
   },
   "selectedWork": {
     "section_title": "Selected Work",
@@ -230,28 +142,116 @@
     "name": "Tomi Abe",
     "role": "Principal Consultant"
   },
-  "contact": {
-    "title": "Let's Work Together",
-    "description": "Interested in working together or curious to learn more? Let's turn your complexity into clarity.",
-    "button_text": "Book a Conversation",
-    "booking_link": "mailto:studio@tomiabe.com",
-    "email": "studio@tomiabe.com",
-    "location": "Lagos, Nigeria",
-    "socials": [
+  "navigation": [
+    {
+      "label": "Approach",
+      "url": "#approach"
+    },
+    {
+      "label": "Services",
+      "url": "#services"
+    },
+    {
+      "label": "Work",
+      "url": "#work"
+    },
+    {
+      "label": "About",
+      "url": "#about"
+    },
+    {
+      "label": "Contact",
+      "url": "#contact"
+    }
+  ],
+  "hero": {
+    "title": "I help organizations turn <span class=\"text-gray-400 dark:text-gray-500\">complexity</span> into <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500\">clarity.</span>",
+    "subtitle": "Tomi Abe Studio is an independent, systems-driven creative and digital practice operating at the intersection of design, technology, media, and research.",
+    "cta_primary": "Start a Conversation",
+    "cta_primary_link": "#contact",
+    "cta_secondary": "View Selected Work",
+    "cta_secondary_link": "#work",
+    "footer_text": "I work with organizations navigating complex challenges—across data, digital products, and cultural systems—translating strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
+  },
+  "workModels": {
+    "section_title": "How I Work",
+    "models": [
       {
-        "platform": "Linkedin",
-        "url": "#"
+        "title": "Consulting Partner",
+        "role": "Strategic Guidance",
+        "description": "Strategic guidance, frameworks, and leadership for teams navigating complexity or change."
       },
       {
-        "platform": "Twitter",
-        "url": "#"
+        "title": "Creative Collaborator",
+        "role": "Hands-on Design",
+        "description": "Hands-on design and thinking alongside internal teams, agencies, or research groups."
       },
       {
-        "platform": "Instagram",
-        "url": "#"
+        "title": "Independent Contributor",
+        "role": "Embedded Execution",
+        "description": "Embedded execution on product, data, or media initiatives where depth and speed matter."
       }
     ],
-    "footer_copyright": "© 2025 Tomi Abe Studio. All rights reserved.",
-    "footer_tagline": "Built for Clarity."
+    "footer_text": "Each model is scoped intentionally—no unnecessary layers, no inflated teams."
+  },
+  "services": {
+    "section_title": "What I Help Design",
+    "description": "Engagements are tailored based on need and context.",
+    "items": [
+      {
+        "title": "Strategic Clarity",
+        "description": "For organizations defining direction, positioning, or change.",
+        "list": [
+          "Brand & product strategy",
+          "Research synthesis",
+          "Narrative and messaging systems"
+        ]
+      },
+      {
+        "title": "Digital Products & Experiences",
+        "description": "For platforms where people interact with information.",
+        "list": [
+          "Product & experience design",
+          "Data visualization & storytelling",
+          "Dashboard and interface systems"
+        ]
+      },
+      {
+        "title": "Media & Knowledge Ecosystems",
+        "description": "For organizations communicating insight over time.",
+        "list": [
+          "Editorial & media development",
+          "Content systems and publishing frameworks",
+          "Creative technology & experimental formats"
+        ]
+      }
+    ]
+  },
+  "problem": {
+    "section_title": "The Problem",
+    "main_heading": "Complex systems are hard to communicate clearly.",
+    "description": "Across my work, I see the same patterns repeatedly. The result is often more content, more tools, or more vendors—without resolving the underlying system.",
+    "items": [
+      {
+        "title": "Fragmented Narratives",
+        "description": "Strategy, data, and brand exist in silos, leading to inconsistent messaging and confused audiences.",
+        "icon": "Layers"
+      },
+      {
+        "title": "Dense Information",
+        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it's meant to serve.",
+        "icon": "Box"
+      },
+      {
+        "title": "Digital Products Without Context",
+        "description": "Platforms function technically but fail to reflect cultural nuance, user reality, or long-term adaptability.",
+        "icon": "Maximize2"
+      },
+      {
+        "title": "Scaling Without Clarity",
+        "description": "As organizations grow, meaning erodes across teams, tools, and touchpoints.",
+        "icon": "Minimize2"
+      }
+    ]
   }
 }
