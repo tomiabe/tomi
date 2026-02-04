@@ -163,7 +163,7 @@ const App: React.FC = () => {
               <h3 className="text-xs font-bold uppercase tracking-widest opacity-40 mb-6">Typography</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
                 {FONT_OPTIONS.map((f) => (
-                  <button key={f.id} onClick={() => handleFontSelection(f.id)} className={`flex items-center justify-between px-4 py-4 rounded-xl border-2 transition-all ${fontFamily === f.id ? `border-blue-500 bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}>
+                  <button key={f.id} onClick={() => handleFontSelection(f.id)} className={`flex items-center justify-between px-4 py-4 rounded-xl border-2 transition-all text-left ${fontFamily === f.id ? `border-blue-500 bg-black/5 dark:bg-white/5` : 'border-transparent hover:bg-black/5 dark:hover:bg-white/5'}`}>
                     <span className={`text-sm sm:text-base font-medium opacity-90 font-${f.id}`}>{f.label}</span>
                     {fontFamily === f.id && <Check className="w-4 h-4 text-blue-500" />}
                   </button>
