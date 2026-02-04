@@ -26,7 +26,7 @@
   "approach": {
     "section_title": "The Approach",
     "main_heading": "I design clarity at the system level.",
-    "intro_text": "Rather than isolated deliverables, I work across strategy, design, media, and technology to align meaning, structure, and experience.\n\nEach engagement begins with a question—about people, systems, and context—and results in frameworks, platforms, or narratives that can scale beyond the initial output.",
+    "intro_text": "Rather than isolated deliverables, I work across strategy, design, media, and technology to align meaning, structure, and experience.\n\nEach engagement begins with a question, about people, systems, and context, and results in frameworks, platforms, or narratives that can scale beyond the initial output.",
     "cards": [
       {
         "title": "Clarity Framework",
@@ -42,7 +42,7 @@
       },
       {
         "title": "Narrative Infrastructure",
-        "description": "Treats brands, products, and media as living systems—not static artifacts.",
+        "description": "Treats brands, products, and media as living systems, not static artifacts.",
         "icon": "Search",
         "color": "orange"
       }
@@ -62,22 +62,22 @@
       {
         "title": "WeCollect",
         "category": "Brand & Digital Transformation",
-        "location": "Data infrastructure company, Africa",
-        "description": "Led brand and digital transformation aligning identity with business goals across Africa's data ecosystem. Defined refreshed brand narrative, visual system, and UX improvements.",
+        "location": "Data Infrastructure Company, Africa",
+        "description": "Led brand and digital transformation aligning identity with business goals across Africa’s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
         "linkText": "View WeCollect",
-        "linkUrl": "#",
-        "imageUrl": "https://picsum.photos/id/48/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=W"
+        "linkUrl": "https://wecollect.tech",
+        "imageUrl": "/images/wecollect-cover.jpg",
+        "logoUrl": "/images/wecollect.jpg"
       },
       {
         "title": "Zeproc",
         "category": "Product Experience Design",
         "location": "B2B Industrial Marketplace, Norway",
-        "description": "Improved core buying workflows in industrial procurement platform. Conducted user research and translated insights into design refinements that increased usability and buyer satisfaction.",
+        "description": "Improved core buying workflows in an industrial procurement platform. Conducted user research and translated insights into design refinements that increased usability and buyer confidence.",
         "linkText": "View Zeproc",
-        "linkUrl": "#",
+        "linkUrl": "https://zeproc.com",
         "imageUrl": "https://picsum.photos/id/20/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=Z"
+        "logoUrl": "/images/zeproc.jpg"
       },
       {
         "title": "Fairbnb.coop",
@@ -166,12 +166,12 @@
   ],
   "hero": {
     "title": "I help organizations turn <span class=\"text-gray-400 dark:text-gray-500\">complexity</span> into <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500\">clarity.</span>",
-    "subtitle": "Tomi Abe Studio is an independent, systems-driven creative and digital practice operating at the intersection of design, technology, media, and research.",
+    "subtitle": "Tomi Abe Studio is an independent, systems-driven creative and digital practice helping organizations turn complex ideas into clear products, brands, and stories.",
     "cta_primary": "Start a Conversation",
     "cta_primary_link": "#contact",
     "cta_secondary": "View Selected Work",
     "cta_secondary_link": "#work",
-    "footer_text": "I work with organizations navigating complex challenges—across data, digital products, and cultural systems—translating strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
+    "footer_text": "I work with organizations navigating complex challenges, across data, digital products, and cultural systems, often in high-ambiguity, multi-stakeholder environments. I translate strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
   },
   "workModels": {
     "section_title": "How I Work",
@@ -202,27 +202,27 @@
         "title": "Strategic Clarity",
         "description": "For organizations defining direction, positioning, or change.",
         "list": [
-          "Brand & product strategy",
-          "Research synthesis",
-          "Narrative and messaging systems"
+          "Brand & Product strategy",
+          "Research Synthesis",
+          "Narrative & Messaging Systems"
         ]
       },
       {
         "title": "Digital Products & Experiences",
         "description": "For platforms where people interact with information.",
         "list": [
-          "Product & experience design",
-          "Data visualization & storytelling",
-          "Dashboard and interface systems"
+          "Product & Experience design",
+          "Data Visualization & Storytelling",
+          "Dashboard & Interface systems"
         ]
       },
       {
         "title": "Media & Knowledge Ecosystems",
         "description": "For organizations communicating insight over time.",
         "list": [
-          "Editorial & media development",
-          "Content systems and publishing frameworks",
-          "Creative technology & experimental formats"
+          "Editorial & Media Development",
+          "Content Systems & Publishing Frameworks",
+          "Creative Technology & Experimental Formats"
         ]
       }
     ]
@@ -230,7 +230,7 @@
   "problem": {
     "section_title": "The Problem",
     "main_heading": "Complex systems are hard to communicate clearly.",
-    "description": "Across my work, I see the same patterns repeatedly. The result is often more content, more tools, or more vendors—without resolving the underlying system.",
+    "description": "Across my work, I see the same patterns repeatedly. The result is often more content, more tools, or more vendors, without resolving the underlying system.",
     "items": [
       {
         "title": "Fragmented Narratives",
@@ -239,7 +239,7 @@
       },
       {
         "title": "Dense Information",
-        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it's meant to serve.",
+        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it’s meant to serve.",
         "icon": "Box"
       },
       {
