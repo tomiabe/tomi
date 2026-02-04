@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import HomePage from '../../../components/Home/HomePage';
 import PreviewWrapper from './PreviewWrapper';
 
