@@ -71,11 +71,11 @@ const Typewriter = ({ text, children, delay = 0, speed = 40, className = "" }: {
 export const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data, settings }) => (
     <div className="max-w-3xl">
         <h1 className="text-3xl font-bold mb-6 min-h-[40px] sm:min-h-[48px]">
-            <Editable text={data.welcomeText} path="intro.welcomeText" component={(props: any) => <Typewriter {...props} delay={200} />} />
+            <Editable text={data.welcomeText} path="intro.welcomeText" component={Typewriter} extraProps={{ delay: 200 }} />
         </h1>
         <div className="space-y-6 text-xl opacity-80 font-light leading-relaxed">
             <div className="fade-in" style={{ opacity: 0, animationDelay: '1.4s', animationFillMode: 'forwards' }}>
-                <Editable text={data.description} path="intro.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="intro.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ export const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings
         <div className="space-y-6 text-lg leading-relaxed max-w-3xl opacity-90">
             {data.bio.map((item, idx) => (
                 <div key={idx} className={`relative group ${idx === 0 ? "text-xl font-light opacity-100" : "opacity-80"} ${(idx >= 4 && !isExpanded && !isEditMode) ? 'hidden' : ''}`}>
-                    <Editable text={item.text} path={`who.bio.${idx}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                    <Editable text={item.text} path={`who.bio.${idx}.text`} component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                     <ListControls
                         onRemove={() => removeItem('who.bio', idx)}
                         className="absolute -left-10 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -115,7 +115,7 @@ export const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings
                         </h3>
                         {data.shapesMe.content.map((item, idx) => (
                             <div key={idx} className="relative group mb-4 opacity-80">
-                                <Editable text={item.text} path={`who.shapesMe.content.${idx}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                <Editable text={item.text} path={`who.shapesMe.content.${idx}.text`} component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                                 <ListControls
                                     onRemove={() => removeItem('who.shapesMe.content', idx)}
                                     className="absolute -left-10 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -140,7 +140,7 @@ export const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings
                         </blockquote>
                         {data.shapesMe.closing && (
                             <div className="mt-8 opacity-70 text-[16px]">
-                                <Editable text={data.shapesMe.closing} path="who.shapesMe.closing" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                <Editable text={data.shapesMe.closing} path="who.shapesMe.closing" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                             </div>
                         )}
                     </div>
@@ -165,7 +165,7 @@ export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: 
     return (
         <div className="space-y-12 text-lg max-w-3xl">
             <div className="text-xl font-light mb-8 opacity-100">
-                <Editable text={data.description} path="build.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="build.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
             <div className="grid gap-6">
                 {data.projects.map((proj, idx) => {
@@ -186,7 +186,7 @@ export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: 
                                 </div>
                             </div>
                             <div className="opacity-80 leading-relaxed mb-4">
-                                <Editable text={proj.description} path={`build.projects.${idx}.description`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                <Editable text={proj.description} path={`build.projects.${idx}.description`} component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                             </div>
                             <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
                                 <Editable text={proj.linkText} path={`build.projects.${idx}.linkText`} />
@@ -217,7 +217,7 @@ export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: 
                 )}
             </div>
             <div className="opacity-50 text-[16px] !mt-8">
-                <Editable text={data.footer} path="build.footer" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.footer} path="build.footer" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
         </div>
     );
@@ -229,7 +229,7 @@ export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data
     return (
         <div className="space-y-8 max-w-3xl">
             <div className="text-xl font-light mb-8 opacity-100">
-                <Editable text={data.description} path="learning.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="learning.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
             <div className="grid gap-6">
                 {data.publications.map((pub, idx) => (
@@ -251,7 +251,7 @@ export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data
                             </div>
                         </div>
                         <div className="opacity-80 mb-4 text-base">
-                            <Editable text={pub.description} path={`learning.publications.${idx}.description`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                            <Editable text={pub.description} path={`learning.publications.${idx}.description`} component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                         </div>
                         <div className="text-sm font-medium" style={{ color: settings?.accentColor }}>
                             <Editable text={pub.linkText} path={`learning.publications.${idx}.linkText`} />
@@ -286,7 +286,7 @@ export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data
                     <Editable text={data.notesTitle} path="learning.notesTitle" />
                 </h3>
                 <div className="opacity-70 mb-6">
-                    <Editable text={data.notesDescription} path="learning.notesDescription" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                    <Editable text={data.notesDescription} path="learning.notesDescription" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                 </div>
                 <div className="flex flex-wrap gap-3">
                     {data.notesLinks.map((link, idx) => (
@@ -320,7 +320,7 @@ export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, sett
     return (
         <div className="space-y-12 max-w-3xl">
             <div className="text-xl font-light opacity-100">
-                <Editable text={data.description} path="share.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="share.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -330,7 +330,7 @@ export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, sett
                             <li key={i} className="flex items-start opacity-90 group relative text-sm sm:text-base">
                                 <span className="mr-3 mt-[0.65em] text-[10px] flex-shrink-0 leading-none" style={{ color: settings?.accentColor }}>■</span>
                                 <div className="leading-relaxed w-full">
-                                    <Editable text={item.text} path={`share.highlights.${i}.text`} component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                                    <Editable text={item.text} path={`share.highlights.${i}.text`} component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                                 </div>
                                 <ListControls
                                     onRemove={() => removeItem('share.highlights', i)}
@@ -354,7 +354,7 @@ export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, sett
                     </h3>
                     <div className="bg-black/5 dark:bg-white/[0.06] p-6 rounded-xl border border-black/5 dark:border-white/10">
                         <div className="opacity-90 leading-relaxed text-sm –base">
-                            <Editable text={data.mentorshipContent} path="share.mentorshipContent" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                            <Editable text={data.mentorshipContent} path="share.mentorshipContent" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                         </div>
                     </div>
                 </div>
@@ -389,7 +389,7 @@ export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, sett
                     <Editable text={data.collabTitle} path="share.collabTitle" />
                 </p>
                 <div className="opacity-70 mb-6 text-sm">
-                    <Editable text={data.collabDescription} path="share.collabDescription" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                    <Editable text={data.collabDescription} path="share.collabDescription" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     {data.buttons.map((btn, idx) => (
@@ -428,7 +428,7 @@ export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings
     return (
         <div className="space-y-8 max-w-4xl">
             <div className="text-xl font-light w-full opacity-90">
-                <Editable text={data.description} path="see.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="see.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {data.images.map((img, index) => (
@@ -490,7 +490,7 @@ export const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, 
                 <Editable text={data.title} path="connect.title" />
             </h2>
             <div className="text-xl mb-10 w-full opacity-70">
-                <Editable text={data.description} path="connect.description" component={(props: any) => <RichText {...props} accentColor={settings?.accentColor} />} multiline />
+                <Editable text={data.description} path="connect.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
             {data.bookingLink && <div onClick={() => !isEditMode && window.open(data.bookingLink, '_blank')} className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0 cursor-pointer">Book a Conversation</div>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

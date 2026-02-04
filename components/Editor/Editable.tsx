@@ -8,6 +8,7 @@ interface EditableProps {
     className?: string;
     isStudio?: boolean;
     multiline?: boolean;
+    extraProps?: Record<string, any>;
 }
 
 export const Editable: React.FC<EditableProps> = ({
@@ -16,7 +17,8 @@ export const Editable: React.FC<EditableProps> = ({
     component: Component = 'span',
     className = '',
     isStudio = false,
-    multiline = false
+    multiline = false,
+    extraProps = {}
 }) => {
     const { isEditMode, updateContent, updateStudioContent } = useEditor();
     const elementRef = useRef<HTMLElement>(null);
@@ -69,6 +71,7 @@ export const Editable: React.FC<EditableProps> = ({
                 className={className}
                 content={text}
                 text={text}
+                {...extraProps}
             >
                 {text}
             </CustomComponent>
