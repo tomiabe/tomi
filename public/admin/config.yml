@@ -189,8 +189,10 @@ collections:
               {label: "Role", name: "role", widget: "string"},
               {label: "Image", name: "image_url", widget: "image"},
               {label: "Intro Paragraphs", name: "intro_paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}},
+              {label: "Speaking Intro", name: "speaking_intro", widget: "text"},
+              {label: "Highlights Label", name: "speaking_highlights_label", widget: "string"},
               {label: "Speaking Title", name: "speaking_title", widget: "string"},
-              {label: "Speaking Items", name: "speaking_items", widget: "list"}
+              {label: "Speaking Items", name: "speaking_items", widget: "list", field: {label: "Item", name: "item", widget: "text"}}
             ]}
           - {label: "Contact", name: "contact", widget: "object", fields: [
               {label: "Title", name: "title", widget: "string"},

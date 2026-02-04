@@ -51,6 +51,16 @@ const About: React.FC<AboutProps> = ({ data }) => {
                         <h4 className="font-bold text-gray-900 dark:text-white mb-4">
                             <Editable text={data.speaking_title} path="about.speaking_title" isStudio />
                         </h4>
+                        {data.speaking_intro && (
+                            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                                <Editable text={data.speaking_intro} path="about.speaking_intro" isStudio multiline />
+                            </p>
+                        )}
+                        {data.speaking_highlights_label && (
+                            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+                                <Editable text={data.speaking_highlights_label} path="about.speaking_highlights_label" isStudio />
+                            </p>
+                        )}
                         <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-3">
                             {data.speaking_items.map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-3 relative group/item">

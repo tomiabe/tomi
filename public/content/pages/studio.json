@@ -1,7 +1,7 @@
 {
   "contact": {
     "booking_link": "https://cal.com/tomiabe/discovery",
-    "footer_copyright": "\u00a9 2025 Tomi Abe Studio. All rights reserved.",
+    "footer_copyright": "© 2025 Tomi Abe Studio. All rights reserved.",
     "socials": [
       {
         "platform": "Linkedin",
@@ -63,7 +63,7 @@
         "title": "WeCollect",
         "category": "Brand & Digital Transformation",
         "location": "Data Infrastructure Company, Africa",
-        "description": "Led brand and digital transformation aligning identity with business goals across Africa\u2019s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
+        "description": "Led brand and digital transformation aligning identity with business goals across Africa’s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
         "linkText": "View WeCollect",
         "linkUrl": "https://wecollect.tech",
         "imageUrl": "/images/wecollect-cover.jpg",
@@ -135,13 +135,15 @@
     "speaking_items": [
       "AI-driven infographic design workshop for African Climate Stories",
       "Ethical AI in HR panelist at FITC E3 Conference",
-      "Advanced prompting strategies training for Loblaw Agency's AI Committee",
-      "Business strategies during economic uncertainty talk at Nairametrics",
-      "MentorCruise mentor for early-career designers"
+      "Advanced prompting strategies training for Loblaw Agency\u0019s AI Committee",
+      "Business strategy session for creative entrepreneurs at Nairametrics",
+      "Mentorship for early-career designers through MentorCruise"
     ],
     "image_url": "/images/tomi_studio_about.jpg",
     "name": "Tomi Abe",
-    "role": "Principal Consultant"
+    "role": "Principal Consultant",
+    "speaking_intro": "I design and deliver talks and workshops at the intersection of design, innovation, media, and creative entrepreneurship, with a focus on emerging technologies and responsible practice.",
+    "speaking_highlights_label": "Highlights include:"
   },
   "navigation": [
     {
@@ -193,7 +195,7 @@
         "description": "Embedded execution on product, data, or media initiatives where depth and speed matter."
       }
     ],
-    "footer_text": "Each model is scoped intentionally\u2014no unnecessary layers, no inflated teams."
+    "footer_text": "Each model is scoped intentionally—no unnecessary layers, no inflated teams."
   },
   "services": {
     "section_title": "What I Help Design",
@@ -240,7 +242,7 @@
       },
       {
         "title": "Dense Information",
-        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it\u2019s meant to serve.",
+        "description": "Research, policy, or data holds value but remains inaccessible or unusable to the people it’s meant to serve.",
         "icon": "Box"
       },
       {

@@ -93,6 +93,8 @@ export interface AboutData {
     section_title: string;
     main_heading: string;
     intro_paragraphs: string[];
+    speaking_intro?: string;
+    speaking_highlights_label?: string;
     speaking_title: string;
     speaking_items: string[];
     image_url: string;
