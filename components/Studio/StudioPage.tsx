@@ -20,12 +20,12 @@ interface StudioPageProps {
    settings?: any;
 }
 
-const StudioPage: React.FC<StudioPageProps> = () => {
+const StudioPage: React.FC<StudioPageProps> = (props) => {
    const { studioContent } = useEditor();
    const [theme, setTheme] = useState<Theme>(Theme.DARK);
    const [isManual, setIsManual] = useState(false);
 
-   const content = studioContent as StudioContent;
+   const content = (props.content || studioContent) as StudioContent;
 
    // Auto theme logic: 7pm (19) to 7am (7) is dark
    useEffect(() => {

@@ -16,7 +16,7 @@ interface EditorContextType {
   isSaving: boolean;
 }
 
-const EditorContext = createContext<EditorContextType | undefined>(undefined);
+export const EditorContext = createContext<EditorContextType | undefined>(undefined);
 
 export const useEditor = () => {
   const context = useContext(EditorContext);
