@@ -76,18 +76,18 @@
         "description": "Improved core buying workflows in an industrial procurement platform. Conducted user research and translated insights into design refinements that increased usability and buyer confidence.",
         "linkText": "View Zeproc",
         "linkUrl": "https://zeproc.com",
-        "imageUrl": "https://picsum.photos/id/20/800/600",
+        "imageUrl": "/images/Zeproc Cover.jpg",
         "logoUrl": "/images/zeproc.jpg"
       },
       {
-        "title": "Fairbnb.coop",
+        "title": "Fairbnb",
         "category": "Brand & Product Strategy",
         "location": "Sustainable Travel Marketplace, Italy",
-        "description": "Redefined brand verbal identity and designed user-centered improvements to booking experience. Co-shaped fairUP platform for responsible travel experiences.",
+        "description": "Redefined brand verbal identity and designed user-centered improvements to the booking experience. Co-shaped the fairUP platform for responsible travel experiences.",
         "linkText": "View Fairbnb",
-        "linkUrl": "#",
-        "imageUrl": "https://picsum.photos/id/60/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=F"
+        "linkUrl": "https://fairup.com",
+        "imageUrl": "/images/fairUP Cover.jpg",
+        "logoUrl": "/images/fairbnb.jpg"
       },
       {
         "title": "Susinsight",
@@ -95,29 +95,29 @@
         "location": "Sustainability Media Platform, Africa",
         "description": "Direct editorial strategy and creative vision for data-driven sustainability journalism across Africa. Lead digital platform design and content system optimization.",
         "linkText": "View Susinsight",
-        "linkUrl": "#",
-        "imageUrl": "https://picsum.photos/id/122/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=S"
+        "linkUrl": "https://susinsight.com",
+        "imageUrl": "/images/Susinsight Cover.jpg",
+        "logoUrl": "/images/susinsight.jpg"
       },
       {
         "title": "Translayte",
         "category": "Product Growth Strategy",
         "location": "E-Translation Platform, UK",
-        "description": "Identified growth opportunities and designed conversion touchpoints. Enhanced user journey and aligned product messaging with user expectations.",
+        "description": "Identified growth opportunities and designed conversion touchpoints. Enhanced user journeys and aligned product messaging with user expectations.",
         "linkText": "View Translayte",
-        "linkUrl": "#",
-        "imageUrl": "https://picsum.photos/id/180/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=T"
+        "linkUrl": "https://translayte.com",
+        "imageUrl": "/images/Translayte Cover.jpg",
+        "logoUrl": "/images/translayte.jpg"
       },
       {
         "title": "Eze",
         "category": "Brand & Product Design Leadership",
         "location": "B2B Electronics Marketplace, USA",
-        "description": "Established in-house design function. Redesigned core product interfaces and created cohesive visual identity across digital and marketing channels.",
+        "description": "Established an in-house design function. Redesigned core product interfaces and created a cohesive visual identity across digital and marketing channels.",
         "linkText": "View Eze",
-        "linkUrl": "#",
-        "imageUrl": "https://picsum.photos/id/3/800/600",
-        "logoUrl": "https://placehold.co/100x100/png?text=E"
+        "linkUrl": "https://ezewholesale.com",
+        "imageUrl": "/images/Eze Cover.jpg",
+        "logoUrl": "/images/eze.jpg"
       }
     ],
     "footer_text": "More work available upon request"
@@ -126,9 +126,28 @@
     "section_title": "About Tomi",
     "main_heading": "Jesutomilayo (Tomi) Abe is a strategic creative and digital lead with over a decade of experience.",
     "intro_paragraphs": [
-      "My work explores how systems shape human experience—whether that's a data dashboard, a digital product, or a narrative platform.",
-      "Through Tomi Abe Studio, I collaborate with organizations, startups, and cultural institutions to translate complexity into clarity, combining strategic insight with cultural relevance and practical execution.",
-      "I also co-lead Susbridge and co-publish Susinsight, where our work centers on making sustainability knowledge accessible, contextual, and actionable within African contexts."
+      "Jesutomilayo (Tomi) Abe is a Strategic Creative and Digital Leader with over a decade of experience working at the intersection of design",
+      "technology",
+      "media",
+      "and research.  My work explores how systems shape human experience",
+      "whether that's a data dashboard",
+      "a digital product",
+      "or a narrative platform.  Through Tomi Abe Studio",
+      "I partner with early-stage ventures",
+      "growth-stage companies",
+      "and established institutions",
+      "translating strategy into tangible",
+      "scalable outcomes across brand",
+      "product",
+      "data",
+      "and media systems.  I also co-lead Susbridge and co-publish Susinsight",
+      "where our work centers on making sustainability knowledge accessible",
+      "contextual",
+      "and actionable within African contexts.  My experience spans YC-backed startups",
+      "Fortune 500 ecosystems",
+      "and impact-driven organizations across in-house",
+      "agency",
+      "and consulting contexts."
     ],
     "speaking_title": "Speaking, Training & Mentorship",
     "speaking_items": [
