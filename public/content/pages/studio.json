@@ -63,7 +63,7 @@
         "title": "WeCollect",
         "category": "Brand & Digital Transformation",
         "location": "Data Infrastructure Company, Africa",
-        "description": "Led brand and digital transformation aligning identity with business goals across Africa’s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
+        "description": "Led brand and digital strategy aligning identity with business goals across Africa’s data ecosystem. Defined a refreshed brand narrative, visual system, and UX improvements.",
         "linkText": "View WeCollect",
         "linkUrl": "https://wecollect.tech",
         "imageUrl": "/images/wecollect-cover.jpg",
@@ -174,7 +174,7 @@
     "cta_primary_link": "#contact",
     "cta_secondary": "View Selected Work",
     "cta_secondary_link": "#work",
-    "footer_text": "I work with organizations navigating complex challenges, across data, digital products, and cultural systems, often in high-ambiguity, multi-stakeholder environments. I translate strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
+    "footer_text": "I work with organizations navigating complex challenges, across data, digital products, and brand systems, often in high-ambiguity, multi-stakeholder environments. I translate strategy, information, and infrastructure into clear, human-centered experiences that inform, engage, and endure."
   },
   "workModels": {
     "section_title": "How I Work",
@@ -205,7 +205,7 @@
         "title": "Strategic Clarity",
         "description": "For organizations defining direction, positioning, or change.",
         "list": [
-          "Brand & Product strategy",
+          "Brand & Product Strategy",
           "Research Synthesis",
           "Narrative & Messaging Systems"
         ]
