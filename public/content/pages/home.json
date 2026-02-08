@@ -116,7 +116,7 @@
         "category": "Connection & Meaning",
         "description": "Exploring deeper patterns of contemporary life: connection and meaning. See the world through a higher lens.",
         "linkText": "Read The Limen →",
-        "linkUrl": "#"
+        "linkUrl": "https://thelimen.substack.com"
       },
       {
         "id": "2",
@@ -140,11 +140,11 @@
     "notesLinks": [
       {
         "label": "Read on Medium",
-        "url": "#"
+        "url": "https://tomiabe.medium.com"
       },
       {
         "label": "Read on Substack",
-        "url": "#"
+        "url": "https://tomiabe.substack.com"
       }
     ]
   },
@@ -185,7 +185,7 @@
     "buttons": [
       {
         "label": "Book me on MentorCruise",
-        "url": "https://mentorcruise.com/mentor/tomiabe/",
+        "url": "https://mentorcruise.com/mentor/tomiabe",
         "primary": true
       },
       {
@@ -238,7 +238,7 @@
     "links": [
       {
         "label": "View photo archive on Instagram",
-        "url": "https://www.instagram.com/bytomiabe/"
+        "url": "https://www.instagram.com/bytomiabe"
       },
       {
         "label": "View more on VSCO",
