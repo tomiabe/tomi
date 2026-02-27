@@ -1,6 +1,6 @@
 {
   "settings": {
-    "siteTitle": "Tomi Abe | Internet Home",
+    "siteTitle": "Tomi Abe",
     "favicon": "https://pbs.twimg.com/profile_images/1982237183328112640/7WqAN2FA_400x400.jpg",
     "accentColor": "#3b82f6",
     "fontFamily": "sans",
@@ -51,13 +51,13 @@
   "who": {
     "bio": [
       {
-        "text": "I'm Jesutomilayo (Tomi) Abe, born in Lagos, Nigeria, to a Yoruba family from Osun State."
+        "text": "I’m Jesutomilayo (Tomi) Abe, born in Lagos, Nigeria, to a Yoruba family from Osun State."
       },
       {
         "text": "I grew up in a home filled with love and faith, the kind that gave me room to explore and become."
       },
       {
-        "text": "I studied Computer Science at Covenant University, then did a Postgraduate program in Creative Technology from the University of the West of England. Living in the UK broadened how I see systems, from culture to governance to design, and deepened my desire to build things that connect people and ideas with purpose."
+        "text": "I studied Computer Science at Covenant University for my first degree, then did a Postgraduate program in Creative Technology from the University of the West of England. Living in the UK broadened how I see systems, from culture to governance to design, and deepened my desire to build things that connect people and ideas with purpose."
       },
       {
         "text": "Today, I'm married to [Toro](https://torotayo.com), whose faith and brilliance continually inspire me. We live on the outskirts of Lagos, just far enough to breathe."
@@ -66,20 +66,20 @@
         "text": "I like to think of myself as a natural creative: someone drawn to understanding how things work, why they matter, and how they can be made better. My interests span art, design, technology, media, sustainability, culture, faith, history, and the everyday questions that shape how we live."
       },
       {
-        "text": "I'm curious about systems and stories, drawn to the intersection where structure meets meaning, and I’m always learning."
+        "text": "I’m curious about systems and stories, drawn to the intersection where structure meets meaning, and I’m always learning."
       }
     ],
     "shapesMe": {
       "title": "WHAT SHAPES ME?",
       "content": [
         {
-          "text": "Faith is the lens through which I see everything. I'm a Christian who believes creativity, purpose, and integrity aren't separate things; they're ways of honoring the gifts we've been given and serving others well."
+          "text": "Faith is the lens through which I see everything. I’m a Christian who believes creativity, purpose, and integrity aren’t separate things; they’re ways of honoring the gifts we’ve been given and serving others well."
         },
         {
           "text": "I believe excellence is an act of gratitude. That work is a form of worship. That meaning matters more than metrics."
         },
         {
-          "text": "My worldview is shaped by two forces: curiosity — asking better questions — and conviction — building with purpose and understanding context."
+          "text": "My worldview is shaped by two forces: **curiosity** — asking better questions — and **conviction** — building with purpose and understanding context."
         }
       ],
       "quote": "\"Whatever you do, work at it with all your heart, as working for the Lord.\"",
@@ -95,7 +95,7 @@
         "title": "Tomi Abe Studio",
         "description": "Tomi Abe Studio is my independent, systems-driven creative and digital practice, collaborating with organizations from early-stage ventures to established institutions to translate strategy into tangible, scalable outcomes across brand, product, data, and media systems.",
         "linkText": "Visit The Studio →",
-        "linkUrl": "#"
+        "linkUrl": "https://studio.tomiabe.com"
       },
       {
         "id": "2",
@@ -122,7 +122,7 @@
         "id": "2",
         "title": "Undercurrent",
         "category": "Context & History",
-        "description": "Reflecting on Nigeria's past, present, and future through historical, political, and cultural contexts.",
+        "description": "Reflecting on Nigeria’s past, present, and the forces shaping its future through historical, political, and cultural contexts.",
         "linkText": "Read Undercurrent →",
         "linkUrl": "#"
       },
@@ -136,7 +136,7 @@
       }
     ],
     "notesTitle": "Notes & Reflections",
-    "notesDescription": "Occasional thoughts on design, systems, faith, and everyday life.",
+    "notesDescription": "Occasional thoughts on design, technology, systems, faith, and everyday life.",
     "notesLinks": [
       {
         "label": "Read on Medium",
@@ -149,39 +149,39 @@
     ]
   },
   "share": {
-    "description": "Since 2020, I've shared insights as a speaker, trainer, and mentor at the intersection of design, innovation, media, and creative entrepreneurship.",
+    "description": "Since 2020, I’ve shared insights as a speaker, trainer, and mentor at the intersection of design, innovation, media, and creative entrepreneurship.",
     "highlights": [
       {
-        "text": "Workshop on AI-driven design for African Climate Stories."
+        "text": "AI-driven design workshop for climate advocates, African Climate Stories."
       },
       {
-        "text": "Talk on ethical AI at FITC E3 Conference."
+        "text": "Ethical AI in HR panel, FITC E3 Conference."
       },
       {
-        "text": "Training for Loblaw Agency's AI Committee."
+        "text": "Advanced prompting and generative workflow training for Loblaw Digital’s AI Committee."
       },
       {
-        "text": "Strategy session for Nairametrics."
+        "text": "Business strategy session for creative entrepreneurs, Nairametrics."
       }
     ],
     "mentorshipTitle": "Mentorship",
     "mentorshipContent": "As a mentor on MentorCruise, I help early-career designers worldwide refine their craft, navigate strategic thinking and project execution, and grow in confidence through honest feedback and structured guidance.",
     "topics": [
       {
-        "text": "Design, systems thinking, and innovation"
+        "text": "Design, systems thinking, and innovation."
       },
       {
-        "text": "Responsible use of emerging technologies (AI, data)"
+        "text": "Responsible use of emerging technologies (AI, data)."
       },
       {
-        "text": "Creative entrepreneurship and career navigation"
+        "text": "Creative entrepreneurship and career navigation."
       },
       {
-        "text": "Faith and purpose in creative work"
+        "text": "Faith and purpose in creative work."
       }
     ],
     "collabTitle": "Want to collaborate?",
-    "collabDescription": "I'm open to speaking engagements, workshops, and mentorship opportunities.",
+    "collabDescription": "I’m open to speaking engagements, workshops, and mentorship opportunities.",
     "buttons": [
       {
         "label": "Book me on MentorCruise",
