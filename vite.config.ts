@@ -15,18 +15,13 @@ export default defineConfig({
             req.on('data', chunk => { body += chunk; });
             req.on('end', () => {
               try {
-                const { home, studio } = JSON.parse(body);
+                const { home } = JSON.parse(body);
                 // Adjust paths to be relative to the root of the project
                 const homePath = path.resolve(process.cwd(), 'public/content/pages/home.json');
-                const studioPath = path.resolve(process.cwd(), 'public/content/pages/studio.json');
 
                 if (home) {
                   console.log('Saving home content to:', homePath);
                   fs.writeFileSync(homePath, JSON.stringify(home, null, 2));
-                }
-                if (studio) {
-                  console.log('Saving studio content to:', studioPath);
-                  fs.writeFileSync(studioPath, JSON.stringify(studio, null, 2));
                 }
 
                 res.statusCode = 200;

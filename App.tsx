@@ -8,9 +8,8 @@ import {
 } from './components/Icons';
 import Modal from './components/Modal';
 import InteractiveBackground from './components/InteractiveBackground';
-import StudioPage from './components/Studio/StudioPage';
 import HomePage from './components/Home/HomePage';
-import { SiteContent, StudioContent } from './types';
+import { SiteContent } from './types';
 import { EditorProvider } from './components/Editor/EditorContext';
 import { EditorToolbar } from './components/Editor/EditorToolbar';
 
@@ -42,7 +41,6 @@ const AdminRedirect: React.FC = () => {
 
 const App: React.FC = () => {
   const [content, setContent] = useState<SiteContent | null>(null);
-  const [studioContent, setStudioContent] = useState<StudioContent | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -53,11 +51,6 @@ const App: React.FC = () => {
       .then(res => res.json())
       .then(data => setContent(data))
       .catch(err => console.error("Failed to load home content", err));
-
-    fetch(`/content/pages/studio.json?t=${t}`)
-      .then(res => res.json())
-      .then(data => setStudioContent(data))
-      .catch(err => console.error("Failed to load studio content", err));
   }, []);
 
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -76,7 +69,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (content?.settings?.siteTitle) {
-      document.title = currentPath === '/studio' ? "Tomi Abe Studio" : content.settings.siteTitle;
+      document.title = content.settings.siteTitle;
     }
   }, [content, currentPath]);
 
@@ -115,7 +108,7 @@ const App: React.FC = () => {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  if (!content || !studioContent) {
+  if (!content) {
     return <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white">Loading...</div>;
   }
 
@@ -146,9 +139,7 @@ const App: React.FC = () => {
   return (
     <EditorProvider
       initialContent={content}
-      initialStudioContent={studioContent}
       onContentUpdate={setContent}
-      onStudioContentUpdate={setStudioContent}
     >
       <div className={`min-h-screen font-${fontFamily} transition-colors duration-500 relative ${themeClasses}`}>
         <style>{`::selection { background-color: ${accentColor}; color: #ffffff; }`}</style>
@@ -196,7 +187,6 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/admin" element={<AdminRedirect />} />
           <Route path="/" element={<HomePage content={content} theme={theme} toggleTheme={toggleTheme} openSettings={() => setSettingsOpen(true)} />} />
-          <Route path="/studio" element={<StudioPage content={studioContent} settings={content.settings} />} />
           {/* Placeholder for future dynamic pages */}
           <Route path="*" element={
             <div className="min-h-screen flex flex-col items-center justify-center bg-transparent p-6 text-center relative z-10">

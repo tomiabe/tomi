@@ -4,7 +4,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { home, studio } = req.body;
+    const { home } = req.body;
     const token = process.env.GITHUB_TOKEN || process.env.VITE_GITHUB_TOKEN;
     const repoFull = process.env.GITHUB_REPO || process.env.VITE_GITHUB_REPO; // e.g. "owner/repo"
 
@@ -21,12 +21,6 @@ export default async function handler(req, res) {
         if (home) {
             const homePath = 'public/content/pages/home.json';
             results.push(await commitFile(owner, repo, homePath, home, token, 'Update home page content via Editor'));
-        }
-
-        // 2. Save Studio Content
-        if (studio) {
-            const studioPath = 'public/content/pages/studio.json';
-            results.push(await commitFile(owner, repo, studioPath, studio, token, 'Update studio page content via Editor'));
         }
 
         res.status(200).json({ success: true, results });

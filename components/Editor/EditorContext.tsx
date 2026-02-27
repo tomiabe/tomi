@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
-import { SiteContent, StudioContent } from '../../types';
+import { SiteContent } from '../../types';
 
 interface EditorContextType {
   isEditMode: boolean;
@@ -7,11 +7,9 @@ interface EditorContextType {
   toggleEditMode: () => void;
   login: (password: string) => boolean;
   content: SiteContent | null;
-  studioContent: StudioContent | null;
   updateContent: (path: string, value: any) => void;
-  updateStudioContent: (path: string, value: any) => void;
-  addItem: (path: string, item: any, isStudio?: boolean) => void;
-  removeItem: (path: string, index: number, isStudio?: boolean) => void;
+  addItem: (path: string, item: any) => void;
+  removeItem: (path: string, index: number) => void;
   saveChanges: () => Promise<void>;
   isSaving: boolean;
 }
@@ -40,25 +38,19 @@ const deepSet = (obj: any, path: string, value: any) => {
 export const EditorProvider: React.FC<{
   children: React.ReactNode;
   initialContent: SiteContent | null;
-  initialStudioContent: StudioContent | null;
   onContentUpdate: (content: SiteContent) => void;
-  onStudioContentUpdate: (content: StudioContent) => void;
-}> = ({ children, initialContent, initialStudioContent, onContentUpdate, onStudioContentUpdate }) => {
+}> = ({ children, initialContent, onContentUpdate }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
   // We maintain a local copy of the content that is currently being edited
   const [editContent, setEditContent] = useState<SiteContent | null>(initialContent);
-  const [editStudioContent, setEditStudioContent] = useState<StudioContent | null>(initialStudioContent);
 
   React.useEffect(() => {
     if (initialContent) setEditContent(initialContent);
   }, [initialContent]);
 
-  React.useEffect(() => {
-    if (initialStudioContent) setEditStudioContent(initialStudioContent);
-  }, [initialStudioContent]);
 
   const toggleEditMode = useCallback(() => {
     if (!isAuthenticated) return;
@@ -78,11 +70,8 @@ export const EditorProvider: React.FC<{
     return false;
   }, []);
 
-  const addItem = useCallback((path: string, item: any, isStudio: boolean = false) => {
-    const setter = isStudio ? setEditStudioContent : setEditContent;
-    const updater = isStudio ? onStudioContentUpdate : onContentUpdate;
-
-    setter((prev: any) => {
+  const addItem = useCallback((path: string, item: any) => {
+    setEditContent((prev: any) => {
       if (!prev) return null;
       const next = JSON.parse(JSON.stringify(prev));
       const pList = path.split('.');
@@ -94,16 +83,13 @@ export const EditorProvider: React.FC<{
       if (Array.isArray(target)) {
         target.push(item);
       }
-      updater(next);
+      onContentUpdate(next);
       return next;
     });
-  }, [onContentUpdate, onStudioContentUpdate]);
+  }, [onContentUpdate]);
 
-  const removeItem = useCallback((path: string, index: number, isStudio: boolean = false) => {
-    const setter = isStudio ? setEditStudioContent : setEditContent;
-    const updater = isStudio ? onStudioContentUpdate : onContentUpdate;
-
-    setter((prev: any) => {
+  const removeItem = useCallback((path: string, index: number) => {
+    setEditContent((prev: any) => {
       if (!prev) return null;
       const next = JSON.parse(JSON.stringify(prev));
       const pList = path.split('.');
@@ -115,10 +101,10 @@ export const EditorProvider: React.FC<{
       if (Array.isArray(target)) {
         target.splice(index, 1);
       }
-      updater(next);
+      onContentUpdate(next);
       return next;
     });
-  }, [onContentUpdate, onStudioContentUpdate]);
+  }, [onContentUpdate]);
 
   const updateContent = useCallback((path: string, value: any) => {
     setEditContent(prev => {
@@ -130,15 +116,6 @@ export const EditorProvider: React.FC<{
     });
   }, [onContentUpdate]);
 
-  const updateStudioContent = useCallback((path: string, value: any) => {
-    setEditStudioContent(prev => {
-      if (!prev) return null;
-      const next = JSON.parse(JSON.stringify(prev));
-      deepSet(next, path, value);
-      onStudioContentUpdate(next);
-      return next;
-    });
-  }, [onStudioContentUpdate]);
 
   const saveChanges = async () => {
     setIsSaving(true);
@@ -150,8 +127,7 @@ export const EditorProvider: React.FC<{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          home: editContent,
-          studio: editStudioContent
+          home: editContent
         })
       });
 
@@ -173,9 +149,7 @@ export const EditorProvider: React.FC<{
       toggleEditMode,
       login,
       content: editContent,
-      studioContent: editStudioContent,
       updateContent,
-      updateStudioContent,
       addItem,
       removeItem,
       saveChanges,
