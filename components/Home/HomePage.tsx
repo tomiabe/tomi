@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
     Sun,
     Moon,
@@ -62,7 +61,6 @@ const Clock = () => {
 
 
 const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSettings }) => {
-    const navigate = useNavigate();
     const [activeSection, setActiveSection] = useState<SectionId>('intro');
     const accentColor = content.settings?.accentColor || '#3b82f6';
 
@@ -70,11 +68,6 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
         setActiveSection(id as SectionId);
-    };
-
-    const handleNavigate = (path: string) => {
-        navigate(path);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     useEffect(() => {
@@ -170,7 +163,7 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                     </section>
                     <section id="build" className="scroll-mt-24">
                         <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">What Do I Build</div>
-                        <Build data={content.build} settings={content.settings} onNavigate={handleNavigate} />
+                        <Build data={content.build} settings={content.settings} />
                     </section>
                     <section id="learning" className="scroll-mt-24">
                         <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">What Am I Learning</div>

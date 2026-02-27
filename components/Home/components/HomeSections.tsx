@@ -159,7 +159,7 @@ export const Who: React.FC<SectionProps<SiteContent['who']>> = ({ data, settings
     );
 };
 
-export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: (path: string) => void }> = ({ data, settings, onNavigate }) => {
+export const Build: React.FC<SectionProps<SiteContent['build']>> = ({ data, settings }) => {
     const { addItem, removeItem, isEditMode } = useEditor();
 
     return (
@@ -171,7 +171,7 @@ export const Build: React.FC<SectionProps<SiteContent['build']> & { onNavigate: 
                 {data.projects.map((proj, idx) => {
                     const isStudio = proj.title === 'Tomi Abe Studio';
                     return (
-                        <div key={proj.id} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer" onClick={isStudio ? (e) => { e.preventDefault(); onNavigate('/studio'); } : (e) => { e.preventDefault(); !isEditMode && window.open(proj.linkUrl, '_blank'); }}>
+                        <div key={proj.id} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer" onClick={(e) => { e.preventDefault(); !isEditMode && window.open(proj.linkUrl, '_blank'); }}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-2xl font-bold mb-3 transition-colors" style={{ '--hover-color': settings?.accentColor } as React.CSSProperties}>
                                     <span className="group-hover:text-[var(--hover-color)] transition-colors">
