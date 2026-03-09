@@ -8,6 +8,7 @@ interface EditorContextType {
   login: (password: string) => boolean;
   content: SiteContent | null;
   updateContent: (path: string, value: any) => void;
+  updateStudioContent: (path: string, value: any) => void;
   addItem: (path: string, item: any) => void;
   removeItem: (path: string, index: number) => void;
   saveChanges: () => Promise<void>;
@@ -116,6 +117,16 @@ export const EditorProvider: React.FC<{
     });
   }, [onContentUpdate]);
 
+  const updateStudioContent = useCallback((path: string, value: any) => {
+    setEditContent(prev => {
+      if (!prev) return null;
+      const next = JSON.parse(JSON.stringify(prev));
+      deepSet(next, path, value);
+      onContentUpdate(next);
+      return next;
+    });
+  }, [onContentUpdate]);
+
 
   const saveChanges = async () => {
     setIsSaving(true);
@@ -150,6 +161,7 @@ export const EditorProvider: React.FC<{
       login,
       content: editContent,
       updateContent,
+      updateStudioContent,
       addItem,
       removeItem,
       saveChanges,
