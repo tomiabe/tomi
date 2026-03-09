@@ -169,7 +169,6 @@ export const Build: React.FC<SectionProps<SiteContent['build']>> = ({ data, sett
             </div>
             <div className="grid gap-6">
                 {data.projects.map((proj, idx) => {
-                    const isStudio = proj.title === 'Tomi Abe Studio';
                     return (
                         <div key={proj.id} className="group relative block bg-black/5 dark:bg-white/[0.06] p-6 sm:p-8 rounded-xl border border-black/5 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-sm cursor-pointer" onClick={(e) => { e.preventDefault(); !isEditMode && window.open(proj.linkUrl, '_blank'); }}>
                             <div className="flex justify-between items-start mb-4">
@@ -182,7 +181,7 @@ export const Build: React.FC<SectionProps<SiteContent['build']>> = ({ data, sett
                                     <ListControls
                                         onRemove={() => removeItem('build.projects', idx)}
                                     />
-                                    {isStudio ? <ArrowRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" /> : <ArrowUpRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" />}
+                                    <ArrowUpRight className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" />
                                 </div>
                             </div>
                             <div className="opacity-80 leading-relaxed mb-4">
