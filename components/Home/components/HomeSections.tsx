@@ -41,7 +41,7 @@ const getIcon = (platform: SocialPlatform, className: string = "w-5 h-5") => {
     }
 };
 
-const openExternalUrl = (url: string) => {
+const openExternalUrl = (url?: string) => {
     if (!url || url === '#') return;
     if (typeof window === 'undefined') return;
     if (url.startsWith('mailto:')) {
