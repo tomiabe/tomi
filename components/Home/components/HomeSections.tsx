@@ -41,6 +41,22 @@ const getIcon = (platform: SocialPlatform, className: string = "w-5 h-5") => {
     }
 };
 
+const openExternalUrl = (url: string) => {
+    if (!url || url === '#') return;
+    if (typeof window === 'undefined') return;
+    if (url.startsWith('mailto:')) {
+        window.location.href = url;
+        return;
+    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+};
+
+const getAnchorTargetProps = (url: string) => {
+    return /^https?:\/\//i.test(url)
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : {};
+};
+
 const Typewriter = ({ text, children, delay = 0, speed = 40, className = "" }: { text?: string; children?: string; delay?: number; speed?: number; className?: string }) => {
     const displayText = text || children || '';
     const [currentText, setCurrentText] = useState('');
@@ -289,15 +305,28 @@ export const Learning: React.FC<SectionProps<SiteContent['learning']>> = ({ data
                 </div>
                 <div className="flex flex-wrap gap-3">
                     {data.notesLinks.map((link, idx) => (
-                        <div key={idx} className="relative group px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center cursor-pointer gap-2">
-                            <Editable text={link.label} path={`learning.notesLinks.${idx}.label`} />
-                            <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
-                            {isEditMode && (
+                        isEditMode ? (
+                            <div key={idx} className="relative group px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center cursor-pointer gap-2">
+                                <Editable text={link.label} path={`learning.notesLinks.${idx}.label`} />
+                                <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
                                 <div className="ml-2 pl-2 border-l border-black/10 dark:border-white/10">
                                     <ListControls onRemove={() => removeItem('learning.notesLinks', idx)} />
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        ) : (
+                            <a
+                                key={idx}
+                                href={link.url || '#'}
+                                {...getAnchorTargetProps(link.url)}
+                                onClick={(e) => {
+                                    if (!link.url || link.url === '#') e.preventDefault();
+                                }}
+                                className="relative group px-4 py-2 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 text-sm transition-colors flex items-center cursor-pointer gap-2"
+                            >
+                                <Editable text={link.label} path={`learning.notesLinks.${idx}.label`} />
+                                <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                        )
                     ))}
                     {isEditMode && (
                         <button
@@ -393,10 +422,24 @@ export const Share: React.FC<SectionProps<SiteContent['share']>> = ({ data, sett
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     {data.buttons.map((btn, idx) => (
                         <div key={idx} className="relative group">
-                            <div style={btn.primary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined} className={`${!btn.primary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px] cursor-pointer`}>
-                                <Editable text={btn.label} path={`share.buttons.${idx}.label`} />
-                                {isEditMode && <ListControls onRemove={() => removeItem('share.buttons', idx)} className="ml-2" />}
-                            </div>
+                            {isEditMode ? (
+                                <div style={btn.primary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined} className={`${!btn.primary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px] cursor-pointer`}>
+                                    <Editable text={btn.label} path={`share.buttons.${idx}.label`} />
+                                    <ListControls onRemove={() => removeItem('share.buttons', idx)} className="ml-2" />
+                                </div>
+                            ) : (
+                                <a
+                                    href={btn.url || '#'}
+                                    {...getAnchorTargetProps(btn.url)}
+                                    onClick={(e) => {
+                                        if (!btn.url || btn.url === '#') e.preventDefault();
+                                    }}
+                                    style={btn.primary ? { backgroundColor: settings?.accentColor || '#18181b', color: '#fff' } : undefined}
+                                    className={`${!btn.primary ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700' : ''} font-semibold px-6 rounded-lg hover:opacity-90 transition-all text-sm flex items-center justify-center min-h-[44px] cursor-pointer`}
+                                >
+                                    <Editable text={btn.label} path={`share.buttons.${idx}.label`} />
+                                </a>
+                            )}
                         </div>
                     ))}
                     {isEditMode && (
@@ -451,13 +494,30 @@ export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings
             </div>
             <div className="flex flex-wrap gap-6 pt-4">
                 {data.links.map((link, idx) => (
-                    <div key={idx} className="flex items-center group opacity-60 hover:opacity-100 transition-opacity text-sm font-medium cursor-pointer">
-                        <span className="border-b border-black/20 dark:border-white/20 pb-0.5">
-                            <Editable text={link.label} path={`see.links.${idx}.label`} />
-                        </span>
-                        <ListControls onRemove={() => removeItem('see.links', idx)} className="ml-2 pr-2" />
-                        <ArrowTopRightOnSquare className="w-4 h-4 ml-2" />
-                    </div>
+                    isEditMode ? (
+                        <div key={idx} className="flex items-center group opacity-60 hover:opacity-100 transition-opacity text-sm font-medium cursor-pointer">
+                            <span className="border-b border-black/20 dark:border-white/20 pb-0.5">
+                                <Editable text={link.label} path={`see.links.${idx}.label`} />
+                            </span>
+                            <ListControls onRemove={() => removeItem('see.links', idx)} className="ml-2 pr-2" />
+                            <ArrowTopRightOnSquare className="w-4 h-4 ml-2" />
+                        </div>
+                    ) : (
+                        <a
+                            key={idx}
+                            href={link.url || '#'}
+                            {...getAnchorTargetProps(link.url)}
+                            onClick={(e) => {
+                                if (!link.url || link.url === '#') e.preventDefault();
+                            }}
+                            className="flex items-center group opacity-60 hover:opacity-100 transition-opacity text-sm font-medium cursor-pointer"
+                        >
+                            <span className="border-b border-black/20 dark:border-white/20 pb-0.5">
+                                <Editable text={link.label} path={`see.links.${idx}.label`} />
+                            </span>
+                            <ArrowTopRightOnSquare className="w-4 h-4 ml-2" />
+                        </a>
+                    )
                 ))}
                 {isEditMode && (
                     <button
@@ -491,10 +551,10 @@ export const Connect: React.FC<SectionProps<SiteContent['connect']>> = ({ data, 
             <div className="text-xl mb-10 w-full opacity-70">
                 <Editable text={data.description} path="connect.description" component={RichText} extraProps={{ accentColor: settings?.accentColor }} multiline />
             </div>
-            {data.bookingLink && <div onClick={() => !isEditMode && window.open(data.bookingLink, '_blank')} className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0 cursor-pointer">Book a Conversation</div>}
+            {data.bookingLink && <div onClick={() => !isEditMode && openExternalUrl(data.bookingLink)} className="flex items-center justify-center w-full sm:w-fit px-8 h-12 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-lg mb-12 whitespace-nowrap mx-auto sm:mx-0 cursor-pointer">Book a Conversation</div>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.links.map((link, idx) => (
-                    <div key={link.id} onClick={() => !isEditMode && window.open(link.url, '_blank')} className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20 cursor-pointer">
+                    <div key={link.id} onClick={() => !isEditMode && openExternalUrl(link.url)} className="relative group bg-black/5 hover:bg-black/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] p-4 rounded-xl flex items-center justify-between transition-all border border-transparent dark:border-white/10 hover:border-black/10 dark:hover:border-white/20 cursor-pointer">
                         <div className="flex flex-col w-full mr-2">
                             <div className="flex items-center gap-2">
                                 {getIcon(link.platform, "w-4 h-4 opacity-50")}
