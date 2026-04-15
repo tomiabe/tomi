@@ -4,14 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "cms:styles": "tailwindcss -c tailwind.preview.config.cjs -i ./src/cms/preview.css -o ./public/admin/preview.css",
-    "build": "npm run cms:styles && tsc && vite build",
-    "preview": "vite preview",
-    "cms": "npx decap-server"
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "decap-cms-app": "^3.10.0",
-    "decap-server": "^3.5.0",
     "lucide-react": "^0.563.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

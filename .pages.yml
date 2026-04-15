@@ -1,0 +1,330 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: home
+    label: Home Page
+    type: file
+    path: public/content/pages/home.json
+    fields:
+      - name: settings
+        label: Settings
+        type: object
+        fields:
+          - name: siteTitle
+            label: Site Title
+            type: string
+          - name: favicon
+            label: Favicon
+            type: image
+          - name: accentColor
+            label: Accent Color
+            type: string
+            description: "Hex color value (e.g. #3b82f6)"
+          - name: fontFamily
+            label: Font Family
+            type: select
+            options:
+              values:
+                - label: Sans Serif (Inter)
+                  value: sans
+                - label: Serif
+                  value: serif
+                - label: Mono
+                  value: mono
+                - label: Manrope
+                  value: manrope
+                - label: DM Sans
+                  value: dmsans
+                - label: Figtree
+                  value: figtree
+                - label: IBM Plex Sans
+                  value: ibmplex
+                - label: Plus Jakarta Sans
+                  value: plusjakarta
+                - label: Libre Franklin
+                  value: librefranklin
+                - label: Public Sans
+                  value: publicsans
+                - label: Geist
+                  value: geist
+                - label: Schibsted Grotesk
+                  value: schibsted
+                - label: Mona Sans
+                  value: monasans
+                - label: Stack Sans
+                  value: stacksans
+                - label: Spline Sans
+                  value: splinesans
+          - name: darkModeTheme
+            label: Default Dark Mode Theme
+            type: select
+            options:
+              values:
+                - black
+                - grey
+                - navy
+                - maroon
+          - name: lightModeTheme
+            label: Default Light Mode Theme
+            type: select
+            options:
+              values:
+                - white
+                - ash
+                - ivory
+                - sky
+
+      - name: intro
+        label: Intro
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: subtitle
+            label: Subtitle
+            type: string
+          - name: welcomeText
+            label: Welcome Text
+            type: string
+          - name: description
+            label: Description
+            type: rich-text
+          - name: avatar
+            label: Avatar Image
+            type: image
+          - name: socials
+            label: Social Links
+            type: list
+            fields:
+              - name: platform
+                label: Platform
+                type: select
+                options:
+                  values:
+                    - twitter
+                    - instagram
+                    - linkedin
+                    - envelope
+                    - medium
+                    - substack
+              - name: url
+                label: URL
+                type: string
+
+      - name: who
+        label: Who Am I
+        type: object
+        fields:
+          - name: bio
+            label: Bio Paragraphs
+            type: list
+            fields:
+              - name: text
+                label: Paragraph
+                type: rich-text
+          - name: shapesMe
+            label: What Shapes Me
+            type: object
+            fields:
+              - name: title
+                label: Section Title
+                type: string
+              - name: content
+                label: Content Items
+                type: list
+                fields:
+                  - name: text
+                    label: Text
+                    type: rich-text
+              - name: quote
+                label: Quote
+                type: text
+              - name: quoteRef
+                label: Quote Reference
+                type: string
+              - name: closing
+                label: Closing Line
+                type: string
+
+      - name: build
+        label: Build
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: rich-text
+          - name: projects
+            label: Projects
+            type: list
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: description
+                label: Description
+                type: rich-text
+              - name: linkText
+                label: Link Text
+                type: string
+              - name: linkUrl
+                label: Link URL
+                type: string
+          - name: footer
+            label: Footer
+            type: rich-text
+
+      - name: learning
+        label: Learning
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: rich-text
+          - name: publications
+            label: Publications
+            type: list
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: category
+                label: Category
+                type: string
+              - name: description
+                label: Description
+                type: rich-text
+              - name: linkText
+                label: Link Text
+                type: string
+              - name: linkUrl
+                label: Link URL
+                type: string
+          - name: notesTitle
+            label: Notes Title
+            type: string
+          - name: notesDescription
+            label: Notes Description
+            type: rich-text
+          - name: notesLinks
+            label: Notes Links
+            type: list
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
+
+      - name: share
+        label: Share
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: rich-text
+          - name: highlights
+            label: Highlights
+            type: list
+            fields:
+              - name: text
+                label: Text
+                type: rich-text
+          - name: mentorshipTitle
+            label: Mentorship Title
+            type: string
+          - name: mentorshipContent
+            label: Mentorship Content
+            type: rich-text
+          - name: topics
+            label: Topics
+            type: list
+            fields:
+              - name: text
+                label: Topic
+                type: string
+          - name: collabTitle
+            label: Collab Title
+            type: string
+          - name: collabDescription
+            label: Collab Description
+            type: rich-text
+          - name: buttons
+            label: Buttons
+            type: list
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
+              - name: primary
+                label: Primary Style
+                type: boolean
+
+      - name: see
+        label: See
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: rich-text
+          - name: images
+            label: Images
+            type: list
+            fields:
+              - name: image
+                label: Image
+                type: image
+          - name: links
+            label: Links
+            type: list
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
+
+      - name: connect
+        label: Connect
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: rich-text
+          - name: bookingLink
+            label: Booking Link
+            type: string
+          - name: links
+            label: Links
+            type: list
+            fields:
+              - name: platform
+                label: Platform
+                type: select
+                options:
+                  values:
+                    - twitter
+                    - instagram
+                    - linkedin
+                    - envelope
+                    - medium
+                    - substack
+              - name: url
+                label: URL
+                type: string
+              - name: label
+                label: Label
+                type: string
+              - name: sublabel
+                label: Sublabel
+                type: string

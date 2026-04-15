@@ -44,11 +44,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    rollupOptions: {
-      input: {
-        main: path.resolve(process.cwd(), 'index.html'),
-        admin: path.resolve(process.cwd(), 'admin/index.html')
-      }
-    }
   },
 });
