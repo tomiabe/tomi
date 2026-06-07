@@ -68,8 +68,38 @@ const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    if (content?.settings?.siteTitle) {
+    if (!content) return;
+
+    if (content.settings?.siteTitle) {
       document.title = content.settings.siteTitle;
+    }
+
+    const siteUrl = window.location.origin;
+    const title = content.settings?.siteTitle || 'Tomi Abe';
+    const description = content.intro?.description || '';
+    const avatarUrl = content.intro?.avatar ? `${siteUrl}${content.intro.avatar}` : '';
+    const pageUrl = `${siteUrl}${window.location.pathname}`;
+
+    const setMeta = (property: string, contentVal: string, isName = false) => {
+      const attr = isName ? 'name' : 'property';
+      let el = document.querySelector(`meta[${attr}="${property}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', contentVal);
+    };
+
+    setMeta('og:title', title);
+    setMeta('og:description', description);
+    setMeta('og:url', pageUrl);
+    setMeta('twitter:title', title, true);
+    setMeta('twitter:description', description, true);
+
+    if (avatarUrl) {
+      setMeta('og:image', avatarUrl);
+      setMeta('twitter:image', avatarUrl, true);
     }
   }, [content, currentPath]);
 
