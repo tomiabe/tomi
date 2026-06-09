@@ -34,9 +34,12 @@ const PostPage: React.FC = () => {
   }, [post]);
 
   const formatDate = (dateStr: string) => {
-    const [year, month] = dateStr.split('-');
-    const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    const parts = dateStr.split('-');
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1;
+    const day = parts[2] ? parseInt(parts[2]) : 1;
+    const date = new Date(year, month, day);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
   if (notFound) {
