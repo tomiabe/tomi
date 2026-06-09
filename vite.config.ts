@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [
     react(),
     {
@@ -20,6 +20,14 @@ export default defineConfig({
         } catch {
           return html;
         }
+      },
+    },
+    {
+      name: 'copy-404',
+      closeBundle() {
+        const src = path.resolve(process.cwd(), 'dist/index.html');
+        const dest = path.resolve(process.cwd(), 'dist/404.html');
+        fs.copyFileSync(src, dest);
       },
     },
     {
