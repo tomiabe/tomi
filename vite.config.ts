@@ -8,6 +8,21 @@ export default defineConfig({
   plugins: [
     react(),
     {
+      name: 'inject-og-image',
+      transformIndexHtml(html) {
+        try {
+          const homePath = path.resolve(process.cwd(), 'public/content/pages/home.json');
+          const home = JSON.parse(fs.readFileSync(homePath, 'utf-8'));
+          const avatar = home?.intro?.avatar || '/images/tomi-1-bw.jpeg';
+          return html
+            .replace(/(<meta\s+property="og:image"\s+content=")[^"]*(")/, `$1${avatar}$2`)
+            .replace(/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/, `$1${avatar}$2`);
+        } catch {
+          return html;
+        }
+      },
+    },
+    {
       name: 'save-content',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
