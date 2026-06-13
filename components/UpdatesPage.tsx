@@ -9,7 +9,6 @@ interface UpdatesPageProps {
 
 const UpdatesPage: React.FC<UpdatesPageProps> = ({ content }) => {
   const updates = content.updates || [];
-  const accentColor = content.settings?.accentColor || '#3b82f6';
 
   useEffect(() => {
     document.title = 'Updates — Tomi Abe';
@@ -48,7 +47,7 @@ const UpdatesPage: React.FC<UpdatesPageProps> = ({ content }) => {
             className="group block p-4 rounded-xl bg-black/5 dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors"
           >
             <div className="flex items-start justify-between gap-2 mb-1.5">
-              <span className="text-base font-semibold leading-snug" style={{ color: accentColor }}>
+              <span className="text-base font-semibold leading-snug">
                 {item.title}
               </span>
               <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 opacity-30 group-hover:opacity-70 transition-opacity" />
