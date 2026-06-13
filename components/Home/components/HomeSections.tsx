@@ -98,41 +98,42 @@ export const IntroText: React.FC<SectionProps<SiteContent['intro']>> = ({ data, 
 );
 
 export const Updates: React.FC<{ data: SiteContent['updates']; settings?: SiteSettings }> = ({ data }) => {
-  const recent = data.slice(0, 3);
+  const recent = data.slice(0, 4);
   if (!data.length) return null;
 
   return (
-    <div className="space-y-4 max-w-3xl">
-      {recent.map((item) => (
-        <a
-          key={item.id}
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-start gap-4 p-4 -mx-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors"
-        >
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-sm font-semibold group-hover:opacity-100 transition-opacity truncate">
+    <div className="max-w-3xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {recent.map((item) => (
+          <a
+            key={item.id}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors"
+          >
+            <div className="flex items-start justify-between gap-2 mb-1.5">
+              <span className="text-base font-semibold leading-snug group-hover:opacity-100 transition-opacity">
                 {item.title}
               </span>
-              {item.label && (
-                <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-current opacity-40">
-                  {item.label}
-                </span>
-              )}
+              <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 opacity-30 group-hover:opacity-70 transition-opacity" />
             </div>
-            <p className="text-sm opacity-60 leading-relaxed line-clamp-2">{item.description}</p>
-          </div>
-          <div className="shrink-0 flex flex-col items-end gap-1">
-            <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-70 transition-opacity" />
-            <span className="text-[11px] font-medium opacity-40 whitespace-nowrap">{item.date}</span>
-          </div>
-        </a>
-      ))}
+            <p className="text-sm opacity-60 leading-relaxed line-clamp-2 mb-2">{item.description}</p>
+            <div className="flex items-center gap-2 text-[11px] font-medium opacity-40">
+              {item.label && (
+                <>
+                  <span>{item.label}</span>
+                  <span className="w-1 h-1 rounded-full bg-current opacity-30" />
+                </>
+              )}
+              <span>{item.date}</span>
+            </div>
+          </a>
+        ))}
+      </div>
       <a
         href="/updates"
-        className="inline-flex items-center gap-1.5 text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity pt-2"
+        className="inline-flex items-center gap-1.5 text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity mt-4 ml-4"
       >
         View all updates
         <ArrowRight className="w-4 h-4" />
