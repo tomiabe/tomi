@@ -58,6 +58,15 @@ export interface SiteSettings {
   lightModeTheme: 'white' | 'ash' | 'ivory' | 'sky';
 }
 
+export interface Update {
+  id: string;
+  title: string;
+  date: string;
+  url: string;
+  description: string;
+  label?: string;
+}
+
 export interface SiteContent {
   settings: SiteSettings;
   intro: {
@@ -69,6 +78,7 @@ export interface SiteContent {
     description: string;   // Main Content Description
     socials: SocialLink[]; // Sidebar Socials
   };
+  updates: Update[];
   who: {
     bio: { text: string }[];
     shapesMe: {

@@ -40,6 +40,40 @@
       }
     ]
   },
+  "updates": [
+    {
+      "id": "1",
+      "title": "Part 2: Three Years Later",
+      "date": "2025-11-11",
+      "url": "https://tomiabe.medium.com",
+      "description": "The conclusion of a story I started in 2022. About meeting Adetoro, long-distance, proposals, and marriage.",
+      "label": "Essay"
+    },
+    {
+      "id": "2",
+      "title": "What I'm Building at the Studio",
+      "date": "2025-10-28",
+      "url": "https://studio.tomiabe.com",
+      "description": "A look into how I'm approaching systems-driven creative work.",
+      "label": "Writing"
+    },
+    {
+      "id": "3",
+      "title": "The Limen: On Connection and Meaning",
+      "date": "2025-09-15",
+      "url": "https://thelimen.substack.com",
+      "description": "Exploring deeper patterns of contemporary life through a higher lens.",
+      "label": "Newsletter"
+    },
+    {
+      "id": "4",
+      "title": "Marketplace Logic: Decoding Digital Platforms",
+      "date": "2025-08-01",
+      "url": "https://tomiabe.substack.com",
+      "description": "A new series with Alex Akinyeye on the systems powering digital marketplaces.",
+      "label": "Series"
+    }
+  ],
   "who": {
     "bio": [
       {

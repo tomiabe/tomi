@@ -117,6 +117,31 @@ content:
                 label: URL
                 type: string
 
+      - name: updates
+        label: Updates
+        type: object
+        list:
+          collapsible: true
+          summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: date
+            label: Date
+            type: string
+            hint: "Format: YYYY-MM-DD (e.g. 2025-11-11)"
+          - name: url
+            label: URL
+            type: string
+          - name: description
+            label: Description
+            type: rich-text
+          - name: label
+            label: Label
+            type: string
+            hint: "e.g. Essay, Note, Project"
+
       - name: who
         label: Who Am I
         type: object

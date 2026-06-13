@@ -11,12 +11,12 @@ import {
     ArrowRight,
     Swatch
 } from '../../components/Icons';
-import { IntroText, Who, Build, Learning, Share, See, Connect } from './components/HomeSections';
+import { IntroText, Updates, Who, Build, Learning, Share, See, Connect } from './components/HomeSections';
 import { SiteContent, SocialPlatform } from '../../types';
 import { Editable } from '../Editor/Editable';
 import { EditableImage } from '../Editor/EditableImage';
 
-type SectionId = 'intro' | 'who' | 'build' | 'learning' | 'share' | 'see' | 'connect';
+type SectionId = 'intro' | 'updates' | 'who' | 'build' | 'learning' | 'share' | 'see' | 'connect';
 
 interface HomePageProps {
     content: SiteContent;
@@ -157,6 +157,12 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                 </aside>
                 <main className="lg:w-2/3 xl:w-3/4 py-6 lg:py-12 space-y-24 lg:space-y-32">
                     <section id="intro"><IntroText data={content.intro} settings={content.settings} /></section>
+                    {content.updates?.length > 0 && (
+                      <section id="updates" className="scroll-mt-24">
+                        <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">Updates</div>
+                        <Updates data={content.updates} settings={content.settings} />
+                      </section>
+                    )}
                     <section id="who" className="scroll-mt-24">
                         <div className="lg:hidden mb-6 pb-2 border-b border-black/10 dark:border-white/10 text-xs font-bold uppercase tracking-widest opacity-50">Who Am I</div>
                         <Who data={content.who} settings={content.settings} />
