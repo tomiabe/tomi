@@ -42,36 +42,49 @@
   },
   "updates": [
     {
-      "id": "1",
-      "title": "Part 2: Three Years Later",
+      "id": "5",
+      "title": "Partner with Susinsight",
+      "date": "2026-05-19",
+      "url": "https://susinsight.substack.com/p/partner-with-susinsight",
+      "description": "How we work with organisations building a sustainable Africa.",
+      "label": "Partnership"
+    },
+    {
+      "id": "6",
+      "title": "Susinsight is 3!",
+      "date": "2026-05-04",
+      "url": "https://susinsight.substack.com/p/susinsight-is-3",
+      "description": "What We've Built, Who We've Reached, and Where We're Going.",
+      "label": "Milestone"
+    },
+    {
+      "id": "7",
+      "title": "Susinsight Is Back and We're Partnering on a Global Islands Summit",
+      "date": "2026-03-02",
+      "url": "https://susinsight.substack.com/p/susinsight-is-back-and-were-partnering",
+      "description": "A new season of publishing, fresh partnerships, and a deeper focus on sustainability intelligence.",
+      "label": "News"
+    },
+    {
+      "id": "10",
+      "title": "Building NairaWatch",
+      "date": "2026-02-27",
+      "url": "https://tomiabe.medium.com/for-most-of-my-career-ive-worked-at-the-intersection-of-design-technology-and-systems-1b57b68ce08c?source=user_profile_page---------1-------------887bdb3c12b0----------------------",
+      "description": "A simple FX dashboard that places Nigeria's street and official Naira rates side by side for clearer decisions.",
+      "label": "Essay"
+    },
       "date": "2025-11-11",
-      "url": "https://tomiabe.medium.com",
+      "url": "https://tomiabe.medium.com/part-2-three-years-later-b4859108b53a?source=user_profile_page---------2-------------887bdb3c12b0----------------------",
       "description": "The conclusion of a story I started in 2022. About meeting Adetoro, long-distance, proposals, and marriage.",
       "label": "Essay"
     },
     {
-      "id": "2",
-      "title": "What I'm Building at the Studio",
-      "date": "2025-10-28",
-      "url": "https://studio.tomiabe.com",
-      "description": "A look into how I'm approaching systems-driven creative work.",
-      "label": "Writing"
-    },
-    {
-      "id": "3",
-      "title": "The Limen: On Connection and Meaning",
-      "date": "2025-09-15",
-      "url": "https://thelimen.substack.com",
-      "description": "Exploring deeper patterns of contemporary life through a higher lens.",
-      "label": "Newsletter"
-    },
-    {
-      "id": "4",
-      "title": "Marketplace Logic: Decoding Digital Platforms",
-      "date": "2025-08-01",
-      "url": "https://tomiabe.substack.com",
-      "description": "A new series with Alex Akinyeye on the systems powering digital marketplaces.",
-      "label": "Series"
+      "id": "8",
+      "title": "What Will It Take to See More Women in Public Leadership Across Africa?",
+      "date": "2025-05-13",
+      "url": "https://tomiabe.medium.com/what-will-it-take-to-see-more-women-in-public-leadership-across-africa-2298050f3d00?source=user_profile_page---------3-------------887bdb3c12b0----------------------",
+      "description": "Reflecting on women's representation in African leadership and what it takes to shift the balance.",
+      "label": "Essay"
     }
   ],
   "who": {

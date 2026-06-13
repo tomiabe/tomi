@@ -38,31 +38,30 @@ const UpdatesPage: React.FC<UpdatesPageProps> = ({ content }) => {
         <p className="opacity-40">No updates yet.</p>
       )}
 
-      <div className="space-y-2">
+      <div className="space-y-3">
         {updates.map((item) => (
           <a
             key={item.id}
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start gap-4 p-4 -mx-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors"
+            className="group block p-4 rounded-xl bg-black/5 dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors"
           >
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base font-semibold group-hover:opacity-100 transition-opacity truncate" style={{ color: accentColor }}>
-                  {item.title}
-                </span>
-                {item.label && (
-                  <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-current opacity-40">
-                    {item.label}
-                  </span>
-                )}
-              </div>
-              <p className="text-sm opacity-60 leading-relaxed">{item.description}</p>
+            <div className="flex items-start justify-between gap-2 mb-1.5">
+              <span className="text-base font-semibold leading-snug" style={{ color: accentColor }}>
+                {item.title}
+              </span>
+              <ArrowUpRight className="w-4 h-4 shrink-0 mt-0.5 opacity-30 group-hover:opacity-70 transition-opacity" />
             </div>
-            <div className="shrink-0 flex flex-col items-end gap-1 pt-0.5">
-              <ArrowUpRight className="w-4 h-4 opacity-30 group-hover:opacity-70 transition-opacity" />
-              <span className="text-[11px] font-medium opacity-40 whitespace-nowrap">{item.date}</span>
+            <p className="text-sm opacity-60 leading-relaxed mb-2">{item.description}</p>
+            <div className="flex items-center gap-2 text-[11px] font-medium opacity-40">
+              {item.label && (
+                <>
+                  <span>{item.label}</span>
+                  <span className="w-1 h-1 rounded-full bg-current opacity-30" />
+                </>
+              )}
+              <span>{item.date}</span>
             </div>
           </a>
         ))}

@@ -110,7 +110,7 @@ export const Updates: React.FC<{ data: SiteContent['updates']; settings?: SiteSe
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/[0.06] transition-colors"
+            className="group block p-4 rounded-xl bg-black/5 dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/[0.1] transition-colors"
           >
             <div className="flex items-start justify-between gap-2 mb-1.5">
               <span className="text-base font-semibold leading-snug group-hover:opacity-100 transition-opacity">
