@@ -1,6 +1,6 @@
 # Tomi Abe
 
-Source for [tomiabe.com](https://tomiabe.vercel.app) — personal website of Tomi Abe.
+Source for [tomiabe.com](https://tomiabe.com) — personal website of Tomi Abe.
 
 ## Tech Stack
 
