@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import {
     Sun,
     Moon,
@@ -121,7 +120,6 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                                 ))}
                             </div>
                             <Clock />
-                            <Link to="/photos" className="inline-flex items-center gap-2 text-xs font-semibold opacity-50 hover:opacity-100 transition-opacity">View photos <ArrowRight className="w-3 h-3" /></Link>
                         </div>
                         <nav className="hidden lg:block space-y-1 mt-8">
                             {[{ id: 'who', label: 'Who Am I' }, { id: 'build', label: 'What Do I Build' }, { id: 'learning', label: 'What Am I Learning' }, { id: 'share', label: 'Where Do I Share' }, { id: 'see', label: 'What Do I See' }, { id: 'connect', label: 'Connect' }].map((item) => {
@@ -133,10 +131,6 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                                     </button>
                                 );
                             })}
-                        <Link to="/photos" className="group flex items-center w-full py-2 text-sm font-medium opacity-50 hover:opacity-100 transition-colors">
-                                <span className="w-8 h-px mr-3 bg-current opacity-30 group-hover:w-12 transition-all duration-300"></span>
-                                Photos
-                            </Link>
                         </nav>
                     </div>
                     <div className="hidden lg:block">
