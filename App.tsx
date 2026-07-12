@@ -10,6 +10,7 @@ import Modal from './components/Modal';
 import InteractiveBackground from './components/InteractiveBackground';
 import HomePage from './components/Home/HomePage';
 import UpdatesPage from './components/UpdatesPage';
+import PhotosPage from './components/PhotosPage';
 import { SiteContent } from './types';
 import { EditorProvider } from './components/Editor/EditorContext';
 import { EditorToolbar } from './components/Editor/EditorToolbar';
@@ -70,9 +71,9 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (!content) return;
-    const isUpdatesPage = currentPath === '/updates';
+    const isSpecialPage = currentPath === '/updates' || currentPath === '/photos' || currentPath === '/gallery';
 
-    if (!isUpdatesPage && content.settings?.siteTitle) {
+    if (!isSpecialPage && content.settings?.siteTitle) {
       document.title = content.settings.siteTitle;
     }
 
@@ -220,6 +221,8 @@ const App: React.FC = () => {
           <Route path="/admin" element={<AdminRedirect />} />
           <Route path="/" element={<HomePage content={content} theme={theme} toggleTheme={toggleTheme} openSettings={() => setSettingsOpen(true)} />} />
           <Route path="/updates" element={<UpdatesPage content={content} />} />
+          <Route path="/photos" element={<PhotosPage />} />
+          <Route path="/gallery" element={<PhotosPage />} />
           <Route path="*" element={
             <div className="min-h-screen flex flex-col items-center justify-center bg-transparent p-6 text-center relative z-10">
               <h1 className="text-8xl md:text-[12rem] font-bold tracking-tighter mb-4 opacity-5 dark:opacity-10 pointer-events-none select-none">404</h1>
