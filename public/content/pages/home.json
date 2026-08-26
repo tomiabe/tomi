@@ -9,7 +9,7 @@
   },
   "intro": {
     "name": "Tomi Abe",
-    "subtitle": "Human · Believer · African · Husband · Builder",
+    "subtitle": "Human · Believer · African · Husband · Builder · Strategist",
     "welcomeText": "Welcome to my internet home.",
     "description": "This is where my life, ideas, and work intersect, a space that's been growing with me for over a decade. Some parts show what I'm building. Others reveal what I'm learning. A few just capture moments worth keeping.",
     "avatar": "/images/tomi-1-bw.jpeg",
@@ -42,7 +42,6 @@
   },
   "updates": [
     {
-      "id": "11",
       "title": "How Culture Quietly Rewrites Sustainability in Our Stories",
       "date": "8 Jul 2026",
       "url": "https://open.substack.com/pub/susinsight/p/how-culture-quietly-rewrites-sustainability",
@@ -50,7 +49,6 @@
       "label": "Essay"
     },
     {
-      "id": "12",
       "title": "What's New on Susinsight: Save, Explore, and Share More of Africa's Stories",
       "date": "6 Jul 2026",
       "url": "https://susinsight.substack.com/p/whats-new-on-susinsight-save-explore",
@@ -58,7 +56,6 @@
       "label": "News"
     },
     {
-      "id": "13",
       "title": "From WordPress to the Edge",
       "date": "11 Jun 2026",
       "url": "https://tomiabe.medium.com/from-wordpress-to-the-edge-6a57301fb7c8",
@@ -66,7 +63,6 @@
       "label": "Essay"
     },
     {
-      "id": "14",
       "title": "Rebuilding Susinsight: A Smarter Platform for African Sustainability Stories",
       "date": "12 Jun 2026",
       "url": "https://www.linkedin.com/posts/tomiabe_susinsight-sustainabilityjournalism-sustainabilityintelligence-share-7460686913830612993-AsuC/",
@@ -74,7 +70,6 @@
       "label": "LinkedIn"
     },
     {
-      "id": "5",
       "title": "Partner with Susinsight",
       "date": "19 May 2026",
       "url": "https://susinsight.substack.com/p/partner-with-susinsight",
@@ -82,7 +77,6 @@
       "label": "Partnership"
     },
     {
-      "id": "6",
       "title": "Susinsight is 3!",
       "date": "4 May 2026",
       "url": "https://susinsight.substack.com/p/susinsight-is-3",
@@ -90,7 +84,6 @@
       "label": "Milestone"
     },
     {
-      "id": "7",
       "title": "Susinsight Is Back and We're Partnering on a Global Islands Summit",
       "date": "2 Mar 2026",
       "url": "https://susinsight.substack.com/p/susinsight-is-back-and-were-partnering",
@@ -98,7 +91,6 @@
       "label": "News"
     },
     {
-      "id": "10",
       "title": "Building NairaWatch",
       "date": "27 Feb 2026",
       "url": "https://tomiabe.medium.com/for-most-of-my-career-ive-worked-at-the-intersection-of-design-technology-and-systems-1b57b68ce08c?source=user_profile_page---------1-------------887bdb3c12b0----------------------",
@@ -106,7 +98,6 @@
       "label": "Essay"
     },
     {
-      "id": "1",
       "title": "Part 2: Three Years Later",
       "date": "11 Nov 2025",
       "url": "https://tomiabe.medium.com/part-2-three-years-later-b4859108b53a?source=user_profile_page---------2-------------887bdb3c12b0----------------------",
@@ -114,7 +105,6 @@
       "label": "Essay"
     },
     {
-      "id": "8",
       "title": "What Will It Take to See More Women in Public Leadership Across Africa?",
       "date": "13 May 2025",
       "url": "https://tomiabe.medium.com/what-will-it-take-to-see-more-women-in-public-leadership-across-africa-2298050f3d00?source=user_profile_page---------3-------------887bdb3c12b0----------------------",
