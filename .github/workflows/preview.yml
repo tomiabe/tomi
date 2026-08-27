@@ -37,5 +37,6 @@ jobs:
         with:
           source-dir: ./dist
           preview-branch: gh-pages
-          pages-base-url: https://tomiabe.com/
+          # The action adds https:// and the path separators itself.
+          pages-base-url: tomiabe.com
           wait-for-pages-deployment: true
