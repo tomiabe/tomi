@@ -4,7 +4,7 @@
     "favicon": "/images/favicon.png",
     "accentColor": "#3b82f6",
     "fontFamily": "geist",
-    "darkModeTheme": "black",
+    "darkModeTheme": "grey",
     "lightModeTheme": "white"
   },
   "intro": {
