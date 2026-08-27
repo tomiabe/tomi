@@ -36,7 +36,7 @@ const FONT_OPTIONS = [
 
 const AdminRedirect: React.FC = () => {
   useEffect(() => {
-    window.location.replace('/admin/');
+    window.location.replace(`${import.meta.env.BASE_URL}admin/`);
   }, []);
   return null;
 };
@@ -49,7 +49,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const t = new Date().getTime();
-    fetch(`/content/pages/home.json?t=${t}`)
+    fetch(`${import.meta.env.BASE_URL}content/pages/home.json?t=${t}`)
       .then(res => res.json())
       .then(data => setContent(data))
       .catch(err => console.error("Failed to load home content", err));

@@ -4,7 +4,9 @@ import fs from 'fs';
 import path from 'path';
 
 export default defineConfig({
-  base: '/',
+  // GitHub Pages previews live below /pr-preview/pr-N/. Keep the normal
+  // production site at the root while allowing CI to supply a preview base.
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     react(),
     {
@@ -14,9 +16,13 @@ export default defineConfig({
           const homePath = path.resolve(process.cwd(), 'public/content/pages/home.json');
           const home = JSON.parse(fs.readFileSync(homePath, 'utf-8'));
           const avatar = home?.intro?.avatar || '/images/tomi-1-bw.jpeg';
+          const base = process.env.VITE_BASE_PATH || '/';
+          const avatarUrl = avatar.startsWith('/')
+            ? `${base.replace(/\/$/, '/')}${avatar.slice(1)}`
+            : avatar;
           return html
-            .replace(/(<meta\s+property="og:image"\s+content=")[^"]*(")/, `$1${avatar}$2`)
-            .replace(/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/, `$1${avatar}$2`);
+            .replace(/(<meta\s+property="og:image"\s+content=")[^"]*(")/, `$1${avatarUrl}$2`)
+            .replace(/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/, `$1${avatarUrl}$2`);
         } catch {
           return html;
         }
