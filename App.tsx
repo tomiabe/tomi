@@ -14,6 +14,7 @@ import PhotosPage from './components/PhotosPage';
 import { SiteContent } from './types';
 import { EditorProvider } from './components/Editor/EditorContext';
 import { EditorToolbar } from './components/Editor/EditorToolbar';
+import { assetUrl } from './utils/asset-url';
 
 
 
@@ -80,7 +81,7 @@ const App: React.FC = () => {
     const siteUrl = window.location.origin;
     const title = document.title || content.settings?.siteTitle || 'Tomi Abe';
     const description = content.intro?.description || '';
-    const avatarUrl = content.intro?.avatar ? `${siteUrl}${content.intro.avatar}` : '';
+    const avatarUrl = content.intro?.avatar ? `${siteUrl}${assetUrl(content.intro.avatar)}` : '';
     const pageUrl = `${siteUrl}${window.location.pathname}`;
 
     const setMeta = (property: string, contentVal: string, isName = false) => {

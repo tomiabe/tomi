@@ -21,6 +21,7 @@ import { Editable } from '../../Editor/Editable';
 import { EditableImage } from '../../Editor/EditableImage';
 import { useEditor } from '../../Editor/EditorContext';
 import { ListControls } from '../../Editor/ListControls';
+import { assetUrl } from '../../../utils/asset-url';
 
 // Section Props and Utility Components
 type SectionProps<T> = {
@@ -132,7 +133,7 @@ export const Updates: React.FC<{ data: SiteContent['updates']; settings?: SiteSe
         ))}
       </div>
       <a
-        href="/updates"
+        href={`${import.meta.env.BASE_URL}updates`}
         className="inline-flex items-center gap-1.5 text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity mt-4 ml-4"
       >
         View all updates
@@ -578,7 +579,7 @@ export const See: React.FC<SectionProps<SiteContent['see']>> = ({ data, settings
                     <button className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 sm:p-3 bg-zinc-800/50 hover:bg-zinc-700 rounded-full text-white transition-all backdrop-blur-sm z-50" onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}><XMark className="w-6 h-6" /></button>
                     <button className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-zinc-800/50 hover:bg-zinc-700 rounded-full text-white transition-all backdrop-blur-sm z-50" onClick={handlePrev}><ChevronLeft className="w-6 h-6" /></button>
                     <button className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-zinc-800/50 hover:bg-zinc-700 rounded-full text-white transition-all backdrop-blur-sm z-50" onClick={handleNext}><ChevronRight className="w-6 h-6" /></button>
-                    <img src={data.images[selectedIndex].image} alt="Expanded view" className="max-w-full max-h-[90vh] rounded shadow-2xl object-contain animate-fadeIn select-none" onClick={(e) => e.stopPropagation()} />
+                    <img src={assetUrl(data.images[selectedIndex].image)} alt="Expanded view" className="max-w-full max-h-[90vh] rounded shadow-2xl object-contain animate-fadeIn select-none" onClick={(e) => e.stopPropagation()} />
                 </div>, document.body
             )}
         </div>
