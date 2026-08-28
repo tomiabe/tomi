@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, XMark } from './Icons';
+import { assetUrl } from '../utils/asset-url';
 
 type ViewMode = 'grid' | 'list';
 
@@ -154,7 +155,7 @@ const PhotosPage: React.FC = () => {
                 className={`group text-left ${index === 0 ? 'lg:col-span-7' : 'lg:col-span-5'} ${index === 0 ? 'sm:col-span-2' : ''}`}
               >
                 <div className={`relative overflow-hidden rounded-2xl bg-black/5 dark:bg-white/10 ${index === 0 ? 'aspect-[4/3]' : 'aspect-[4/5]'}`}>
-                  <img src={photo.src} alt={photo.title} className={`w-full h-full object-cover transition duration-700 group-hover:scale-[1.03] ${photo.position || ''}`} loading={index > 1 ? 'lazy' : 'eager'} />
+                  <img src={assetUrl(photo.src)} alt={photo.title} className={`w-full h-full object-cover transition duration-700 group-hover:scale-[1.03] ${photo.position || ''}`} loading={index > 1 ? 'lazy' : 'eager'} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute inset-x-0 bottom-0 p-5 text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                     <div className="flex items-end justify-between gap-4">
@@ -178,7 +179,7 @@ const PhotosPage: React.FC = () => {
             {visiblePhotos.map((photo, index) => (
               <button key={photo.id} type="button" onClick={() => setSelectedPhoto(photo)} className="group w-full text-left py-5 flex items-center gap-5 md:gap-8">
                 <span className="w-8 text-xs opacity-35">0{index + 1}</span>
-                <img src={photo.src} alt="" className="w-20 h-20 md:w-28 md:h-20 object-cover rounded-lg grayscale group-hover:grayscale-0 transition duration-500" />
+                        <img src={assetUrl(photo.src)} alt="" className="w-20 h-20 md:w-28 md:h-20 object-cover rounded-lg grayscale group-hover:grayscale-0 transition duration-500" />
                 <span className="flex-1 min-w-0">
                   <span className="block font-semibold mb-1">{photo.title}</span>
                   <span className="block text-sm opacity-50 truncate">{photo.note}</span>
@@ -205,7 +206,7 @@ const PhotosPage: React.FC = () => {
           <div className="flex-1 min-h-0 flex items-center justify-center gap-3 md:gap-8" onClick={(event) => event.stopPropagation()}>
             <button type="button" aria-label="Previous photo" onClick={() => setSelectedPhoto(visiblePhotos[(selectedIndex - 1 + visiblePhotos.length) % visiblePhotos.length])} className="p-2 opacity-50 hover:opacity-100 transition-opacity"><ChevronLeft className="w-7 h-7" /></button>
             <figure className="max-w-5xl max-h-full flex flex-col items-center">
-              <img src={selectedPhoto.src} alt={selectedPhoto.title} className="max-h-[70vh] md:max-h-[76vh] max-w-full object-contain rounded-lg" />
+                    <img src={assetUrl(selectedPhoto.src)} alt={selectedPhoto.title} className="max-h-[70vh] md:max-h-[76vh] max-w-full object-contain rounded-lg" />
               <figcaption className="w-full flex flex-col sm:flex-row sm:items-end justify-between gap-3 mt-5">
                 <div>
                   <h2 className="font-semibold">{selectedPhoto.title}</h2>

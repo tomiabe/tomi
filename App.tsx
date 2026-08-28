@@ -14,6 +14,7 @@ import PhotosPage from './components/PhotosPage';
 import { SiteContent } from './types';
 import { EditorProvider } from './components/Editor/EditorContext';
 import { EditorToolbar } from './components/Editor/EditorToolbar';
+import { assetUrl } from './utils/asset-url';
 
 
 
@@ -36,7 +37,7 @@ const FONT_OPTIONS = [
 
 const AdminRedirect: React.FC = () => {
   useEffect(() => {
-    window.location.replace('/admin/');
+    window.location.replace(`${import.meta.env.BASE_URL}admin/`);
   }, []);
   return null;
 };
@@ -49,7 +50,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const t = new Date().getTime();
-    fetch(`/content/pages/home.json?t=${t}`)
+    fetch(`${import.meta.env.BASE_URL}content/pages/home.json?t=${t}`)
       .then(res => res.json())
       .then(data => setContent(data))
       .catch(err => console.error("Failed to load home content", err));
@@ -80,7 +81,7 @@ const App: React.FC = () => {
     const siteUrl = window.location.origin;
     const title = document.title || content.settings?.siteTitle || 'Tomi Abe';
     const description = content.intro?.description || '';
-    const avatarUrl = content.intro?.avatar ? `${siteUrl}${content.intro.avatar}` : '';
+    const avatarUrl = content.intro?.avatar ? `${siteUrl}${assetUrl(content.intro.avatar)}` : '';
     const pageUrl = `${siteUrl}${window.location.pathname}`;
 
     const setMeta = (property: string, contentVal: string, isName = false) => {

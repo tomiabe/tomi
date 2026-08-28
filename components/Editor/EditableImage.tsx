@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useEditor } from './EditorContext';
 import { PencilSquare, XMark, Check } from '../Icons';
+import { assetUrl } from '../../utils/asset-url';
 
 interface EditableImageProps {
     src: string;
@@ -25,7 +26,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({
     }, [src]);
 
     if (!isEditMode) {
-        return <img src={src} className={className} alt="" />;
+        return <img src={assetUrl(src)} className={className} alt="" />;
     }
 
     const handleSave = (e: React.MouseEvent) => {
@@ -56,7 +57,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({
             onMouseLeave={() => setIsHovered(false)}
             onClick={(e) => e.stopPropagation()}
         >
-            <img src={src} className={className} alt="" />
+            <img src={assetUrl(src)} className={className} alt="" />
 
             {isHovered && !isEditing && (
                 <button

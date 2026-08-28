@@ -92,7 +92,7 @@ const HomePage: React.FC<HomePageProps> = ({ content, theme, toggleTheme, openSe
                     <div>
                         <div className="flex items-center justify-between mb-6 lg:mb-8">
                             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-black/10 dark:border-white/10 transition-transform duration-500 hover:scale-105 group/avatar">
-                                <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/'; }} className="block w-full h-full">
+                                <a href={import.meta.env.BASE_URL} onClick={(e) => { e.preventDefault(); window.location.href = import.meta.env.BASE_URL; }} className="block w-full h-full">
                                     <EditableImage src={content.intro.avatar} path="intro.avatar" className="w-full h-full object-cover" />
                                 </a>
                             </div>
