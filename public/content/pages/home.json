@@ -3,7 +3,7 @@
     "siteTitle": "Tomi Abe",
     "favicon": "/images/favicon.png",
     "accentColor": "#3b82f6",
-    "fontFamily": "geist",
+    "fontFamily": "sans",
     "darkModeTheme": "grey",
     "lightModeTheme": "white"
   },
