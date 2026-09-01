@@ -22,6 +22,8 @@ jobs:
           mkdir -p _site
           cp index.html styles.css script.js scroll.css scroll.js CNAME robots.txt sitemap.xml site.webmanifest _site/
           cp -R assets _site/assets
+          mkdir -p _site/archive
+          cp -R archive/old _site/archive/old
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
