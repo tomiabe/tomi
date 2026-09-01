@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QTT45PS4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6QTT45PS4S');
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Tomi Abe | Internet Home</title>
+  <meta property="og:title" content="Tomi Abe" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomiabe.com" />
+  <meta property="og:image" content="/images/tomi-1-bw.jpeg" />
+  <meta property="og:description" content="Welcome to my internet home." />
+  <meta property="og:site_name" content="Tomi Abe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/images/tomi-1-bw.jpeg" />
+  <link rel="icon" type="image/png" href="%BASE_URL%favicon.png" />
+
+
+  <!-- Google Fonts Embed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geist:wght@100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Spline+Sans:wght@300..700&family=Stack+Sans+Text:wght@200..700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind (CDN for dev speed, but built CSS is preferred in production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            apple: ['-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            dmsans: ['DM Sans', 'sans-serif'],
+            figtree: ['Figtree', 'sans-serif'],
+            geist: ['Geist', 'sans-serif'],
+            ibmplex: ['IBM Plex Sans', 'sans-serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            librefranklin: ['Libre Franklin', 'sans-serif'],
+            manrope: ['Manrope', 'sans-serif'],
+            monasans: ['Mona Sans', 'sans-serif'],
+            plusjakarta: ['Plus Jakarta Sans', 'sans-serif'],
+            publicsans: ['Public Sans', 'sans-serif'],
+            schibsted: ['Schibsted Grotesk', 'sans-serif'],
+            splinesans: ['Spline Sans', 'sans-serif'],
+            stacksans: ['Stack Sans Text', 'sans-serif'],
+            serif: ['Times New Roman', 'serif'],
+            mono: ['Courier New', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Apply Inter globally with Apple-like smoothing */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .font-manrope {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
