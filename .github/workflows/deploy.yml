@@ -20,7 +20,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css script.js CNAME _site/
+          cp index.html styles.css script.js CNAME robots.txt sitemap.xml site.webmanifest _site/
           cp -R assets _site/assets
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
