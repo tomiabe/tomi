@@ -8,7 +8,7 @@
   --wash: color-mix(in srgb, var(--paper) 86%, transparent);
   --canvas-particle: 36, 36, 35;
   --heading: "Zalando Sans Expanded", Arial, sans-serif;
-  --body: "IM Fell French Canon", Georgia, serif;
+  --body: "Newsreader", Georgia, serif;
 }
 
 [data-theme="dark"] {
@@ -85,10 +85,10 @@ h1 span { color: transparent; -webkit-text-stroke: 1px var(--ink); }
 .hero-intro { max-width: 36rem; font-size: clamp(1.4rem, 2vw, 2rem); line-height: 1.2; }
 .text-link { font: 700 .72rem/1 var(--heading); text-transform: uppercase; text-decoration: none; letter-spacing: .08em; display: inline-flex; gap: .65rem; align-items: center; padding-bottom: .5rem; border-bottom: 2px solid var(--sun); }
 .hero-image-wrap { position: relative; max-width: 33rem; justify-self: end; }
-.hero-image-frame { overflow: hidden; background: var(--ink); aspect-ratio: 4 / 5; transform: rotate(2deg); box-shadow: 18px 18px 0 var(--sun); }
+.hero-image-frame { overflow: hidden; background: var(--ink); aspect-ratio: 4 / 5; box-shadow: 18px 18px 0 var(--sun); }
 .hero-image-frame::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(245, 203, 92, .18) 0 1px, transparent 1px 5px); mix-blend-mode: screen; pointer-events: none; }
 .hero-image-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 38%; filter: saturate(.8) contrast(1.07); }
-.image-stamp { position: absolute; top: 1rem; right: -1.3rem; padding: .5rem .6rem; background: var(--sun); color: #242423; font: 800 .59rem/1.35 var(--heading); letter-spacing: .04em; transform: rotate(4deg); }
+.image-stamp { position: absolute; top: 1rem; right: -1.3rem; padding: .5rem .6rem; background: var(--sun); color: #242423; font: 800 .59rem/1.35 var(--heading); letter-spacing: .04em; }
 .image-note { max-width: 13rem; margin: 1.8rem 0 0 auto; text-align: right; font-size: 1.08rem; }
 
 section { scroll-margin-top: 2rem; }
