@@ -7,6 +7,11 @@ const navLinks = [...document.querySelectorAll('#site-nav a')];
 const chapters = navLinks.map((link) => document.querySelector(link.hash));
 let smoothScroll;
 
+document.querySelectorAll('a[href^="http://"], a[href^="https://"]').forEach((link) => {
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+});
+
 function savePreference(key, value) {
   try { localStorage.setItem(key, value); } catch {}
 }
