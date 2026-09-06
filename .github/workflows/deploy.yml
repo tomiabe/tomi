@@ -24,7 +24,6 @@ jobs:
           cp -R assets _site/assets
           mkdir -p _site/archive
           cp -R archive/old _site/archive/old
-          cp -R archive/2026-09-01 _site/archive/2026-09-01
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
