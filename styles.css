@@ -87,7 +87,8 @@ nav a[aria-current] .nav-marker { background: var(--pink); height: 18px; }
 .rail-bottom { order: 4; margin-top: 0; padding-top: 0; font-size: 12px; color: var(--muted); }
 .rail-meta { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; margin-bottom: 12px; }
 .rail-bottom time { font-variant-numeric: tabular-nums; font-size: 11px; }
-.rail-bottom a { display: inline-grid; place-items: center; width: 36px; height: 44px; font-size: 20px; text-decoration: none; color: var(--ink); }
+.rail-socials { display: flex; align-items: center; gap: 6px; }
+.rail-bottom a { display: inline-grid; place-items: center; width: 30px; height: 44px; font-size: 20px; text-decoration: none; color: var(--ink); }
 main { margin-left: var(--rail); padding: 0 var(--edge); max-width: 1560px; }
 .opening { padding-bottom: 0; }
 .masthead { min-height: 106px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--ink); }
@@ -174,7 +175,7 @@ h1 { font-size: clamp(42px, 4.35vw, 72px); line-height: 1.075; letter-spacing: -
 .contact { position: relative; }
 .contact h2 { font-size: clamp(34px, 4.5vw, 64px); line-height: 1.12; max-width: 24ch; }
 .contact > p { max-width: 48ch; margin-top: 28px; color: var(--muted); font-size: 17px; }
-.email-link { display: inline-flex; align-items: center; gap: 20px; font: 500 26px var(--heading); padding: 8px 0; margin-top: 32px; text-decoration-color: var(--pink); text-underline-offset: 10px; }
+.email-link { display: inline-flex; align-items: center; gap: 20px; font: 500 26px var(--heading); padding: 8px 0 6px; margin-top: 32px; text-decoration: none; border-bottom: 1px solid var(--pink); }
 .email-link .ph { font-size: 28px; }
 .contact-socials { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 52px; }
 .contact-socials a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; text-decoration: none; }
@@ -197,6 +198,7 @@ body:has(#photo-dialog[open]) { overflow: hidden; }
   .icon-button:hover, .play-button:hover { background: var(--surface); }
   .rail .theme-toggle:hover { background: transparent; }
   .text-link:hover { border-color: var(--accent); }
+  .email-link:hover { border-color: var(--accent); }
   #photo-dialog .icon-button:hover { background: var(--viewer-text); color: var(--viewer); }
 }
 @media (prefers-reduced-motion: no-preference) {
