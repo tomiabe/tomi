@@ -3,8 +3,8 @@
   "short_name": "Tomi Abe",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0c0f0a",
+  "background_color": "#E8EDDF",
+  "theme_color": "#242423",
   "icons": [
     {
       "src": "assets/favicon-192.png",
