@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tomi Abe</title>
-    <meta name="description" content="Tomi Abe is a human, believer, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
+    <meta name="description" content="Tomi Abe is a human, believer, African, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
     <meta name="author" content="Tomi Abe" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#242423" />
+    <meta name="theme-color" content="#0c0f0a" />
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://tomiabe.com/" />
-    <link rel="icon" href="assets/favicon.png" sizes="any" />
+    <link rel="icon" href="assets/favicon.png" sizes="1024x1024" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <meta property="og:type" content="website" />
@@ -18,24 +18,32 @@
     <meta property="og:url" content="https://tomiabe.com/" />
     <meta property="og:site_name" content="Tomi Abe" />
     <meta property="og:title" content="Tomi Abe" />
-    <meta property="og:description" content="Tomi Abe is a human, believer, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
-    <meta property="og:image" content="https://tomiabe.com/assets/images/og-tomi-abe.jpg" />
-    <meta property="og:image:secure_url" content="https://tomiabe.com/assets/images/og-tomi-abe.jpg" />
+    <meta property="og:description" content="Tomi Abe is a human, believer, African, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
+    <meta property="og:image" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
+    <meta property="og:image:secure_url" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
     <meta property="og:image:alt" content="Portrait of Tomi Abe" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tomi Abe" />
-    <meta name="twitter:description" content="Tomi Abe is a human, believer, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
-    <meta name="twitter:image" content="https://tomiabe.com/assets/images/og-tomi-abe.jpg" />
+    <meta name="twitter:description" content="Tomi Abe is a human, believer, African, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos." />
+    <meta name="twitter:image" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
     <meta name="twitter:image:alt" content="Portrait of Tomi Abe" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200..800&family=Zalando+Sans+Expanded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="preload" href="assets/fonts/mozilla-headline.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/fonts/phosphor.css" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="scroll.css" />
+    <noscript><style>.rail-controls, .story-controls, .story-progress, .gallery-hint { display: none; } @media (max-width: 980px) { .rail { position: relative; padding-block: 20px; } #site-nav { display: grid; margin-top: 20px; } }</style></noscript>
+    <script>
+      try {
+        var savedTheme = localStorage.getItem('tomi-theme-choice-v4');
+        var lagosHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Lagos', hour: 'numeric', hourCycle: 'h23' }).format(new Date()));
+        document.documentElement.dataset.theme = savedTheme || (lagosHour >= 7 && lagosHour < 19 ? 'light' : 'dark');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QTT45PS4S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -52,7 +60,7 @@
             "@id": "https://tomiabe.com/#website",
             "url": "https://tomiabe.com/",
             "name": "Tomi Abe",
-            "description": "Tomi Abe is a human, believer, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos.",
+            "description": "Tomi Abe is a human, believer, African, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos.",
             "inLanguage": "en-NG",
             "publisher": { "@id": "https://tomiabe.com/#person" }
           },
@@ -63,15 +71,17 @@
             "url": "https://tomiabe.com/",
             "image": {
               "@type": "ImageObject",
-              "url": "https://tomiabe.com/assets/images/tomi-abe-portrait.jpg",
+              "url": "https://tomiabe.com/assets/images/tomi-abe-bw.jpeg",
               "caption": "Portrait of Tomi Abe"
             },
-            "description": "Human, believer, husband, builder, and strategist.",
+            "description": "Human, believer, African, husband, builder, and strategist.",
             "sameAs": [
               "https://www.linkedin.com/in/tomiabe",
               "https://www.instagram.com/mrtomiabe",
+              "https://x.com/mrtomiabe",
               "https://vsco.co/tomiabe/gallery",
               "https://tomiabe.substack.com",
+              "https://tomiabe.medium.com",
               "https://mentorcruise.com/mentor/tomiabe"
             ],
             "knowsAbout": ["Design", "Technology", "Media", "Research", "Culture", "Sustainability"]
@@ -81,7 +91,7 @@
             "@id": "https://tomiabe.com/#webpage",
             "url": "https://tomiabe.com/",
             "name": "Tomi Abe",
-            "description": "Tomi Abe is a human, believer, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos.",
+            "description": "Tomi Abe is a human, believer, African, husband, builder, and strategist. His personal home for life, ideas, work, and notes from Lagos.",
             "inLanguage": "en-NG",
             "isPartOf": { "@id": "https://tomiabe.com/#website" },
             "about": { "@id": "https://tomiabe.com/#person" }
@@ -91,239 +101,168 @@
     </script>
   </head>
   <body>
-    <canvas id="field" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header" id="top">
-      <a class="wordmark" href="#top" aria-label="Tomi Abe home">TOMI<span>.</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span>Menu</span><i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-      <nav id="site-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#now">Now</a>
-        <a href="#work">Work</a>
-        <a href="#writing">Writing</a>
-        <a href="#visuals">Visuals</a>
-        <a href="#hello">Hello</a>
+    <canvas id="field" aria-hidden="true"></canvas>
+    <header class="rail">
+      <a class="wordmark" href="#hello" aria-label="Tomi Abe, back to the beginning">Tomi Abe</a>
+      <div class="rail-controls">
+        <button class="icon-button theme-toggle" aria-label="Switch to dark mode" type="button"><i class="ph ph-moon" aria-hidden="true"></i></button>
+        <button class="icon-button menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav" type="button"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+      <nav id="site-nav" aria-label="Page sections">
+        <a href="#hello" aria-current="location"><span class="nav-marker" aria-hidden="true"></span>Hello</a>
+        <a href="#about"><span class="nav-marker" aria-hidden="true"></span>My story</a>
+        <a href="#beliefs"><span class="nav-marker" aria-hidden="true"></span>What grounds me</a>
+        <a href="#work"><span class="nav-marker" aria-hidden="true"></span>What I build</a>
+        <a href="#writing"><span class="nav-marker" aria-hidden="true"></span>What I write</a>
+        <a href="#now"><span class="nav-marker" aria-hidden="true"></span>Notes &amp; now</a>
+        <a href="#visuals"><span class="nav-marker" aria-hidden="true"></span>Through my eyes</a>
+        <a href="#sharing"><span class="nav-marker" aria-hidden="true"></span>What I share</a>
+        <a href="#connect"><span class="nav-marker" aria-hidden="true"></span>Say hello</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
-        <i class="fa-solid fa-sun" aria-hidden="true"></i>
-        <span>Theme</span>
-      </button>
+      <div class="rail-bottom">
+        <p class="rail-meta"><span>Lagos, NG</span><span aria-hidden="true">·</span><time id="lagos-time" aria-label="Current time in Lagos"></time></p>
+        <a href="mailto:tomilayo.abe@gmail.com" aria-label="Email Tomi Abe"><i class="ph ph-envelope-simple" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/tomiabe" aria-label="Tomi Abe on LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/mrtomiabe" aria-label="Tomi Abe on Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+        <a href="https://x.com/mrtomiabe" aria-label="Tomi Abe on X"><i class="ph ph-x-logo" aria-hidden="true"></i></a>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">A life with<br /><span>many rooms.</span></h1>
-          <p class="hero-intro">I am Tomi Abe. Human, believer, husband, builder, and strategist. This is where I keep the parts of life that shape the things I make.</p>
-          <a class="text-link" href="#about">Meet Tomi <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
-        </div>
-        <div class="hero-image-wrap">
-          <div class="hero-image-frame">
-            <img src="assets/images/tomi-abe-portrait.jpg" alt="Portrait of Tomi Abe" />
+      <section class="opening" id="hello" aria-labelledby="identity">
+        <div class="opening-layout">
+          <div class="opening-copy">
+            <h1 id="identity">Human.<br />Believer. African.<br />Husband. Builder.<br />Strategist<span class="accent-dot">.</span></h1>
+            <p class="opening-intro">I’m Tomi, a Nigerian with a curious mind and a faith that shapes how I live. I build things, follow questions, and write about what I’m learning along the way.</p>
+            <a class="text-link" href="#about">A little more about me <i class="ph ph-arrow-down" aria-hidden="true"></i></a>
           </div>
-          <div class="image-stamp">TA / 06.48° N<br />03.36° E</div>
-          <p class="image-note">A working life, held by a fuller one.</p>
+          <figure class="portrait">
+            <img src="assets/images/tomi-abe-bw.jpeg" alt="Tomi Abe, photographed in black and white" width="1024" height="1024" fetchpriority="high" />
+            <figcaption>Living to learn, learning to live.</figcaption>
+          </figure>
+        </div>
+        <div class="opening-foot">
+          <p>This is my personal corner of the internet.<br />The work lives at <a href="https://studio.tomiabe.com/">Tomi Abe Studio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a> and <a href="https://susbridge.xyz/">Susbridge <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>.</p>
+          <a href="#now" class="now-link"><span class="status-dot" aria-hidden="true"></span>What has my attention <i class="ph ph-arrow-down-right" aria-hidden="true"></i></a>
         </div>
       </section>
 
-      <section class="statement" id="about" aria-labelledby="about-title">
-        <div>
-          <h2 id="about-title">I am interested in a life that is useful, attentive, and held together.</h2>
-          <p class="lead">I grew up in Lagos in a Yoruba family from Osun State. Faith gave my life its first language. Marriage keeps me honest. Curiosity keeps opening new doors.</p>
-          <p>I work across design, technology, media, and research, but work is only one expression of what I care about. I am drawn to people, systems, stories, places, and the quiet decisions that change how we live.</p>
-        </div>
-      </section>
-
-      <section class="rooms" aria-label="The rooms of Tomi's life">
-        <article class="room room-wide">
-          <i class="fa-solid fa-house-chimney" aria-hidden="true"></i>
-          <h3>Home is the centre.</h3>
-          <p>I live with Toro on the outskirts of Lagos, close enough to the city and far enough to breathe. Life here is made of faith, family, good food, conversation, and ordinary days worth noticing.</p>
-        </article>
-        <article class="room">
-          <i class="fa-solid fa-compass" aria-hidden="true"></i>
-          <h3>Curiosity has range.</h3>
-          <p>I follow questions about culture, sustainability, technology, cities, systems, and the way people make meaning together.</p>
-        </article>
-        <article class="room room-accent">
-          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
-          <h3>Growth needs room.</h3>
-          <p>I am still learning how to make better work, keep better company, and live with more intention.</p>
-        </article>
-      </section>
-
-      <section class="now" id="now" aria-labelledby="now-title">
-        <div class="now-heading">
-          <h2 id="now-title">What has my attention.</h2>
-          <p>Notes from the present tense. Small updates, useful links, and things I want to remember.</p>
-        </div>
-        <div class="now-card">
-          <div class="now-meta"><span class="live-dot"></span> Updated August 2026</div>
-          <h3>Making better systems for thought, work, and public life.</h3>
-          <p>Right now I am spending time with Susinsight, practical AI tools, and the shape of a more intentional personal practice. I am also thinking about how culture carries knowledge across generations.</p>
-          <div class="now-links">
-            <a href="https://susinsight.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit Susinsight</a>
-            <a href="https://tomiabe.substack.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Read the latest</a>
+      <section class="chapter" id="about" aria-labelledby="about-title">
+        <div class="chapter-heading"><h2 id="about-title">My story, so far.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-fingerprint" aria-hidden="true"></i></span></div>
+        <div class="reading-layout">
+          <div class="prose">
+            <p class="lead">My full name is Jesutomilayo Abe. I was born in Lagos, into a Yoruba family from Osun State. I grew up in a home filled with love and faith, with room to explore and become my own person.</p>
+            <p>That curiosity took me to Computer Science at Covenant University, and later to a postgraduate programme in Creative Technology at the University of the West of England. I was drawn to both the logic of computing and the possibilities of making something with it.</p>
+            <p>Living in the UK widened my perspective. I began to notice how differently people organise things: their cities, institutions, creative work, and everyday life. It changed the questions I brought back with me.</p>
+            <p>Today, I’m married to <a href="https://torotayo.com">Toro</a>, whose faith and brilliance continually inspire me. We live on the outskirts of Lagos, just far enough to breathe. Home, faith, and the people in my life shape the decisions I make about work and everything around it.</p>
+            <p>I still follow a lot of interests. Art, design, technology, media, sustainability, culture, faith, and history all find their way into my reading and conversations. I like understanding how something works, why it matters, and whether it could work better.</p>
           </div>
+          <aside class="margin-note">
+            <span class="small-cross" aria-hidden="true">+</span>
+            <p>Lagos is home.<br />Osun is where my family’s roots run.</p>
+            <a class="text-link" href="https://tomiabe.medium.com/part-2-three-years-later-b4859108b53a">How Toro and I got here <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </aside>
         </div>
-        <div class="notes-stream">
-          <h3>Small things I want to keep.</h3>
-          <div class="note-list">
-            <article class="note-entry">
-              <time datetime="2026-07-08">8 Jul 2026</time>
-              <div>
-                <h4>Culture is part of how change lasts.</h4>
-                <p>I have been thinking about the stories communities remember, teach, and carry. They shape what sustainable change can look like in real life.</p>
-              </div>
-              <a href="https://open.substack.com/pub/susinsight/p/how-culture-quietly-rewrites-sustainability" target="_blank" rel="noreferrer" aria-label="Read How Culture Quietly Rewrites Sustainability in Our Stories"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-            </article>
-            <article class="note-entry">
-              <time datetime="2026-06-11">11 Jun 2026</time>
-              <div>
-                <h4>Sometimes a system needs a clean start.</h4>
-                <p>Rebuilding Susinsight meant moving beyond patches and making room for a platform that can grow with the work and the people it serves.</p>
-              </div>
-              <a href="https://tomiabe.medium.com/from-wordpress-to-the-edge-6a57301fb7c8" target="_blank" rel="noreferrer" aria-label="Read From WordPress to the Edge"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-            </article>
-            <article class="note-entry">
-              <time datetime="2026-05-04">4 May 2026</time>
-              <div>
-                <h4>Three years is a good moment to take stock.</h4>
-                <p>Susinsight began with a conviction that African sustainability stories deserve greater depth, context, and care. That conviction has only grown.</p>
-              </div>
-              <a href="https://susinsight.substack.com/p/susinsight-is-3" target="_blank" rel="noreferrer" aria-label="Read Susinsight is 3"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-            </article>
+      </section>
+
+      <section class="chapter beliefs" id="beliefs" aria-labelledby="beliefs-title">
+        <div class="chapter-heading"><h2 id="beliefs-title">What grounds me.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-cross" aria-hidden="true"></i></span></div>
+        <div class="reading-layout">
+          <div class="prose">
+            <p class="lead">I’m a Christian. Faith is the lens through which I see my life, including the ordinary choices about how I spend my time and how I treat people.</p>
+            <p>I believe creativity is a gift to take seriously. Doing something well is a way of being grateful for it. That belief carries into how I build, learn, and serve other people.</p>
+            <p>Curiosity makes me ask questions. Conviction helps me decide what to do with the answers. I want to keep both, and stay willing to learn from experiences that challenge what I think I know.</p>
           </div>
+          <blockquote>
+            <p>“Whatever you do, work at it with all your heart, as working for the Lord.”</p>
+            <cite>Colossians 3:23</cite>
+          </blockquote>
         </div>
       </section>
 
-      <section class="work" id="work" aria-labelledby="work-title">
-        <div class="work-intro">
-          <h2 id="work-title">The work has its own rooms.</h2>
-          <p>This is not a portfolio. The work has homes built for it. These are the places to go when you want to understand the practice, the collaborations, and the ideas in motion.</p>
-        </div>
-        <div class="work-grid">
-          <a class="work-card studio" href="https://studio.tomiabe.com" target="_blank" rel="noreferrer">
-            <div class="card-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></div>
-            <div>
-              <h3>Tomi Abe Studio</h3>
-              <p>My independent practice for turning complex systems into clear products, brands, stories, and useful experiences.</p>
-            </div>
-            <span>Explore the studio <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-          </a>
-          <a class="work-card susbridge" href="https://susbridge.xyz" target="_blank" rel="noreferrer">
-            <div class="card-icon"><i class="fa-solid fa-bridge" aria-hidden="true"></i></div>
-            <div>
-              <h3>Susbridge</h3>
-              <p>An independent consulting practice where research, data, and communication become decisions leaders can trust. Susinsight is one of the initiatives growing from this work.</p>
-            </div>
-            <span>Visit Susbridge <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-          </a>
+      <section class="chapter" id="work" aria-labelledby="work-title">
+        <div class="chapter-heading"><h2 id="work-title">What I’m building.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-shapes" aria-hidden="true"></i></span></div>
+        <p class="section-intro">My work follows many of the same interests as my life. I work across design, technology, media, and research, helping people turn complicated ideas into things they can understand and use.</p>
+        <div class="practice-list">
+          <article class="practice">
+            <div class="practice-identity"><i class="ph ph-intersect" aria-hidden="true"></i><h3><a href="https://studio.tomiabe.com/">Tomi Abe Studio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></h3></div>
+            <div><p>My independent creative and digital practice. This is where I work with people on brands, products, data, and media systems, from early questions through to the things we put into the world.</p><a class="text-link" href="https://studio.tomiabe.com/">Explore my practice <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+          </article>
+          <article class="practice">
+            <div class="practice-identity"><i class="ph ph-bridge" aria-hidden="true"></i><h3><a href="https://susbridge.xyz/">Susbridge <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></h3></div>
+            <div><p>I co-lead Susbridge, a consulting practice bringing research, data, and communication to decisions. Through it, I also co-publish <a href="https://susinsight.com/">Susinsight</a>, a media and research platform exploring sustainability through African stories and experiences.</p><a class="text-link" href="https://susbridge.xyz/">Meet Susbridge <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+          </article>
         </div>
       </section>
 
-      <section class="writing" id="writing" aria-labelledby="writing-title">
-        <div class="writing-title-wrap">
-          <h2 id="writing-title">Writing is how I stay with a question.</h2>
+      <section class="chapter" id="writing" aria-labelledby="writing-title">
+        <div class="chapter-heading"><h2 id="writing-title">Thinking, in writing.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-pen-nib" aria-hidden="true"></i></span></div>
+        <p class="section-intro">Writing helps me work out what I think. Sometimes that becomes an essay about technology or culture. Sometimes it is a personal story that takes a few years to finish.</p>
+        <div class="publication-grid">
+          <article><h3><a href="https://thelimen.substack.com/">The Limen <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></h3><p>On connection, meaning, and the patterns beneath contemporary life.</p></article>
+          <article><h3>Undercurrent</h3><p>An interest I’m developing: Nigeria’s past and present, and the historical and cultural forces shaping its future.</p></article>
+          <article><h3><a href="https://marketplacelogic.substack.com/">Marketplace Logic <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></h3><p>With Alex Akinyeye. Looking at the systems and design decisions behind digital marketplaces.</p></article>
+          <article><h3><a href="https://tomiabe.substack.com/">Notes &amp; reflections <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></h3><p>Design, faith, technology, and life as I experience it. Find my writing on <a href="https://tomiabe.medium.com/">Medium</a> and <a href="https://tomiabe.substack.com/">Substack</a>.</p></article>
         </div>
-        <div class="writing-list">
-          <a href="https://thelimen.substack.com" target="_blank" rel="noreferrer">
-            <span class="writing-number">01</span>
-            <div><h3>The Limen</h3><p>Connection, meaning, and the deeper patterns of contemporary life.</p></div>
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://tomiabe.substack.com" target="_blank" rel="noreferrer">
-            <span class="writing-number">02</span>
-            <div><h3>Undercurrent</h3><p>Nigeria's past, present, and the forces shaping its future.</p></div>
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://marketplacelogic.substack.com" target="_blank" rel="noreferrer">
-            <span class="writing-number">03</span>
-            <div><h3>Marketplace Logic</h3><p>With Alex Akinyeye. Decoding the systems and design principles powering digital marketplaces worldwide.</p></div>
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-          <a href="https://tomiabe.medium.com" target="_blank" rel="noreferrer">
-            <span class="writing-number">04</span>
-            <div><h3>Notes and reflections</h3><p>Design, technology, faith, systems, and the everyday details in between.</p></div>
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
+        <div class="selected-reading">
+          <h3>A few places to start</h3>
+          <a class="reading-link" href="https://tomiabe.medium.com/part-2-three-years-later-b4859108b53a"><span>Part 2: Three Years Later<small>Meeting Toro, distance, proposals, and marriage.</small></span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="reading-link" href="https://open.substack.com/pub/susinsight/p/how-culture-quietly-rewrites-sustainability"><span>How Culture Quietly Rewrites Sustainability in Our Stories<small>The ways communities remember, teach, and belong.</small></span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="reading-link" href="https://tomiabe.medium.com/what-will-it-take-to-see-more-women-in-public-leadership-across-africa-2298050f3d00"><span>What Will It Take to See More Women in Public Leadership Across Africa?<small>Representation, leadership, and what needs to change.</small></span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
         </div>
       </section>
 
-      <section class="visual-record" id="visuals" aria-labelledby="visuals-title">
-        <div class="visual-intro">
-          <h2 id="visuals-title">The things I notice deserve a room too.</h2>
-          <p>A visual record of life, work, travel, texture, and the details that stay with me. One frame at a time.</p>
+      <section class="chapter" id="now" aria-labelledby="now-title">
+        <div class="chapter-heading"><h2 id="now-title">Notes from here.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-notebook" aria-hidden="true"></i></span></div>
+        <div class="now-snapshot"><span class="status-dot" aria-hidden="true"></span><div><h3>What has my attention</h3><p>I’m spending time with Susinsight, practical AI tools, and the shape of a more intentional personal practice. I keep coming back to how culture carries knowledge across generations.</p><time datetime="2026-08">Last updated August 2026</time></div></div>
+        <div class="notes">
+          <article><time datetime="2026-07-08">8 July 2026</time><div><h3>Culture is part of how change lasts.</h3><p>I have been thinking about the stories communities remember, teach, and carry. They shape what sustainable change can look like in real life.</p><a href="https://open.substack.com/pub/susinsight/p/how-culture-quietly-rewrites-sustainability" class="text-link">Read the essay <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></article>
+          <article><time datetime="2026-06-11">11 June 2026</time><div><h3>Knowing when to rebuild.</h3><p>Rebuilding Susinsight gave me a reason to think about the systems I had kept patching. I wrote about the decisions behind moving it from WordPress.</p><a href="https://tomiabe.medium.com/from-wordpress-to-the-edge-6a57301fb7c8" class="text-link">Read the reflection <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></article>
+          <article><time datetime="2026-05-04">4 May 2026</time><div><h3>Three years is a good moment to take stock.</h3><p>Susinsight turned three. A chance to look at what we have built, who it has reached, and where we go from here.</p><a href="https://susinsight.substack.com/p/susinsight-is-3" class="text-link">Read the update <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></article>
         </div>
+      </section>
 
-        <div class="visual-story">
-          <div class="visual-story-frame">
-            <div class="visual-story-progress" aria-hidden="true"></div>
-            <span class="visual-story-loader" role="status">Loading photograph</span>
-            <img class="visual-story-image" src="assets/images/media/field.jpeg" alt="A photograph from Tomi Abe's visual archive: A field note" />
-            <div class="visual-story-controls">
-              <button class="visual-story-previous" type="button" aria-label="Show previous photograph">Previous</button>
-              <button class="visual-story-next" type="button" aria-label="Show next photograph">Next</button>
-            </div>
+      <section class="chapter" id="visuals" aria-labelledby="visuals-title">
+        <div class="chapter-heading"><h2 id="visuals-title">Through my eyes.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-aperture" aria-hidden="true"></i></span></div>
+        <div class="visual-layout">
+          <div class="visual-copy"><p class="lead">I take photographs of things that catch my attention.</p><p>Places I pass through, light, colour, and moments from life and travel. A visual journal, gathered over time.</p>
+            <div class="visual-links"><a href="https://www.instagram.com/bytomiabe" class="text-link">Instagram <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://vsco.co/tomiabe/gallery" class="text-link">VSCO <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+            <p class="gallery-hint">Select a photograph to see it in full.</p>
           </div>
-          <div class="visual-story-copy">
-            <span class="visual-story-count">01 / 09</span>
-            <h3 class="visual-story-title">A field note</h3>
-            <p class="visual-story-text">A moving collection of photographs from the parts of life I want to remember. The frame changes every few seconds, but you can take your time.</p>
-            <div class="visual-story-actions">
-              <button class="visual-story-toggle" type="button" aria-label="Pause story relay" aria-pressed="false">Pause</button>
-              <a href="https://www.instagram.com/bytomiabe" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> More on Instagram</a>
-              <a href="https://vsco.co/tomiabe/gallery" target="_blank" rel="noreferrer"><i class="fa-solid fa-images" aria-hidden="true"></i> More on VSCO</a>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section class="sharing" aria-labelledby="sharing-title">
-        <div>
-          <h2 id="sharing-title">I share what I am learning with other people too.</h2>
-          <p>Through talks, workshops, teaching, and mentoring, I make space for people to think more clearly about creative work, emerging technology, and the systems around them.</p>
-        </div>
-        <div class="sharing-content">
-          <ul>
-            <li>AI-driven design workshop for climate advocates with African Climate Stories.</li>
-            <li>Ethical AI panel at FITC E3 Conference.</li>
-            <li>Generative workflow training for Loblaw Digital's AI Committee.</li>
-            <li>Business strategy session for creative entrepreneurs with Nairametrics.</li>
-          </ul>
-          <div class="mentorship-callout">
-            <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
-            <h3>Mentorship</h3>
-            <p>I work with early-career designers on craft, strategic thinking, practical execution, and the confidence to grow.</p>
-            <a href="https://mentorcruise.com/mentor/tomiabe" target="_blank" rel="noreferrer">Book a session <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <div class="story" role="region" aria-label="Photographs from Tomi’s visual journal">
+            <div class="story-progress" aria-hidden="true"></div>
+            <button class="story-image-button" type="button" aria-label="Enlarge photograph"><img id="story-image" src="assets/images/media/field.jpeg" alt="A mirrored sphere reflecting people and buildings beneath a blue sky." width="2448" height="3059" loading="lazy" /><span class="photo-loading" hidden>Loading photograph…</span></button>
+            <div class="story-caption"><p id="story-caption">Reflections</p><span id="story-count">01 / 09</span></div>
+            <div class="story-controls"><button type="button" class="icon-button" data-story="previous" aria-label="Previous photograph"><i class="ph ph-arrow-left" aria-hidden="true"></i></button><button type="button" class="play-button" data-story="pause" aria-pressed="false"><i class="ph ph-pause" aria-hidden="true"></i><span>Pause</span></button><button type="button" class="icon-button" data-story="next" aria-label="Next photograph"><i class="ph ph-arrow-right" aria-hidden="true"></i></button></div>
+            <p class="story-status sr-only" role="status"></p>
+            <noscript><p>View the photographs: <a href="assets/images/media/field.jpeg">Reflections</a>, <a href="assets/images/media/place.jpeg">In transit</a>, <a href="assets/images/media/light.jpg">On the road</a>, <a href="assets/images/media/texture.jpg">Sheffield</a>, <a href="assets/images/media/corner.jpeg">A place to make</a>, <a href="assets/images/media/chance.jpeg">An open gate</a>, <a href="assets/images/media/fragment.jpeg">Made by hand</a>, <a href="assets/images/media/detail.jpeg">Lines and light</a>, <a href="assets/images/media/portrait.jpeg">Looking up</a>.</p></noscript>
           </div>
         </div>
       </section>
 
-      <section class="closing" id="hello" aria-labelledby="hello-title">
-        <div class="closing-orbit" aria-hidden="true"></div>
-        <div>
-          <h2 id="hello-title">If something here stayed with you, say hello.</h2>
-          <p>I am open to thoughtful conversations, invitations to speak, mentoring, and making useful things with good people.</p>
-          <div class="contact-links">
-            <a class="primary-button" href="mailto:tomilayo.abe@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Write to me</a>
-            <a class="social-link" href="https://linkedin.com/in/tomiabe" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-            <a class="social-link" href="https://instagram.com/mrtomiabe" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
-          </div>
+      <section class="chapter" id="sharing" aria-labelledby="sharing-title">
+        <div class="chapter-heading"><h2 id="sharing-title">Learning goes both ways.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-chats" aria-hidden="true"></i></span></div>
+        <div class="reading-layout">
+          <div class="prose"><p class="lead">Since 2020, I’ve shared what I’m learning through talks, training, and mentoring.</p><p>Those conversations have included AI and design with climate advocates at African Climate Stories, ethical AI in HR at FITC’s E3 Conference, generative workflows with Loblaw Digital’s AI Committee, and creative business strategy with Nairametrics.</p><p>On MentorCruise, I work with early-career designers on their craft, strategic thinking, and the practical decisions involved in building a career. I value honest feedback and the confidence that comes from doing the work.</p><a class="text-link" href="https://mentorcruise.com/mentor/tomiabe">Find me on MentorCruise <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div>
+          <aside class="margin-note"><span class="small-cross" aria-hidden="true">+</span><p>Design and systems.<br />Responsible technology.<br />Creative entrepreneurship.<br />Faith and purpose.</p><a class="text-link" href="mailto:tomilayo.abe@gmail.com">Invite me to speak <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></aside>
         </div>
       </section>
+
+      <section class="chapter contact" id="connect" aria-labelledby="contact-title">
+        <h2 id="contact-title">There’s more to a person<br /> than a page.</h2>
+        <p>If something here connects with you, I’d be glad to hear from you. A conversation, a question, an invitation, or simply a hello.</p>
+        <a class="email-link" href="mailto:tomilayo.abe@gmail.com">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        <div class="contact-socials"><a href="https://www.linkedin.com/in/tomiabe"><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn</a><a href="https://www.instagram.com/mrtomiabe"><i class="ph ph-instagram-logo" aria-hidden="true"></i> Instagram</a><a href="https://x.com/mrtomiabe"><i class="ph ph-x-logo" aria-hidden="true"></i> X</a><a href="https://tomiabe.substack.com"><i class="ph ph-newspaper" aria-hidden="true"></i> Substack</a><a href="https://tomiabe.medium.com"><i class="ph ph-medium-logo" aria-hidden="true"></i> Medium</a></div>
+      </section>
+      <footer><p>© <span id="year">2026</span> Tomi Abe</p><div><a href="#hello" aria-label="Back to the beginning"><i class="ph ph-arrow-up" aria-hidden="true"></i></a></div></footer>
     </main>
-
-    <footer>
-      <span>© <span id="year"></span> Tomi Abe</span>
-      <a href="#top">Back to the top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
-    </footer>
-    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js" integrity="sha384-kdY9hFBPoAPpxcrLihsO3APivFOxtQwSeYdzFD5CIIfLurwhdMrEHhkQxZJDkxgk" crossorigin="anonymous"></script>
-    <script src="scroll.js"></script>
+    <dialog id="photo-dialog" aria-label="Photograph viewer" data-lenis-prevent>
+      <div class="dialog-bar"><span id="dialog-count">01 / 09</span><button class="icon-button" type="button" data-dialog="close" aria-label="Close photograph viewer"><i class="ph ph-x" aria-hidden="true"></i></button></div>
+      <div class="dialog-image"><img id="full-photo" src="assets/images/media/field.jpeg" alt="A mirrored sphere reflecting people and buildings beneath a blue sky." /><span class="photo-loading" hidden>Loading photograph…</span></div>
+      <div class="dialog-controls"><button class="icon-button" type="button" data-dialog="previous" aria-label="Previous photograph"><i class="ph ph-arrow-left" aria-hidden="true"></i></button><p id="dialog-caption">From the visual journal</p><button class="icon-button" type="button" data-dialog="next" aria-label="Next photograph"><i class="ph ph-arrow-right" aria-hidden="true"></i></button></div>
+    </dialog>
+    <script src="assets/vendor/lenis.min.js?v=20260906"></script>
     <script src="script.js"></script>
   </body>
 </html>
