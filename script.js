@@ -79,6 +79,13 @@ function setMenu(open) {
   menuToggle.setAttribute('aria-expanded', String(open));
   menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   menuToggle.querySelector('i').className = open ? 'ph ph-x' : 'ph ph-list';
+
+  // MutationObserver callbacks run after the current click handler. Resume
+  // Lenis here so mobile navigation can scroll as soon as the menu closes.
+  if (smoothScroll) {
+    if (open || document.body.classList.contains('dialog-open')) smoothScroll.stop();
+    else smoothScroll.start();
+  }
 }
 
 menuToggle.addEventListener('click', () => setMenu(!rail.classList.contains('menu-open')));
