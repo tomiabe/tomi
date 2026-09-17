@@ -101,6 +101,9 @@ document.addEventListener('click', (event) => {
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    // Only intercept same-page hash links; cross-room links (work/, studio/, ...)
+    // must navigate normally so visitors genuinely change rooms.
+    if (link.pathname !== window.location.pathname || link.hostname !== window.location.hostname) return;
     const destination = document.getElementById(link.hash.slice(1));
     if (!destination) return;
     event.preventDefault();
