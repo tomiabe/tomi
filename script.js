@@ -4,7 +4,16 @@ const themeToggle = document.querySelector('.theme-toggle');
 const rail = document.querySelector('.rail');
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = [...document.querySelectorAll('#site-nav a')];
-const chapters = navLinks.map((link) => document.querySelector(link.hash));
+const chapters = navLinks
+  .filter((link) => link.hash && link.hash.length > 1)
+  .map((link) => {
+    try {
+      return document.querySelector(link.hash);
+    } catch {
+      return null;
+    }
+  })
+  .filter(Boolean);
 let smoothScroll;
 
 document.querySelectorAll('a[href^="http://"], a[href^="https://"]').forEach((link) => {
@@ -101,6 +110,9 @@ document.addEventListener('click', (event) => {
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    // Only intercept same-page hash links; cross-room links (work/, studio/, ...)
+    // must navigate normally so visitors genuinely change rooms.
+    if (link.pathname !== window.location.pathname || link.hostname !== window.location.hostname) return;
     const destination = document.getElementById(link.hash.slice(1));
     if (!destination) return;
     event.preventDefault();
@@ -117,14 +129,17 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 let scrollQueued = false;
 function updateSection() {
+  if (!chapters.length) return;
   const readingLine = window.innerWidth <= 980 ? 150 : 120;
   let current = chapters[0];
   for (const chapter of chapters) {
-    if (chapter.getBoundingClientRect().top <= readingLine) current = chapter;
+    if (chapter && chapter.getBoundingClientRect().top <= readingLine) current = chapter;
   }
-  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) current = chapters[chapters.length - 1];
+  if (current && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) {
+    current = chapters[chapters.length - 1];
+  }
   navLinks.forEach((link) => {
-    if (link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
+    if (current && link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
   scrollQueued = false;

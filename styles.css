@@ -18,7 +18,8 @@
   --ink: #0c0f0a;
   --muted: #5c605a;
   --surface: #f5f6f3;
-  --line: #dcded8;
+  --line: rgba(12, 15, 10, 0.16);
+  --line-strong: rgba(12, 15, 10, 0.38);
   --accent: #b90040;
   --pink: #ff206e;
   --yellow: #fbff12;
@@ -40,7 +41,8 @@
   --ink: #ffffff;
   --muted: #b0b6ac;
   --surface: #171c14;
-  --line: #353c30;
+  --line: rgba(255, 255, 255, 0.18);
+  --line-strong: rgba(255, 255, 255, 0.42);
   --accent: #41ead4;
   --focus: #fbff12;
   --image-outline: rgb(255 255 255 / 12%);
