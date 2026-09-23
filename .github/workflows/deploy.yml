@@ -22,6 +22,9 @@ jobs:
           mkdir -p _site
           cp index.html styles.css script.js CNAME robots.txt sitemap.xml site.webmanifest _site/
           cp -R assets _site/assets
+          cp -R work _site/work
+          cp -R css _site/css
+          cp -R js _site/js
           mkdir -p _site/archive
           cp -R archive/old _site/archive/old
       - name: Publish production site

@@ -299,22 +299,28 @@ document.querySelectorAll('[data-work-shader-canvas]').forEach((canvas) => {
   drawSignalField(canvas, workShaderPalettes[id] || ['#41ead4']);
 });
 
-// Interactive guided prototype demos (e.g. Eze case study)
+// Interactive guided prototype demos (e.g. Eze and Fairbnb case studies)
 function startEmbeddedDemos() {
   const frames = [...document.querySelectorAll('.prototype-frame-shell iframe[src*="demo="]')];
   if (!frames.length) return;
-  const readyFrames = new Set();
-  const visibleFrames = new Set();
   const startedFrames = new Set();
   const pausedFrames = new Set();
   const resumeTimers = new Map();
 
-  function start(frame) {
-    if (!readyFrames.has(frame) || !visibleFrames.has(frame) || startedFrames.has(frame)) return;
-    startedFrames.add(frame);
+  function triggerDemo(frame) {
+    if (!frame || !frame.contentWindow) return;
     try {
-      frame.contentWindow?.postMessage({ type: 'eze-demo:start' }, '*');
+      frame.contentWindow.postMessage({ type: 'eze-demo:start' }, '*');
+      frame.contentWindow.postMessage({ type: 'fairbnb-demo:start' }, '*');
     } catch (e) {}
+  }
+
+  function start(frame) {
+    if (startedFrames.has(frame)) return;
+    startedFrames.add(frame);
+    triggerDemo(frame);
+    window.setTimeout(() => triggerDemo(frame), 350);
+    window.setTimeout(() => triggerDemo(frame), 1000);
   }
 
   function resume(frame) {
@@ -322,19 +328,18 @@ function startEmbeddedDemos() {
     if (timer) window.clearTimeout(timer);
     resumeTimers.delete(frame);
     pausedFrames.delete(frame);
-    try {
-      frame.contentWindow?.postMessage({ type: 'eze-demo:start' }, '*');
-    } catch (e) {}
+    triggerDemo(frame);
   }
 
   window.addEventListener('message', (event) => {
     const frame = frames.find((item) => item.contentWindow === event.source);
     if (!frame) return;
-    if (event.data?.type === 'eze-demo:ready') {
-      readyFrames.add(frame);
-      start(frame);
+    if (event.data?.type === 'eze-demo:ready' || event.data?.type === 'fairbnb-demo:ready') {
+      if (startedFrames.has(frame)) {
+        triggerDemo(frame);
+      }
     }
-    if (event.data?.type === 'eze-demo:paused') {
+    if (event.data?.type === 'eze-demo:paused' || event.data?.type === 'fairbnb-demo:paused') {
       pausedFrames.add(frame);
     }
   });
@@ -350,32 +355,21 @@ function startEmbeddedDemos() {
 
   frames.forEach((frame) => {
     frame.addEventListener('load', () => {
-      readyFrames.add(frame);
-      start(frame);
+      if (startedFrames.has(frame)) triggerDemo(frame);
     });
-    try {
-      if (frame.contentDocument?.readyState === 'complete') {
-        readyFrames.add(frame);
-        start(frame);
-      }
-    } catch (e) {}
   });
 
   if (!('IntersectionObserver' in window)) {
-    frames.forEach((frame) => {
-      visibleFrames.add(frame);
-      start(frame);
-    });
+    frames.forEach((frame) => start(frame));
     return;
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      visibleFrames.add(entry.target);
       start(entry.target);
     });
-  }, { threshold: [0.15, 0.4] });
+  }, { rootMargin: '60px 0px', threshold: [0.05, 0.2] });
 
   frames.forEach((frame) => observer.observe(frame));
 }
