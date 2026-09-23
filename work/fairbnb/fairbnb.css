@@ -1,0 +1,271 @@
+:root {
+  --fair-green: #3aaa35;
+  --fair-green-deep: #1e631b;
+  --fair-green-soft: rgba(58, 170, 53, 0.12);
+}
+
+.fairbnb-case-page .journey-number {
+  color: var(--fair-green);
+}
+
+.fairbnb-case-page .case-icon {
+  color: var(--fair-green);
+}
+
+.fairbnb-case-page .window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  background: var(--surface-card, var(--page));
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.fairbnb-case-page .window-bar span:last-child {
+  color: var(--fair-green);
+  font-weight: 700;
+}
+
+.fairbnb-case-page .prototype-frame-shell {
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.14);
+}
+
+.fairbnb-case-page .prototype-frame-shell iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.fairbnb-case-page .travel-questions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.fairbnb-case-page .travel-questions article {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem 1.2rem 0;
+}
+
+.fairbnb-case-page .travel-questions article + article {
+  border-left: 1px solid var(--line);
+  padding-left: 1.5rem;
+}
+
+.fairbnb-case-page .travel-questions .ph {
+  font-size: 1.65rem;
+  color: var(--fair-green);
+  margin-bottom: 1.2rem;
+}
+
+.fairbnb-case-page .travel-questions h3 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.fairbnb-case-page .travel-questions p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.fairbnb-case-page .decision-list {
+  display: grid;
+  gap: 0;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.fairbnb-case-page .decision-list div {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fairbnb-case-page .decision-list dt {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  margin-bottom: 0.25rem;
+}
+
+.fairbnb-case-page .decision-list dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fairbnb-case-page .choice-principles {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  margin-top: 1.5rem;
+}
+
+.fairbnb-case-page .choice-principles article {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fairbnb-case-page .choice-principles span {
+  display: block;
+  color: var(--fair-green);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.fairbnb-case-page .choice-principles p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.fairbnb-case-page .trip-thread {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.fairbnb-case-page .trip-thread li {
+  min-height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.fairbnb-case-page .trip-thread li + li {
+  border-left: 1px solid var(--line);
+}
+
+.fairbnb-case-page .trip-thread span {
+  color: var(--fair-green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fairbnb-case-page .trip-thread strong {
+  color: var(--ink);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.fairbnb-case-page .proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.8rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.fairbnb-case-page .proof-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.fairbnb-case-page .proof-card-copy {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.fairbnb-case-page .proof-card-copy span {
+  color: var(--fair-green);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fairbnb-case-page .proof-card-copy h3 {
+  margin: 0.65rem 0 0.4rem;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.fairbnb-case-page .proof-card-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.fairbnb-case-page .prototype-open-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--fair-green);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .fairbnb-case-page .travel-questions {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .fairbnb-case-page .travel-questions article + article {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 1.25rem;
+  }
+  .fairbnb-case-page .trip-thread {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fairbnb-case-page .trip-thread li:nth-child(3),
+  .fairbnb-case-page .trip-thread li:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+  .fairbnb-case-page .trip-thread li:nth-child(2n + 1) {
+    border-left: none;
+  }
+  .fairbnb-case-page .proof-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .fairbnb-case-page .trip-thread {
+    grid-template-columns: 1fr;
+  }
+  .fairbnb-case-page .trip-thread li + li {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+}
