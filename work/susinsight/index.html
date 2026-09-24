@@ -3,29 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tomi Abe — Susinsight</title>
-    <meta name="description" content="Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a rigorously optimized, continent-wide digital insight platform. Selected engagement with Susinsight by Tomi Abe." />
+    <title>Tomi Abe - Susinsight: Sustainability Journalism Platform & Creative Systems</title>
+    <meta name="description" content="Case study on Susinsight: building a headless Next.js digital journalism platform, custom design system, editorial taxonomy, and creative direction across Africa." />
     <meta name="author" content="Tomi Abe" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#0c0f0a" />
+    <meta name="theme-color" content="#2e6f5b" />
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://tomiabe.com/work/susinsight/" />
     <link rel="icon" href="../../assets/favicon.png" sizes="1024x1024" />
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_NG" />
     <meta property="og:url" content="https://tomiabe.com/work/susinsight/" />
     <meta property="og:site_name" content="Tomi Abe" />
-    <meta property="og:title" content="Tomi Abe — Susinsight" />
-    <meta property="og:description" content="Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a rigorously optimized, continent-wide digital insight platform." />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Tomi Abe — Susinsight" />
-    <meta name="twitter:description" content="Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a rigorously optimized, continent-wide digital insight platform." />
+    <meta property="og:title" content="Tomi Abe - Susinsight: Sustainability Journalism Platform & Creative Systems" />
+    <meta property="og:description" content="Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, headless Next.js engineering, and an accessible design system." />
+    <meta property="og:image" content="https://tomiabe.com/images/work/Susinsight.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tomi Abe - Susinsight Case Study" />
+    <meta name="twitter:description" content="Advancing sustainability journalism across Africa through data-driven reporting, headless Next.js architecture, and an accessible design system." />
+    <meta name="twitter:image" content="https://tomiabe.com/images/work/Susinsight.jpg" />
     <link rel="preload" href="../../assets/fonts/mozilla-headline.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="../../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../../assets/fonts/phosphor.css" />
     <link rel="stylesheet" href="../work.css" />
-    <noscript><style>#field, .work-visual { display: none; }</style></noscript>
+    <noscript><style>#field { display: none; }</style></noscript>
     <script>
       try {
         var savedTheme = localStorage.getItem('tomi-theme-choice-v4');
@@ -45,71 +47,383 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://tomiabe.com/work/susinsight/#webpage",
-        "url": "https://tomiabe.com/work/susinsight/",
-        "name": "Tomi Abe — Susinsight",
-        "description": "Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a rigorously optimized, continent-wide digital insight platform.",
+        "@type": "Article",
+        "@id": "https://tomiabe.com/work/susinsight/#article",
+        "headline": "Susinsight: Sustainability Journalism Platform & Creative Systems",
+        "description": "Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, headless Next.js engineering, and an accessible design system.",
         "inLanguage": "en-NG",
-        "isPartOf": { "@id": "https://tomiabe.com/work/#webpage" },
-        "about": {
+        "mainEntityOfPage": "https://tomiabe.com/work/susinsight/",
+        "author": {
           "@type": "Person",
           "name": "Tomi Abe",
-          "jobTitle": "Designer, Technologist & Strategist",
-          "url": "https://tomiabe.com/work/"
+          "jobTitle": "Creative & Platform Lead",
+          "url": "https://tomiabe.com/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Tomi Abe",
+          "url": "https://tomiabe.com/"
         }
       }
     </script>
   </head>
-  <body id="top">
+  <body id="top" class="susinsight-case">
     <a class="skip-link" href="#main">Skip to content</a>
     <canvas id="field" aria-hidden="true"></canvas>
-    <header class="topbar">
+
+    <header class="site-header case-header">
       <a class="wordmark" href="/work" aria-label="Tomi Abe, back to work">Tomi Abe<span class="wordmark-dot">.</span></a>
-      <nav aria-label="Page sections">
-        <a href="../">Selected work</a>
-        <a href="../#capabilities">Capabilities</a>
-        <a href="../#contact">Contact</a>
+      <nav class="case-navigation" aria-label="Case study navigation">
+        <a class="nav-link" href="#challenge">Context</a>
+        <a class="nav-link" href="#brand">Brand</a>
+        <a class="nav-link" href="#creative">Creative</a>
+        <a class="nav-link" href="#architecture">Architecture</a>
+        <a class="nav-link" href="#design-system">Design System</a>
+        <a class="nav-link" href="#editorial">Features</a>
+        <a class="nav-link" href="#operations">Operations</a>
       </nav>
-      <div class="topbar-controls">
-        <a class="icon-button" href="mailto:tomilayo.abe@gmail.com" aria-label="Email Tomi Abe"><i class="ph ph-envelope-simple" aria-hidden="true"></i></a>
-        <button class="icon-button theme-toggle" aria-label="Switch to dark mode" type="button"><i class="ph ph-moon" aria-hidden="true"></i></button>
+      <div class="header-actions case-header-actions">
+        <a class="case-back-link" href="../">All work</a>
+        <button class="theme-toggle icon-button" type="button" data-theme-toggle aria-label="Switch to light mode" title="Switch theme">
+          <i class="ph ph-sun" aria-hidden="true"></i>
+        </button>
       </div>
     </header>
 
     <main id="main">
-      <section class="work-hero work-card--susinsight" style="--card-bg:#2e6f5b;--card-accent:#f9ffe3;--card-secondary:#3a8b72;--work-icon:#f9ffe3;--card-text:#ffffff;--card-line:rgba(255,255,255,.2);" aria-labelledby="work-title">
-        <div class="work-visual" aria-hidden="true"><canvas data-work-shader-canvas data-shader-palette="susinsight"></canvas><span class="work-icon-stack"><i class="ph ph-newspaper"></i><i class="ph ph-rss"></i></span></div>
-        <div class="work-hero-body">
-          <p class="kicker"><time datetime="2023 — present">2023 — present</time><span aria-hidden="true">·</span><span>Creative &amp; Platform Lead</span></p>
-          <h1 id="work-title">Susinsight<span class="accent-dot">.</span></h1>
-          <p class="work-hero-intro">Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a rigorously optimized, continent-wide digital insight platform.</p>
-          <p class="focus-tags"><span>Editorial strategy</span><span>Platform design</span><span>Data storytelling</span></p>
-        </div>
-      </section>
+      <article>
+        <header class="case-hero case-shell" aria-labelledby="work-title">
+          <div class="case-hero-card work-card--susinsight" style="--card-bg:#2e6f5b;--card-accent:#f9ffe3;--card-secondary:#3a8b72;--work-icon:#f9ffe3;--card-text:#ffffff;--card-line:rgba(255,255,255,.24);">
+            <div class="work-visual" aria-hidden="true">
+              <canvas data-work-shader-canvas data-shader-palette="susinsight"></canvas>
+              <span class="work-icon-stack">
+                <i class="ph ph-newspaper" aria-hidden="true"></i>
+                <i class="ph ph-rss" aria-hidden="true"></i>
+              </span>
+            </div>
 
-      <section class="chapter work-detail" aria-labelledby="detail-title">
-        <div class="chapter-heading"><h2 id="detail-title">At a glance.</h2><span class="chapter-mark" aria-hidden="true"><i class="ph ph-newspaper" aria-hidden="true"></i></span></div>
-        <a class="text-link work-back" href="../">All engagements <i class="ph ph-arrow-left" aria-hidden="true"></i></a>
-        <!-- EDIT: replace the placeholder paragraphs below with the full case study content. -->
-        <div class="work-detail-body">
-          <h3>The challenge</h3>
-          <p>Susinsight came with a complicated problem that needed a clear, usable answer. Describe the context, the constraints, and what was at stake.</p>
-          <h3>What I did</h3>
-          <p>Creative &amp; Platform Lead from 2023 — present. Describe the approach, the decisions made, and how the work unfolded across the engagement.</p>
-          <h3>What it led to</h3>
-          <p>Describe the outcome: what shipped, what changed, and what the team could do afterwards that they couldn't before.</p>
-        </div>
-      </section>
+            <div class="case-hero-body">
+              <h1 id="work-title">Susinsight</h1>
+              <p>Advancing sustainability journalism across Africa through data-driven reporting, editorial strategy, and a high-performance digital insight platform.</p>
+            </div>
+
+            <dl class="case-facts">
+              <div><dt>Period</dt><dd>2023 - present</dd></div>
+              <div><dt>Role</dt><dd>Creative &amp; Platform Lead</dd></div>
+              <div><dt>Focus</dt><dd>Brand identity, headless Next.js, design systems, content operations</dd></div>
+            </dl>
+          </div>
+        </header>
+
+        <section class="case-section case-shell" id="challenge" aria-labelledby="challenge-title">
+          <div class="case-section-heading">
+            <h2 id="challenge-title">Moving from a restrictive CMS to an independent media infrastructure.</h2>
+            <p>Sustainability reporting in Africa involves complex policy developments, climate finance data, renewable energy projects, and regional initiatives across 54 countries. The original WordPress implementation slowed down editorial iteration, made custom data visualizations difficult to maintain, and lacked the structural clarity needed for specialized policy journalism.</p>
+          </div>
+          <div class="context-grid">
+            <article>
+              <span class="context-kicker">01 / Technical Bottleneck</span>
+              <h3>Rigid CMS Constraints</h3>
+              <p>Traditional monolithic WordPress plugins created heavy page weights, slow load times on mobile networks, and restricted the editorial team from publishing interactive charts, structured glossaries, and custom research layouts.</p>
+            </article>
+            <article>
+              <span class="context-kicker">02 / Editorial Scale</span>
+              <h3>Multi-Country Coverage</h3>
+              <p>Stories required precise categorization across United Nations Sustainable Development Goals (SDGs), African economic regions, specific countries, and editorial series without complex manual database queries.</p>
+            </article>
+            <article>
+              <span class="context-kicker">03 / Reader Accessibility</span>
+              <h3>Diverse Reading Contexts</h3>
+              <p>Audience members access stories from policy offices in Nairobi to remote research stations with variable bandwidth, demanding strict WCAG AA contrast standards, fast edge delivery, and alternative audio playback.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="case-section case-shell" id="brand" aria-labelledby="brand-title">
+          <div class="case-section-heading">
+            <h2 id="brand-title">Visual Identity: Rooted in African Landscapes and Policy Rigor.</h2>
+            <p>Susinsight needed an identity that felt authoritative alongside global research institutions while remaining rooted in the African continent. The system uses a high-contrast dual logo suite, an earth-and-vegetation color system, and balanced editorial typography.</p>
+          </div>
+
+          <div class="susinsight-brand-grid">
+            <div class="susinsight-logo-card dark-card">
+              <img src="https://susinsight.com/images/pages/layout/logo-white.png" alt="Susinsight light logo on dark emerald background" loading="lazy" />
+            </div>
+            <div class="susinsight-logo-card light-card">
+              <img src="https://susinsight.com/images/pages/layout/logo-green.png" alt="Susinsight green logo on white background" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="palette-swatches">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background:#2e6f5b;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Brand Dark</span>
+                <span class="swatch-hex">#2E6F5B</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background:#3a8b72;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Brand Primary</span>
+                <span class="swatch-hex">#3A8B72</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background:#91c3b3;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Brand Soft</span>
+                <span class="swatch-hex">#91C3B3</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background:#f9ffe3;border-bottom:1px solid var(--line);"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Brand Light</span>
+                <span class="swatch-hex">#F9FFE3</span>
+              </div>
+            </div>
+          </div>
+
+          <p style="color:var(--muted);font-size:16px;line-height:1.68;max-width:56rem;">Typography is paired intentionally: <strong>Bricolage Grotesque</strong> provides distinct character for headlines and section markers, while <strong>Manrope</strong> delivers crisp legibility for long-form reportage, data tables, and footnotes. Every color combination is verified against WCAG AA standards to guarantee readability across light and dark viewports.</p>
+        </section>
+
+        <section class="case-section case-shell" id="creative" aria-labelledby="creative-title">
+          <div class="case-section-heading">
+            <h2 id="creative-title">Creative Direction: Infographics, Data Visuals, and Visual Storytelling.</h2>
+            <p>Beyond code and layout, I lead the ongoing creative direction across digital publications, newsletters, and social channels. Every graphic translates dense sustainability reports into digestible visual intelligence.</p>
+          </div>
+
+          <div class="susinsight-feed-window" aria-label="Continuous visual stream of Susinsight editorial and social graphics">
+            <div class="susinsight-feed-track">
+              <div class="susinsight-feed-grid">
+                <img src="https://i.pinimg.com/474x/92/8c/c6/928cc6d7810ad525f9f4c72549040620.jpg" alt="Susinsight editorial graphic 1" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/a1/f4/e4/a1f4e44125a0a5b27d04431e7c46416a.jpg" alt="Susinsight editorial graphic 2" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/2e/2b/01/2e2b01e14eeaeb9a55fdd393be420e7c.jpg" alt="Susinsight editorial graphic 3" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/00/d2/af/00d2af0f21043be298b83bfefed7fe6e.jpg" alt="Susinsight editorial graphic 4" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ff/56/9a/ff569aecdb3b371c3d5b02c0a1466666.jpg" alt="Susinsight editorial graphic 5" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/76/ee/f4/76eef470bfc9d1dbf51ecc3ee86718e9.jpg" alt="Susinsight editorial graphic 6" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/51/90/69/5190699fedf507e330a31ec1f2c1267c.jpg" alt="Susinsight editorial graphic 7" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/cb/3f/cb/cb3fcb45e9e4d3c74001b6dfc2ea61c3.jpg" alt="Susinsight editorial graphic 8" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ee/47/e6/ee47e66c7ca01ffff72c7d61a841f62f.jpg" alt="Susinsight editorial graphic 9" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ec/22/28/ec222885705130e38e544bd331d7ba6d.jpg" alt="Susinsight editorial graphic 10" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/75/01/16/750116c9d4ff158f44ecb39ac809f416.jpg" alt="Susinsight editorial graphic 11" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/68/4e/e9/684ee9f51c20625fc6162ffaba61a2ad.jpg" alt="Susinsight editorial graphic 12" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/bf/41/23/bf4123c5123bcbe57c67804c2f0ea7df.jpg" alt="Susinsight editorial graphic 13" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/b4/6e/e8/b46ee8dc16656e7e84b65d6eee95cde2.jpg" alt="Susinsight editorial graphic 14" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/37/ce/13/37ce13c73ee8ac15b60a3a87a60ab741.jpg" alt="Susinsight editorial graphic 15" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/53/9d/74/539d7490c51c2b8196188709092942f8.jpg" alt="Susinsight editorial graphic 16" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/7a/55/32/7a553255fdc7f808ee98673ac6ed89c8.jpg" alt="Susinsight editorial graphic 17" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/7d/9c/3c/7d9c3cb9e4d56111c52385fe538af45a.jpg" alt="Susinsight editorial graphic 18" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/52/eb/de/52ebde873e70d55413bdfd3e8c11edc7.jpg" alt="Susinsight editorial graphic 19" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/28/dd/3b/28dd3bac5aaa35e1028292e276caf984.jpg" alt="Susinsight editorial graphic 20" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/4a/49/1d/4a491d885120bba611f49b4086235ab0.jpg" alt="Susinsight editorial graphic 21" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/72/63/58/7263589636d3c62626516d40c177c6b5.jpg" alt="Susinsight editorial graphic 22" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/45/24/1e/45241eb3c5f3c31f53613eda64a37cc7.jpg" alt="Susinsight editorial graphic 23" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ab/47/58/ab47582daa51e4f5e2fc6d85ce292848.jpg" alt="Susinsight editorial graphic 24" loading="lazy" />
+              </div>
+              <div class="susinsight-feed-grid" aria-hidden="true">
+                <img src="https://i.pinimg.com/474x/92/8c/c6/928cc6d7810ad525f9f4c72549040620.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/a1/f4/e4/a1f4e44125a0a5b27d04431e7c46416a.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/2e/2b/01/2e2b01e14eeaeb9a55fdd393be420e7c.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/00/d2/af/00d2af0f21043be298b83bfefed7fe6e.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ff/56/9a/ff569aecdb3b371c3d5b02c0a1466666.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/76/ee/f4/76eef470bfc9d1dbf51ecc3ee86718e9.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/51/90/69/5190699fedf507e330a31ec1f2c1267c.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/cb/3f/cb/cb3fcb45e9e4d3c74001b6dfc2ea61c3.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ee/47/e6/ee47e66c7ca01ffff72c7d61a841f62f.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ec/22/28/ec222885705130e38e544bd331d7ba6d.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/75/01/16/750116c9d4ff158f44ecb39ac809f416.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/68/4e/e9/684ee9f51c20625fc6162ffaba61a2ad.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/bf/41/23/bf4123c5123bcbe57c67804c2f0ea7df.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/b4/6e/e8/b46ee8dc16656e7e84b65d6eee95cde2.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/37/ce/13/37ce13c73ee8ac15b60a3a87a60ab741.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/53/9d/74/539d7490c51c2b8196188709092942f8.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/7a/55/32/7a553255fdc7f808ee98673ac6ed89c8.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/7d/9c/3c/7d9c3cb9e4d56111c52385fe538af45a.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/52/eb/de/52ebde873e70d55413bdfd3e8c11edc7.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/28/dd/3b/28dd3bac5aaa35e1028292e276caf984.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/4a/49/1d/4a491d885120bba611f49b4086235ab0.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/72/63/58/7263589636d3c62626516d40c177c6b5.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/45/24/1e/45241eb3c5f3c31f53613eda64a37cc7.jpg" alt="" loading="lazy" />
+                <img src="https://i.pinimg.com/474x/ab/47/58/ab47582daa51e4f5e2fc6d85ce292848.jpg" alt="" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <a class="prototype-open-link" href="https://pinterest.com/susinsight" target="_blank" rel="noreferrer">Explore the complete Susinsight creative feed on Pinterest<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </section>
+
+        <section class="case-section case-shell" id="architecture" aria-labelledby="architecture-title">
+          <div class="case-section-heading">
+            <h2 id="architecture-title">Platform Architecture: Headless Next.js and Git-Backed Content Pipeline.</h2>
+            <p>I migrated Susinsight from a monolithic WordPress setup to a headless Next.js architecture. Markdown files managed through Pages CMS serve as the primary content repository, giving the editorial team a git-based workflow with instant edge builds.</p>
+          </div>
+
+          <div class="account-prototype-grid" style="margin-top:2rem;">
+            <div class="prototype-frame-shell" style="border:1px solid var(--line);background:var(--surface);">
+              <img src="https://cdn-images-1.medium.com/max/1024/1*9EyhrhrhMerDawEjZuEIYw.png" alt="Susinsight headless system architecture and deployment schema" style="width:100%;height:auto;display:block;" loading="lazy" />
+            </div>
+            <div class="account-principles">
+              <article>
+                <span class="principle-icon"><i class="ph ph-git-branch" aria-hidden="true"></i></span>
+                <div>
+                  <h4>Pages CMS &amp; Git Workflow</h4>
+                  <p>Writers author in structured Markdown with frontmatter schemas. Changes trigger automated build previews without database locking.</p>
+                </div>
+              </article>
+              <article>
+                <span class="principle-icon"><i class="ph ph-lightning" aria-hidden="true"></i></span>
+                <div>
+                  <h4>Sub-Second Static Delivery</h4>
+                  <p>Pre-rendered static HTML with incremental regeneration ensures sub-second page loads across African mobile data networks.</p>
+                </div>
+              </article>
+              <article>
+                <span class="principle-icon"><i class="ph ph-shield-check" aria-hidden="true"></i></span>
+                <div>
+                  <h4>Zero Database Surface</h4>
+                  <p>Removing the MySQL backend eliminated security attack vectors, plugin vulnerabilities, and costly database maintenance.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <a class="prototype-open-link" href="https://medium.com/susinsight" target="_blank" rel="noreferrer">Read the architectural deep dive on Medium: Susinsight Systems<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </section>
+
+        <section class="case-section case-shell" id="design-system" aria-labelledby="system-title">
+          <div class="case-section-heading">
+            <h2 id="system-title">Tokenized Design System &amp; AI-Assisted Component Engineering.</h2>
+            <p>To keep the platform cohesive as new features were added, I built a modular design system structured around a three-tier token architecture. This setup allowed AI coding assistants to generate new editorial blocks that automatically adhered to brand rules.</p>
+          </div>
+
+          <div class="token-table-wrap">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Tier Level</th>
+                  <th>Scope</th>
+                  <th>Purpose</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="token-badge">Tier 1: Global</span></td>
+                  <td>Raw foundational primitives</td>
+                  <td>Fixed color hexes, spacing steps, font scale definitions</td>
+                  <td><code>color-emerald-700 = #2E6F5B</code></td>
+                </tr>
+                <tr>
+                  <td><span class="token-badge">Tier 2: Semantic</span></td>
+                  <td>Contextual intent and theme rules</td>
+                  <td>Surface backgrounds, text roles, border states, contrast modes</td>
+                  <td><code>surface-brand-primary = {global.color.emerald.700}</code></td>
+                </tr>
+                <tr>
+                  <td><span class="token-badge">Tier 3: Component</span></td>
+                  <td>Element-level bindings</td>
+                  <td>Card padding, button hover outlines, drawer margins</td>
+                  <td><code>card-stat-border = {semantic.border.subtle}</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="prototype-frame-shell" style="border:1px solid var(--line);background:var(--surface);margin:1.5rem 0 2rem;">
+            <img src="../../images/work/Susinsight/design-system.png" alt="Susinsight design system documentation overview" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+
+          <a class="prototype-open-link" href="https://susinsight.com/design-system" target="_blank" rel="noreferrer">Open the live Susinsight Design System documentation<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </section>
+
+        <section class="case-section case-shell" id="editorial" aria-labelledby="editorial-title">
+          <div class="case-section-heading">
+            <h2 id="editorial-title">Specialized Editorial Features: AI Search, Glossary, and Audio.</h2>
+            <p>Standard publishing templates fail to capture the depth of sustainability analysis. We developed custom features tailored specifically to researchers, students, and policy analysts navigating the platform.</p>
+          </div>
+
+          <div class="checkout-grid" style="margin-top:2rem;">
+            <article>
+              <span>Feature 01</span>
+              <h4>Ask Susinsight (AI Assistant)</h4>
+              <p>A semantic research assistant that indexes the entire publication archive, allowing readers to query complex climate topics and receive grounded answers with citations.</p>
+            </article>
+            <article>
+              <span>Feature 02</span>
+              <h4>Sustainability Glossary</h4>
+              <p>Plain-language explanations of technical terms like carbon crediting mechanisms, loss and damage frameworks, and mini-grid tariffs embedded directly within articles.</p>
+            </article>
+            <article>
+              <span>Feature 03</span>
+              <h4>Audio Player with Speed Controls</h4>
+              <p>Text-to-speech integration with adjustable playback speeds (0.75x to 1.5x) for readers commuting or reviewing articles on low-bandwidth connections.</p>
+            </article>
+          </div>
+
+          <div class="prototype-frame-shell" style="border:1px solid var(--line);background:var(--surface);margin:2rem 0;">
+            <img src="../../images/work/Susinsight/ask-susinsight.png" alt="Ask Susinsight AI conversational research interface" style="width:100%;height:auto;display:block;" loading="lazy" />
+          </div>
+
+          <a class="prototype-open-link" href="https://susinsight.com/ask" target="_blank" rel="noreferrer">Try the Ask Susinsight research feature<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </section>
+
+        <section class="case-section case-shell" id="operations" aria-labelledby="operations-title">
+          <div class="case-section-heading">
+            <h2 id="operations-title">Content Operations, Taxonomy &amp; Continuous Growth.</h2>
+            <p>Publishing sustainability journalism requires an editorial rhythm that connects newsletters, marketing channels, and country-level filtering without overhead.</p>
+          </div>
+
+          <div class="account-prototype-grid" style="margin-top:2rem;">
+            <div>
+              <div class="prototype-frame-shell" style="border:1px solid var(--line);background:var(--surface);">
+                <img src="../../images/work/Susinsight/newsletter-inline.png" alt="Susinsight inline newsletter capture module" style="width:100%;height:auto;display:block;" loading="lazy" />
+              </div>
+              <p style="color:var(--muted);font-size:14px;margin-top:10px;">Substack-connected inline newsletter cards embedded into reading flows at strategic scroll intervals.</p>
+            </div>
+            <div>
+              <div class="susinsight-scroll-window" aria-label="Continuous vertical scrolling preview of published stories on Susinsight">
+                <div class="susinsight-scroll-track">
+                  <img src="../../images/work/Susinsight/all-stories.png" alt="Susinsight full stories archive listing" loading="lazy" />
+                  <img src="../../images/work/Susinsight/all-stories.png" alt="" aria-hidden="true" loading="lazy" />
+                </div>
+              </div>
+              <p style="color:var(--muted);font-size:14px;margin-top:10px;">Automated post-manifest builds dynamically index stories by SDG, country, and regional tags.</p>
+            </div>
+          </div>
+
+          <div class="closing-actions" style="margin-top:3rem;">
+            <a class="prototype-open-link" href="https://susinsight.com/stories" target="_blank" rel="noreferrer">Browse the live stories archive<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="prototype-open-link" href="http://susinsight.substack.com/" target="_blank" rel="noreferrer">Visit the Susinsight Substack<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </section>
+
+        <section class="case-section case-shell case-closing" aria-labelledby="closing-title">
+          <h2 id="closing-title">Ongoing Collaboration &amp; Continuous Improvement</h2>
+          <p>This engagement is an active, ongoing partnership. The platform is continuously refined based on reader engagement metrics, editorial feedback, and quarterly accessibility audits, ensuring Susinsight remains a high-clarity source for African sustainability reporting.</p>
+          <div class="closing-actions">
+            <a class="case-return-link" href="../"><i class="ph ph-arrow-left" aria-hidden="true"></i>Return to selected work</a>
+            <a class="case-related-link" href="https://susinsight.com" target="_blank" rel="noreferrer">Visit Susinsight.com<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </section>
+      </article>
 
       <section class="chapter contact" id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">The next conversation could start here.</h2>
-        <p>If any of this work connects with a problem you're working on, or a role you're hiring for, I'd be glad to hear from you.</p>
-        <a class="email-link" href="mailto:tomilayo.abe@gmail.com">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-        <div class="contact-socials"><a href="https://www.linkedin.com/in/tomiabe"><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn</a></div>
+        <p>If any of this work connects with a problem you are working on, or a role you are hiring for, I would be glad to hear from you.</p>
+        <a class="email-link" href="mailto:tomilayo.abe@gmail.com">Say hello<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/tomiabe"><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn</a>
+        </div>
       </section>
-      <footer><p>© <span id="year">2026</span> Tomi Abe · Lagos, Nigeria</p><div><a href="#top" aria-label="Back to the top"><i class="ph ph-arrow-up" aria-hidden="true"></i></a></div></footer>
+
+      <footer>
+        <p>© <span id="year">2026</span> Tomi Abe · Lagos, Nigeria</p>
+        <div><a href="#top" aria-label="Back to the top"><i class="ph ph-arrow-up" aria-hidden="true"></i></a></div>
+      </footer>
     </main>
+
     <script src="../../assets/vendor/lenis.min.js"></script>
     <script src="../work.js"></script>
   </body>
