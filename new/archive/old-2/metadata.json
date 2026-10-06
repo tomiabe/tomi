@@ -1,0 +1,6 @@
+{
+  "name": "Tomi Abe Portfolio",
+  "description": "Portfolio of Tomi Abe: designer, technologist, and strategist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
