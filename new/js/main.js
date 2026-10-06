@@ -269,6 +269,18 @@
       watchedSections.forEach((section) => observer.observe(section));
     }
 
+    // Mobile top bar: background appears once the page is scrolled
+    let scrolledState = null;
+    const syncScrollState = () => {
+      const scrolled = window.scrollY > 8;
+      if (scrolled !== scrolledState) {
+        scrolledState = scrolled;
+        document.body.classList.toggle('is-scrolled', scrolled);
+      }
+    };
+    window.addEventListener('scroll', syncScrollState, { passive: true });
+    syncScrollState();
+
     // Year update
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
