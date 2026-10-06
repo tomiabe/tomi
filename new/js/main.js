@@ -8,13 +8,10 @@
   // 1. Theme Management (automatic: light 7am-7pm Sydney, dark otherwise)
   const root = document.documentElement;
 
-  function initTheme() {
+  const THEME_KEY = 'tomi-theme-choice-v4';
+
+  function systemTheme() {
     try {
-      const saved = localStorage.getItem('tomi-theme-choice-v4');
-      if (saved === 'light' || saved === 'dark') {
-        root.dataset.theme = saved;
-        return;
-      }
       const hour = Number(
         new Intl.DateTimeFormat('en-GB', {
           timeZone: 'Australia/Sydney',
@@ -22,43 +19,55 @@
           hourCycle: 'h23',
         }).format(new Date())
       );
-      root.dataset.theme = hour >= 7 && hour < 19 ? 'light' : 'dark';
+      return hour >= 7 && hour < 19 ? 'light' : 'dark';
     } catch {
-      root.dataset.theme = 'light';
+      return 'light';
     }
   }
 
-  function syncToggleButtons() {
-    const dark = root.dataset.theme === 'dark';
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-      const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
-      btn.setAttribute('aria-label', label);
-      btn.title = label;
-      const icon = btn.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('ph-sun', dark);
-        icon.classList.toggle('ph-moon', !dark);
-      }
+  function storedTheme() {
+    try {
+      const value = localStorage.getItem(THEME_KEY);
+      return value === 'light' || value === 'dark' ? value : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function initTheme() {
+    root.dataset.theme = storedTheme() || systemTheme();
+  }
+
+  function syncThemeButtons() {
+    const active = storedTheme() || 'system';
+    document.querySelectorAll('.theme-btn').forEach((btn) => {
+      const on = btn.dataset.theme === active;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-pressed', String(on));
     });
   }
 
-  function toggleTheme() {
-    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  function applyTheme(choice) {
     try {
-      localStorage.setItem('tomi-theme-choice-v4', root.dataset.theme);
+      if (choice === 'system') {
+        localStorage.removeItem(THEME_KEY);
+      } else {
+        localStorage.setItem(THEME_KEY, choice);
+      }
     } catch {
       /* storage unavailable */
     }
-    syncToggleButtons();
+    root.dataset.theme = choice === 'system' ? systemTheme() : choice;
+    syncThemeButtons();
   }
 
   initTheme();
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-      btn.addEventListener('click', toggleTheme);
+    document.querySelectorAll('.theme-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
     });
-    syncToggleButtons();
+    syncThemeButtons();
 
     // Live clock: visitor's local time by default, small toggle for Tomi's time
     const clockEl = document.querySelector('[data-live-time]');
