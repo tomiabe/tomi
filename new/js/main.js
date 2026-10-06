@@ -315,7 +315,7 @@
         lastFrame = timestamp;
         context.clearRect(0, 0, fieldWidth, fieldHeight);
         
-        const color = root.dataset.theme === 'dark' ? '118,171,174' : '48,56,65';
+        const color = root.dataset.theme === 'dark' ? '167,139,250' : '48,56,65';
         const spacing = 32;
 
         for (let col = 0; col < fieldWidth; col += spacing) {
