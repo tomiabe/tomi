@@ -27,8 +27,10 @@
   <script>
     try {
       document.documentElement.classList.add('js');
+      var savedTheme = localStorage.getItem('tomi-theme-choice-v4');
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = null;
       var hour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Australia/Sydney', hour: 'numeric', hourCycle: 'h23' }).format(new Date()));
-      document.documentElement.dataset.theme = hour >= 7 && hour < 19 ? 'light' : 'dark';
+      document.documentElement.dataset.theme = savedTheme || (hour >= 7 && hour < 19 ? 'light' : 'dark');
     } catch (e) {
       document.documentElement.dataset.theme = 'light';
     }
@@ -38,16 +40,28 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <canvas id="field" aria-hidden="true"></canvas>
 
+  <a class="floating-logo wordmark" href="index.html" aria-label="Tomi Abe, home">
+    <img class="site-logo-img logo-light-img" src="assets/logo-light.png" alt="" />
+    <img class="site-logo-img logo-dark-img" src="assets/logo-dark.png" alt="" />
+  </a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="side-nav" type="button">Menu</button>
 
   <div class="shell">
   <!-- Side navigation -->
   <nav class="side-nav" id="side-nav" aria-label="Sections">
-    <button class="nav-close" type="button" aria-label="Close navigation">
-      <i class="ph ph-x" aria-hidden="true"></i>
-    </button>
+    <div class="rail-head">
+      <a class="wordmark" href="index.html" aria-label="Tomi Abe, home">
+        <img class="site-logo-img logo-light-img" src="assets/logo-light.png" alt="" />
+        <img class="site-logo-img logo-dark-img" src="assets/logo-dark.png" alt="" />
+      </a>
+      <div class="rail-controls">
+        <button class="icon-button theme-toggle" aria-label="Switch to dark mode" type="button"><i class="ph ph-moon" aria-hidden="true"></i></button>
+        <button class="nav-close" type="button" aria-label="Close navigation">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
     <ul class="side-links">
-      <li><a href="index.html">Home</a></li>
       <li><a href="#me">Me</a></li>
       <li><a href="#career">Career</a></li>
       <li><a href="#work">Work</a></li>
