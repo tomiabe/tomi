@@ -3,18 +3,26 @@
    ========================================================================== */
 
 @font-face {
-  font-family: 'Plein';
-  src: url('../assets/fonts/plein.woff2') format('woff2');
-  font-weight: 300 900;
+  font-family: 'Cabinet Grotesk';
+  src: url('../assets/fonts/cabinet-grotesk-400.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Plein';
-  src: url('../assets/fonts/plein-italic.woff2') format('woff2');
-  font-weight: 300 900;
-  font-style: italic;
+  font-family: 'Cabinet Grotesk';
+  src: url('../assets/fonts/cabinet-grotesk-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../assets/fonts/cabinet-grotesk-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -35,7 +43,7 @@
 }
 
 :root {
-  --font-heading: 'Plein', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Palette: #F5F5F5 #76ABAE #303841 #FF5722 */
