@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomi Abe: Studio</title>
+  <meta name="description" content="Tomi Abe Studio is an independent creative technology studio operating at the intersection of design, technology, media, and research." />
+  <meta name="author" content="Tomi Abe" />
+  <meta name="theme-color" content="#0c0f0a" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tomiabe.com/studio" />
+
+  <link rel="stylesheet" href="../assets/fonts/phosphor.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <script>
+    try {
+      document.documentElement.classList.add('js');
+      var hour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Australia/Sydney', hour: 'numeric', hourCycle: 'h23' }).format(new Date()));
+      document.documentElement.dataset.theme = hour >= 7 && hour < 19 ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <canvas id="field" aria-hidden="true"></canvas>
+
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="side-nav" type="button">Menu</button>
+
+  <div class="shell">
+    <!-- Side navigation -->
+    <nav class="side-nav" id="side-nav" aria-label="Sections">
+      <button class="nav-close" type="button" aria-label="Close navigation">
+        <i class="ph ph-x" aria-hidden="true"></i>
+      </button>
+      <ul class="side-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../me/index.html">Me</a></li>
+        <li><a href="../career/index.html">Career</a></li>
+        <li><a href="../work/index.html">Work</a></li>
+        <li><a href="../studio/index.html" class="is-active">Studio</a></li>
+        <li><a href="../writing/index.html">Journal</a></li>
+        <li><a href="../photos/index.html">Photos</a></li>
+        <li><a href="../index.html#hello">Say hello</a></li>
+      </ul>
+      <div class="clock-row">
+        <time class="nav-clock" data-live-time></time>
+        <button class="clock-toggle" type="button" aria-pressed="false" aria-label="Show Tomi's time" title="Show Tomi's time">
+          <i class="ph ph-house" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="https://linkedin.com/in/tomiabe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://x.com/mrtomiabe" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+          <i class="ph ph-x-logo" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://instagram.com/mrtomiabe" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="nav-overlay" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <main id="main" class="content">
+      <h1>Studio</h1>
+
+      <!-- Tomi Abe Studio -->
+      <section aria-labelledby="tas-title">
+        <h2 id="tas-title">Tomi Abe Studio</h2>
+        <p>Tomi Abe Studio is my independent creative technology practice.</p>
+        <p>It is where I work with clients, build my own projects, test ideas, develop tools, and explore the questions that keep showing up in my work.</p>
+        <p>The practice has been running since 2013, alongside full time roles, research, consulting engagements, and independent projects.</p>
+        <p>The work moves between strategy, design, technology, research, communication, and making.</p>
+        <p>Sometimes there is a client problem to solve.</p>
+        <p>Sometimes there is simply something I want to understand.</p>
+        <p>Either way, I like getting close to the problem and making something real.</p>
+      </section>
+
+      <!-- Projects -->
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <p>Some projects begin with a brief.</p>
+        <p>Others begin with a question, an observation, or a technology I want to explore.</p>
+        <p>This is where those projects live.</p>
+
+        <h3>Polish</h3>
+        <div class="entry-meta">Self hosted design review</div>
+        <p>A local tool for reviewing interface code against practical standards for usability, accessibility, and visual craft.</p>
+        <p>I built Polish because I wanted a way to review real interfaces without sending the underlying code to another service. It turns design judgement into something more concrete by identifying issues, scoring them, and pointing back to the files that need attention.</p>
+        <p><strong>Explore Polish →</strong></p>
+
+        <h3>Sound Atlas</h3>
+        <div class="entry-meta">A different way to explore music</div>
+        <p>An interactive experiment exploring music through geography.</p>
+        <p>Sound Atlas uses cities, playlists, and listening patterns to look at how music scenes develop, overlap, and travel. It started as a question about whether a map could become a better way to discover music rather than simply showing where music comes from.</p>
+        <p><strong>Explore Sound Atlas →</strong></p>
+
+        <h3>Urban Climate Signals</h3>
+        <div class="entry-meta">Making urban climate data easier to see</div>
+        <p>A live exploration of city level heat and air pollution data.</p>
+        <p>The project brings environmental signals into one place so that changes in urban conditions can be seen more clearly over time. It is part data project, part visualisation experiment, and part investigation into how public information can become more useful.</p>
+        <p><strong>Explore Urban Climate Signals →</strong></p>
+
+        <h3>Nigeria Embassy and Consular Finder</h3>
+        <div class="entry-meta">Finding diplomatic information without the digging</div>
+        <p>A searchable directory for diplomatic missions and visa processing information connected to Nigeria.</p>
+        <p>The idea came from a simple frustration: important information is often spread across different websites, presented inconsistently, and surprisingly difficult to find.</p>
+        <p>The project brings it together into a more useful interface.</p>
+        <p><strong>Explore the Finder →</strong></p>
+
+        <h3>NairaWatch</h3>
+        <div class="entry-meta">Following the other exchange rate</div>
+        <p>A small intelligence project tracking Nigeria's foreign exchange market.</p>
+        <p>NairaWatch brings together official exchange rate information and signals from the parallel market, using AI assisted interpretation to make the differences easier to follow.</p>
+        <p>It is an experiment in making a noisy information environment more understandable.</p>
+        <p><strong>Explore NairaWatch →</strong></p>
+
+        <h3>Marketplace Logic</h3>
+        <div class="entry-meta">Understanding the systems behind marketplaces</div>
+        <p>An ongoing research project about digital marketplaces.</p>
+        <p>I am interested in what makes marketplaces work: incentives, trust, supply and demand, network effects, pricing, discovery, and the design decisions that sit underneath the interface.</p>
+        <p>The project is part research, part writing, and part learning in public.</p>
+        <p><a class="cta" href="https://marketplacelogic.substack.com/" target="_blank" rel="noopener noreferrer">Explore Marketplace Logic →</a></p>
+
+        <h3>The Limen</h3>
+        <div class="entry-meta">Notes on connection, meaning, and intentional living</div>
+        <p>The Limen is a publication about the less visible patterns shaping contemporary life.</p>
+        <p>It is where I write about ideas that sit between culture, technology, design, faith, relationships, and everyday experience.</p>
+        <p><a class="cta" href="https://thelimen.substack.com/" target="_blank" rel="noopener noreferrer">Read The Limen →</a></p>
+
+        <h3>Undercurrent</h3>
+        <div class="entry-meta">Looking beneath Nigeria's present</div>
+        <p>Undercurrent explores the history, politics, culture, and ideas that continue to influence Nigeria.</p>
+        <p>The starting point is often something happening now. The interesting part is finding what came before it.</p>
+        <p><strong>Read Undercurrent →</strong></p>
+
+        <h3>Creative Code Art</h3>
+        <div class="entry-meta">An ongoing digital art practice</div>
+        <p>A place to experiment with code as a creative material.</p>
+        <p>The work explores visual systems, repetition, movement, geometry, randomness, and the unexpected things that happen when rules are allowed to generate the image.</p>
+        <p><strong>Explore the work →</strong></p>
+
+        <h3>Aso Typeface</h3>
+        <div class="entry-meta">Typography with a cultural memory</div>
+        <p>An ongoing type design exploration influenced by African visual language and cultural character.</p>
+        <p>The project asks how a typeface can feel contemporary without losing the references that give it meaning.</p>
+        <p><strong>Explore Aso →</strong></p>
+
+        <h3>Lagos Places</h3>
+        <div class="entry-meta">A visual record of Lagos</div>
+        <p>A photography archive documenting places, buildings, streets, details, and everyday scenes around Lagos.</p>
+        <p>It is partly a record of the city and partly an excuse to pay closer attention to it.</p>
+        <p><strong>Explore Lagos Places →</strong></p>
+
+        <h3>WebHunt</h3>
+        <div class="entry-meta">A collection of interesting things on the web</div>
+        <p>An archive of websites and digital experiences worth noticing.</p>
+        <p>WebHunt started from a simple habit: saving interfaces, interactions, and ideas that did something differently.</p>
+        <p>It became a way of keeping track of the web as a creative medium.</p>
+        <p><strong>Explore WebHunt →</strong></p>
+      </section>
+
+      <!-- Smaller experiments -->
+      <section aria-labelledby="smaller-title">
+        <h2 id="smaller-title">Smaller experiments</h2>
+        <p>Not everything needs to become a full project.</p>
+        <p>Some ideas stay small. A prototype. A script. A visual study. A new publishing workflow. A tool built to solve one annoying problem. Something made over a weekend and abandoned a month later.</p>
+        <p>I keep these things too.</p>
+        <p>They are often where the more interesting ideas begin.</p>
+      </section>
+
+      <!-- Signals -->
+      <section aria-labelledby="signals-title">
+        <h2 id="signals-title">Signals</h2>
+        <p>I use the Studio to pay attention to things that are changing.</p>
+        <p>AI and creative tools. New approaches to publishing. Interfaces. Data. Generative systems. Open source software. New ways of making and distributing things.</p>
+        <p>Sometimes that means building something.</p>
+        <p>Sometimes it means testing a tool properly rather than reading about it.</p>
+        <p>Sometimes it means writing down what I learned.</p>
+        <p>The point is to stay close enough to new technology to understand what it can actually do, rather than getting carried away by what people say it can do.</p>
+        <p><strong>See Signals →</strong></p>
+      </section>
+
+      <!-- The practice -->
+      <section aria-labelledby="practice-title">
+        <h2 id="practice-title">The practice</h2>
+        <p>The Studio is intentionally small.</p>
+        <p>I do not want it to become a large agency with layers of process between the problem and the person doing the work.</p>
+        <p>When I work with a client, I usually stay close to the problem myself.</p>
+
+        <h3>Frame the real problem</h3>
+        <p>Before deciding what to make, I want to understand what is actually happening.</p>
+        <p>The brief is useful, but it is rarely the whole story.</p>
+
+        <h3>Shape the system</h3>
+        <p>The answer might be a product, brand, strategy, workflow, publication, data experience, or something else entirely.</p>
+        <p>The form follows the problem.</p>
+
+        <h3>Make it real</h3>
+        <p>I like ideas that survive contact with reality.</p>
+        <p>That means designing, prototyping, writing, building, testing, and adjusting until there is something useful to respond to.</p>
+
+        <h3>Leave it stronger</h3>
+        <p>The best work should leave something behind.</p>
+        <p>A clearer system. Better tools. Stronger internal capability. A useful product. A team that understands the problem better than when we started.</p>
+      </section>
+
+      <!-- Ways to work together -->
+      <section aria-labelledby="ways-title">
+        <h2 id="ways-title">Ways to work together</h2>
+        <p>There are a few ways I tend to work with people.</p>
+
+        <h3>Strategic advisory</h3>
+        <p>For teams working through a difficult decision, unclear direction, or a problem that needs an outside perspective.</p>
+
+        <h3>Independent execution</h3>
+        <p>For organisations that know what needs to happen and need someone who can take responsibility for making it happen.</p>
+
+        <h3>Embedded collaboration</h3>
+        <p>For teams that need senior creative and technical thinking inside the work for a period of time.</p>
+
+        <p>The shape can change depending on the problem.</p>
+      </section>
+
+      <!-- What the Studio is for -->
+      <section aria-labelledby="for-title">
+        <h2 id="for-title">What the Studio is for</h2>
+        <p>I started Tomi Abe Studio because I wanted a place where different parts of my work could belong together.</p>
+        <p>Design and technology.</p>
+        <p>Research and making.</p>
+        <p>Client work and independent projects.</p>
+        <p>Practical problems and strange questions.</p>
+        <p>Some of the projects here will become useful products. Some will become writing. Some will disappear. Some will lead somewhere I cannot see yet.</p>
+        <p>That is part of the point.</p>
+        <p>I want the Studio to remain a place where I can follow an interesting question far enough to find out where it leads.</p>
+        <p><a class="cta" href="mailto:tomilayo.abe@gmail.com?subject=Studio%20Inquiry%20-%20Tomi%20Abe%20Studio">Have a problem worth exploring? Get in touch.</a></p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="content-footer">
+        <p>© 2026 Tomi Abe</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

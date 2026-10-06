@@ -27,6 +27,7 @@ jobs:
           cp -R js _site/js
           mkdir -p _site/archive
           cp -R archive/old _site/archive/old
+          cp -R new _site/new
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
         with:

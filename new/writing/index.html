@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomi Abe: Journal</title>
+  <meta name="description" content="Essays, reflections, and notes on design, technology, systems, culture, faith, and life by Tomi Abe." />
+  <meta name="author" content="Tomi Abe" />
+  <meta name="theme-color" content="#0c0f0a" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tomiabe.com/writing" />
+
+  <link rel="stylesheet" href="../assets/fonts/phosphor.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <script>
+    try {
+      document.documentElement.classList.add('js');
+      var hour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Australia/Sydney', hour: 'numeric', hourCycle: 'h23' }).format(new Date()));
+      document.documentElement.dataset.theme = hour >= 7 && hour < 19 ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <canvas id="field" aria-hidden="true"></canvas>
+
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="side-nav" type="button">Menu</button>
+
+  <div class="shell">
+    <!-- Side navigation -->
+    <nav class="side-nav" id="side-nav" aria-label="Sections">
+      <button class="nav-close" type="button" aria-label="Close navigation">
+        <i class="ph ph-x" aria-hidden="true"></i>
+      </button>
+      <ul class="side-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../me/index.html">Me</a></li>
+        <li><a href="../career/index.html">Career</a></li>
+        <li><a href="../work/index.html">Work</a></li>
+        <li><a href="../studio/index.html">Studio</a></li>
+        <li><a href="../writing/index.html" class="is-active">Journal</a></li>
+        <li><a href="../photos/index.html">Photos</a></li>
+        <li><a href="../index.html#hello">Say hello</a></li>
+      </ul>
+      <div class="clock-row">
+        <time class="nav-clock" data-live-time></time>
+        <button class="clock-toggle" type="button" aria-pressed="false" aria-label="Show Tomi's time" title="Show Tomi's time">
+          <i class="ph ph-house" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="https://linkedin.com/in/tomiabe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://x.com/mrtomiabe" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+          <i class="ph ph-x-logo" aria-hidden="true"></i>
+        </a>
+        <a class="social-link" href="https://instagram.com/mrtomiabe" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="nav-overlay" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <main id="main" class="content">
+      <h1>Journal</h1>
+
+      <p>I write to think.</p>
+      <p>Some ideas start as questions. Some begin with something I have noticed, read, built, or disagreed with. Others take a while to become clear enough to write down.</p>
+      <p>The Journal is where I keep those things.</p>
+      <p>It brings together longer essays, independent publications, research, and shorter notes on culture, technology, design, faith, history, systems, work, and everyday life.</p>
+      <p>I do not write because I have everything figured out.</p>
+      <p>Usually, I am trying to figure something out.</p>
+
+      <!-- Publications -->
+      <section aria-labelledby="pubs-title">
+        <h2 id="pubs-title">Publications</h2>
+
+        <h3>The Limen</h3>
+        <div class="entry-meta">Connection, meaning, and the patterns beneath contemporary life.</div>
+        <p>The Limen is a publication about the things that sit between the obvious parts of life.</p>
+        <p>Technology and culture. Individual choices and wider systems. Belief and behaviour. The things we inherit and the things we decide to change.</p>
+        <p>It is a place for slower thinking and longer questions.</p>
+        <p><a class="cta" href="https://thelimen.substack.com/" target="_blank" rel="noopener noreferrer">Read The Limen →</a></p>
+
+        <hr />
+
+        <h3>Undercurrent</h3>
+        <div class="entry-meta">Looking beneath Nigeria's present.</div>
+        <p>Nigeria is often discussed through what is happening now.</p>
+        <p>Undercurrent looks further back.</p>
+        <p>It explores the historical, cultural, political, and social forces that continue to shape the country and the way Nigerians understand themselves.</p>
+        <p>The starting point might be a current event, a familiar idea, a place, a person, or something I have encountered in everyday life.</p>
+        <p>The aim is to follow the thread underneath it.</p>
+        <p><strong>Read Undercurrent →</strong></p>
+
+        <hr />
+
+        <h3>Marketplace Logic</h3>
+        <div class="entry-meta">The systems behind digital marketplaces.</div>
+        <p>Marketplace Logic is an ongoing research and writing project with Alex Akinyeye.</p>
+        <p>We look at the decisions that make marketplaces work, from incentives and trust to supply, demand, discovery, pricing, network effects, and the products built around them.</p>
+        <p>The interface is only one part of the story.</p>
+        <p>We are interested in what happens underneath it.</p>
+        <p><a class="cta" href="https://marketplacelogic.substack.com/" target="_blank" rel="noopener noreferrer">Read Marketplace Logic →</a></p>
+      </section>
+
+      <!-- Notes -->
+      <section aria-labelledby="notes-title">
+        <h2 id="notes-title">Notes</h2>
+        <p>Not everything needs to become a publication.</p>
+        <p>Notes are shorter pieces of thinking that do not need the weight of a larger essay. They might be observations from a project, something I am trying to understand, a useful idea I came across, or a thought that has stayed with me.</p>
+        <p>Some become essays later.</p>
+        <p>Some are better left as notes.</p>
+
+        <h3>Recent notes</h3>
+        <h4>On making things</h4>
+        <p>A few thoughts on why making is often the fastest way to understand an idea.</p>
+        <h4>On AI and judgement</h4>
+        <p>What changes when the ability to produce something becomes cheap, but knowing what is worth producing does not.</p>
+        <h4>On design</h4>
+        <p>A reminder that good design is often less about adding something and more about removing uncertainty.</p>
+        <h4>On faith and work</h4>
+        <p>Some thoughts on taking work seriously without allowing work to become the measure of a life.</p>
+        <h4>On technology</h4>
+        <p>Why I am more interested in what technology changes about people than in technology for its own sake.</p>
+        <p><strong>Read all notes →</strong></p>
+      </section>
+
+      <!-- Research -->
+      <section aria-labelledby="research-title">
+        <h2 id="research-title">Research</h2>
+        <p>Writing and research overlap for me.</p>
+        <p>When I become interested in a subject, I tend to follow it further than the original question requires.</p>
+        <p>That has led me into questions about African history, sustainability, digital marketplaces, artificial intelligence, urban life, creative technology, media, design, and the systems behind everyday experiences.</p>
+        <p>Some of that research becomes a published piece.</p>
+        <p>Some becomes a project in the Studio.</p>
+        <p>Some simply changes how I think.</p>
+      </section>
+
+      <!-- Writing in public -->
+      <section aria-labelledby="public-title">
+        <h2 id="public-title">Writing in public</h2>
+        <p>I have published across different platforms over the years, including Medium, Substack, and my own publications.</p>
+        <p>The platforms have changed.</p>
+        <p>The reason for writing has not.</p>
+        <p>Putting an idea into words forces me to slow down and decide what I actually think. It also makes the thinking available to someone else, who might disagree with it, add something I missed, or take the idea somewhere I had not considered.</p>
+        <p>That is one of the things I like about publishing.</p>
+      </section>
+
+      <!-- What I am thinking about -->
+      <section aria-labelledby="thinking-title">
+        <h2 id="thinking-title">What I am thinking about</h2>
+        <p>The subjects change, but a few questions keep returning.</p>
+        <p>How does technology change the way we live?</p>
+        <p>What makes information useful?</p>
+        <p>How do systems shape everyday decisions?</p>
+        <p>What do we inherit from the people and places before us?</p>
+        <p>What does good work look like when nobody is watching?</p>
+        <p>How do we hold on to faith while remaining genuinely curious?</p>
+        <p>What should we build, and what should we leave alone?</p>
+        <p>I do not expect the Journal to answer all of these.</p>
+        <p>It is mostly a record of following them.</p>
+      </section>
+
+      <!-- Start somewhere -->
+      <section aria-labelledby="start-title">
+        <h2 id="start-title">Start somewhere</h2>
+        <p>There is no required reading order.</p>
+        <p>Pick a subject that interests you.</p>
+        <p>Follow a publication.</p>
+        <p>Read an old note.</p>
+        <p>Or start with whatever I have been thinking about lately.</p>
+        <p><strong>Browse the Journal →</strong></p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="content-footer">
+        <p>© 2026 Tomi Abe</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
