@@ -10,6 +10,11 @@
 
   function initTheme() {
     try {
+      const saved = localStorage.getItem('tomi-theme-choice-v4');
+      if (saved === 'light' || saved === 'dark') {
+        root.dataset.theme = saved;
+        return;
+      }
       const hour = Number(
         new Intl.DateTimeFormat('en-GB', {
           timeZone: 'Australia/Sydney',
@@ -23,17 +28,37 @@
     }
   }
 
+  function syncToggleButtons() {
+    const dark = root.dataset.theme === 'dark';
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+      btn.setAttribute('aria-label', label);
+      btn.title = label;
+      const icon = btn.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('ph-sun', dark);
+        icon.classList.toggle('ph-moon', !dark);
+      }
+    });
+  }
+
   function toggleTheme() {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try {
+      localStorage.setItem('tomi-theme-choice-v4', root.dataset.theme);
+    } catch {
+      /* storage unavailable */
+    }
+    syncToggleButtons();
   }
 
   initTheme();
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Theme toggle buttons (rooms only; index theme is automatic)
     document.querySelectorAll('.theme-toggle').forEach((btn) => {
       btn.addEventListener('click', toggleTheme);
     });
+    syncToggleButtons();
 
     // Live clock: visitor's local time by default, small toggle for Tomi's time
     const clockEl = document.querySelector('[data-live-time]');
