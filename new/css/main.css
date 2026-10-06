@@ -644,17 +644,22 @@ html {
   border-right: 1px solid var(--line);
 }
 
-/* Rail header: logo (home) on the left, close button on the right (mobile) */
+/* Rail header: logo centered on desktop, logo left + close button on mobile */
 .rail-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 18px;
 }
 
+.rail-head .site-logo-img {
+  width: 20px;
+  height: 20px;
+}
+
 .rail-controls {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 4px;
 }
@@ -1058,6 +1063,14 @@ html {
     border-right: 0;
     border-left: 1px solid var(--line);
     padding: 20px 18px 24px;
+  }
+
+  .rail-head {
+    justify-content: space-between;
+  }
+
+  .rail-controls {
+    display: flex;
   }
 
   .side-nav.is-open {
