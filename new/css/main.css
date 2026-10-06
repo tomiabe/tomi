@@ -3,59 +3,71 @@
    ========================================================================== */
 
 @font-face {
-  font-family: 'Excon';
-  src: url('../assets/fonts/excon.woff2') format('woff2');
+  font-family: 'Plein';
+  src: url('../assets/fonts/plein.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plein';
+  src: url('../assets/fonts/plein-italic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('../assets/fonts/switzer.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ranade';
-  src: url('../assets/fonts/ranade.woff2') format('woff2');
-  font-weight: 100 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ranade';
-  src: url('../assets/fonts/ranade-italic.woff2') format('woff2');
-  font-weight: 100 700;
+  font-family: 'Switzer';
+  src: url('../assets/fonts/switzer-italic.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 
 :root {
-  --font-heading: 'Excon', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Ranade', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plein', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --ink: #0c0f0a;
-  --muted: #5c605a;
-  --surface: #f5f6f3;
+  /* Palette: #F5F5F5 #76ABAE #303841 #FF5722 */
+  --ink: #303841;
+  --muted: rgba(48, 56, 65, 0.75);
+  --surface: #f5f5f5;
   --surface-card: #ffffff;
-  --line: rgba(12, 15, 10, 0.14);
-  --line-strong: rgba(12, 15, 10, 0.32);
-  --accent: #b90040;
-  --focus: #fbff12;
-  
+  --line: rgba(48, 56, 65, 0.12);
+  --line-strong: rgba(48, 56, 65, 0.34);
+  --accent: #ff5722;
+  --accent-2: #76abae;
+  --focus: #ff5722;
+
   --max-width: 1120px;
   --rail-width: 260px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --transition-fast: 180ms ease;
-  --transition-normal: 280ms ease;
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --transition-fast: 180ms var(--ease-out-expo);
+  --transition-normal: 300ms var(--ease-out-expo);
 }
 
 [data-theme="dark"] {
-  --ink: #ffffff;
-  --muted: #b0b6ac;
-  --surface: #171c14;
-  --surface-card: #1f251c;
-  --line: rgba(255, 255, 255, 0.16);
-  --line-strong: rgba(255, 255, 255, 0.38);
-  --accent: #41ead4;
-  --focus: #fbff12;
+  --ink: #f5f5f5;
+  --muted: rgba(245, 245, 245, 0.64);
+  --surface: #303841;
+  --surface-card: rgba(245, 245, 245, 0.05);
+  --line: rgba(245, 245, 245, 0.14);
+  --line-strong: rgba(245, 245, 245, 0.36);
+  --accent: #ff5722;
+  --accent-2: #76abae;
+  --focus: #76abae;
 }
 
 *, *::before, *::after {
@@ -68,14 +80,18 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
   background-color: var(--surface);
   color: var(--ink);
   font-family: var(--font-body);
+  font-size: 0.9375rem;
   line-height: 1.6;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
 }
@@ -113,22 +129,23 @@ body {
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
-h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 2.6vw, 1.875rem); }
+h3 { font-size: clamp(1.15rem, 1.8vw, 1.375rem); }
 
 p {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--ink);
 }
 
 p.lead {
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
-  line-height: 1.5;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.55;
   color: var(--muted);
 }
 
@@ -142,6 +159,12 @@ a {
 a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .text-link {
@@ -570,7 +593,7 @@ html {
 .shell {
   display: flex;
   align-items: flex-start;
-  max-width: 920px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -605,28 +628,45 @@ html {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .side-links a {
-  display: block;
-  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
   border-radius: var(--radius-sm);
   font-size: 15px;
-  color: var(--muted);
+  line-height: 1.3;
+  color: var(--ink);
   text-decoration: none;
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition: color var(--transition-fast);
+}
+
+.side-links a::before {
+  content: '';
+  flex: 0 0 2px;
+  width: 2px;
+  height: 12px;
+  background: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .side-links a:hover {
-  color: var(--ink);
-  background: color-mix(in srgb, var(--ink) 6%, transparent);
+  color: var(--accent);
 }
 
 .side-links a.is-active {
-  color: var(--ink);
-  font-weight: 600;
-  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.side-links a.is-active::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Live clock under the links: local time by default, toggle for Tomi's time */
@@ -700,34 +740,49 @@ html {
 .content {
   flex: 1;
   min-width: 0;
-  max-width: 720px;
-  padding: 72px 48px 64px;
+  max-width: 740px;
+  padding: 88px 56px 96px;
+  counter-reset: section;
 }
 
 .content h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  margin-bottom: 14px;
+  font-size: clamp(2.1rem, 4vw, 2.75rem);
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
 }
 
 .content .tagline {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .content p {
-  margin-bottom: 18px;
-  font-size: 1.05rem;
+  margin-bottom: 20px;
+  font-size: 1rem;
   line-height: 1.7;
 }
 
 .content section {
-  padding: 44px 0 12px;
+  padding: 72px 0 8px;
   scroll-margin-top: 24px;
 }
 
 .content h2 {
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  margin-bottom: 18px;
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+  margin-bottom: 22px;
+  counter-increment: section;
+}
+
+.content h2::before {
+  content: counter(section, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
 }
 
 .content hr {
@@ -739,7 +794,7 @@ html {
 /* Call to action links (copy keeps its own arrow) */
 .cta {
   display: inline-block;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
   text-decoration: none;
   border-bottom: 2px solid var(--accent);
@@ -757,22 +812,25 @@ html {
 
 /* Scripture / pull quotes */
 .content blockquote {
-  margin: 26px 0;
-  padding: 4px 0 4px 22px;
-  border-left: 3px solid var(--accent);
+  margin: 32px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 2px solid var(--accent);
 }
 
 .content blockquote p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 
 .content blockquote cite {
   display: block;
   font-style: normal;
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
   color: var(--muted);
 }
 
@@ -796,18 +854,20 @@ html {
 
 /* Room: subsection headings and entry meta lines */
 .content h3 {
-  font-size: clamp(1.25rem, 2.6vw, 1.5rem);
-  margin: 36px 0 14px;
+  font-size: clamp(1.15rem, 1.8vw, 1.375rem);
+  margin: 44px 0 14px;
+  letter-spacing: -0.015em;
 }
 
 .content h4 {
-  font-size: 1.05rem;
-  margin: 26px 0 6px;
+  font-size: 1.0625rem;
+  margin: 30px 0 8px;
 }
 
 .content .entry-meta {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--accent);
   margin-bottom: 14px;
 }
@@ -848,7 +908,7 @@ html {
 
 /* Footer */
 .content-footer {
-  margin-top: 56px;
+  margin-top: 72px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
 }
