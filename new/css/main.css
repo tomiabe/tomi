@@ -857,6 +857,23 @@ html {
   scroll-margin-top: 24px;
 }
 
+/* Home: equal space above and below every block */
+.content.home section {
+  padding-bottom: 72px;
+}
+
+.content.home section > :last-child {
+  margin-bottom: 0;
+}
+
+.content.home > hr:first-of-type {
+  margin-top: 88px;
+}
+
+.content.home .content-footer {
+  margin-top: 0;
+}
+
 .content h2 {
   font-size: clamp(1.5rem, 2.6vw, 1.875rem);
   margin-bottom: 22px;
