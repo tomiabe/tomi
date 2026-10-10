@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f7f7f6" />
-  <meta name="description" content="The internet home of Tomi Abe. A place for life, work, writing, photographs, and ideas in progress." />
-  <title>Tomi Abe</title>
-  <link rel="canonical" href="https://tomiabe.com/" />
+  <meta name="description" content="Notes, writing and independent publications by Tomi Abe." />
+  <title>Journal | Tomi Abe</title>
+  <link rel="canonical" href="https://tomiabe.com/journal/" />
   <meta name="author" content="Tomi Abe" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Tomi Abe" />
-  <meta property="og:title" content="Tomi Abe" />
-  <meta property="og:description" content="The internet home of Tomi Abe. A place for life, work, writing, photographs, and ideas in progress." />
-  <meta property="og:url" content="https://tomiabe.com/" />
+  <meta property="og:title" content="Journal | Tomi Abe" />
+  <meta property="og:description" content="Notes, writing and independent publications by Tomi Abe." />
+  <meta property="og:url" content="https://tomiabe.com/journal/" />
   <meta property="og:image" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="1024" />
@@ -25,22 +25,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/assets/fonts/phosphor.css" />
   <link rel="stylesheet" href="/css/home.css" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Tomi Abe",
-      "url": "https://tomiabe.com/",
-      "image": "https://tomiabe.com/assets/images/tomi-abe-bw.jpeg",
-      "jobTitle": "Creative Technologist",
-      "homeLocation": { "@type": "Place", "name": "Sydney, Australia" },
-      "sameAs": [
-        "https://linkedin.com/in/tomiabe",
-        "https://github.com/tomiabe",
-        "https://tomiabe.medium.com"
-      ]
-    }
-  </script>
+  <link rel="stylesheet" href="/css/journal.css" />
   <script>
     try {
       var choice = localStorage.getItem('tomi-home-theme');
@@ -81,7 +66,7 @@
         <a href="/studio/" data-room-link>Studio</a>
         <a href="/journal/" data-room-link>Journal</a>
         <a href="/photos/" data-room-link>Photos</a>
-        <a href="#connect">Connect</a>
+        <a href="/#connect">Connect</a>
       </nav>
 
       <div class="nav-bottom">
@@ -94,45 +79,56 @@
       </div>
     </aside>
 
-    <main class="main-content" id="main">
-      <section class="intro" aria-labelledby="home-title">
+    <main class="main-content journal-page" id="main">
+      <section class="journal-intro" aria-labelledby="journal-title">
         <span class="section-number" aria-hidden="true">01</span>
-        <h1 id="home-title">Hello, I'm Tomi.</h1>
-        <p class="identity">Human. Believer. African. Husband. Builder. Strategist.</p>
-        <p>I'm Nigerian, born in Lagos and now based in Sydney. Faith, family and curiosity shape how I see the world. My work has taken me through design, technology, strategy and the space between them.</p>
-        <p>This is my corner of the internet. A place for the work I've done, the things I'm making, the ideas I'm exploring and the moments I want to remember.</p>
-        <div class="intro-actions">
-          <a class="button button-primary" href="/me/">Get to know me</a>
-          <a class="button button-secondary" href="/work/">See selected work</a>
-        </div>
+        <h1 id="journal-title">Journal</h1>
+        <p>Notes and essays from the things I am learning, making and trying to understand. Some will be brief. Others will need more room.</p>
       </section>
 
-      <section class="rooms" id="rooms" aria-labelledby="rooms-title">
+      <section class="journal-entries" aria-labelledby="entries-title">
         <span class="section-number" aria-hidden="true">02</span>
-        <h2 id="rooms-title">The rooms</h2>
-        <p class="section-intro">Different parts of my life, gathered in one place.</p>
-        <div class="room-list">
-          <a href="/me/"><strong>Me</strong><span>Where I come from and what matters to me.</span></a>
-          <a href="/career/"><strong>Career</strong><span>The path that brought me here.</span></a>
-          <a href="/work/"><strong>Work</strong><span>Selected work with teams, clients and collaborators.</span></a>
-          <a href="/studio/"><strong>Studio</strong><span>My creative technology practice and projects in progress.</span></a>
-          <a href="/journal/"><strong>Journal</strong><span>Notes, essays and publication projects.</span></a>
-          <a href="/photos/"><strong>Photos</strong><span>Places, people and small things I notice.</span></a>
+        <h2 id="entries-title">Entries</h2>
+        <div class="entry-list">
+          <article class="journal-entry">
+            <time datetime="2026-10-10">10 Oct 2026</time>
+            <div>
+              <h3><a href="/journal/a-place-to-begin/">A place to begin</a></h3>
+              <p>On making a personal website that has room for more than work.</p>
+              <span>Note</span>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="connect" id="connect" aria-labelledby="connect-title">
+      <section class="journal-publications" aria-labelledby="publications-title">
         <span class="section-number" aria-hidden="true">03</span>
-        <h2 id="connect-title">Connect</h2>
-        <p>For a conversation, a question or something we could make together, <a href="mailto:tomilayo.abe@gmail.com">send me a note</a>.</p>
-        <div class="social-links" aria-label="Social profiles">
-          <a href="https://linkedin.com/in/tomiabe">LinkedIn</a>
-          <a href="https://instagram.com/mrtomiabe">Instagram</a>
-          <a href="https://x.com/mrtomiabe">X</a>
-          <a href="https://tomiabe.substack.com">Substack</a>
-          <a href="https://tomiabe.medium.com">Medium</a>
-          <a href="https://github.com/tomiabe">GitHub</a>
+        <h2 id="publications-title">Publications</h2>
+        <p class="section-copy">Longer-running writing projects have their own names and subjects. They live alongside my personal notes here, without becoming separate rooms in the house.</p>
+        <div class="publication-list">
+          <article class="publication">
+            <h3>The Limen</h3>
+            <p>Writing about connection, meaning and the patterns beneath contemporary life.</p>
+            <a href="https://thelimen.substack.com/">Visit The Limen <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="publication">
+            <h3>Undercurrent</h3>
+            <p>Looking beneath Nigeria's present to the histories and ideas that continue to shape it.</p>
+            <span>In development</span>
+          </article>
+          <article class="publication">
+            <h3>Marketplace Logic</h3>
+            <p>Research and writing with Alex Akinyeye about how digital marketplaces work.</p>
+            <a href="https://marketplacelogic.substack.com/">Visit Marketplace Logic <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
         </div>
+      </section>
+
+      <section class="journal-elsewhere" aria-labelledby="elsewhere-title">
+        <span class="section-number" aria-hidden="true">04</span>
+        <h2 id="elsewhere-title">Elsewhere</h2>
+        <p>Older writing also lives beyond this site.</p>
+        <a href="https://medium.com/tomiabestudio/about">Tomi Abe Studio on Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
       </section>
 
       <footer class="footer">&copy; 2026 Tomi Abe</footer>

@@ -1,0 +1,40 @@
+.career-page section { max-width: 700px; }
+.career-intro { padding-bottom: 114px; }
+.career-intro h1 { margin-bottom: 30px; }
+.career-intro p { max-width: 620px; font-size: 17px; line-height: 1.6; }
+.career-section { padding-bottom: 114px; }
+.career-section h2 { margin-bottom: 39px; }
+.career-section > p { max-width: 620px; font-size: 16px; line-height: 1.62; }
+.career-entry {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 52px;
+}
+.career-entry:last-child { margin-bottom: 0; }
+.career-date, .education-list span { padding-top: 3px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.career-entry h3 { margin: 0 0 1px; font-size: 22px; line-height: 1.27; }
+.career-entry .career-place { margin: 0 0 17px; color: var(--muted); font-size: 14px; }
+.career-entry p:not(.career-place) { max-width: 480px; margin-bottom: 15px; font-size: 15px; line-height: 1.57; }
+.career-entry a, .career-alongside a, .career-next a { font-size: 14px; text-decoration-color: var(--subtle); text-underline-offset: 4px; }
+.career-entry a:hover, .career-alongside a:hover, .career-next a:hover { color: var(--accent); }
+.education-list { display: grid; gap: 24px; margin-bottom: 28px; }
+.education-list > div { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 24px; }
+.education-list p { margin: 0; font-size: 15px; line-height: 1.48; }
+.education-list strong { font-weight: 600; }
+.career-alongside { padding-bottom: 65px; }
+.career-alongside h2 { margin-bottom: 25px; }
+.career-next { margin-bottom: 60px; }
+
+@media (max-width: 700px) {
+  .career-intro { padding-bottom: 90px; }
+  .career-intro h1 { margin-bottom: 26px; }
+  .career-intro p { font-size: 15px; }
+  .career-section { padding-bottom: 90px; }
+  .career-section h2 { margin-bottom: 31px; font-size: 27px; }
+  .career-entry, .education-list > div { grid-template-columns: 1fr; gap: 6px; }
+  .career-entry { margin-bottom: 42px; }
+  .career-entry h3 { font-size: 21px; }
+  .career-entry p:not(.career-place), .career-section > p { font-size: 15px; }
+  .career-alongside { padding-bottom: 55px; }
+}
