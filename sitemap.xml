@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tomiabe.com/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://tomiabe.com/</loc></url>
+  <url><loc>https://tomiabe.com/me/</loc></url>
+  <url><loc>https://tomiabe.com/career/</loc></url>
+  <url><loc>https://tomiabe.com/work/</loc></url>
+  <url><loc>https://tomiabe.com/studio/</loc></url>
+  <url><loc>https://tomiabe.com/journal/</loc></url>
+  <url><loc>https://tomiabe.com/journal/a-place-to-begin/</loc></url>
+  <url><loc>https://tomiabe.com/photos/</loc></url>
 </urlset>

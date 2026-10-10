@@ -20,14 +20,16 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html styles.css script.js CNAME robots.txt sitemap.xml site.webmanifest _site/
+          cp index.html CNAME robots.txt sitemap.xml favicon.svg favicon.png apple-touch-icon.png _site/
           cp -R assets _site/assets
-          cp -R work _site/work
-          cp -R css _site/css
-          cp -R js _site/js
-          mkdir -p _site/archive
-          cp -R archive/old _site/archive/old
-          cp -R new _site/new
+          for room in me career work studio journal photos; do
+            mkdir -p "_site/$room"
+            cp "$room/index.html" "_site/$room/"
+          done
+          mkdir -p _site/journal/a-place-to-begin _site/css _site/js
+          cp journal/a-place-to-begin/index.html _site/journal/a-place-to-begin/
+          cp css/{home,me,career,work,studio,journal,photos}.css _site/css/
+          cp js/{home,work,photos}.js _site/js/
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
