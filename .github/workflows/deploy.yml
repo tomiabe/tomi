@@ -20,7 +20,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html CNAME robots.txt sitemap.xml favicon.svg favicon.png apple-touch-icon.png _site/
+          cp index.html CNAME robots.txt sitemap.xml favicon.png apple-touch-icon.png _site/
           cp -R assets _site/assets
           for room in me career work studio journal photos; do
             mkdir -p "_site/$room"
