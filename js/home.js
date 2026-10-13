@@ -2,6 +2,9 @@
   "use strict";
 
   var root = document.documentElement;
+  if (window.Lenis) {
+    new window.Lenis({ autoRaf: true, anchors: true });
+  }
   var themeKey = "tomi-home-theme";
   var media = window.matchMedia("(prefers-color-scheme: dark)");
   var rail = document.querySelector("[data-rail]");
