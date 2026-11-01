@@ -56,7 +56,7 @@
   setInterval(updateClock, 30000);
 
   document.querySelectorAll("[data-room-link]").forEach(function (link) {
-    if (link.pathname === location.pathname || (link.pathname === "/journal/" && location.pathname.startsWith("/journal/"))) {
+    if (link.pathname === location.pathname || ((link.pathname === "/journal/" || link.pathname === "/work/") && location.pathname.startsWith(link.pathname))) {
       link.setAttribute("aria-current", "page");
     }
   });
@@ -65,6 +65,7 @@
   var emailCopyStatus = document.querySelector("[data-email-status]");
   if (emailCopyButton && emailCopyStatus) {
     var emailCopyTimer;
+    var emailCopyLabel = emailCopyButton.getAttribute("aria-label");
     emailCopyButton.addEventListener("click", async function () {
       var email = emailCopyButton.dataset.copyEmail;
       var icon = emailCopyButton.querySelector("i");
@@ -92,7 +93,7 @@
       window.clearTimeout(emailCopyTimer);
       emailCopyTimer = window.setTimeout(function () {
         emailCopyStatus.textContent = "";
-        emailCopyButton.setAttribute("aria-label", "Copy studio email address");
+        emailCopyButton.setAttribute("aria-label", emailCopyLabel);
         if (icon) icon.className = "ph ph-copy";
       }, 2200);
     });
