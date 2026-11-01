@@ -64,7 +64,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
 .site-shell {
   display: grid;
   grid-template-columns: var(--sidebar) minmax(0, 1fr);
-  width: min(100%, 1152px);
+  width: min(calc(100% - 48px), 1152px);
   min-height: 100vh;
   margin: auto;
 }
@@ -176,7 +176,6 @@ p { margin: 0 0 18px; }
 
 @media (max-width: 900px) {
   :root { --sidebar: 194px; }
-  .site-shell { padding-left: 24px; }
   .side-nav { padding-right: 20px; }
   .main-content { padding-right: 28px; padding-left: 55px; }
 }
@@ -194,7 +193,7 @@ p { margin: 0 0 18px; }
   .mobile-mark { display: block; width: 24px; height: 25px; }
   .menu-toggle { display: flex; align-items: center; gap: 6px; padding: 6px 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 14px; }
   .menu-toggle i { font-size: 18px; }
-  .site-shell { display: block; padding: 0; }
+  .site-shell { display: block; width: 100%; padding: 0; }
   .side-nav {
     position: fixed;
     z-index: 20;
