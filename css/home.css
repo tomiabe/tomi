@@ -127,14 +127,6 @@ a:has(> i.ph-arrow-up-right):not(.button) {
   padding: clamp(72px, 20vh, 160px) 72px 50px 76px;
 }
 .main-content section { position: relative; max-width: 700px; }
-.section-number {
-  position: absolute;
-  left: -76px;
-  top: 4px;
-  color: var(--subtle);
-  font: 11px/1.5 "Switzer", sans-serif;
-  font-variant-numeric: tabular-nums;
-}
 h1, h2, h3 { font-family: "Cabinet Grotesk", Arial, sans-serif; font-weight: 500; letter-spacing: 0; }
 h1 { margin: 0 0 18px; font-size: 36px; line-height: 1.16; }
 h2 { margin: 0; font-size: 30px; line-height: 1.2; }
@@ -179,7 +171,6 @@ p { margin: 0 0 18px; }
   .site-shell { padding-left: 24px; }
   .side-nav { padding-right: 20px; }
   .main-content { padding-right: 28px; padding-left: 55px; }
-  .section-number { left: -55px; }
 }
 
 @media (max-width: 700px) {
@@ -215,7 +206,6 @@ p { margin: 0 0 18px; }
   .nav-links a { font-size: 22px; }
   .nav-links a[aria-current="page"]::before { top: 9px; height: 18px; }
   .main-content { padding: 47px 22px 35px; }
-  .section-number { display: none; }
   h1 { font-size: 33px; }
   .intro { padding-bottom: 100px; }
   .intro .identity { font-size: 17px; margin-bottom: 27px; }

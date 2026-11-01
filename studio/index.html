@@ -95,18 +95,16 @@
 
     <main class="main-content studio-page" id="main">
       <section class="studio-intro" aria-labelledby="studio-title">
-        <span class="section-number" aria-hidden="true">01</span>
         <h1 id="studio-title">Studio</h1>
         <p class="studio-lede">Tomi Abe Studio is my independent creative technology practice. It is where I work with clients, build ideas of my own, and make room to learn by doing.</p>
         <p>The practice has changed shape since 2013. Design, technology, research and media have all had a place in it. What has stayed constant is my interest in making complex things clearer and more useful to people.</p>
         <div class="studio-actions">
-          <a class="button button-primary" href="mailto:studio@tomiabe.com?subject=Studio%20inquiry">Start a conversation</a>
-          <a class="button button-secondary" href="https://studio.tomiabe.com/" target="_blank" rel="noopener noreferrer">Visit the studio site <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="button button-primary" href="#collaborate">Start a conversation</a>
+          <a class="button button-secondary" href="#projects">Explore projects</a>
         </div>
       </section>
 
       <section class="studio-practice" aria-labelledby="practice-title">
-        <span class="section-number" aria-hidden="true">02</span>
         <h2 id="practice-title">The practice</h2>
         <div class="practice-list">
           <div class="practice-item">
@@ -121,11 +119,15 @@
         </div>
       </section>
 
-      <section class="studio-projects" aria-labelledby="projects-title">
-        <span class="section-number" aria-hidden="true">03</span>
+      <section class="studio-projects" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Independent projects</h2>
         <p class="section-copy">A selection of tools and experiments built through the studio. Each is still open to change.</p>
         <div class="studio-project-list">
+          <article class="studio-project">
+            <div class="project-heading"><h3>Canvas</h3><span>Generative art</span></div>
+            <p>Create generative art from a prompt, then refine it with simple live controls.</p>
+            <a href="https://canvas.tomiabe.com/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
           <article class="studio-project">
             <div class="project-heading"><h3>Polish</h3><span>Design tools</span></div>
             <p>A local tool for reviewing interface code against practical standards for usability, accessibility and visual craft.</p>
@@ -142,18 +144,48 @@
             <a href="https://urbanclimate.susbridge.xyz/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
           </article>
           <article class="studio-project">
+            <div class="project-heading"><h3>Zonify</h3><span>Time coordination</span></div>
+            <p>Make global time differences easier to plan around.</p>
+            <a href="https://tomiabe.github.io/zonify/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="studio-project">
+            <div class="project-heading"><h3>Nigeria Embassy Finder</h3><span>Consular information</span></div>
+            <p>A searchable directory for missions and consular information.</p>
+            <a href="https://tomiabe.github.io/nigeria-embassy/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="studio-project">
+            <div class="project-heading"><h3>Smart Expense Agent</h3><span>Financial insights</span></div>
+            <p>Turn bank statements into clearer spending patterns and insights.</p>
+            <a href="https://smart-expense-agent.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="studio-project">
             <div class="project-heading"><h3>NairaWatch</h3><span>Financial information</span></div>
             <p>Making exchange rate movements easier to follow and put into context.</p>
             <a href="https://tomiabe.github.io/nairawatch/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
           </article>
+          <article class="studio-project">
+            <div class="project-heading"><h3>JTF23</h3><span>Interactive storytelling</span></div>
+            <p>An interactive wedding story told through photography and motion.</p>
+            <a href="https://jtf.persona.co" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="studio-project">
+            <div class="project-heading"><h3>Acquario</h3><span>Data visualization</span></div>
+            <p>A virtual aquarium that makes aquatic movement and migration easier to explore.</p>
+            <a href="https://editor.p5js.org/tomiabe/full/0iDmkljF2" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="studio-project">
+            <div class="project-heading"><h3>WebHunt</h3><span>Web inspiration</span></div>
+            <p>A curated gallery of web experiences, interfaces and ideas worth keeping close.</p>
+            <a href="https://tomiabe.github.io/webhunt/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          </article>
         </div>
       </section>
 
-      <section class="studio-collaborate" aria-labelledby="collaborate-title">
-        <span class="section-number" aria-hidden="true">04</span>
+      <section class="studio-collaborate" id="collaborate" aria-labelledby="collaborate-title">
         <h2 id="collaborate-title">Working together</h2>
         <p>There is no fixed menu. I can advise on direction, take ownership of a defined project, or join a team for a stretch of work. The first step is a conversation about what you are trying to make or change.</p>
-        <a href="mailto:studio@tomiabe.com?subject=Studio%20inquiry">Email the studio <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        <button class="studio-email-copy" type="button" data-copy-email="studio@tomiabe.com" aria-label="Copy studio email address" aria-describedby="studio-email-copy-status">Email the studio <i class="ph ph-copy" aria-hidden="true"></i></button>
+        <span class="studio-copy-status" id="studio-email-copy-status" role="status" aria-live="polite" data-email-status></span>
       </section>
 
       <footer class="footer">&copy; 2026 Tomi Abe</footer>

@@ -61,6 +61,43 @@
     }
   });
 
+  var emailCopyButton = document.querySelector("[data-copy-email]");
+  var emailCopyStatus = document.querySelector("[data-email-status]");
+  if (emailCopyButton && emailCopyStatus) {
+    var emailCopyTimer;
+    emailCopyButton.addEventListener("click", async function () {
+      var email = emailCopyButton.dataset.copyEmail;
+      var icon = emailCopyButton.querySelector("i");
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          var field = document.createElement("textarea");
+          field.value = email;
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.append(field);
+          field.select();
+          var copied = document.execCommand("copy");
+          field.remove();
+          if (!copied) throw new Error("Clipboard unavailable");
+        }
+        emailCopyStatus.textContent = "Email copied to clipboard";
+        emailCopyButton.setAttribute("aria-label", "Email copied to clipboard");
+        if (icon) icon.className = "ph ph-check";
+      } catch (error) {
+        emailCopyStatus.textContent = "Could not copy email. Select the address to copy it.";
+        emailCopyButton.setAttribute("aria-label", emailCopyStatus.textContent);
+      }
+      window.clearTimeout(emailCopyTimer);
+      emailCopyTimer = window.setTimeout(function () {
+        emailCopyStatus.textContent = "";
+        emailCopyButton.setAttribute("aria-label", "Copy studio email address");
+        if (icon) icon.className = "ph ph-copy";
+      }, 2200);
+    });
+  }
+
   if (rail && menu) {
     function closeMenu() {
       rail.classList.remove("is-open");
