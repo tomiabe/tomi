@@ -31,6 +31,9 @@
 .journal-article h1 { font-size: 42px; }
 .article-body { max-width: 620px; }
 .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.7; }
+.article-body figure { margin: 0 0 30px; }
+.article-body figure img { display: block; width: 100%; height: auto; }
+.article-body figcaption { margin-top: 9px; color: var(--subtle); font-size: 12px; }
 .article-end { margin: 76px 0 65px; padding-top: 25px; border-top: 1px solid rgba(80, 84, 87, .18); }
 
 @media (max-width: 700px) {

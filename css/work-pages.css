@@ -1,0 +1,81 @@
+.work-index, .work-story { max-width: 700px; }
+.work-index .back-link, .work-story .back-link { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 44px; color: var(--muted); font-size: 14px; text-decoration: none; }
+.work-index .back-link:hover, .work-story .back-link:hover { color: var(--accent); }
+.work-story .work-story-cover { margin: 0 0 36px; }
+.work-index h1, .work-story h1 { margin-bottom: 20px; }
+.work-index .page-lede, .work-story .page-lede { max-width: 620px; margin-bottom: 55px; font-size: 18px; line-height: 1.57; }
+.work-index .project-grid { padding-bottom: 65px; }
+.work-index .project h3 a { text-decoration: none; }
+.work-index .project h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.work-story .story-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; margin: 0 0 42px; padding: 21px 0; border-top: 1px solid rgba(80, 84, 87, .2); border-bottom: 1px solid rgba(80, 84, 87, .2); }
+.work-story .story-meta div { min-width: 0; }
+.work-story dt { margin-bottom: 5px; color: var(--subtle); font-size: 12px; }
+.work-story dd { margin: 0; font-size: 14px; }
+.work-story section { padding: 0 0 24px; }
+.work-story section h2 { margin-bottom: 16px; font-size: 25px; }
+.work-story section p { max-width: 620px; font-size: 16px; line-height: 1.65; }
+.work-story figure { margin: 23px 0 40px; }
+.work-story figure img { display: block; width: 100%; height: auto; }
+.work-story figcaption { margin-top: 9px; color: var(--subtle); font-size: 12px; }
+.work-story .media-stack figure { margin-top: 0; }
+.work-story .story-end { margin: 70px 0; border-top: 1px solid rgba(80, 84, 87, .2); padding-top: 25px; font-size: 14px; }
+.work-story .story-end a { text-decoration-color: var(--subtle); text-underline-offset: 4px; }
+
+@media (min-width: 701px) {
+  .work-story .work-story-cover { height: 195px; aspect-ratio: auto; }
+}
+
+.susinsight-story .story-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.susinsight-story .drawer-media { margin: 28px 0 36px; }
+.susinsight-story .drawer-media img { display: block; width: 100%; height: auto; }
+.susinsight-story .drawer-media video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #111; }
+.susinsight-story .drawer-section { padding: 0; margin: 50px 0 0; }
+.susinsight-story .drawer-section > p { margin-bottom: 0; }
+.susinsight-story .drawer-section .drawer-media { margin-top: 25px; }
+.susinsight-story .susinsight-logo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0 0; }
+.susinsight-story .susinsight-logo-tile { display: grid; min-width: 0; min-height: 138px; place-items: center; margin: 0; padding: 40px 22px; border: 1px solid rgba(80, 84, 87, .2); }
+.susinsight-story .susinsight-logo-tile img { display: block; width: min(100%, 260px); max-height: 54px; object-fit: contain; }
+.susinsight-story .logo-light { background: #fff; }
+.susinsight-story .logo-dark { background: #2e6f5b; }
+.susinsight-story .brand-palette { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 25px 0 0; padding: 0; list-style: none; }
+.susinsight-story .brand-palette li { display: flex; min-width: 0; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+.susinsight-story .brand-swatch { flex: 0 0 28px; width: 28px; aspect-ratio: 1; border: 1px solid rgba(80, 84, 87, .2); border-radius: 50%; background: var(--swatch); }
+.susinsight-story .creative-feed-window, .susinsight-story .drawer-image-window { height: 380px; overflow: hidden; border: 1px solid rgba(80, 84, 87, .2); background: var(--page); }
+.susinsight-story .creative-feed-track { animation: susinsight-feed-scroll 76s linear infinite; }
+.susinsight-story .creative-feed-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px; }
+.susinsight-story .creative-feed-grid img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.susinsight-story .drawer-image-track { animation: susinsight-image-scroll 64s linear infinite; }
+.susinsight-story .drawer-image-track img { display: block; width: 100%; height: auto; }
+.susinsight-story .creative-feed-window:hover .creative-feed-track,
+.susinsight-story .creative-feed-window:focus .creative-feed-track,
+.susinsight-story .drawer-image-window:hover .drawer-image-track,
+.susinsight-story .drawer-image-window:focus .drawer-image-track { animation-play-state: paused; }
+@keyframes susinsight-feed-scroll { to { transform: translateY(-50%); } }
+@keyframes susinsight-image-scroll { to { transform: translateY(-50%); } }
+.susinsight-story .drawer-resource-links { display: flex; flex-wrap: wrap; gap: 13px 24px; margin-top: 22px; }
+.susinsight-story .inline-link { display: inline-flex; align-items: center; gap: 7px; width: fit-content; padding-bottom: 2px; border-bottom: 1px solid currentColor; text-decoration: none; font-size: 15px; }
+.susinsight-story .inline-link:hover { color: var(--accent); }
+.susinsight-story .drawer-section > .inline-link { margin-top: 22px; }
+.susinsight-story .drawer-demo { margin-top: 30px; }
+.susinsight-story .drawer-demo h3 { margin: 0 0 6px; font-size: 20px; }
+.susinsight-story .drawer-demo > p { color: var(--muted); font-size: 15px; }
+.susinsight-story .drawer-demo .drawer-media { margin-top: 16px; }
+.susinsight-story .drawer-end { margin-top: 44px; }
+.susinsight-story .drawer-end .button { gap: 8px; text-decoration: none; }
+
+@media (max-width: 700px) {
+  .work-index .page-lede, .work-story .page-lede { font-size: 16px; }
+  .work-story .story-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-story section p { font-size: 15px; }
+  .susinsight-story .brand-palette { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .susinsight-story .creative-feed-window, .susinsight-story .drawer-image-window { height: 320px; }
+}
+
+@media (max-width: 480px) {
+  .susinsight-story .susinsight-logo-pair { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .susinsight-story .creative-feed-window, .susinsight-story .drawer-image-window { overflow-y: auto; }
+  .susinsight-story .creative-feed-track, .susinsight-story .drawer-image-track { animation: none; }
+}
