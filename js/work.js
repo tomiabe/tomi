@@ -6,10 +6,8 @@
     wecollect: ["#a7c7ff", "#101a52"],
     zeproc: ["#ffd400", "#e8f3ff"],
     translayte: ["#dcae1d", "#d9dede"],
-    fairbnb: ["#007d39", "#e6f7ee"],
-    eze: ["#ffeee3", "#001a3b"],
-    culerson: ["#e7f300"],
-    ffcc: ["#24221d", "#806600"]
+    fairbnb: ["#257f25", "#d6d6d6"],
+    eze: ["#ffeee3", "#001a3b"]
   };
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

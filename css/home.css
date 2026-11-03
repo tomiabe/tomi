@@ -64,7 +64,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
 .site-shell {
   display: grid;
   grid-template-columns: var(--sidebar) minmax(0, 1fr);
-  width: min(calc(100% - 48px), 1152px);
+  width: min(100%, 1152px);
   min-height: 100vh;
   margin: auto;
 }
@@ -127,6 +127,14 @@ a:has(> i.ph-arrow-up-right):not(.button) {
   padding: clamp(72px, 20vh, 160px) 72px 50px 76px;
 }
 .main-content section { position: relative; max-width: 700px; }
+.section-number {
+  position: absolute;
+  left: -76px;
+  top: 4px;
+  color: var(--subtle);
+  font: 11px/1.5 "Switzer", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
 h1, h2, h3 { font-family: "Cabinet Grotesk", Arial, sans-serif; font-weight: 500; letter-spacing: 0; }
 h1 { margin: 0 0 18px; font-size: 36px; line-height: 1.16; }
 h2 { margin: 0; font-size: 30px; line-height: 1.2; }
@@ -159,25 +167,19 @@ p { margin: 0 0 18px; }
 .room-list span { display: block; color: var(--muted); font-size: 14px; line-height: 1.45; }
 .room-list a:hover strong { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 .connect { padding-bottom: 68px; }
-.connect p { max-width: none; margin: 16px 0 22px; }
+.connect p { max-width: 570px; margin: 16px 0 22px; }
 .connect p a { text-underline-offset: 3px; }
-.connect-email-copy { display: inline-flex; align-items: center; gap: 5px; padding: 0 0 2px; border: 0; border-bottom: 1px solid var(--subtle); background: transparent; color: inherit; cursor: pointer; font: inherit; white-space: nowrap; }
-.connect-email-copy:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.connect-email-copy i { font-size: 15px; }
-.copy-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .social-links { display: flex; flex-wrap: wrap; column-gap: 20px; row-gap: 7px; }
 .social-links a { font-size: 14px; text-decoration-color: var(--subtle); text-underline-offset: 3px; }
 .social-links a:hover { color: var(--accent); }
 .footer { color: var(--subtle); font-size: 12px; }
 
-@media (min-width: 1100px) {
-  .connect p { font-size: 15px; }
-}
-
 @media (max-width: 900px) {
   :root { --sidebar: 194px; }
+  .site-shell { padding-left: 24px; }
   .side-nav { padding-right: 20px; }
   .main-content { padding-right: 28px; padding-left: 55px; }
+  .section-number { left: -55px; }
 }
 
 @media (max-width: 700px) {
@@ -193,7 +195,7 @@ p { margin: 0 0 18px; }
   .mobile-mark { display: block; width: 24px; height: 25px; }
   .menu-toggle { display: flex; align-items: center; gap: 6px; padding: 6px 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 14px; }
   .menu-toggle i { font-size: 18px; }
-  .site-shell { display: block; width: 100%; padding: 0; }
+  .site-shell { display: block; padding: 0; }
   .side-nav {
     position: fixed;
     z-index: 20;
@@ -213,6 +215,7 @@ p { margin: 0 0 18px; }
   .nav-links a { font-size: 22px; }
   .nav-links a[aria-current="page"]::before { top: 9px; height: 18px; }
   .main-content { padding: 47px 22px 35px; }
+  .section-number { display: none; }
   h1 { font-size: 33px; }
   .intro { padding-bottom: 100px; }
   .intro .identity { font-size: 17px; margin-bottom: 27px; }
