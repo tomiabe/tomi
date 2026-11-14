@@ -122,7 +122,7 @@
       <section class="studio-projects" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Independent projects</h2>
         <p class="section-copy">A selection of tools and experiments built through the studio. Each is still open to change.</p>
-        <div class="studio-project-list">
+        <div class="studio-project-list" id="studio-project-list">
           <article class="studio-project">
             <div class="project-heading"><h3>Canvas</h3><span>Generative art</span></div>
             <p>Create generative art from a prompt, then refine it with simple live controls.</p>
@@ -179,6 +179,7 @@
             <a href="https://tomiabe.github.io/webhunt/" target="_blank" rel="noopener noreferrer">Visit project <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
           </article>
         </div>
+        <button class="button button-secondary studio-load-more" type="button" aria-controls="studio-project-list" hidden>Load more projects</button>
       </section>
 
       <section class="studio-collaborate" id="collaborate" aria-labelledby="collaborate-title">
@@ -193,6 +194,7 @@
   </div>
 
   <script defer src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script defer src="/js/studio-projects.js"></script>
   <script defer src="/js/home.js"></script>
 </body>
 </html>

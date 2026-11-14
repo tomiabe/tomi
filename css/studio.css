@@ -23,6 +23,9 @@
 .studio-project p { max-width: 565px; margin: 0 0 11px; color: var(--muted); font-size: 15px; line-height: 1.55; }
 .studio-project a { font-size: 14px; }
 .studio-project a:hover { color: var(--accent); }
+.studio-load-more { margin-top: 24px; background: transparent; color: var(--ink); cursor: pointer; font-family: inherit; }
+.studio-load-more[hidden] { display: none; }
+.studio-load-more:hover { background: var(--ink); color: var(--page); }
 .studio-collaborate { padding-bottom: 68px; }
 .studio-collaborate h2 { margin-bottom: 18px; }
 .studio-collaborate p { max-width: 590px; margin-bottom: 21px; font-size: 16px; line-height: 1.6; }
