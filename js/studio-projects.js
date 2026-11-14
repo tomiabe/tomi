@@ -15,9 +15,11 @@
   loadMore.hidden = false;
 
   loadMore.addEventListener('click', () => {
+    const expanded = loadMore.getAttribute('aria-expanded') === 'true';
     projects.slice(visibleCount).forEach((project) => {
-      project.hidden = false;
+      project.hidden = expanded;
     });
-    loadMore.hidden = true;
+    loadMore.setAttribute('aria-expanded', String(!expanded));
+    loadMore.textContent = expanded ? 'Show more' : 'Show less';
   });
 })();
