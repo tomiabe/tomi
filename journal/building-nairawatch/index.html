@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QTT45PS4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6QTT45PS4S');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f7f7f6" />
+  <meta name="description" content="A simple FX dashboard that places Nigeria’s street and official Naira rates side by side for clearer decisions." />
+  <title>Building NairaWatch | Tomi Abe</title>
+  <link rel="canonical" href="https://tomiabe.com/journal/building-nairawatch/" />
+  <meta name="author" content="Tomi Abe" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tomi Abe" />
+  <meta property="og:locale" content="en_AU" />
+  <meta property="og:title" content="Building NairaWatch | Tomi Abe" />
+  <meta property="og:description" content="A simple FX dashboard that places Nigeria’s street and official Naira rates side by side for clearer decisions." />
+  <meta property="og:url" content="https://tomiabe.com/journal/building-nairawatch/" />
+  <meta property="og:image" content="https://tomiabe.com/assets/images/journal/building-nairawatch-01.jpeg" />
+    <meta property="og:image:alt" content="Light &amp; dark mode of NairaWatch" />
+  <meta property="article:published_time" content="2026-02-27" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Building NairaWatch | Tomi Abe" />
+  <meta name="twitter:description" content="A simple FX dashboard that places Nigeria’s street and official Naira rates side by side for clearer decisions." />
+  <meta name="twitter:image" content="https://tomiabe.com/assets/images/journal/building-nairawatch-01.jpeg" />
+  <meta name="twitter:image:alt" content="Light &amp; dark mode of NairaWatch" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/fonts/phosphor.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css" />
+  <link rel="stylesheet" href="/css/home.css?v=20261101e" />
+  <link rel="stylesheet" href="/css/journal.css?v=20261101c" />
+  <script>
+    try {
+      var choice = localStorage.getItem('tomi-home-theme');
+      document.documentElement.dataset.theme = choice === 'light' || choice === 'dark'
+        ? choice
+        : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="mobile-header">
+    <a class="mobile-mark" href="/" aria-label="Tomi Abe home">
+      <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+      <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="side-nav" aria-expanded="false" data-menu-toggle>
+      <span>Menu</span>
+      <i class="ph ph-list" aria-hidden="true"></i>
+    </button>
+  </header>
+
+  <div class="site-shell">
+    <aside class="side-nav" id="side-nav" data-rail>
+      <a class="brand-mark" href="/" aria-label="Tomi Abe home">
+        <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+        <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-room-link>Home</a>
+        <a href="/me/" data-room-link>Me</a>
+        <a href="/career/" data-room-link>Career</a>
+        <a href="/work/" data-room-link>Work</a>
+        <a href="/studio/" data-room-link>Studio</a>
+        <a href="/journal/" data-room-link>Journal</a>
+        <a href="/photos/" data-room-link>Photos</a>
+        <a href="/#connect">Connect</a>
+      </nav>
+
+      <div class="nav-bottom">
+        <div class="local-time"><span>Sydney</span><time data-live-time></time></div>
+        <div class="theme-controls" role="group" aria-label="Theme">
+          <button type="button" data-theme-choice="light" aria-label="Light theme" title="Light theme"><i class="ph ph-sun" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark theme" title="Dark theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="system" aria-label="System theme" title="System theme"><i class="ph ph-monitor" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content journal-page journal-article" id="main">
+      <article>
+        <a class="back-link" href="/journal/"><i class="ph ph-arrow-left" aria-hidden="true"></i> Journal</a>
+        <header>
+          <p class="article-meta"><time datetime="2026-02-27">27 Feb 2026</time><span>Project note</span></p>
+          <h1>Building NairaWatch</h1>
+        </header>
+        <div class="article-body">
+<h3>A simple FX dashboard that places Nigeria’s street and official Naira rates side by side for clearer decisions.</h3><p>I work with international clients, and I’m often moving between currencies, proposals, and invoices. Somewhere between drafting a contract and sanity-checking a rate on yet another website, I realised how fragmented the experience was. Parallel market estimates on one site, official reference rates on another, rumours in group chats, half-updated dashboards. Nothing felt coherent.</p><p>I didn’t want a perfect model of the Nigerian FX market. I wanted something that made the day-to-day less chaotic.</p><p>So I built <a href="https://tomiabe.github.io/nairawatch/"><em>NairaWatch</em></a>. It tracks daily Naira estimates across 60+ currencies, putting parallel market signals next to official CBN rates. It doesn’t predict the future. It gives you a snapshot of where things are, so you can make slightly better decisions today.</p><figure><img alt="Light &amp; dark mode of NairaWatch" src="/assets/images/journal/building-nairawatch-01.jpeg"><figcaption>Light &amp; dark mode of NairaWatch</figcaption></figure><h4>How the data works</h4><p>The official rates come from a free exchange rate API (<a href="https://exchangerate-api.com">exchangerate-api.com</a>). The parallel market estimates are generated by prompting LLMs, primarily LLaMA 3.3 70B on <a href="https://groq.com/">Groq</a>, with fallbacks to Gemma and Qwen models through OpenRouter. The prompt asks for current street buy/sell rates, and the response gets merged with official cross-rates. If the AI calls fail, it falls back to a 4–6% markup over the official rate.</p><h4>The build</h4><p>The frontend is React with TypeScript, built with Vite, styled with Tailwind (loaded from CDN). The API runs on <a href="https://developers.cloudflare.com/workers/">Cloudflare Workers</a>. I started prototyping in <a href="https://aistudio.google.com/">Google AI Studio</a>, then moved into actual code. The AI providers (Groq, OpenRouter) were the interesting part, not as a coding assistant, but as the data source itself.</p><p>Deployed on GitHub Pages. Pushed to GitHub, iterate, repeat.</p><h4>What it’s for</h4><p>People who work across borders: freelancers, founders, and consultants who need to think in more than one currency at a time. It doesn’t solve the broader questions about value and uncertainty. It just puts the numbers side by side so you can see patterns instead of guessing.</p><h4>What’s next</h4><p>I’m more interested in depth than scale. Better ways to combine and explain the signals. Making trends over time more visible. Maybe applying this same approach to other messy systems where a little clarity helps.</p><p>Check out <a href="https://tomiabe.github.io/nairawatch/"><strong>NairaWatch — Parallel Market Monitor</strong></a></p>
+        </div>
+      </article>
+      <nav class="article-end" aria-label="Journal navigation"><a href="/journal/">Back to Journal</a></nav>
+      <footer class="footer">&copy; 2026 Tomi Abe</footer>
+    </main>
+  </div>
+
+  <script defer src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script defer src="/js/home.js"></script>
+</body>
+</html>
