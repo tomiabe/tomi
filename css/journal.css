@@ -12,6 +12,9 @@
 .journal-entry h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 .journal-entry p { margin-bottom: 8px; color: var(--muted); font-size: 15px; }
 .journal-entry span { color: var(--subtle); font-size: 12px; }
+.journal-all-link { margin: 24px 0 0; }
+.journal-all-link a { color: var(--text); font-size: 14px; text-decoration-color: var(--subtle); text-underline-offset: 4px; }
+.journal-all-link a:hover { color: var(--accent); }
 .journal-publications { padding-bottom: 112px; }
 .journal-publications .section-copy { max-width: 590px; margin: -9px 0 36px; color: var(--muted); font-size: 15px; }
 .publication-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 43px; row-gap: 38px; }
