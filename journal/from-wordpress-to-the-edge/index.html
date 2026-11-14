@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QTT45PS4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6QTT45PS4S');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f7f7f6" />
+  <meta name="description" content="Somewhere around the fourth or fifth plugin update that broke the site, we stopped treating the problem as fixable." />
+  <title>From WordPress to the Edge | Tomi Abe</title>
+  <link rel="canonical" href="https://tomiabe.com/journal/from-wordpress-to-the-edge/" />
+  <meta name="author" content="Tomi Abe" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tomi Abe" />
+  <meta property="og:locale" content="en_AU" />
+  <meta property="og:title" content="From WordPress to the Edge | Tomi Abe" />
+  <meta property="og:description" content="Somewhere around the fourth or fifth plugin update that broke the site, we stopped treating the problem as fixable." />
+  <meta property="og:url" content="https://tomiabe.com/journal/from-wordpress-to-the-edge/" />
+  <meta property="og:image" content="https://tomiabe.com/assets/images/journal/from-wordpress-to-the-edge-01.png" />
+    <meta property="og:image:alt" content="The Content Model" />
+  <meta property="article:published_time" content="2026-06-11" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="From WordPress to the Edge | Tomi Abe" />
+  <meta name="twitter:description" content="Somewhere around the fourth or fifth plugin update that broke the site, we stopped treating the problem as fixable." />
+  <meta name="twitter:image" content="https://tomiabe.com/assets/images/journal/from-wordpress-to-the-edge-01.png" />
+  <meta name="twitter:image:alt" content="The Content Model" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/fonts/phosphor.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css" />
+  <link rel="stylesheet" href="/css/home.css?v=20261101e" />
+  <link rel="stylesheet" href="/css/journal.css?v=20261101c" />
+  <script>
+    try {
+      var choice = localStorage.getItem('tomi-home-theme');
+      document.documentElement.dataset.theme = choice === 'light' || choice === 'dark'
+        ? choice
+        : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="mobile-header">
+    <a class="mobile-mark" href="/" aria-label="Tomi Abe home">
+      <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+      <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="side-nav" aria-expanded="false" data-menu-toggle>
+      <span>Menu</span>
+      <i class="ph ph-list" aria-hidden="true"></i>
+    </button>
+  </header>
+
+  <div class="site-shell">
+    <aside class="side-nav" id="side-nav" data-rail>
+      <a class="brand-mark" href="/" aria-label="Tomi Abe home">
+        <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+        <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-room-link>Home</a>
+        <a href="/me/" data-room-link>Me</a>
+        <a href="/career/" data-room-link>Career</a>
+        <a href="/work/" data-room-link>Work</a>
+        <a href="/studio/" data-room-link>Studio</a>
+        <a href="/journal/" data-room-link>Journal</a>
+        <a href="/photos/" data-room-link>Photos</a>
+        <a href="/#connect">Connect</a>
+      </nav>
+
+      <div class="nav-bottom">
+        <div class="local-time"><span>Sydney</span><time data-live-time></time></div>
+        <div class="theme-controls" role="group" aria-label="Theme">
+          <button type="button" data-theme-choice="light" aria-label="Light theme" title="Light theme"><i class="ph ph-sun" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark theme" title="Dark theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="system" aria-label="System theme" title="System theme"><i class="ph ph-monitor" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content journal-page journal-article" id="main">
+      <article>
+        <a class="back-link" href="/journal/"><i class="ph ph-arrow-left" aria-hidden="true"></i> Journal</a>
+        <header>
+          <p class="article-meta"><time datetime="2026-06-11">11 Jun 2026</time><span>Essay</span></p>
+          <h1>From WordPress to the Edge</h1>
+        </header>
+        <div class="article-body">
+<h4>Why We Stopped Patching and Started Over</h4><p>Somewhere around the fourth or fifth plugin update that broke the site, we stopped treating the problem as fixable.</p><p><a href="https://susinsight.com"><em>Susinsight</em></a>,<em> </em>our publication on sustainability and development in Africa, ran on WordPress. WordPress did what WordPress does. The site worked, stories were published, readers came, and then more readers came, more stories went up, more images filled the media library, and the system started signalling, quietly at first, that something was wrong. Pages loaded slowly, and the media library became clogged. Every CMS update introduced at least one new conflict somewhere else in the stack. We patched. The patch created a different problem. We patched that too.</p><p>This went on longer than it should have.</p><p>The real issue was not the platform itself. WordPress is adequate for most things. What we needed <em>Susinsight</em> to do had grown past what we were willing to build inside a WordPress environment. The content model required taxonomy across SDGs, World Days, regions, countries, and multiple content types. Author pages, Contributor profiles, Series archives, Regional pages, A glossary, etc. Building all of that inside WordPress meant custom post types, plugins, and a maintenance burden that kept expanding with no clear ceiling.</p><figure><img alt="The Content Model" src="/assets/images/journal/from-wordpress-to-the-edge-01.png"><figcaption>The Content Model</figcaption></figure><p>At some point, the cost of staying outweighed the cost of leaving.</p><p>We did not pick a new stack immediately. There was a period of writing down what the actual requirements were, not what we assumed they were. The content model came first: what is a Story on <em>Susinsight</em>, what is a Signal, how does a series function as a structure, and what does a reader need to navigate one. We had been running those content types informally for a while. The rebuild forced us to make them explicit.</p><p>Once the content model was clear, the stack followed: Next.js for the front end. Cloudflare Workers for deployment. A flat-file CMS (Pages CMS) that keeps content in markdown and JSON, version-controlled in GitHub, edited through a browser interface. Two people, one repository, one deployment pipeline.</p><figure><img alt="The Stack Diagram" src="/assets/images/journal/from-wordpress-to-the-edge-02.png"><figcaption>The Stack Diagram</figcaption></figure><blockquote><strong>Key terms in this rebuild</strong></blockquote><blockquote>• <strong>Cloudflare Worker:</strong> a small program running on Cloudflare’s servers that serves our site to readers, instead of a traditional web server.</blockquote><blockquote>• <strong>Manifest file:</strong> a single file that lists all the pages and assets the Worker needs to serve.</blockquote><blockquote>• <strong>Repository:</strong> the codebase where all of the site’s files live, tracked in Git.</blockquote><blockquote>• <strong>Slug:</strong> a URL‑friendly version of a title, like “tomi-abe” instead of “Tomi Abe”.</blockquote><p>The reader-facing changes were real. Load times improved. The content model became navigable: readers can browse by tags, SDG, region, World Day, story category, series, and author. That structure did not exist on the old site in any usable way.</p><figure><img alt="Susinsight content groups / taxonomy" src="/assets/images/journal/from-wordpress-to-the-edge-03.jpeg"><figcaption>Susinsight content groups / taxonomy</figcaption></figure><p>What did not change is the editorial work. A story about solar-powered maternal health clinics in Tanzania takes the same amount of reporting and writing regardless of what CMS sits behind the publish button.</p><p>The first fully live version of the site had predictable problems. The manifest file<strong> </strong>that bundled all content for the Cloudflare Worker was saved directly into the codebase on GitHub, which meant changes in the CMS did not appear on the live site until someone manually regenerated and committed the file. We caught that in production. The fix was straightforward; the problem had been sitting there longer than we realized because there was no second pair of eyes in the deployment chain before the changes went live.</p><p>Some category and series pages also broke quietly for a few weeks. For example, the CMS saved “series” names as display text, “Critical Lifelines,” while the bit of code that decided which posts belonged in each series expected a slug — a URL‑friendly version like “critical-lifelines.” Posts were missing from their series pages. Again, not complicated to fix, but the gap between writing the code and seeing the problem on the live site was long enough to matter.</p><p>Both problems share a pattern: assumptions that held during development did not hold in production, and the team was small enough that the deployment chain had no built-in review step. That is the actual cost of building lean. Not the technical decisions, but the absence of the second person who would have caught what the first person missed.</p><p>That is the honest version of the first rebuild cycle. The next posts in this series will get into specific parts of the build: the CMS configuration, the content model decisions, the deployment pipeline, and what each of those looked like before we got them right.</p><hr><p><a href="https://medium.com/susinsight/from-wordpress-to-the-edge-6a57301fb7c8">From WordPress to the Edge</a> was originally published in <a href="https://medium.com/susinsight">Susinsight Systems</a> on Medium, where people are continuing the conversation by highlighting and responding to this story.</p>
+        </div>
+      </article>
+      <nav class="article-end" aria-label="Journal navigation"><a href="/journal/">Back to Journal</a></nav>
+      <footer class="footer">&copy; 2026 Tomi Abe</footer>
+    </main>
+  </div>
+
+  <script defer src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script defer src="/js/home.js"></script>
+</body>
+</html>
