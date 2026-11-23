@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QTT45PS4S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6QTT45PS4S');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f7f7f6" />
+  <meta name="description" content="An experiment: Tomi Abe's logo mark rebuilt as a vector that responds to public activity." />
+  <title>Living Logo | Tomi Abe</title>
+  <link rel="canonical" href="https://tomiabe.com/logo/" />
+  <meta name="author" content="Tomi Abe" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tomi Abe" />
+  <meta property="og:locale" content="en_AU" />
+  <meta property="og:title" content="Living Logo | Tomi Abe" />
+  <meta property="og:description" content="An experiment: Tomi Abe's logo mark rebuilt as a vector that responds to public activity." />
+  <meta property="og:url" content="https://tomiabe.com/logo/" />
+  <meta property="og:image" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Black and white portrait of Tomi Abe" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Living Logo | Tomi Abe" />
+  <meta name="twitter:description" content="An experiment: Tomi Abe's logo mark rebuilt as a vector that responds to public activity." />
+  <meta name="twitter:image" content="https://tomiabe.com/assets/images/tomi-abe-bw.jpeg" />
+  <meta name="twitter:image:alt" content="Black and white portrait of Tomi Abe" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/fonts/phosphor.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css" />
+  <link rel="stylesheet" href="/css/home.css?v=20261101e" />
+  <link rel="stylesheet" href="/css/logo.css" />
+  <script>
+    try {
+      var choice = localStorage.getItem('tomi-home-theme');
+      document.documentElement.dataset.theme = choice === 'light' || choice === 'dark'
+        ? choice
+        : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="mobile-header">
+    <a class="mobile-mark" href="/" aria-label="Tomi Abe home">
+      <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+      <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="side-nav" aria-expanded="false" data-menu-toggle>
+      <span>Menu</span>
+      <i class="ph ph-list" aria-hidden="true"></i>
+    </button>
+  </header>
+
+  <div class="site-shell">
+    <aside class="side-nav" id="side-nav" data-rail>
+      <a class="brand-mark" href="/" aria-label="Tomi Abe home">
+        <img class="mark-on-light" src="/assets/logo-dark.png" alt="" />
+        <img class="mark-on-dark" src="/assets/logo-light.png" alt="" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-room-link>Home</a>
+        <a href="/me/" data-room-link>Me</a>
+        <a href="/career/" data-room-link>Career</a>
+        <a href="/work/" data-room-link>Work</a>
+        <a href="/studio/" data-room-link>Studio</a>
+        <a href="/journal/" data-room-link>Journal</a>
+        <a href="/photos/" data-room-link>Photos</a>
+        <a href="/#connect">Connect</a>
+      </nav>
+
+      <div class="nav-bottom">
+        <div class="local-time"><span>Sydney</span><time data-live-time></time></div>
+        <div class="theme-controls" role="group" aria-label="Theme">
+          <button type="button" data-theme-choice="light" aria-label="Light theme" title="Light theme"><i class="ph ph-sun" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark theme" title="Dark theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+          <button type="button" data-theme-choice="system" aria-label="System theme" title="System theme"><i class="ph ph-monitor" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content logo-page" id="main">
+      <section class="logo-intro" aria-labelledby="logo-title">
+        <p class="logo-eyebrow">An experiment in progress</p>
+        <h1 id="logo-title">A mark that moves with me.</h1>
+        <p class="logo-lede">The logo is usually the one thing on a site that never changes. This one is redrawn from my public activity. Each event leaves a small mark in its outline, and you can choose how it responds when something new happens.</p>
+      </section>
+
+      <section class="logo-stage" aria-labelledby="stage-title">
+        <div class="stage-head">
+          <h2 id="stage-title">The mark</h2>
+          <span class="stage-live" data-live-label>Waking up…</span>
+        </div>
+
+        <div class="stage-frame">
+          <svg id="living-mark" viewBox="0 0 350 353" role="img" aria-labelledby="mark-title mark-desc" fill-rule="evenodd">
+            <title id="mark-title">Tomi Abe's logo mark, shaped by public activity</title>
+            <desc id="mark-desc">A vector tracing of the logo. Recent public GitHub events leave small dents in the outline. The motion style can be changed between still, ripple and pulse. A pale dashed silhouette shows the untouched original.</desc>
+            <path class="mark-ghost" id="mark-ghost"></path>
+            <path class="mark-live" id="mark-live"></path>
+          </svg>
+          <noscript>
+            <img class="static-mark mark-on-light" src="/assets/logo-dark.png" alt="Tomi Abe logo mark" />
+            <img class="static-mark mark-on-dark" src="/assets/logo-light.png" alt="Tomi Abe logo mark" />
+          </noscript>
+        </div>
+
+        <div class="stage-controls">
+          <button class="button button-primary" type="button" data-action="toggle">Pause animation</button>
+          <button class="button button-secondary" type="button" data-action="ghost" aria-pressed="false">Compare with original</button>
+          <button class="button button-secondary" type="button" data-action="nudge">Give it a nudge</button>
+          <div class="motion-control" role="group" aria-label="Motion style">
+            <span class="motion-label">Motion</span>
+            <button type="button" data-motion="still" aria-pressed="true">Still</button>
+            <button type="button" data-motion="ripple" aria-pressed="false">Ripple</button>
+            <button type="button" data-motion="pulse" aria-pressed="false">Pulse</button>
+          </div>
+          <div class="amplitude-control">
+            <label for="amplitude">Amplitude</label>
+            <input id="amplitude" type="range" min="0" max="200" value="100" step="5" data-amp />
+            <output for="amplitude" data-amp-value>100%</output>
+          </div>
+        </div>
+        <p class="stage-mode-note" data-mode-note>Still. Recent public events leave small dents in the outline. Nothing moves between updates.</p>
+        <p class="stage-legend" data-legend hidden>
+          <span class="legend-item"><span class="legend-line legend-line--solid"></span> The living mark. Shaped by recent activity</span>
+          <span class="legend-item"><span class="legend-line legend-line--dashed"></span> The original. A pale silhouette with a dashed outline</span>
+        </p>
+        <p class="stage-status" role="status" aria-live="polite" data-status>Checking for activity…</p>
+      </section>
+
+      <section class="logo-signals" aria-labelledby="signals-title">
+        <h2 id="signals-title">What's driving it</h2>
+        <p class="section-intro">The mark is still until something happens. My public activity decides its shape, and the three motion styles change how it responds.</p>
+        <dl class="signal-grid">
+          <div class="signal-item">
+            <dt>Public commits, last 7 days</dt>
+            <dd data-stat="commits">…</dd>
+          </div>
+          <div class="signal-item">
+            <dt>Repos touched</dt>
+            <dd data-stat="repos">…</dd>
+          </div>
+          <div class="signal-item">
+            <dt>Last public event</dt>
+            <dd data-stat="last">…</dd>
+          </div>
+          <div class="signal-item">
+            <dt>Signal source</dt>
+            <dd data-stat="source">…</dd>
+          </div>
+        </dl>
+        <p>I use my own public GitHub activity across all my public repositories, not only this site's repo. Each event's repository chooses where its dent lands, and the commit count decides how deep it goes. Private commits aren't visible in GitHub's public events API, and only roughly the last 90 days are available. While the page is open, I check for fresh activity every couple of minutes. If GitHub isn't reachable, it falls back to the time of day in Sydney.</p>
+      </section>
+
+      <section class="logo-method" aria-labelledby="method-title">
+        <h2 id="method-title">How it's built</h2>
+        <ol>
+          <li>A small script traces the PNG mark into two vector outlines: the shape and the triangular cut-out.</li>
+          <li>In the browser, those outlines are resampled into a few hundred points, evenly spaced around their edges.</li>
+          <li>Each public event is given a position on the outline from a hash of its repository name, and a depth from its commit count or event type. Older events fade.</li>
+          <li>Those positions push points in or out along a smooth curve, and the result is joined back into one SVG path.</li>
+          <li>The <strong>Motion</strong> switcher offers three readings of the same data: <em>Still</em> (no idle movement, the default), <em>Ripple</em> (one wave travels around the mark on a new event), and <em>Pulse</em> (a slow breath that calms with time).</li>
+          <li>“Compare with original” lays a pale, dashed silhouette of the untouched PNG behind the mark so you can see how far it has shifted.</li>
+        </ol>
+        <p>It is deliberately quiet: a pause button, a respect for reduced-motion settings, and a static fallback if scripting is unavailable. The motion choice is remembered.</p>
+      </section>
+
+      <footer class="footer">&copy; 2026 Tomi Abe</footer>
+    </main>
+  </div>
+
+  <script defer src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script defer src="/js/home.js"></script>
+  <script defer src="/js/logo-mark.js"></script>
+  <script defer src="/js/logo-activity.js"></script>
+  <script defer src="/js/nav-mark.js"></script>
+  <script defer src="/js/logo.js"></script>
+</body>
+</html>
