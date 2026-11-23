@@ -80,6 +80,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
 }
 .brand-mark { display: block; width: 25px; height: 26px; margin-bottom: 28px; }
 .brand-mark img, .mobile-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.brand-mark svg, .mobile-mark svg { display: block; width: 100%; height: 100%; fill: currentColor; }
 .mark-on-dark { display: none !important; }
 :root[data-theme="dark"] .mark-on-light { display: none !important; }
 :root[data-theme="dark"] .mark-on-dark { display: block !important; }

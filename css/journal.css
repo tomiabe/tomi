@@ -41,6 +41,18 @@
 .article-body figcaption { margin-top: 9px; color: var(--subtle); font-size: 12px; }
 .article-end { max-width: 670px; margin: 76px 0 65px; padding-top: 25px; border-top: 1px solid rgba(80, 84, 87, .18); }
 
+.logo-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 560px;
+  margin: 0 auto 30px;
+}
+.logo-compare figure { width: 100%; max-width: none; margin: 0; text-align: center; }
+.logo-compare svg,
+.logo-compare img { display: block; width: 100%; max-width: 170px; height: auto; margin: 0 auto 10px; }
+.logo-compare svg { fill: var(--ink); }
+
 @media (max-width: 700px) {
   .journal-page h2 { font-size: 27px; }
   .journal-intro, .journal-entries, .journal-publications { padding-bottom: 90px; }
@@ -54,4 +66,6 @@
 
 @media (max-width: 480px) {
   .publication-list { grid-template-columns: 1fr; }
+  .logo-compare { gap: 14px; }
+  .logo-compare svg, .logo-compare img { max-width: 118px; }
 }
