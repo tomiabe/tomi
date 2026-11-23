@@ -75,7 +75,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
   flex-direction: column;
   align-self: start;
   height: 100vh;
-  padding: clamp(64px, 18vh, 144px) 24px 32px 0;
+  padding: 50px 24px 50px 0;
   border-right: 1px solid rgba(80, 84, 87, .12);
 }
 .brand-mark { display: block; width: 25px; height: 26px; margin-bottom: 28px; }
@@ -125,7 +125,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
 
 .main-content {
   min-width: 0;
-  padding: clamp(72px, 20vh, 160px) 72px 50px 76px;
+  padding: 50px 72px 50px 76px;
 }
 .main-content section { position: relative; max-width: 700px; }
 h1, h2, h3 { font-family: "Cabinet Grotesk", Arial, sans-serif; font-weight: 500; letter-spacing: 0; }
@@ -204,16 +204,16 @@ p { margin: 0 0 18px; }
     display: none;
     width: 100%;
     height: calc(100dvh - 70px);
-    padding: 26px 22px 34px;
+    padding: 45px 22px 45px;
     border: 0;
     background: var(--page);
   }
   .side-nav.is-open { display: flex; }
   .side-nav .brand-mark { display: none; }
   .nav-links { gap: 6px; }
-  .nav-links a { font-size: 22px; }
+  .nav-links a { font-size: 18px; }
   .nav-links a[aria-current="page"]::before { top: 9px; height: 18px; }
-  .main-content { padding: 47px 22px 35px; }
+  .main-content { padding: 45px 22px 45px; }
   h1 { font-size: 33px; }
   .intro { padding-bottom: 100px; }
   .intro .identity { font-size: 17px; margin-bottom: 27px; }
