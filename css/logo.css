@@ -1,0 +1,189 @@
+.logo-page { padding-top: clamp(48px, 12vh, 110px); }
+.logo-page section { padding-bottom: 74px; }
+
+.logo-eyebrow {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.logo-lede { max-width: 620px; font-size: 18px; line-height: 1.5; }
+
+.stage-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.stage-head h2 { font-size: 20px; }
+.stage-live {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.stage-live::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--subtle);
+  content: "";
+  vertical-align: 1px;
+}
+.stage-live[data-state="live"]::before { background: #3f8f6b; }
+.stage-live[data-state="fallback"]::before { background: #b07c32; }
+.stage-live[data-state="paused"]::before { background: var(--subtle); }
+
+.stage-frame {
+  display: grid;
+  place-items: center;
+  min-height: 380px;
+  padding: 28px;
+  border: 1px solid rgba(80, 84, 87, .16);
+  background: rgba(128, 132, 136, .045);
+}
+:root[data-theme="dark"] .stage-frame {
+  background: rgba(128, 132, 136, .045);
+  border-color: rgba(255, 255, 255, .18);
+}
+.stage-frame svg,
+.stage-frame .static-mark {
+  display: block;
+  width: min(100%, 400px);
+  height: auto;
+  overflow: visible;
+}
+.mark-live { fill: var(--ink); }
+.mark-ghost {
+  fill: rgba(25, 27, 29, 0);
+  stroke: rgba(128, 132, 136, 0);
+  stroke-width: 1.4;
+  stroke-dasharray: 2 6;
+  transition: fill 200ms ease, stroke 200ms ease;
+}
+.mark-ghost.is-visible {
+  fill: rgba(25, 27, 29, .13);
+  stroke: rgba(94, 98, 101, .9);
+}
+:root[data-theme="dark"] .mark-ghost.is-visible {
+  fill: rgba(243, 243, 240, .15);
+  stroke: rgba(184, 185, 184, .9);
+}
+
+.stage-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.stage-controls .button { min-height: 34px; padding: 5px 12px; font-size: 13px; }
+.motion-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
+}
+.motion-label { margin-right: 2px; }
+.motion-control button {
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid rgba(80, 84, 87, .22);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+:root[data-theme="dark"] .motion-control button { border-color: rgba(255, 255, 255, .2); }
+.motion-control button[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--page);
+}
+.amplitude-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.amplitude-control input { width: 96px; accent-color: var(--accent); }
+.amplitude-control output { min-width: 38px; font-variant-numeric: tabular-nums; }
+
+.stage-mode-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.stage-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.stage-legend[hidden] { display: none; }
+.legend-item { display: inline-flex; align-items: center; gap: 8px; }
+.legend-line {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--ink);
+}
+.legend-line--dashed {
+  background: rgba(25, 27, 29, .13);
+  border: 1px dashed var(--muted);
+}
+:root[data-theme="dark"] .legend-line--dashed {
+  background: rgba(243, 243, 240, .15);
+  border-color: var(--muted);
+}
+
+.stage-status {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 32px;
+  margin: 28px 0 24px;
+}
+.signal-item { min-width: 0; }
+.signal-item dt { margin-bottom: 6px; color: var(--muted); font-size: 12px; }
+.signal-item dd {
+  margin: 0;
+  font: 500 21px/1.25 "Cabinet Grotesk", Arial, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.logo-method ol { padding-left: 21px; color: var(--muted); font-size: 15px; }
+.logo-method li { margin-bottom: 11px; padding-left: 4px; }
+.logo-method p { margin-top: 20px; font-size: 14px; }
+
+@media (max-width: 700px) {
+  .stage-frame { min-height: 280px; padding: 20px; }
+  .motion-control { margin-left: 0; width: 100%; }
+  .amplitude-control { width: 100%; }
+  .amplitude-control input { flex: 1; }
+  .signal-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-ghost { transition: none; }
+}
