@@ -21,7 +21,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html CNAME robots.txt sitemap.xml favicon.png apple-touch-icon.png _site/
-          cp -R assets css js me career work studio journal photos _site/
+          cp -R assets css js me career work studio journal photos logo _site/
       - name: Publish production site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
