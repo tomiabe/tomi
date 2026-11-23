@@ -95,15 +95,7 @@ a:has(> i.ph-arrow-up-right):not(.button) {
 }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
 .nav-links a[aria-current="page"] { font-weight: 650; }
-.nav-links a[aria-current="page"]::before {
-  position: absolute;
-  top: 5px;
-  left: -12px;
-  width: 2px;
-  height: 15px;
-  background: var(--accent);
-  content: "";
-}
+/* active indicator removed per preference */
 .nav-bottom { margin-top: auto; font-size: 12px; color: var(--muted); }
 .local-time { display: flex; gap: 10px; align-items: baseline; }
 .local-time time { font-variant-numeric: tabular-nums; }
@@ -160,6 +152,16 @@ p { margin: 0 0 18px; }
 .room-list span { display: block; color: var(--muted); font-size: 14px; line-height: 1.45; }
 .room-list a:hover strong { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 .connect { padding-bottom: 68px; }
+
+.recent { padding-bottom: 88px; }
+.recent-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(80, 84, 87, .18); }
+.recent-list li { border-bottom: 1px solid rgba(80, 84, 87, .18); }
+.recent-list a { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 15px 0; text-decoration: none; }
+.recent-list a:hover .recent-title { color: var(--accent); }
+.recent-room { color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.recent-title { font-size: 15px; line-height: 1.4; }
+.recent-list time { color: var(--subtle); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
 .connect p { max-width: none; margin: 16px 0 22px; }
 .connect p a { text-underline-offset: 3px; }
 .connect-email-copy { display: inline-flex; align-items: center; gap: 5px; padding: 0 0 2px; border: 0; border-bottom: 1px solid var(--subtle); background: transparent; color: inherit; cursor: pointer; font: inherit; white-space: nowrap; }
@@ -212,8 +214,10 @@ p { margin: 0 0 18px; }
   .side-nav .brand-mark { display: none; }
   .nav-links { gap: 6px; }
   .nav-links a { font-size: 18px; }
-  .nav-links a[aria-current="page"]::before { top: 9px; height: 18px; }
+  /* active indicator removed */
   .main-content { padding: 45px 22px 45px; }
+  .recent-list a { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; }
+  .recent-list time { order: 3; }
   h1 { font-size: 33px; }
   .intro { padding-bottom: 100px; }
   .intro .identity { font-size: 17px; margin-bottom: 27px; }

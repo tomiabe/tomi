@@ -119,4 +119,54 @@
     });
     window.matchMedia("(min-width: 701px)").addEventListener("change", closeMenu);
   }
+
+  // Open links to other sites in a new tab.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href") || "";
+    if (/^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?tomiabe\.com(\/|$)/i.test(href)) {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+
+  function escapeHtml(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+    var date = new Date(value);
+    if (isNaN(date.getTime())) return String(value);
+    return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  }
+
+  // Render the "Recent" list from content/recent.json when available.
+  var recentList = document.querySelector("[data-recent-list]");
+  if (recentList) {
+    fetch("/content/recent.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("bad status");
+        return response.json();
+      })
+      .then(function (items) {
+        if (!Array.isArray(items) || !items.length) return;
+        recentList.innerHTML = items.map(function (item) {
+          var url = item && item.url ? String(item.url) : "#";
+          var external = /^https?:\/\//i.test(url) && !/^https?:\/\/(www\.)?tomiabe\.com(\/|$)/i.test(url);
+          var target = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+          return (
+            "<li><a href=\"" + escapeHtml(url) + "\"" + target + ">" +
+            "<span class=\"recent-room\">" + escapeHtml(item.room) + "</span>" +
+            "<span class=\"recent-title\">" + escapeHtml(item.title) + "</span>" +
+            "<time datetime=\"" + escapeHtml(item.date) + "\">" + escapeHtml(formatDate(item.date)) + "</time>" +
+            "</a></li>"
+          );
+        }).join("");
+      })
+      .catch(function () {});
+  }
 })();
