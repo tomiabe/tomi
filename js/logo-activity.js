@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var CACHE_KEY = "tomi-logo-activity-v3";
+  var CACHE_KEY = "tomi-logo-activity-v4";
   var CACHE_TTL = 15 * 60 * 1000;
   var POLL_INTERVAL = 2 * 60 * 1000;
 
@@ -122,17 +122,41 @@
     var timer = null;
     if (controller) timer = window.setTimeout(function () { controller.abort(); }, 8000);
 
-    window.fetch("https://api.github.com/users/tomiabe/events/public?per_page=100", {
+    var weekStart = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    var commitsUrl = "https://api.github.com/search/commits?q=" + encodeURIComponent("author:tomiabe committer-date:>" + weekStart) + "&per_page=1";
+
+    var eventsRequest = window.fetch("https://api.github.com/users/tomiabe/events/public?per_page=100", {
       headers: { Accept: "application/vnd.github+json" },
       signal: controller ? controller.signal : undefined
     }).then(function (response) {
       if (timer) window.clearTimeout(timer);
       if (!response.ok) throw new Error("GitHub returned " + response.status);
       return response.json();
-    }).then(function (events) {
+    });
+
+    var commitsRequest = window.fetch(commitsUrl, {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: controller ? controller.signal : undefined
+    }).then(function (response) {
+      if (!response.ok) throw new Error("GitHub returned " + response.status);
+      return response.json();
+    }).then(function (result) {
+      return typeof result.total_count === "number" ? result.total_count : null;
+    }).catch(function () {
+      return null;
+    });
+
+    Promise.all([eventsRequest, commitsRequest]).then(function (results) {
       state.fetching = false;
+      var events = results[0];
+      var commitCount = results[1];
       if (!Array.isArray(events) || !events.length) throw new Error("No public events");
       var signal = summarize(events, Date.now());
+      if (typeof commitCount === "number") signal.commits = commitCount;
+      else {
+        var pushes = events.filter(function (event) { return event.type === "PushEvent"; });
+        signal.commits = pushes.length;
+      }
       var changed = Boolean(cached && cached.id && signal.id && cached.id !== signal.id);
       writeCache(signal);
       apply(signal, "live", changed);
