@@ -49,6 +49,19 @@ a:has(> i.ph-arrow-up-right):not(.button) {
   text-decoration: none;
 }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.menu-toggle:focus-visible,
+.theme-controls button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.brand-mark img,
+.mobile-mark img {
+  outline: 1px solid rgba(0, 0, 0, .08);
+}
+:root[data-theme="dark"] .brand-mark img,
+:root[data-theme="dark"] .mobile-mark img {
+  outline-color: rgba(255, 255, 255, .08);
+}
 .skip-link {
   position: fixed;
   z-index: 30;

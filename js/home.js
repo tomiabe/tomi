@@ -126,8 +126,42 @@
     if (/^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?tomiabe\.com(\/|$)/i.test(href)) {
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener noreferrer");
+      if (!link.getAttribute("aria-label")) {
+        link.setAttribute("aria-label", (link.textContent.trim() || "Link") + " (opens in a new tab)");
+      }
     }
   });
+
+  // Give logo images an accessible name.
+  document.querySelectorAll(".brand-mark img, .mobile-mark img").forEach(function (img) {
+    if (!img.getAttribute("alt")) img.setAttribute("alt", "Tomi Abe logo");
+  });
+
+  // Mark the active navigation item.
+  var currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  document.querySelectorAll(".nav-links a[data-room-link]").forEach(function (link) {
+    var href = link.getAttribute("href") || "";
+    var linkPath = href.replace(/^https?:\/\/[^/]+/i, "").replace(/\/+$/, "") || "/";
+    if (linkPath === currentPath) link.setAttribute("aria-current", "page");
+  });
+
+  // Expose the live time as a polite status region.
+  var localTime = document.querySelector(".local-time");
+  if (localTime) {
+    localTime.setAttribute("role", "status");
+    localTime.setAttribute("aria-live", "polite");
+  }
+
+  // Keep theme buttons in sync with the active theme.
+  function syncThemePressed() {
+    var active = document.documentElement.dataset.theme;
+    document.querySelectorAll(".theme-controls button[data-theme-choice]").forEach(function (button) {
+      button.setAttribute("aria-pressed", String(button.dataset.themeChoice === active));
+    });
+  }
+  syncThemePressed();
+  var themeObserver = new MutationObserver(syncThemePressed);
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
   function escapeHtml(value) {
     return String(value == null ? "" : value)
