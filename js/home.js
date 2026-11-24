@@ -167,6 +167,10 @@
           );
         }).join("");
       })
-      .catch(function () {});
+      .catch(function (error) {
+        if (window.console && typeof window.console.warn === "function") {
+          window.console.warn("Recent items could not be loaded", error);
+        }
+      });
   }
 })();
